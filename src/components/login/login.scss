@@ -1,0 +1,71 @@
+#login{
+
+  #bg{
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.3);
+    width:100vw;
+    height: 100vh;
+    #login_sec{
+      width: 363px;
+      height: 400px;
+      background: white;
+      display: block;
+      margin: auto;
+      margin-top: 5vh;
+      position: relative;
+      border-radius: 5px;
+      box-shadow: 0px 0px 8px 2px #656565;
+
+      .ctr{
+
+        text-align: center;
+      }
+
+      #close{
+
+        position: absolute;
+        right: 0.2em;
+        font-size: 2.5em;
+        line-height: 1em;
+      }
+        form{
+        height: 100%;
+        width: 100%;
+        display: inline-block;
+        vertical-align: top;
+          padding: 1.5em;
+
+          .col.s12{
+
+          width: 100%;
+          margin-left: auto;
+          left: auto;
+          right: auto;
+          margin-top: 12px;
+        }
+      }
+      #body{
+        display: block;
+        text-align: center;
+        padding: 0.5em;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+      }
+      span{
+        font-size: 3em;
+        display: inline-block;
+        border-bottom: 1px solid gainsboro;
+        font-weight: bold;
+        position: relative;
+        left: 0.3em;
+      }
+    }
+
+  }
+
+}

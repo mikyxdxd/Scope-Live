@@ -1,0 +1,92 @@
+#header{
+
+  z-index: 1000;
+  height: 55px;
+  width: 100vw;
+  position: fixed;
+  margin: 0;
+  top: 0;
+  padding: 10px 25px;
+  padding-left: 275px;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  background: white;
+
+  .caption{
+
+    font-family: Pacifico;
+    position: absolute;
+    left: 35px;
+    font-size: 2.0em;
+    line-height: 1em;
+    text-transform: capitalize;
+    color: #fa5757;
+
+  }
+
+  #header_lists{
+
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+    float:right;
+    .item{
+
+      display: inline-block;
+      padding: 0.3em 0.6em;
+      color: black;
+      &:hover{
+        background: #fa5757;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+
+  form{
+    height: 100%;
+    //background: red;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    .card{
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      //border-bottom: 1px dashed gainsboro;
+      border-radius: 0px;
+      padding: 0em 0.2em;
+      box-shadow: none  ;
+      //border: 1px solid gainsboro;
+      input{
+        display: inline-block;
+        margin: 0;
+        height: 100%;
+        background: #fafafa;
+        border: 1px solid gainsboro;
+        height: 100%;
+        padding: 0em 5px;
+        box-sizing: inherit;
+
+      }
+      .material-icons{
+
+        position: absolute;
+        right: 5px;
+        top: 7px;
+      }
+    }
+  }
+
+  .main_con{
+
+    height: 35px;
+    overflow: hidden;
+    .form{
+      display: inline-block;
+      height: 100%;
+    }
+  }
+
+}

@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>ScopeLive</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
     <!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">-->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   </head>
   <style>
@@ -14,11 +16,23 @@
     body{
       font-family: 'Raleway';
     }
+    #main_content{
+      margin-top: 55px;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
   </style>
   <body>
   <div id="app">
+    <s_header></s_header>
+    <div id="main_content">
     <router-view id="routerview"></router-view>
+    </div>
   </div>
     <!-- built files will be auto injected -->
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
   </body>
 </html>
