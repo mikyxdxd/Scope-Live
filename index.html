@@ -3,11 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>ScopeLive</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
+    <!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   </head>
+  <style>
+    router-view{
+      padding-top: 50px;
+    }
+    body{
+      font-family: 'Raleway';
+    }
+  </style>
   <body>
   <div id="app">
-    {{test}}
-    <router-view></router-view>
+    <router-view id="routerview"></router-view>
   </div>
     <!-- built files will be auto injected -->
   </body>

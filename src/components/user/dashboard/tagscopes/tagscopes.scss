@@ -1,0 +1,112 @@
+#tagscopes{
+
+  .caption{
+    padding: 15px;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: 0 0;
+    font-size: 1.5em;
+    font-weight: normal;
+    color:grey;
+  }
+
+  .one_scope{
+
+    background-color: transparent;
+    border-radius: 3px;
+    border: 0;
+    padding: 0;
+    width: 23%;
+    height: 320px;
+    background: white;
+    margin: 0 1% 1.5%;
+    display: inline-block;
+    float: left;
+    position: relative;
+    .sp_header{
+      padding: 10px 15px;
+      height: 42px;
+      font-weight: bolder;
+      font-size: 17px;
+      line-height: 24px;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #fa5757;
+    }
+    .sp_cover{
+
+      background-color: #6EA0B8;
+      background-image: url('https://static.tagboard.com/public/img/1200x350-alt.png?e8cedc74');
+      background-size: cover;
+      background-position: 50% 50%;
+      height: 175px;
+      position: relative;
+      overflow: hidden;
+
+      .sp_des {
+        max-height: 100%;
+        text-align: center;
+        color: #fff;
+        padding: 15px;
+        height: auto;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transition: translateY(-50%);
+        transform: translateY(-50%);
+          .sp_cap{
+            font-weight: 600;
+            font-size: 1.2em;
+          }
+      }
+    }
+
+    .sp_meta{
+
+      text-align: center;
+      line-height: 1.35;
+      padding: 10px 15px;
+      bottom: 43px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+    }
+
+    .sp_action{
+
+      text-align: center;
+      height: 43px;
+      bottom: 0;
+      display: flex;
+      background-color: #F7F7F7;
+      border-top: 1px solid #DFEAEF;
+    }
+
+    &#new_tagscope{
+
+      div{
+        width: auto;
+        height: auto;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transition: translateY(-50%);
+        transform: translateY(-50%);
+        text-align: center;
+      }
+
+    }
+
+  }
+
+
+
+}
