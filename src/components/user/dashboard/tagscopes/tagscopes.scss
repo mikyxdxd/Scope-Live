@@ -66,6 +66,7 @@
     }
 
     .sp_meta{
+
       text-align: center;
       line-height: 1.35;
       padding: 10px 15px;
@@ -73,33 +74,21 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+
     }
 
     .sp_action{
+
       text-align: center;
       height: 43px;
       bottom: 0;
       display: flex;
       background-color: #F7F7F7;
       border-top: 1px solid #DFEAEF;
-      border-bottom: 1px solid #DFEAEF;
-      .act{
-        display: inline-block;
-        width: 33%;
-        padding-top: 15px;
-        color: #2bacca;
-        outline: 0;
-        flex-grow: 1;
-        border-left: 1px solid #DFEAEF;
-      }
-      .act:hover{
-        background: #eae7e7;
-        color: #2695af;
-        cursor: pointer;
-      }
     }
 
     &#new_tagscope{
+
       div{
         width: auto;
         height: auto;

@@ -13,22 +13,6 @@ class DataService{
     axios.defaults.headers.post['Content-Type'] = 'text/json';
     // this._scopetoken = localStorage._scopetoken;
     this.userToken = localStorage._scopetoken;
-    this.user = null;
-    if(this.userToken && this.userToken.length > 0){
-      this._getUserProfile();
-    }
-  }
-
-  _getUserProfile(){
-    axios({method:'GET',url:this.httpServerUrl + '/users/me', headers:{
-      'Authorization':this.userToken
-    }}).then((res)=>{
-       this.user = res.data;
-    })
-  }
-
-  getUser(){
-    return this.user;
   }
 
   getScopeGeneral(scopeId, pageNo, pageSize, timeStamp, userType){
@@ -100,14 +84,6 @@ class DataService{
   getScopeVidTag(pageNo, pageSize, timeStamp, scopeTag){
 
     return axios.get(this.httpServerUrl + '/search/scopes?&size=' + pageSize + '&name=' + encodeURI(encodeURI(scopeTag)) + '&timestamp=' + timeStamp + '&page=' + pageNo);
-  }
-
-  getScopeInfo(scopeId){
-
-    return axios({method:'GET',url:this.httpServerUrl + `/scope/${scopeId}`, headers:{
-      'Authorization':this.userToken
-    }})
-
   }
 
 }
