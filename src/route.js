@@ -11,6 +11,9 @@ export default(App)=>{
   router.map({
     '/user':{
       component:require('./components/user/user.vue')
+    },
+    '/s/:scopeId/setting':{
+      component:require('./components/user/scopesetting/scopesetting.vue')
     }
   })
 
