@@ -1,5 +1,4 @@
 <div id="header">
-    <!--<login></login>-->
     <div class="caption">scope Live</div>
     <div class="main_con">
       <form>
@@ -13,7 +12,24 @@
         <div class="item">Products</div>
         <div class="item">Solutions</div>
         <div class="item">Support</div>
-        <div class="item">Sign In</div>
+        <div class="item" v-if="!user"><div @click="showlogin = true">Sign In</div></div>
+        <div class="item user" id="user-info" v-show="user">
+          <div>
+            <span data-activates='dropdown1' class="user-avatar dropdown-button" :style="{ 'background-image': 'url(' + user.avatar + ')' }"></span>
+          </div>
+          <ul id='dropdown1' class='dropdown-content dropdown'>
+            <li class="info"><div>Signed in as:</div><div class="username"><i class="tiny material-icons">perm_identity</i>{{user.name}}</div><div class="useremail"><i class="tiny material-icons">email</i>{{user.email}}</div></li>
+            <!--<li class="divider"></li>-->
+            <li><a v-link="{path:'/user'}">Account Dashboard</a></li>
+            <li><a href="#!">Sign Out</a></li>
+          </ul>
+        </div>
+
+        <div id="nav-scope">
+            <button class="btn btn-tgb-primary" data-toggle="dropdown"><i class="icon icon-grid6"></i> <span>My tagboards</span></button>
+            <button style="margin-left:-2px" class="btn"><span class="material-icons">add</span></button>
+        </div>
+        <login :showlogin.sync="showlogin" :user.sync="user"></login>
         <!--<div class="item">Sign In</div>-->
       </div>
     </div>

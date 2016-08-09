@@ -20,21 +20,21 @@ class DataService{
     return axios.get(this.httpServerUrl  + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);
   }
 
+
   logIn(username,password){
-    return axios({method:'POST',url:this.httpServerUrl + '/login',
+      return axios({method:'POST',url:this.httpServerUrl + '/login',
       headers:{
 
-        'Content-Type':'application/x-www-form-urlencoded'
-      },
-      data:$.param(
-        {
+          'Content-Type':'application/x-www-form-urlencoded'
+       },
+       data:$.param(
+         {
           'grant_type': 'password',
           'username': username,
           'password': password
-        }
-      )
-    })
-
+         }
+       )
+      })
   }
 
   setUserToken(token){

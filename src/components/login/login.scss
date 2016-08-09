@@ -31,6 +31,8 @@
         right: 0.2em;
         font-size: 2.5em;
         line-height: 1em;
+        z-index:2;
+        cursor: pointer;
       }
         form{
         height: 100%;
@@ -62,7 +64,7 @@
         border-bottom: 1px solid gainsboro;
         font-weight: bold;
         position: relative;
-        left: 0.3em;
+        left: 0.2em;
       }
     }
 

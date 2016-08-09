@@ -1,23 +1,70 @@
 #header{
 
   z-index: 1000;
-  height: 55px;
+  height: 75px;
   width: 100vw;
   position: fixed;
   margin: 0;
   top: 0;
-  padding: 10px 25px;
+  padding: 20px 25px;
   padding-left: 275px;
   box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
   background: white;
+
+  -webkit-transition: all .15s ease-out;
+  -moz-transition: all .15s ease-out;
+  transition: all .15s ease-out;
+
+  .dropdown{
+
+    width: 200px !important;
+    position: absolute;
+    top: 40px !important;
+    left: -150px !important;
+    opacity: 1;
+    div{
+      display: block !important;
+      position: inherit !important;
+      padding: 3px 16px !important;
+      font-size: 0.8em;
+    }
+    li{
+      padding: 5px 0px;
+      min-height: inherit;
+
+      i.tiny{
+        font-size: 1.5em;
+        margin-right: 5px;
+        position: relative;
+        top: 0.2em;
+        color: #da5555;
+      }
+    }
+    .info{
+      cursor: initial !important;
+      font-size: 1.0em;
+      background: #eee;
+      color:grey;
+      .username,.useremail{
+        text-align: center;
+        padding: 0px !important;
+        color:black;
+      }
+    }
+    a{
+      font-size: .8em;
+      line-height: 1.2em;
+      padding: 10px 16px;
+    }
+  }
 
   .caption{
 
     font-family: Pacifico;
     position: absolute;
     left: 35px;
-    font-size: 2.0em;
-    line-height: 1em;
+    font-size: 2.5em;
+    line-height: 0.7em;
     text-transform: capitalize;
     color: #fa5757;
 
@@ -27,21 +74,69 @@
 
     display: inline-block;
     height: 100%;
-    overflow: hidden;
+    overflow: visible;
     float:right;
+
+    .item.user{
+
+        //width: 50px;
+        position: relative;
+        width: 33px;
+        margin: 0px 2px;
+        height: 33px;
+        padding: 0;
+      div{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0px;
+      }
+
+      &:hover{
+        background: transparent !important;
+      }
+    }
+
     .item{
 
       display: inline-block;
       padding: 0.3em 0.6em;
       color: black;
+      vertical-align: middle;
       &:hover{
         background: #fa5757;
         border-radius: 5px;
         color: white;
         cursor: pointer;
       }
+      .user-info{
+      }
+      .user-avatar{
+        background-image: url("https://scopemedia1.s3.amazonaws.com/20033/T18906176.jpeg?AWSAccessKeyId=A…YXPZ4Z6QWKHVQ&Expires=1470769425&Signature=vGoYtFuqDaA86xyGkl7vzvSbdbc%3D");
+        display: inline-block;
+        width: 33px;
+        height: 33px;
+        background-size: cover;
+        border-radius: 2px;
+      }
     }
+
+    #nav-scope{
+
+      display: inline-block;
+      .btn{
+        padding: 0px 5px;
+        height: 35px;
+        font-size: 0.8em;
+        line-height: 0.8em;
+        background: #2288a0;
+        border:1px solid #115565;
+        box-shadow: none;
+      }
+    }
+
   }
+
 
   form{
     height: 100%;
@@ -82,11 +177,32 @@
   .main_con{
 
     height: 35px;
-    overflow: hidden;
+    overflow: visible;
     .form{
       display: inline-block;
       height: 100%;
     }
+  }
+
+  &.home{
+
+    box-shadow: none !important;
+    background: transparent !important;
+
+    .caption{
+
+      color:white
+    }
+
+    #header_lists .item{
+
+      color:white;
+    }
+
+    form .card{
+      display: none;
+    }
+
   }
 
 }
