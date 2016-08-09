@@ -1,0 +1,41 @@
+#intro-container {
+  padding-top: 20vh;
+  background-color: #fafafa;
+  height: 70vh;
+  display: block;
+  margin: auto;
+  width: 100vw;
+
+
+form{
+  height: 7vh;
+  width: 60vw;
+  margin: auto;
+  background-color: white;
+  .search-wrapper{
+
+
+      width: 100%;
+      margin: auto;
+
+      input {
+        display: inline-block;
+        margin: 0;
+        background: #fafafa;
+        border: 1px solid gainsboro;
+        padding: 0em 35px;
+      }
+
+      .material-icons {
+        display: inline-block;
+        position:relative;
+        top: -35px;
+        right: -10px;
+      }
+    }
+  }
+}
+
+#customer{
+  height: 20vh;
+}

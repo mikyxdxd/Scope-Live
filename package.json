@@ -10,6 +10,7 @@
     "test": ""
   },
   "dependencies": {
+    "axios": "^0.13.1",
     "babel-runtime": "^6.0.0",
     "vue": "^1.0.21",
     "vue-router": "^0.7.13"

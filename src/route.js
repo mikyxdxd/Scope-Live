@@ -9,8 +9,15 @@ export default(App)=>{
 
   router.beforeEach((transition)=>{setTimeout(()=>{window.scrollTo(0,0)},100);transition.next()});
   router.map({
+    '/':{
+      component: require('./components/landing/landing.vue')
+    },
     '/user':{
       component:require('./components/user/user.vue')
+    },
+    '/search/:tag':{
+      name: 'search',
+      component: require('./components/searchPage/search.vue')
     }
   })
 
