@@ -4,7 +4,8 @@
         template:require('./header.html'),
         data(){
             return{
-                msg:'hello vue'
+              showlogin:false,
+                user:null
             }
         },
         components:{

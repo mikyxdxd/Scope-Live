@@ -3,7 +3,6 @@
   export default{
 
     template:require('./sidemenu.html')
-
   }
 
 </script>

@@ -11,12 +11,52 @@ class DataService{
     this._guessAuthorizationToken = 'Basic c2V5bW91ci13ZWI6YVJiYXoyOWR2aUIlITpxLTBwMTV0';
     axios.defaults.headers.common['Authorization'] = this._authorizationToken;
     axios.defaults.headers.post['Content-Type'] = 'text/json';
-    this.instagramAccessToken = localStorage._insAccToken;
+    // this._scopetoken = localStorage._scopetoken;
+    this.userToken = localStorage._scopetoken;
   }
 
   getScopeGeneral(scopeId, pageNo, pageSize, timeStamp, userType){
 
     return axios.get(this.httpServerUrl  + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);
+  }
+
+    logIn(username,password){
+      return axios({method:'POST',url:this.httpServerUrl + '/login',
+      headers:{
+
+          'Content-Type':'application/x-www-form-urlencoded'
+       },
+       data:$.param(
+         {
+          'grant_type': 'password',
+          'username': username,
+          'password': password
+         }
+       )
+      })
+
+  }
+
+  setUserToken(token){
+
+    this.userToken = token;
+
+  }
+
+  getUserProfile(){
+
+    return axios({method:'GET',url:this.httpServerUrl + '/users/me', headers:{
+      'Authorization':this.userToken
+    }})
+  }
+
+  getUserScopes(pageNum,pageSize){
+
+    return axios({method:'GET',url:this.httpServerUrl + `/scope?page=${pageNum}&size=${pageSize}`, headers:{
+      'Authorization':this.userToken
+    }})
+
+    return axios.get(this.httpServerUrl + `/scope?page=${pageNum}&size=${pageSize}`)
   }
 
   getSingleImage(id){

@@ -29,16 +29,48 @@
     height: 100%;
     overflow: hidden;
     float:right;
+
+    .item.user{
+
+        width: 50px;
+        position: relative;
+        width: 30px;
+        margin-left: 10px;
+        height: 30px;
+        padding: 0;
+      div{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0px;
+      }
+
+      &:hover{
+        background: transparent !important;
+      }
+    }
+
     .item{
 
       display: inline-block;
       padding: 0.3em 0.6em;
       color: black;
+      vertical-align: middle;
       &:hover{
         background: #fa5757;
         border-radius: 5px;
         color: white;
         cursor: pointer;
+      }
+      .user-info{
+      }
+      .user-avatar{
+        background-image: url("https://scopemedia1.s3.amazonaws.com/20033/T18906176.jpeg?AWSAccessKeyId=A…YXPZ4Z6QWKHVQ&Expires=1470769425&Signature=vGoYtFuqDaA86xyGkl7vzvSbdbc%3D");
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-size: cover;
+        border-radius: 5px;
       }
     }
   }
