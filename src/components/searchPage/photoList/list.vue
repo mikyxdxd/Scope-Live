@@ -10,19 +10,11 @@
   import Isotope from 'isotope-layout'
     export default{
         ready: function(){
-//          setTimeout(function() {
-//            console.log("ready");
-//            self._iso = new Isotope('#photo-list', {
-//              layoutMode: 'masonry',
-//              itemSelector: '.card',
-//
-//            });
-//          }, 2000);
         },
         watch: {
 
           'datalist': function(val, oldVal){
-              var self = this;  
+              var self = this;
               if(oldVal.length == 0){
                 setTimeout(function() {
                   self._iso = new Isotope('#photo-list', {
@@ -31,9 +23,18 @@
                     transitionDuration: 0
                   });
                   $('.card').addClass('loaded');
+                  $('.card').removeClass('new');
                 }, 1000);
               }else{
-                console.log(val.length);
+                self.$nextTick(function() {
+                  setTimeout(function() {
+                    self._iso.appended($('.new'));
+                    $('.card').addClass('loaded');
+                    $('.card').removeClass('new');
+                  }, 1000)
+
+
+                });
               }
               console.log('new: %s, old: %s', val, oldVal);
             }
