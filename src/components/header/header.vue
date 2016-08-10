@@ -32,7 +32,6 @@
 
         },
         ready(){
-          console.log(this);
           $('.dropdown-button').dropdown({
               inDuration: 300}
           );

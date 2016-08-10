@@ -1,5 +1,7 @@
 #tagscopes{
 
+  padding-bottom: 20px;
+
   .caption{
     padding: 15px;
     margin: 0;
@@ -28,13 +30,20 @@
       padding: 10px 15px;
       height: 42px;
       font-weight: bolder;
-      font-size: 17px;
+      font-size: 14px;
       line-height: 24px;
       max-width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       color: #fa5757;
+      a{
+        color: #fa5757;
+      }
+      a:hover{
+        color:#d44848;
+        cursor: pointer;
+      }
     }
     .sp_cover{
       background-color: #6EA0B8;
@@ -115,6 +124,23 @@
 
     }
 
+  }
+
+  #ldmore{
+    text-align: center;
+    button{
+      width: 100%;
+      margin-top: 1em;
+      background: transparent;
+      box-shadow: none;
+      color: grey;
+      font-weight: bold;
+      &:hover{
+        background: rgba(177, 173, 173, 0.5);
+        color: white;
+        border-radius: 0px;
+      }
+    }
   }
 
 

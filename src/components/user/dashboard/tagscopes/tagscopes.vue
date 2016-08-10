@@ -6,7 +6,9 @@
        data(){
             return{
               pageNum:1,
-              scopeList:[]
+              pageSize:11,
+              scopeList:[],
+              hasMore:true
             }
        },
        ready(){
@@ -18,8 +20,26 @@
 
          getUserScopes(){
 
-           dataService.getUserScopes(this.pageNum,11).then((res)=>{this.scopeList = res.data.data});
+           dataService.getUserScopes(this.pageNum++,this.pageSize).then((res)=>{
 
+             this.scopeList = res.data.data;
+             if( res.data.data.length < this.pageSize){
+               this.hasMore = false
+             }
+
+
+           });
+
+         },
+
+         loadMoreScope(){
+
+           dataService.getUserScopes(this.pageNum++,this.pageSize).then((res)=>{
+             if( res.data.data.length < this.pageSize){
+                this.hasMore = false
+             }
+             this.scopeList = this.scopeList.concat(res.data.data);
+           })
          }
        }
     }

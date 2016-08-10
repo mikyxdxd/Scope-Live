@@ -1,15 +1,21 @@
 <script>
-//    import HeaderComponent from './components/header.vue'
-//    import OtherComponent from './components/other.vue'
-    require('./scopepage.scss')
+    require('./scopepage.scss');
+    import dataServices from '../../services/dataservices'
     export default{
         template:require('./scopepage.html'),
+        ready(){
+          dataServices.getScopeInfo(this.$route.params.scopeId).then((res)=>{
+
+            this.scope = res.data;
+          })
+        },
         data(){
             return{
-                msg:'hello vue'
+               scope:null
             }
         },
         components:{
+          scopeheader:require('./scopeheader/scopeheader.vue')
         }
     }
 </script>

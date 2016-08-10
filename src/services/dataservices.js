@@ -13,6 +13,22 @@ class DataService{
     axios.defaults.headers.post['Content-Type'] = 'text/json';
     // this._scopetoken = localStorage._scopetoken;
     this.userToken = localStorage._scopetoken;
+    this.user = null;
+    if(this.userToken && this.userToken.length > 0){
+      this._getUserProfile();
+    }
+  }
+
+  _getUserProfile(){
+    axios({method:'GET',url:this.httpServerUrl + '/users/me', headers:{
+      'Authorization':this.userToken
+    }}).then((res)=>{
+      this.user = res.data;
+  })
+  }
+
+  getUser(){
+    return this.user;
   }
 
   getScopeGeneral(scopeId, pageNo, pageSize, timeStamp, userType){
@@ -20,21 +36,21 @@ class DataService{
     return axios.get(this.httpServerUrl  + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);
   }
 
-
   logIn(username,password){
-      return axios({method:'POST',url:this.httpServerUrl + '/login',
+    return axios({method:'POST',url:this.httpServerUrl + '/login',
       headers:{
 
-          'Content-Type':'application/x-www-form-urlencoded'
-       },
-       data:$.param(
-         {
+        'Content-Type':'application/x-www-form-urlencoded'
+      },
+      data:$.param(
+        {
           'grant_type': 'password',
           'username': username,
           'password': password
-         }
-       )
-      })
+        }
+      )
+    })
+
   }
 
   setUserToken(token){
@@ -86,8 +102,17 @@ class DataService{
     return axios.get(this.httpServerUrl + '/search/scopes?&size=' + pageSize + '&name=' + encodeURI(encodeURI(scopeTag)) + '&timestamp=' + timeStamp + '&page=' + pageNo);
   }
 
+  getScopeInfo(scopeId){
+
+    return axios({method:'GET',url:this.httpServerUrl + `/scope/${scopeId}`, headers:{
+      'Authorization':this.userToken
+    }})
+
+  }
+
 }
 
 let dataService = new DataService();
 module.exports = dataService;
+
 
