@@ -1,7 +1,9 @@
 <template>
+    <div id="searchpage">
     <searchheader></searchheader>
     <list :datalist.sync="dataList"></list>
-    <div id="loadMore" ><button class="waves-effect waves-light btn" v-on:click="appendDataList()">Load More</button></div>
+    <div id="loadMore" v-show="dataList.length>0 && hasMore"><button class="waves-effect waves-light btn" v-on:click="appendDataList()">Load More</button></div>
+      </div>
 </template>
 
 <script>
@@ -22,7 +24,8 @@
             return{
               dataList: [],
               pageSize: 20,
-              pageNo: 0
+              pageNo: 0,
+              hasMore:true
 
             }
         },
@@ -37,10 +40,9 @@
         methods: {
           updateDataList: function(data){
             if(this.dataList.length == 0){
-              console.log("enter")
               this.dataList = data;
             }else{
-              console.log("concact datalist");
+              if(this.dataList.length < this.pageSize) this.hasMore = false
               this.dataList = this.dataList.concat(data);
             }
             console.log(this.dataList);

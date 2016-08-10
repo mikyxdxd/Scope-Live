@@ -1,16 +1,22 @@
-#loadMore {
-  text-align: center;
-  button {
-    width: 100%;
-    margin-top: 1em;
-    background: transparent;
-    box-shadow: none;
-    color: grey;
-    font-weight: bold;
-    &:hover {
-      background: rgba(177, 173, 173, 0.5);
-      color: white;
-      border-radius: 0px;
+#searchpage {
+
+  padding-bottom: 25px;
+
+  #loadMore {
+    text-align: center;
+    button {
+      width: 100%;
+      margin-top: 1em;
+      background: transparent;
+      box-shadow: none;
+      color: grey;
+      font-weight: bold;
+      &:hover {
+        background: rgba(177, 173, 173, 0.5);
+        color: white;
+        border-radius: 0px;
+      }
     }
   }
+
 }

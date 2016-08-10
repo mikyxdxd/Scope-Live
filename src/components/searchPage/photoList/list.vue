@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import Isotope from 'isotope-layout'
+//  import Isotope from 'isotope-layout'
     export default{
         ready: function(){
         },
@@ -17,21 +17,47 @@
               var self = this;
               if(oldVal.length == 0){
                 setTimeout(function() {
-                  self._iso = new Isotope('#photo-list', {
+                  window._iso = self._iso = new Isotope('#photo-list', {
                     layoutMode: 'masonry',
                     itemSelector: '.card',
                     transitionDuration: 0
                   });
-                  $('.card').addClass('loaded');
-                  $('.card').removeClass('new');
-                }, 1000);
+                  imagesLoaded( $('#photo-list') ).on( 'progress', function(){
+                    // layout Isotope after each image loads
+
+
+                    $('.card').each((i,e)=>{
+                      setTimeout(()=>{
+                        $(e).addClass('loaded');
+                      },i*50)
+                    })
+
+//                    $('.card').addClass('loaded');
+                    $('.card').removeClass('new');
+
+
+
+
+                    self._iso.layout();
+                  });
+
+                });
               }else{
                 self.$nextTick(function() {
                   setTimeout(function() {
+
                     self._iso.appended($('.new'));
-                    $('.card').addClass('loaded');
-                    $('.card').removeClass('new');
-                  }, 1000);
+                    imagesLoaded( $('#photo-list') ).on( 'progress', function(){
+                      // layout Isotope after each image loads
+                      $('.new').each((i,e)=>{
+                        setTimeout(()=>{
+                        $(e).addClass('loaded');
+                      },i*50)
+                      })
+                      $('.card').removeClass('new');
+                      self._iso.layout();
+                    });
+                  });
                 });
               }
             }
