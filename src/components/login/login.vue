@@ -14,7 +14,6 @@
           userLogin(e){
             e.preventDefault();
             dataService.logIn(this.username,this.password).then((res)=>{
-              console.log(res.data)
               if(res.data.access_token){
                 this.userToken = localStorage._scopetoken = res.data.token_type + ' ' + res.data.access_token;
                 dataService.setUserToken(res.data.token_type + ' ' + res.data.access_token);

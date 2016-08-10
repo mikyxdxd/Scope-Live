@@ -1,0 +1,4 @@
+<div id="lastestpage" v-if="scope">
+  <list :imageList.sync="dataList"></list>
+  <div id="loadMore" v-show="dataList.length>0 && hasMore"><button class="waves-effect waves-light btn" v-on:click="appendDataList()">Load More</button></div>
+</div>

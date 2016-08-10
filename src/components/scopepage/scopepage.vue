@@ -15,7 +15,9 @@
             }
         },
         components:{
-          scopeheader:require('./scopeheader/scopeheader.vue')
+          scopeheader:require('./scopeheader/scopeheader.vue'),
+          featurepage:require('./featurepage/featurepage.vue'),
+          latestpage:require('./latestpage/latestpage.vue')
         }
     }
 </script>

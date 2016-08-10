@@ -1,13 +1,20 @@
 <template>
     <div class="card one_image new">
+      <div class="imgCtr">
+        <div class="trash ctr"><i class="fa fa-trash" aria-hidden="true"></i></div>
+      </div>
       <div class="user_info">
         <!--<div class="ui blue right ribbon label" ng-show="image.sourceType != 'PX' && image.sourceType != 'SM'"><i class="icon white" ng-class="determineOriginalIcon(image)"></i></div>-->
-        <div class="ava"><a :href="determineOriginal(image)" target="__blacnk"><img alt="" :src='image.sourceOwner.profile_picture'></a></div>
+        <div class="ava"><a :href="determineOriginal(image)" target="__blacnk"><img v-if="image.sourceOwner" alt="" :src='image.sourceOwner.profile_picture'><img v-else alt="" :src='image.owner.avatar'></a></div>
         <div class="src">
-          <div class="user_name"><a :href="determineOriginal(image)" target="__blacnk">{{image.sourceOwner.username}}</a></div>
-          <div class="source">@{{determineOriginalText(image)}}</div>
+          <div class="user_name">
+            <a v-if="image.sourceOwner" :href="determineOriginal(image)" target="__blacnk">{{image.sourceOwner.username}}</a>
+            <a v-else :href="determineOriginal(image)" target="__blacnk">{{image.owner.name}}</a>
+          </div>
+          <div v-if="image.sourceOwner" class="source">@{{determineOriginalText(image)}}</div>
+          <div v-else class="source">@Scope</div>
           <div class="time_location">
-            <div class="location ng-binding" v-if="image.location"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right:0.5em"></i>{{image.location.address}}</div>
+            <div class="location ng-binding" v-if="image.location.address"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right:0.5em"></i>{{image.location.address}}</div>
             <div class="image_time ng-binding"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:0.2em"></i>{{getShotTime(image.shotTime)}}</div>
           </div>
         </div>
@@ -36,6 +43,11 @@
               showModal: false
             }
         },
+
+      ready(){
+
+          console.log(this.showdelete);
+      },
 
         methods:{
           determineOriginalText: function (image) {
@@ -115,6 +127,6 @@
         components:{
           modal: require('./modal/modal.vue')
         },
-        props:['image'],
+        props:['image','showdelete'],
     }
 </script>

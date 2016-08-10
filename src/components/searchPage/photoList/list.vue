@@ -1,7 +1,7 @@
 <template>
     <div id="photo-list">
           <div v-for="image in datalist" class='singleItem'>
-            <card :image="image"></card>
+            <card :image="image"  :showdelete.sync="showdelete" ></card>
           </div>
     </div>
 </template>
@@ -10,6 +10,7 @@
 //  import Isotope from 'isotope-layout'
     export default{
         ready: function(){
+          console.log(this.showdelete)
         },
         watch: {
           //once dataList updated, update the view
@@ -66,7 +67,7 @@
             return{
             }
         },
-        props:['datalist'],
+        props:['datalist','showdelete'],
         components:{
           card: require('../card/card.vue')
         },
