@@ -1,5 +1,5 @@
 <template>
-    <div class="card one_image new" @click="showModal = true">
+    <div class="card one_image new">
       <div class="user_info">
         <!--<div class="ui blue right ribbon label" ng-show="image.sourceType != 'PX' && image.sourceType != 'SM'"><i class="icon white" ng-class="determineOriginalIcon(image)"></i></div>-->
         <div class="ava"><a :href="determineOriginal(image)" target="__blacnk"><img alt="" :src='image.sourceOwner.profile_picture'></a></div>
@@ -12,7 +12,7 @@
           </div>
         </div>
       </div>
-       <div class="pic">
+       <div class="pic" @click="showModal = true">
           <img :src='image.thumbnail.url'>
         </div>
       <div class="image_info">
