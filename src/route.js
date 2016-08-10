@@ -18,6 +18,9 @@ export default(App)=>{
     '/search/:tag':{
       name: 'search',
       component: require('./components/searchPage/search.vue')
+    },
+    '/s/:scopeId/setting':{
+      component:require('./components/user/scopesetting/scopesetting.vue')
     }
   })
 
