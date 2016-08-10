@@ -15,7 +15,7 @@
         watch: {
 
           'datalist': function(val, oldVal){
-              var self = this;
+              var self = this;  
               if(oldVal.length == 0){
                 setTimeout(function() {
                   self._iso = new Isotope('#photo-list', {
