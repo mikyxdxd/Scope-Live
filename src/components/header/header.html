@@ -12,7 +12,7 @@
         <div class="item">Products</div>
         <div class="item">Solutions</div>
         <div class="item">Support</div>
-        <div class="item" v-if="!user"><div @click="showlogin = true">Sign In</div></div>
+        <div class="item" v-if="!user.email"><div @click="showlogin = true">Sign In</div></div>
         <div class="item user" id="user-info" v-show="user">
           <div>
             <span data-activates='dropdown1' class="user-avatar dropdown-button" :style="{ 'background-image': 'url(' + user.avatar + ')' }"></span>
@@ -25,7 +25,7 @@
           </ul>
         </div>
 
-        <div id="nav-scope">
+        <div id="nav-scope" v-if="user.email">
             <button class="btn btn-tgb-primary" data-toggle="dropdown"><i class="icon icon-grid6"></i> <span>My Scopes</span></button>
             <button style="margin-left:-2px" class="btn"><span class="material-icons">add</span></button>
         </div>
