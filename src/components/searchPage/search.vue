@@ -1,4 +1,5 @@
 <template>
+    <searchheader></searchheader>
     <list :datalist.sync="dataList"></list>
     <div id="loadMore" v-on:click="appendDataList()">Load More</div>
 </template>
@@ -28,7 +29,8 @@
         params:['tag', 'dataList'],
         components:{
             'card':require('./card/card.vue'),
-            'list': require('./photoList/list')
+            'list': require('./photoList/list'),
+            'searchheader':require('./searchheader/searchheader.vue')
         },
 
         methods: {

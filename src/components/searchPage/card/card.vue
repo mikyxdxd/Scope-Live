@@ -1,21 +1,32 @@
 <template>
-    <div class="card">
-        <div class="author">
-          <div class="userAvatar_name">
-            <div class="userAvatar">
-              <img id='avatar' :src='image.sourceOwner.profile_picture'>
-            </div>
-            <div class="userName_source">
-              <div class='userName'>{{image.sourceOwner.username}}</div>
-              <div class='source'>twitter</div>
-            </div>
+    <div class="card one_image">
+      <div class="user_info">
+        <!--<div class="ui blue right ribbon label" ng-show="image.sourceType != 'PX' && image.sourceType != 'SM'"><i class="icon white" ng-class="determineOriginalIcon(image)"></i></div>-->
+        <div class="ava"><a :href="determineOriginal(image)" target="__blacnk"><img alt="" :src='image.sourceOwner.profile_picture'></a></div>
+        <div class="src">
+          <div class="user_name"><a :href="determineOriginal(image)" target="__blacnk">{{image.sourceOwner.username}}</a></div>
+          <div class="source">@{{determineOriginalText(image)}}</div>
+          <div class="time_location" v-if="image.location">
+            <div class="location ng-binding"><i class="icon tiny marker"></i>Brooklyn Bridge</div>
+            <div class="image_time ng-binding" style="margin-left: 0.35em;"><i class=""></i>8 hours ago</div>
           </div>
         </div>
-        <div class="pic">
+      </div>
+       <div class="pic">
           <img :src='image.thumbnail.url'>
         </div>
 
-      <div class="message">{{image.description}}</div>
+      <div class="image_info">
+        <div class="caption">{{image.caption}}</div>
+        <div class="des">{{image.description}}</div>
+        <div>
+          <ul class="tag_list">
+            <!-- ngRepeat: tag in image.tags | limitTo: 10 --><li class="one_tag" v-for="tag in image.tags"><a>{{'#' + tag.text}}</a></li><!-- end ngRepeat: tag in image.tags | limitTo: 10 -->
+          </ul>
+        </div>
+      </div>
+
+
     </div>
 </template>
 
@@ -26,6 +37,65 @@
             return{
 
             }
+        },
+
+        methods:{
+          determineOriginalText: function (image) {
+            if (image) {
+              switch (image.sourceType) {
+                case'SM':
+                  return 'scope';
+                case 'IN':
+                  return 'instagram';
+                case 'WB':
+                  return 'weibo';
+                case 'TU':
+                  return 'Tumbler'
+                case 'TW':
+                  return 'twitter';
+                case 'FL':
+                  return 'flickr';
+                case 'FS':
+                  return 'foursquare';
+                case 'PX':
+                  return '500px';
+                case 'PN':
+                  return 'panoramio';
+              }
+            }
+          },
+
+          determineOriginal: function (image) {
+
+            if (image && image.sourceOwner) {
+              switch (image.sourceType) {
+                case'SM':
+                  return '#/user/' + image.owner.id;
+                  break;
+                case 'IN':
+                  if (image.sourceOwner != null)
+                    return 'https://instagram.com/' + image.sourceOwner.username;
+                  break;
+                case 'WB':
+                  return 'https://weibo.com/' + image.sourceOwner.id;
+                  break;
+                case 'TW':
+                  return 'https://twitter.com/' + image.sourceOwner.username;
+                  break;
+                case 'FL':
+                  return 'https://www.flickr.com/photos/' + image.sourceOwner.id;
+                  break;
+                case 'PX':
+                  return 'https://500px.com/' + image.sourceOwner.username.replace(/ /g, '');
+                  break;
+                case 'TU':
+                  return 'https://' + image.sourceOwner.id;
+                  break;
+              }
+            }
+          }
+
+
         },
         components:{
 
