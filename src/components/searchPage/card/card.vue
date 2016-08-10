@@ -1,5 +1,5 @@
 <template>
-    <div class="card new">
+    <div class="card new" @click="showModal = true">
         <div class="author">
           <div class="userAvatar_name">
             <div class="userAvatar">
@@ -14,9 +14,9 @@
         <div class="pic">
           <img :src='image.thumbnail.url'>
         </div>
-
       <div class="message">{{image.description}}</div>
     </div>
+  <modal :image="image" :show.sync="showModal"></modal>
 </template>
 
 <script>
@@ -24,11 +24,11 @@
     export default{
         data(){
             return{
-
+              showModal: false
             }
         },
         components:{
-
+          modal: require('./modal/modal.vue')
         },
         props:['image'],
     }

@@ -20,7 +20,7 @@
 //          }, 2000);
         },
         watch: {
-
+          //once dataList updated, update the view
           'datalist': function(val, oldVal){
               var self = this;
               if(oldVal.length == 0){
@@ -39,12 +39,9 @@
                     self._iso.appended($('.new'));
                     $('.card').addClass('loaded');
                     $('.card').removeClass('new');
-                  }, 1000)
-
-
+                  }, 1000);
                 });
               }
-              console.log('new: %s, old: %s', val, oldVal);
             }
         },
         data(){
