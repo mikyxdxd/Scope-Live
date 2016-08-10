@@ -27,7 +27,7 @@
 <script>
   require('./landing.scss')
 
-  import dataService from '../../services/dataservices'
+
   export default{
     ready: function(){
       this.timeStamp = Date.now();
