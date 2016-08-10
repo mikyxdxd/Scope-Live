@@ -6,9 +6,9 @@
         <div class="src">
           <div class="user_name"><a :href="determineOriginal(image)" target="__blacnk">{{image.sourceOwner.username}}</a></div>
           <div class="source">@{{determineOriginalText(image)}}</div>
-          <div class="time_location" v-if="image.location">
-            <div class="location ng-binding"><i class="icon tiny marker"></i>Brooklyn Bridge</div>
-            <div class="image_time ng-binding" style="margin-left: 0.35em;"><i class=""></i>8 hours ago</div>
+          <div class="time_location">
+            <div class="location ng-binding" v-if="image.location"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right:0.5em"></i>{{image.location.address}}</div>
+            <div class="image_time ng-binding"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:0.2em"></i>{{getShotTime(image.shotTime)}}</div>
           </div>
         </div>
       </div>
@@ -61,6 +61,23 @@
                   return 'panoramio';
               }
             }
+          },
+          getShotTime: function (shotTime) {
+            var second = (Date.now() - shotTime) * 0.001;
+            var minutes = second / 60;
+            var hour = minutes / 60;
+            if (hour < 1) {
+              return Math.floor(minutes) + ' mins ago';
+            }
+            var day = hour / 24;
+            if (day < 1) {
+              return Math.floor(hour) + ' hours ago';
+            }
+            var week = day / 7;
+            if (week < 1) {
+              return Math.floor(day) + ' days ago';
+            }
+            return Math.floor(week) + ' weeks ago';
           },
 
           determineOriginal: function (image) {
