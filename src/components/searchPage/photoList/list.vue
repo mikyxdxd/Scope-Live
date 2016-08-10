@@ -24,9 +24,18 @@
                     transitionDuration: 0
                   });
                   $('.card').addClass('loaded');
+                  $('.card').removeClass('new');
                 }, 1000);
               }else{
-                console.log(val.length);
+                self.$nextTick(function() {
+                  setTimeout(function() {
+                    self._iso.appended($('.new'));
+                    $('.card').addClass('loaded');
+                    $('.card').removeClass('new');
+                  }, 1000)
+
+
+                });
               }
               console.log('new: %s, old: %s', val, oldVal);
             }

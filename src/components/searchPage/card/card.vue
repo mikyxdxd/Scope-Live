@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="card one_image">
       <div class="user_info">
         <!--<div class="ui blue right ribbon label" ng-show="image.sourceType != 'PX' && image.sourceType != 'SM'"><i class="icon white" ng-class="determineOriginalIcon(image)"></i></div>-->
@@ -9,6 +10,18 @@
           <div class="time_location" v-if="image.location">
             <div class="location ng-binding"><i class="icon tiny marker"></i>Brooklyn Bridge</div>
             <div class="image_time ng-binding" style="margin-left: 0.35em;"><i class=""></i>8 hours ago</div>
+=======
+    <div class="card new">
+        <div class="author">
+          <div class="userAvatar_name">
+            <div class="userAvatar">
+              <img id='avatar' :src='image.sourceOwner.profile_picture'>
+            </div>
+            <div class="userName_source">
+              <div class='userName'>{{image.sourceOwner.username}}</div>
+              <div class='source'>twitter</div>
+            </div>
+>>>>>>> origin/pr/1
           </div>
         </div>
       </div>
