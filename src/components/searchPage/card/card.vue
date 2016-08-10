@@ -1,6 +1,9 @@
 <template>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 7b15781... Merge remote-tracking branch 'origin/pr/1' into pr/1
     <div class="card one_image">
       <div class="user_info">
         <!--<div class="ui blue right ribbon label" ng-show="image.sourceType != 'PX' && image.sourceType != 'SM'"><i class="icon white" ng-class="determineOriginalIcon(image)"></i></div>-->
@@ -11,6 +14,7 @@
           <div class="time_location" v-if="image.location">
             <div class="location ng-binding"><i class="icon tiny marker"></i>Brooklyn Bridge</div>
             <div class="image_time ng-binding" style="margin-left: 0.35em;"><i class=""></i>8 hours ago</div>
+<<<<<<< HEAD
 =======
     <div class="card new">
 =======
@@ -29,6 +33,8 @@
 >>>>>>> origin/pr/1
 =======
 >>>>>>> parent of 57489eb... -update
+=======
+>>>>>>> parent of 7b15781... Merge remote-tracking branch 'origin/pr/1' into pr/1
           </div>
         </div>
         <div class="pic">

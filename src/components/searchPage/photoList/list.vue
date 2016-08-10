@@ -31,18 +31,9 @@
                     transitionDuration: 0
                   });
                   $('.card').addClass('loaded');
-                  $('.card').removeClass('new');
                 }, 1000);
               }else{
-                self.$nextTick(function() {
-                  setTimeout(function() {
-                    self._iso.appended($('.new'));
-                    $('.card').addClass('loaded');
-                    $('.card').removeClass('new');
-                  }, 1000)
-
-
-                });
+                console.log(val.length);
               }
               console.log('new: %s, old: %s', val, oldVal);
             }
