@@ -1,6 +1,6 @@
 <template>
     <list :datalist.sync="dataList"></list>
-    <div id="loadMore" v-on:click="appendDataList()">Load More</div>
+    <div id="loadMore" ><button class="waves-effect waves-light btn" v-on:click="appendDataList()">Load More</button></div>
 </template>
 
 <script>
@@ -15,7 +15,6 @@
             this.pageNo++;
             this.updateDataList(res.data.data);
           });
-
         },
         data(){
             return{
