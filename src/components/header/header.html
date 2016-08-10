@@ -13,7 +13,22 @@
         <div class="item">Products</div>
         <div class="item">Solutions</div>
         <div class="item">Support</div>
-        <div class="item">Sign In</div>
+        <div class="item" v-if="!user"><div @click="showlogin = true">Sign In</div></div>
+        <div class="item user" id="user-info" v-if="user">
+          <div>
+            <span class="user-avatar" :style="{ 'background-image': 'url(' + user.avatar + ')' }"></span>
+          </div>
+        </div>
+
+        <!--<div id="nav-tagboard">-->
+          <!--<div class="btn-group">-->
+            <!--<a class="btn btn-tgb-primary" data-toggle="dropdown"><i class="icon icon-grid6"></i> <span>My tagboards</span></a>-->
+            <!--<a href="#new-tagboard" data-toggle="modal" class="btn btn-tgb-primary"><span class="icon icon-plus3"></span></a>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+        <login :showlogin.sync="showlogin" :user.sync="user"></login>
         <!--<div class="item">Sign In</div>-->
       </div>
     </div>
