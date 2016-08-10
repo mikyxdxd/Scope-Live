@@ -1,17 +1,16 @@
 <template>
   <div class="modal-mask" v-show="show" transition="modal">
-    <div class="modal-wrapper">
       <div class="modal-container">
 
-        <div class="modal-header container-left">
+        <div class="container-left">
           <div id="close_button" @click="show = false">
-            <i class="ui icon close"></i>
+            <i class="fa fa-times" aria-hidden="true"></i>
           </div>
+
           <div id="user_info">
             <div id="user_avatar">
               <img :src='image.sourceOwner.profile_picture'>
             </div>
-
             <div id="user_info_right">
               <div id="user_name">
                 <a :href="determineOriginal(image)" target="__blacnk">{{image.sourceOwner.username}}</a>
@@ -23,39 +22,28 @@
               </div>
 
             </div>
+          </div>
 
-            <div class="ui divider"></div>
-            <div id="image_info">
+          <div class="ui divider"></div>
 
-              <div id="image_description">
-                {{image.description}}
-              </div>
-
-              <div id="image_tags">
-                <ul class="tag_list">
-                  <li class="one_tag" v-for="tag in image.tags"><a>{{'#' + tag.text}}</a></li>
-                </ul>
-              </div>
+          <div id="image_info">
+            <div id="image_description">
+              {{image.description}}
             </div>
+            <div id="image_tags">
+              <ul class="tag_list">
+                <li class="one_tag" v-for="tag in image.tags"><a>{{'#' + tag.text}}</a></li>
+              </ul>
+            </div>
+          </div>
+
         </div>
 
-        <div class="modal-body container-right">
-          <slot name="body">
-            default body
-          </slot>
+        <div class="container-right">
+          <div class="image">
+            <img :src="image.retina.url">
+          </div>
         </div>
-
-        <div class="modal-footer">
-          <slot name="footer">
-            default footer
-            <button class="modal-default-button"
-                    @click="show = false">
-              OK
-            </button>
-          </slot>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 

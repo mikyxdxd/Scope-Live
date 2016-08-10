@@ -113,7 +113,7 @@
 
         },
         components:{
-          modal: require('./modal/modal.vue')
+          modal: require('../../modal/modal.vue')
         },
         props:['image'],
     }
