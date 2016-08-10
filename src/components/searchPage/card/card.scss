@@ -1,63 +1,160 @@
 .card{
-  padding: 5px 3px;
   width: 24%;
+  margin: 0;
   margin-left: .8%;
-  margin-top: 1%;
+  margin-top: 5px;
+  margin-bottom: 0;
   display: inline-block;
-  opacity: 1;
+  opacity: 0;
   transition: opacity 1s;
   position: relative;
   background: #fff;
-  border: 1px solid #ECEBEB;
-  opacity: 0;
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -ms-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  .author{
-      width: auto;
-      z-index: 1;
-      position: relative;
-      padding: 0.5em 0 0.5em 0.5em;
-        .userAvatar_name{
-          .userAvatar{
-            width: 12%;
-            border-radius: 50%;
-            overflow: hidden;
-            display: inline-block;
-            vertical-align: top;
-            max-width: 40px;
-            img{
-              width: 100%;
-              height: auto;
-            }
-          }
-          .userName_source{
-            display: inline-block;
-            padding: .2em .5em;
-            vertical-align: top;
-            width: 85%;
-            text-align: left!important;
-          }
-          .userName_source .userName {
-            font-size: 1.05em;
-            font-weight: 600;
-          }
+  //border: 1px solid #ECEBEB;
+  box-shadow: none;
+  border-radius: 0px;
+
+  .user_info{
+
+    width: auto;
+    z-index: 1;
+    position: relative;
+    padding: 0.8em;
+    .ava{
+      width: 12%;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: top;
+      max-width: 40px;
+      a{
+        background: 0 0;
+        color: #4183c4;
+        text-decoration: none;
+        display: inline-block;
+        img{
+          width: 100%;
+          height: auto;
+          border-radius: 50%;
         }
+      }
+
     }
+
+    .src{
+
+      display: inline-block;
+      padding: .2em .5em;
+      vertical-align: top;
+      width: 85%;
+      font-size: 0.9em;
+      text-align: left!important;
+      a{
+
+        color:#333;
+      }
+    }
+
+    .user_name{
+
+      font-size: 1.05em;
+      font-weight: 600;
+
+    }
+
+    .source{
+
+      font-size: .9em;
+      font-weight: 400;
+      color: grey;
+      line-height: .9em;
+    }
+
+    .time_location {
+      font-size: .9em;
+      font-weight: 400;
+      color: grey;
+      line-height: 1em;
+      margin-top: 3%;
+      margin-left: -1.5px;
+    }
+
+  }
+
+  //.author{
+  //    width: auto;
+  //    z-index: 1;
+  //    position: relative;
+  //    padding: 0.5em 0 0.5em 0.5em;
+  //      .userAvatar_name{
+  //        .userAvatar{
+  //          width: 12%;
+  //          border-radius: 50%;
+  //          overflow: hidden;
+  //          display: inline-block;
+  //          vertical-align: top;
+  //          max-width: 40px;
+  //          img{
+  //            width: 100%;
+  //            height: auto;
+  //          }
+  //        }
+  //        .userName_source{
+  //          display: inline-block;
+  //          padding: .2em .5em;
+  //          vertical-align: top;
+  //          width: 85%;
+  //          text-align: left!important;
+  //        }
+  //        .userName_source .userName {
+  //          font-size: 1.05em;
+  //          font-weight: 600;
+  //        }
+  //      }
+  //  }
   .pic{
     img{
       width: 100%;
       height: auto;
     }
   }
-  .message{
-    font-size: .8em;
-    font-weight: 600;
-    line-height: 1.4em;
-    margin-top: 3%;
+
+  .image_info{
+
+    padding: 5%;
+    padding-bottom: 1%;
+    background: #fff;
+    word-break: break-all;
+    color: #636262;
+    .des{
+      font-size: .8em;
+      font-weight: normal;
+      line-height: 1.5em;
+      margin-top: 2%;
+      color: grey;
+    }
   }
+
+  .tag_list{
+
+    padding: 0;
+    margin-top: .5em;
+    li {
+      display: inline-block;
+      list-style: none;
+      margin-top: .2em;
+      z-index: 0;
+      a{
+        color: grey;
+        font-weight: 500 !important;
+        border-radius: 0;
+        border: 1px solid;
+        font-size: 0.75em;
+        padding: 0.3em 0.5em;
+        line-height: 0.5em;
+
+      }
+    }
+  }
+
 }
 .loaded{
   opacity: 1 !important;

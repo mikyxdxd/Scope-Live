@@ -15,6 +15,7 @@
             this.pageNo++;
             this.updateDataList(res.data.data);
           });
+
         },
         data(){
             return{
