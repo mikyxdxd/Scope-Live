@@ -5,8 +5,36 @@
         data(){
             return{
               showlogin:false,
-                user:null
+              user:{}
             }
+        },
+
+
+        watch:{
+
+            '$route.path':{
+
+                 handler: (val, oldVal)=>{
+
+                   if(val != '/'){
+
+      $('#header').removeClass('home')
+                    }
+
+                 },
+                 deep: true
+            }
+
+
+        },
+
+        methods:{
+
+        },
+        ready(){
+          $('.dropdown-button').dropdown({
+              inDuration: 300}
+          );
         },
         components:{
           login:require('../login/login.vue')

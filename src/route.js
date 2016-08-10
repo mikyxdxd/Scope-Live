@@ -22,7 +22,11 @@ export default(App)=>{
     },
 
     '/s/:scopeId/setting':{
-      component:require('./components/user/scopesetting/scopesetting.vue')
+    component:require('./components/user/scopesetting/scopesetting.vue')
+    },
+
+    '/s/:scopeId':{
+      component:require('./components/scopepage/scopepage.vue')
 
     }
   })

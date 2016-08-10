@@ -24,8 +24,8 @@ class DataService{
     axios({method:'GET',url:this.httpServerUrl + '/users/me', headers:{
       'Authorization':this.userToken
     }}).then((res)=>{
-       this.user = res.data;
-    })
+      this.user = res.data;
+  })
   }
 
   getUser(){
@@ -52,6 +52,7 @@ class DataService{
         }
       )
     })
+
   }
 
   setUserToken(token){
@@ -115,4 +116,5 @@ class DataService{
 
 let dataService = new DataService();
 module.exports = dataService;
+
 
