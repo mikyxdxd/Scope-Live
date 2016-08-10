@@ -15,15 +15,19 @@ export default(App)=>{
     '/user':{
       component:require('./components/user/user.vue')
     },
-    '/search/:tag':{
+
+    '/search/:tag': {
       name: 'search',
       component: require('./components/searchPage/search.vue')
     },
+
     '/s/:scopeId/setting':{
-      component:require('./components/user/scopesetting/scopesetting.vue')
+    component:require('./components/user/scopesetting/scopesetting.vue')
     },
+
     '/s/:scopeId':{
       component:require('./components/scopepage/scopepage.vue')
+
     }
   })
 

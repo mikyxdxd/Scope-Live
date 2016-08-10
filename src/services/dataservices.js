@@ -13,6 +13,7 @@ class DataService{
     axios.defaults.headers.post['Content-Type'] = 'text/json';
     // this._scopetoken = localStorage._scopetoken;
     this.userToken = localStorage._scopetoken;
+
     this.user = null;
     if(this.userToken && this.userToken.length > 0){
       this._getUserProfile();
@@ -35,6 +36,7 @@ class DataService{
 
     return axios.get(this.httpServerUrl  + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);
   }
+
 
   logIn(username,password){
     return axios({method:'POST',url:this.httpServerUrl + '/login',
