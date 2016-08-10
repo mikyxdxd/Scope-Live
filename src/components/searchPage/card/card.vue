@@ -1,5 +1,5 @@
 <template>
-    <div class="card one_image">
+    <div class="card one_image new">
       <div class="user_info">
         <!--<div class="ui blue right ribbon label" ng-show="image.sourceType != 'PX' && image.sourceType != 'SM'"><i class="icon white" ng-class="determineOriginalIcon(image)"></i></div>-->
         <div class="ava"><a :href="determineOriginal(image)" target="__blacnk"><img alt="" :src='image.sourceOwner.profile_picture'></a></div>
@@ -12,20 +12,20 @@
           </div>
         </div>
       </div>
-       <div class="pic">
+       <div class="pic" @click="showModal = true">
           <img :src='image.thumbnail.url'>
         </div>
-
       <div class="image_info">
         <div class="caption">{{image.caption}}</div>
         <div class="des">{{image.description}}</div>
         <div>
           <ul class="tag_list">
-            <!-- ngRepeat: tag in image.tags | limitTo: 10 --><li class="one_tag" v-for="tag in image.tags"><a>{{'#' + tag.text}}</a></li><!-- end ngRepeat: tag in image.tags | limitTo: 10 -->
+            <li class="one_tag" v-for="tag in image.tags"><a>{{'#' + tag.text}}</a></li>
           </ul>
         </div>
       </div>
     </div>
+  <modal :image="image" :show.sync="showModal"></modal>
 </template>
 
 <script>
@@ -33,7 +33,7 @@
     export default{
         data(){
             return{
-
+              showModal: false
             }
         },
 
@@ -113,7 +113,7 @@
 
         },
         components:{
-
+          modal: require('./modal/modal.vue')
         },
         props:['image'],
     }
