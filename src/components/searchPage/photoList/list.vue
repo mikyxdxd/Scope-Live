@@ -8,9 +8,16 @@
 
 <script>
   import Isotope from 'isotope-layout'
-  require('./photolist.scss')
     export default{
         ready: function(){
+//          setTimeout(function() {
+//            console.log("ready");
+//            self._iso = new Isotope('#photo-list', {
+//              layoutMode: 'masonry',
+//              itemSelector: '.card',
+//
+//            });
+//          }, 2000);
         },
         watch: {
 

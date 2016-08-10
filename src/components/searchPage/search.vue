@@ -1,5 +1,4 @@
 <template>
-    <searchheader></searchheader>
     <list :datalist.sync="dataList"></list>
     <div id="loadMore" ><button class="waves-effect waves-light btn" v-on:click="appendDataList()">Load More</button></div>
 </template>
@@ -28,8 +27,7 @@
         params:['tag', 'dataList'],
         components:{
             'card':require('./card/card.vue'),
-            'list': require('./photoList/list'),
-            'searchheader':require('./searchheader/searchheader.vue')
+            'list': require('./photoList/list')
         },
 
         methods: {

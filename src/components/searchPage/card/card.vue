@@ -1,5 +1,6 @@
 <template>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div class="card one_image">
       <div class="user_info">
         <!--<div class="ui blue right ribbon label" ng-show="image.sourceType != 'PX' && image.sourceType != 'SM'"><i class="icon white" ng-class="determineOriginalIcon(image)"></i></div>-->
@@ -12,6 +13,9 @@
             <div class="image_time ng-binding" style="margin-left: 0.35em;"><i class=""></i>8 hours ago</div>
 =======
     <div class="card new">
+=======
+    <div class="card">
+>>>>>>> parent of 57489eb... -update
         <div class="author">
           <div class="userAvatar_name">
             <div class="userAvatar">
@@ -21,25 +25,17 @@
               <div class='userName'>{{image.sourceOwner.username}}</div>
               <div class='source'>twitter</div>
             </div>
+<<<<<<< HEAD
 >>>>>>> origin/pr/1
+=======
+>>>>>>> parent of 57489eb... -update
           </div>
         </div>
-      </div>
-       <div class="pic">
+        <div class="pic">
           <img :src='image.thumbnail.url'>
         </div>
 
-      <div class="image_info">
-        <div class="caption">{{image.caption}}</div>
-        <div class="des">{{image.description}}</div>
-        <div>
-          <ul class="tag_list">
-            <!-- ngRepeat: tag in image.tags | limitTo: 10 --><li class="one_tag" v-for="tag in image.tags"><a>{{'#' + tag.text}}</a></li><!-- end ngRepeat: tag in image.tags | limitTo: 10 -->
-          </ul>
-        </div>
-      </div>
-
-
+      <div class="message">{{image.description}}</div>
     </div>
 </template>
 
@@ -50,65 +46,6 @@
             return{
 
             }
-        },
-
-        methods:{
-          determineOriginalText: function (image) {
-            if (image) {
-              switch (image.sourceType) {
-                case'SM':
-                  return 'scope';
-                case 'IN':
-                  return 'instagram';
-                case 'WB':
-                  return 'weibo';
-                case 'TU':
-                  return 'Tumbler'
-                case 'TW':
-                  return 'twitter';
-                case 'FL':
-                  return 'flickr';
-                case 'FS':
-                  return 'foursquare';
-                case 'PX':
-                  return '500px';
-                case 'PN':
-                  return 'panoramio';
-              }
-            }
-          },
-
-          determineOriginal: function (image) {
-
-            if (image && image.sourceOwner) {
-              switch (image.sourceType) {
-                case'SM':
-                  return '#/user/' + image.owner.id;
-                  break;
-                case 'IN':
-                  if (image.sourceOwner != null)
-                    return 'https://instagram.com/' + image.sourceOwner.username;
-                  break;
-                case 'WB':
-                  return 'https://weibo.com/' + image.sourceOwner.id;
-                  break;
-                case 'TW':
-                  return 'https://twitter.com/' + image.sourceOwner.username;
-                  break;
-                case 'FL':
-                  return 'https://www.flickr.com/photos/' + image.sourceOwner.id;
-                  break;
-                case 'PX':
-                  return 'https://500px.com/' + image.sourceOwner.username.replace(/ /g, '');
-                  break;
-                case 'TU':
-                  return 'https://' + image.sourceOwner.id;
-                  break;
-              }
-            }
-          }
-
-
         },
         components:{
 
