@@ -119,7 +119,10 @@ class DataService {
   deleteImage(mediaId) {
     return axios({
       method: 'DELETE',
-      url: ServiceSettings.httpServerUrl + `/image/${mediaId}`
+      headers: {
+        'Authorization': this.userToken
+      },
+      url: this.httpServerUrl + `/image/${mediaId}`
     });
   }
 

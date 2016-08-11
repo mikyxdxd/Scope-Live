@@ -29,11 +29,15 @@
         cursor: pointer;
       }
     }
-    .rescope,.rescoped{
+    .rescope,.rescoped,.delete{
       background: green;
       &:hover{
         background: green;
       }
+    }
+
+    .deleted{
+      background: #fa5757;
     }
 
 
@@ -121,37 +125,6 @@
 
   }
 
-  //.author{
-  //    width: auto;
-  //    z-index: 1;
-  //    position: relative;
-  //    padding: 0.5em 0 0.5em 0.5em;
-  //      .userAvatar_name{
-  //        .userAvatar{
-  //          width: 12%;
-  //          border-radius: 50%;
-  //          overflow: hidden;
-  //          display: inline-block;
-  //          vertical-align: top;
-  //          max-width: 40px;
-  //          img{
-  //            width: 100%;
-  //            height: auto;
-  //          }
-  //        }
-  //        .userName_source{
-  //          display: inline-block;
-  //          padding: .2em .5em;
-  //          vertical-align: top;
-  //          width: 85%;
-  //          text-align: left!important;
-  //        }
-  //        .userName_source .userName {
-  //          font-size: 1.05em;
-  //          font-weight: 600;
-  //        }
-  //      }
-  //  }
   .pic{
     img{
       cursor: pointer;
