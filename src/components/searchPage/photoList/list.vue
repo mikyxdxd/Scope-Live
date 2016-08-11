@@ -24,20 +24,12 @@
                   });
                   imagesLoaded( $('#photo-list') ).on( 'progress', function(){
                     // layout Isotope after each image loads
-
-
                     $('.card').each((i,e)=>{
                       setTimeout(()=>{
                         $(e).addClass('loaded');
                       },i*50)
                     })
-
-//                    $('.card').addClass('loaded');
                     $('.card').removeClass('new');
-
-
-
-
                     self._iso.layout();
                   });
 
@@ -45,7 +37,6 @@
               }else{
                 self.$nextTick(function() {
                   setTimeout(function() {
-
                     self._iso.appended($('.new'));
                     imagesLoaded( $('#photo-list') ).on( 'progress', function(){
                       // layout Isotope after each image loads
