@@ -16,9 +16,13 @@
         font-weight: bold;
         margin-left: 20px;
         font-size: 1.2em;
-        padding: 0.1em 0.2em;
+        padding: 0.4em 0.6em;
+        line-height: 1.2em;
       }
       .tab.active{
+
+        background: #afa5a5;
+        color: #f7f7f7;
       }
     }
   }
