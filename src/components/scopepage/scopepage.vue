@@ -7,11 +7,17 @@
           dataServices.getScopeInfo(this.$route.params.scopeId).then((res)=>{
 
             this.scope = res.data;
+            if(this.scope.owner.id == dataServices.getUser().id){
+              this.isOwner = true;
+              this.currentTab = 'feature'
+            }
           })
         },
         data(){
             return{
-               scope:null
+               scope:null,
+               currentTab:null,
+               isOwner:null
             }
         },
         components:{

@@ -1,7 +1,8 @@
 <template>
     <div class="card one_image new">
-      <div class="imgCtr" v-if="showdelete">
+      <div class="imgCtr" v-if="showdelete || showadd">
         <div class="trash ctr" v-if="showdelete"><i class="fa fa-trash" aria-hidden="true"></i></div>
+        <div class="trash ctr" v-if="showadd"><i class="fa fa-check" aria-hidden="true"></i></div>
       </div>
       <div class="user_info">
         <!--<div class="ui blue right ribbon label" ng-show="image.sourceType != 'PX' && image.sourceType != 'SM'"><i class="icon white" ng-class="determineOriginalIcon(image)"></i></div>-->
@@ -58,7 +59,7 @@
 
       ready(){
 
-
+          console.log(this.showadd)
       },
 
 
@@ -140,6 +141,6 @@
         components:{
           modal: require('../../modal/modal.vue')
         },
-        props:['image','showdelete'],
+        props:['image','showdelete','showadd'],
     }
 </script>

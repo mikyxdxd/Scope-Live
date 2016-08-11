@@ -24,10 +24,14 @@
       line-height: 1px;
       padding: 7px 12px;
       background: #484848;
-      border-left: 1px solid #222;
       border-radius: 5px 5px 0px 0px;
       color: white;
+      &:hover{
+        background: #fa5757;
+        cursor: pointer;
+      }
     }
+
 
   }
 

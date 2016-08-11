@@ -5,7 +5,7 @@
        template:require('./tagscopes.html'),
        data(){
             return{
-              pageNum:1,
+              pageNum:0,
               pageSize:11,
               scopeList:[],
               hasMore:true
