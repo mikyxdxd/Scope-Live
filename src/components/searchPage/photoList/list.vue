@@ -1,7 +1,7 @@
 <template>
     <div id="photo-list">
           <div v-for="image in datalist" class='singleItem'>
-            <card :image="image"  :showdelete.sync="showdelete" ></card>
+            <card :image="image"  :showdelete.sync="showdelete" :showadd.sync="showadd" ></card>
           </div>
     </div>
 
@@ -58,7 +58,7 @@
             return{
             }
         },
-        props:['datalist','showdelete'],
+        props:['datalist','showdelete','showadd'],
         components:{
           card: require('../card/card.vue')
         },

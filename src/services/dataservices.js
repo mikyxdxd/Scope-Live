@@ -95,6 +95,22 @@ class DataService{
     return axios.get(this.httpServerUrl + '/search/images?&size=' + pageSize + '&tag=' + encodeURI(encodeURI(imageTag)) + '&timestamp=' + timeStamp + '&page=' + pageNo);
   }
 
+  reScope(scopeId,mediaId){
+
+    return axios({method:'POST',url:this.httpServerUrl + `/scope/${scopeId}/images`,
+      headers:{
+
+        'Authorization':this.userToken
+      },
+      data:
+        {
+           id:mediaId
+        }
+    })
+
+
+  }
+
   getImageViaScope(pageNo, pageSize, timeStamp, scopeId){
 
 

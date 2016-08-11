@@ -1,7 +1,11 @@
 <template>
     <div class="card one_image new">
-      <div class="imgCtr" v-if="showdelete">
-        <div class="trash ctr" v-if="showdelete"><i class="fa fa-trash" aria-hidden="true"></i></div>
+      <div class="imgCtr" v-if="showdelete || showadd">
+        <div class="trash ctr" v-if="showdelete && !image.deleting" @click="deleteImage(image)"><i class="fa fa-trash" aria-hidden="true"></i></div>
+        <div class="delete ctr" v-if="showdelete && image.deleting"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i></div>
+        <div class="add ctr" v-if="showadd && !image.$$rescoping" @click="addToScope(image)"><i class="fa fa-check" aria-hidden="true"></i></div>
+        <div class="rescope ctr" v-if="image.$$rescoping && !image.$$rescoped"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i></div>
+        <div class="rescoped ctr" v-if="image.$$rescoped"><i class="fa fa-check" aria-hidden="true"></i></div>
       </div>
       <div class="user_info">
         <!--<div class="ui blue right ribbon label" ng-show="image.sourceType != 'PX' && image.sourceType != 'SM'"><i class="icon white" ng-class="determineOriginalIcon(image)"></i></div>-->
@@ -33,11 +37,14 @@
         </div>
       </div>
     </div>
+
   <modal :image="image" :show.sync="showModal" :width.sync="width" :height.sync="height"></modal>
+
 </template>
 
 <script>
     require('./card.scss')
+    import dataService from '../../../services/dataservices'
     export default{
         data(){
             return{
@@ -56,8 +63,23 @@
           img.src = this.image.retina.url;
       },
 
-
         methods:{
+
+          addToScope:function(image){
+
+            this.image = Object.assign({}, this.image, {$$rescoping:true});
+            dataService.reScope(this.$route.params.scopeId,image.id).then((res)=>{
+              this.image = Object.assign({}, this.image, {$$rescoped:true});
+            })
+
+          },
+
+
+          deleteImage:function(image){
+
+
+          },
+
           determineOriginalText: function (image) {
             if (image) {
               switch (image.sourceType) {
@@ -135,6 +157,8 @@
         components:{
           modal: require('../../modal/modal.vue')
         },
-        props:['image','showdelete', 'width', 'height'],
+
+        props:['image','showdelete', 'width', 'height', 'showadd'],
+
     }
 </script>

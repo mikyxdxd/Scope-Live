@@ -1,7 +1,8 @@
 <div id="scopepage">
   <scopeheader :scope.sync="scope"></scopeheader>
-  <div id="scope_tab">
-    <div id="tabs"><div class="tab">LASTEST</div><div class="tab">FEATURE</div></div>
+  <div id="scope_tab" v-show="scope">
+    <div id="tabs"><div class="tab" @click="currentTab = 'latest'" :class="{ 'active': currentTab == 'latest' }">LASTEST</div><div class="tab" @click="currentTab = 'feature'" :class="{'active': currentTab == 'feature' }" v-if="isOwner">FEATURE</div></div>
   </div>
-  <latestpage  :scope.sync="scope"></latestpage>
+  <featurepage  :scope.sync="scope" v-if="currentTab == 'feature'"></featurepage>
+  <latestpage   :scope.sync = "scope" v-if="currentTab == 'latest'"></latestpage>
 </div>

@@ -21,7 +21,7 @@
         pageNo: 0,
         hasMore:true,
         user:{},
-        showdelete:false
+        showadd:false
       }
     },
     props:['scope'],
@@ -38,7 +38,7 @@
         }
       },
       appendDataList: function(){
-        dataService.getImageViaScope(this.pageNo++, this.pageSize, this.timeStamp, this.scopeId).then((res)=>{
+        dataService.getImageViaTag(this.pageNo++, this.pageSize, this.timeStamp, this.scope.tag).then((res)=>{
           this.updateDataList(res.data.data);
         });
       }

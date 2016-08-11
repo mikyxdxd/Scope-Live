@@ -1,4 +1,4 @@
 <div id="latestpage" v-if="scope">
-  <list :datalist.sync="imageList" :showdelete="scope.owner.id == user.id "></list>
+  <list :datalist.sync="imageList" :showadd="scope.owner.id == user.id "></list>
   <div id="loadMore" v-show="imageList.length>0 && hasMore"><button class="waves-effect waves-light btn" v-on:click="appendDataList()">Load More</button></div>
 </div>

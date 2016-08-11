@@ -16,9 +16,18 @@
         font-weight: bold;
         margin-left: 20px;
         font-size: 1.2em;
-        padding: 0.1em 0.2em;
+        padding: 0.4em 0.6em;
+        line-height: 1.2em;
+        border-bottom: 3px solid transparent;
+        &:hover{
+          background: #a29f9f;
+          color: #f7f7f7;
+          cursor: pointer;
+        }
       }
       .tab.active{
+
+        border-bottom: 3px solid #f9f9f9;
       }
     }
   }
