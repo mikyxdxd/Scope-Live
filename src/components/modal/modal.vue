@@ -88,8 +88,10 @@
 
         methods:{
           determineImageHeight(image){
-            let height = image.retina.height;
-            let width = image.retina.width;
+            var img = new Image();
+            img.src = image.retina.url;
+            let height = img.retina.height;
+            let width = img.retina.width;
             let perc = 600*height / width / 600 * 100;
             perc = perc.toString() + "%";
             console.log(perc);

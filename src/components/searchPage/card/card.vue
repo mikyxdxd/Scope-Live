@@ -13,7 +13,8 @@
         </div>
       </div>
        <div class="pic" @click="showModal = true">
-          <img :src='image.thumbnail.url'>
+         <div>{{loadImage}}</div>
+          <img :src='image.retina.url' {{ loadImage }} id="retina_img">
         </div>
       <div class="image_info">
         <div class="caption">{{image.caption}}</div>
@@ -25,7 +26,7 @@
         </div>
       </div>
     </div>
-  <modal :image="image" :show.sync="showModal"></modal>
+  <modal :image="image" :width={{width}}  :height={{height}} :show.sync="showModal"></modal>
 </template>
 
 <script>
@@ -33,8 +34,18 @@
     export default{
         data(){
             return{
-              showModal: false
+              showModal: false,
+              width: 0,
+              height: 0,
             }
+        },
+
+        computed: {
+          loadImage: function(){
+            $('#retina_img').load(function(){
+
+            }).attr
+          }
         },
 
         methods:{
