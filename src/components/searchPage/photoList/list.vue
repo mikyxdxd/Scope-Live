@@ -4,6 +4,7 @@
             <card :image="image"  :showdelete.sync="showdelete" :showadd.sync="showadd" ></card>
           </div>
     </div>
+
 </template>
 
 <script>

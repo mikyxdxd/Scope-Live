@@ -37,7 +37,9 @@
         </div>
       </div>
     </div>
-  <modal :image="image" :width={{width}}  :height={{height}} :show.sync="showModal" v-if="showModal"></modal>
+
+  <modal :image="image" :show.sync="showModal" :width.sync="width" :height.sync="height"></modal>
+
 </template>
 
 <script>
@@ -47,22 +49,18 @@
         data(){
             return{
               showModal: false,
-              width: 0,
-              height: 0
             }
         },
 
 
-        computed: {
-          loadImage: function(){
-            $('#retina_img').load(function(){
-
-            }).attr
-          }
-        },
-
       ready(){
-
+          let img = new Image();
+          let self = this;
+          img.onload = function(){
+            self.width = img.width;
+            self.height = img.height;
+          };
+          img.src = this.image.retina.url;
       },
 
         methods:{
@@ -79,7 +77,7 @@
 
           deleteImage:function(image){
 
-            
+
           },
 
           determineOriginalText: function (image) {
@@ -159,6 +157,8 @@
         components:{
           modal: require('../../modal/modal.vue')
         },
-        props:['image','showdelete','showadd'],
+
+        props:['image','showdelete', 'width', 'height', 'showadd'],
+
     }
 </script>
