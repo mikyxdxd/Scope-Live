@@ -10,7 +10,6 @@
 //  import Isotope from 'isotope-layout'
     export default{
         ready: function(){
-          console.log(this.showdelete)
         },
         watch: {
           //once dataList updated, update the view

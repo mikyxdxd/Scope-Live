@@ -1,14 +1,8 @@
-<template>
-  <div id="latestpage" v-if="scope">
-    <list :datalist.sync="imageList" :showdelete.sync="scope.owner.id == user.id "></list>
-    <div id="loadMore" v-show="imageList.length>0 && hasMore"><button class="waves-effect waves-light btn" v-on:click="appendDataList()">Load More</button></div>
-  </div>
-</template>
-
 <script>
   import dataService from '../../../services/dataservices'
   require('./latestpage.scss')
   export default{
+    template:require('./latestpage.html'),
     ready: function(){
       this.timeStamp = Date.now();
       this.scopeId = this.$route.params.scopeId;

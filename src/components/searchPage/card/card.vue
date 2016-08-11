@@ -1,7 +1,7 @@
 <template>
     <div class="card one_image new">
-      <div class="imgCtr">
-        <div class="trash ctr"><i class="fa fa-trash" aria-hidden="true"></i></div>
+      <div class="imgCtr" v-if="showdelete">
+        <div class="trash ctr" v-if="showdelete"><i class="fa fa-trash" aria-hidden="true"></i></div>
       </div>
       <div class="user_info">
         <!--<div class="ui blue right ribbon label" ng-show="image.sourceType != 'PX' && image.sourceType != 'SM'"><i class="icon white" ng-class="determineOriginalIcon(image)"></i></div>-->
@@ -14,7 +14,7 @@
           <div v-if="image.sourceOwner" class="source">@{{determineOriginalText(image)}}</div>
           <div v-else class="source">@Scope</div>
           <div class="time_location">
-            <div class="location ng-binding" v-if="image.location.address"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right:0.5em"></i>{{image.location.address}}</div>
+            <div class="location ng-binding" v-if="image.location"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right:0.5em"></i>{{image.location.address}}</div>
             <div class="image_time ng-binding"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:0.2em"></i>{{getShotTime(image.shotTime)}}</div>
           </div>
         </div>
@@ -46,7 +46,7 @@
 
       ready(){
 
-          console.log(this.showdelete);
+
       },
 
         methods:{

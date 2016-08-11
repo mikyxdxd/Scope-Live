@@ -1,13 +1,31 @@
 export default(App)=>{
-
   let VueRouter = require('vue-router');
+  let dataService = require('./services/dataservices');
   let router = new VueRouter({
     hashbang: false,
     history: true,
     root: '/'
   })
 
-  router.beforeEach((transition)=>{setTimeout(()=>{window.scrollTo(0,0)},100);transition.next()});
+  router.beforeEach((transition)=>{
+
+    let verifyUser = setInterval(()=>{
+      if(dataService.getUserType() != null){
+        console.log(dataService.getUserType())
+        clearInterval(verifyUser);
+        transition.next();
+        window.scrollTo(0,0);
+      }else{
+
+      }
+    },200);
+    //transition.next()
+
+  });
+
+
+
+
   router.map({
     '/':{
       component: require('./components/landing/landing.vue')
