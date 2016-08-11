@@ -1,8 +1,9 @@
 <template>
-    <div class="card one_image new">
+    <div class="card one_image new" v-if="image.retina">
       <div class="imgCtr" v-if="showdelete || showadd">
-        <div class="trash ctr" v-if="showdelete && !image.deleting" @click="deleteImage(image)"><i class="fa fa-trash" aria-hidden="true"></i></div>
-        <div class="delete ctr" v-if="showdelete && image.deleting"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i></div>
+        <div class="trash ctr" v-if="showdelete && !image.$$deleting" @click="deleteImage(image,$event)"><i class="fa fa-trash" aria-hidden="true"></i></div>
+        <div class="delete ctr" v-if="!image.$$deleted && image.$$deleting"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i></div>
+        <div class="deleted ctr" v-if="image.$$deleted"><i class="fa fa-trash" aria-hidden="true"></i></div>
         <div class="add ctr" v-if="showadd && !image.$$rescoping" @click="addToScope(image)"><i class="fa fa-check" aria-hidden="true"></i></div>
         <div class="rescope ctr" v-if="image.$$rescoping && !image.$$rescoped"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i></div>
         <div class="rescoped ctr" v-if="image.$$rescoped"><i class="fa fa-check" aria-hidden="true"></i></div>
@@ -38,7 +39,7 @@
       </div>
     </div>
 
-  <modal :image="image" :show.sync="showModal" :width.sync="width" :height.sync="height"></modal>
+  <modal :image="image" :show.sync="showModal" :width.sync="width" :height.sync="height" v-if="image.retina"></modal>
 
 </template>
 
@@ -54,12 +55,14 @@
 
 
       ready(){
+
           let img = new Image();
           let self = this;
           img.onload = function(){
             self.width = img.width;
             self.height = img.height;
           };
+          if(this.image.retina)
           img.src = this.image.retina.url;
       },
 
@@ -70,14 +73,18 @@
             this.image = Object.assign({}, this.image, {$$rescoping:true});
             dataService.reScope(this.$route.params.scopeId,image.id).then((res)=>{
               this.image = Object.assign({}, this.image, {$$rescoped:true});
+            }).catch((e)=>{
+              this.image = Object.assign({}, this.image, {$$rescoped:true});
             })
 
           },
 
 
           deleteImage:function(image){
-
-
+            this.image = Object.assign({}, this.image, {$$deleting:true});
+            dataService.deleteImage(image.id).then((res)=>{
+              this.image = Object.assign({}, this.image, {$$deleted:true});
+            })
           },
 
           determineOriginalText: function (image) {

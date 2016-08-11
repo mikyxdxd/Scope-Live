@@ -50,14 +50,49 @@
     padding-left: 335px;
     width: 100%;
 
+    .user_info_ctn{
+
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 335px;
+      height: 100%;
+    }
+
     #user_info{
       border-bottom: 1px solid #efefef;
-      height: 78px;
-      padding: 20px 0;
+      height: 65px;
+      font-size: 0.8em;
+      padding: 0.8em;
       position: absolute;
-      left: 19px;
+      left: 0;
       top: 0;
-      width: 287px;
+      width: 335px;
+
+      .time_location{
+
+        font-size: 1em;
+        font-weight: 400;
+        color: grey;
+        line-height: 1em;
+        margin-top: 3%;
+        margin-left: -1.5px;
+        .fa-map-marker {
+          margin-right: 0.1em;
+          color: #4da5f5;
+        }
+        .fa-clock-o {
+          margin-right: 0.1em;
+          color: #da3939;
+          margin-left: -0.1em;
+        }
+        .location,.image_time{
+
+          margin-top: 5px;
+        }
+
+
+      }
 
       #user_avatar{
         display: inline-block;
@@ -77,11 +112,16 @@
 
       #user_info_right{
         display: inline-block;
-        vertical-align: bottom;
+        vertical-align: middle;
         width: 75%;
         margin-left: 5%;
 
+        #wrapper{
 
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+        }
 
         #user_name{
           a{
@@ -100,9 +140,44 @@
       box-sizing: border-box;
       position: absolute;
       left: 0;
-      top: 78px;
+      top: 65px;
       width: 335px;
       overflow: auto;
+      padding: 0.8em;
+
+      #image_description{
+
+        font-size: .8em;
+        font-weight: normal;
+        line-height: 1.5em;
+        color: grey;
+      }
+
+      .tag_list{
+
+        li{
+
+          display: inline-block;
+          list-style: none;
+          margin-top: .2em;
+          z-index: 0;
+
+
+        a{
+
+          color: grey;
+          font-weight: 500 !important;
+          border-radius: 0;
+          border: 1px solid;
+          font-size: 0.75em;
+          padding: 0.3em 0.5em;
+          line-height: 0.5em;
+
+
+        }
+
+        }
+      }
     }
 
     #rtn-image{
@@ -124,94 +199,6 @@
       }
 
     }
-    //.container-left{
-    //  display: inline-block;
-    //  width: 30vw;
-    //  max-height: 70vh;
-    //  background: #fff;
-    //  padding: 10px .5em 0;
-    //  height: 100%;
-    //  position: relative;
-    //  overflow: auto;
-    //
-    //  #close_button{
-    //    display: inline-block;
-    //    cursor: pointer;
-    //  }
-    //  #close_button:hover{
-    //    color: gray;
-    //  }
-    //  #user_info{
-    //    text-align: left;
-    //    padding: 5px 15px;
-    //    width: 100%;
-    //
-    //
-    //
-    //  }
-    //
-    //  #image_info{
-    //    margin-top: auto;
-    //    word-break: break-word;
-    //    overflow: auto;
-    //    height: 80%;
-    //    padding: .5em 1em;
-    //
-    //    #image_tags{
-    //      margin-top: 5px;
-    //
-    //      ul{
-    //        padding: 0;
-    //        margin-top: 0;
-    //        margin-bottom: 10px;
-    //
-    //        li{
-    //          display: inline-block;
-    //          width: auto;
-    //          margin-right: 2px;
-    //          margin-top: 3px;
-    //
-    //          a{
-    //            background: #fff;
-    //            border: 1px solid rgba(34,36,38,.15);
-    //            box-shadow: none;
-    //            color: grey;
-    //            font-weight: 500!important;
-    //            border-color: grey;
-    //            border-radius: 0;
-    //            padding: 0.3em;
-    //          }
-    //        }
-    //      }
-    //    }
-    //  }
-    //
-    //
-    //  #user_info_right{
-    //    display: inline-block;
-    //    vertical-align: bottom;
-    //    width: 75%;
-    //    margin-left: 5%;
-    //
-    //    #user_name{
-    //      a{
-    //        font-weight: 700;
-    //        font-size: 1.05em;
-    //        color: black;
-    //      }
-    //
-    //    }
-    //  }
-    //
-    //}
-    //
-    //.container-right{
-    //  background-color: #edeeee;
-    //  display: block;
-    //  width: 100%;
-    //
-    //
-    //}
 
   }
 

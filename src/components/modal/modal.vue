@@ -2,7 +2,11 @@
   <div class="modal-mask" v-show="show" transition="modal" @click="show = false">
       <div class="modal-container">
         <article>
-          <div id="user_info">
+
+          <!--<div class="user_info_ctn">-->
+
+          <div id="user_info" v-if="image.sourceOwner">
+            <div id="wrapper">
             <div id="user_avatar">
               <img :src='image.sourceOwner.profile_picture'>
             </div>
@@ -11,13 +15,16 @@
                 <a :href="determineOriginal(image)" target="__blacnk">{{image.sourceOwner.username}}</a>
               </div>
 
-              <div class="time_location" v-if="image.location">
+              <div class="time_location">
                 <div class="location" v-if="image.location"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right:0.5em"></i>{{image.location.address}}</div>
                 <div class="image_time"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:0.2em"></i>{{getShotTime(image.shotTime)}}</div>
               </div>
 
             </div>
+              </div>
           </div>
+
+            <!--</div>-->
 
 
 
