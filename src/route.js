@@ -42,7 +42,9 @@ export default(App)=>{
     },
     '/s/:scopeId':{
       component:require('./components/scopepage/scopepage.vue')
-
+    },
+    '/p/:scopeId':{
+      component:require('./components/presenting/presenting.vue')
     }
   })
 

@@ -1,4 +1,5 @@
 <template>
+  <div id="loading">
     <div v-show="show">
       <div class="sk-cube-grid">
         <div class="sk-cube sk-cube1"></div>
@@ -11,6 +12,7 @@
         <div class="sk-cube sk-cube8"></div>
         <div class="sk-cube sk-cube9"></div>
       </div>
+    </div>
     </div>
 </template>
 <style>
@@ -77,7 +79,7 @@
   }
 </style>
 <script>
-
+    require('./loading.scss')
     export default{
         data(){
             return{

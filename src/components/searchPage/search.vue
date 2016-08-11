@@ -25,7 +25,7 @@
         data(){
             return{
               dataList: [],
-              pageSize: 20,
+              pageSize: 30,
               pageNo: 0,
               hasMore:true,
               showLoading: true

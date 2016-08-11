@@ -1,4 +1,5 @@
 <template>
+  <div id="imagecard">
     <div class="card one_image new" v-if="image.retina">
       <div class="imgCtr" v-if="showdelete || showadd">
         <div class="trash ctr" v-if="showdelete && !image.$$deleting" @click="deleteImage(image,$event)"><i class="fa fa-trash" aria-hidden="true"></i></div>
@@ -25,7 +26,6 @@
         </div>
       </div>
        <div class="pic" @click="showModal = true">
-         <div>{{loadImage}}</div>
           <img :src='image.retina.url' {{ loadImage }} id="retina_img">
         </div>
       <div class="image_info">
@@ -40,6 +40,7 @@
     </div>
 
   <modal :image="image" :show.sync="showModal" :width.sync="width" :height.sync="height" v-if="image.retina"></modal>
+    </div>
 
 </template>
 
