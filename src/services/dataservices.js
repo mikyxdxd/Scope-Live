@@ -13,10 +13,12 @@ class DataService{
     axios.defaults.headers.post['Content-Type'] = 'text/json';
     // this._scopetoken = localStorage._scopetoken;
     this.userToken = localStorage._scopetoken;
-
     this.user = null;
+    this.userType = null;
     if(this.userToken && this.userToken.length > 0){
       this._getUserProfile();
+    }else{
+      this.userType = 'visitor';
     }
   }
 
@@ -25,11 +27,17 @@ class DataService{
       'Authorization':this.userToken
     }}).then((res)=>{
       this.user = res.data;
-  })
+      this.userType = 'user';
+    })
   }
 
   getUser(){
     return this.user;
+  }
+
+  getUserType(){
+
+    return this.userType;
   }
 
   getScopeGeneral(scopeId, pageNo, pageSize, timeStamp, userType){

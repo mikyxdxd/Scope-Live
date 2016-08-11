@@ -8,7 +8,6 @@
 
 <script>
   import dataService from '../../services/dataservices'
-  import Isotope from 'isotope-layout'
   require('./search.scss')
     export default{
         ready: function(){
@@ -29,9 +28,8 @@
 
             }
         },
-        params:['tag', 'dataList'],
+        params:['tag','dataList'],
         components:{
-            'card':require('./card/card.vue'),
             'list': require('./photoList/list'),
             'searchheader':require('./searchheader/searchheader.vue')
 
@@ -45,9 +43,7 @@
               if(this.dataList.length < this.pageSize) this.hasMore = false
               this.dataList = this.dataList.concat(data);
             }
-            console.log(this.dataList);
           },
-
           appendDataList: function(){
             dataService.getImageViaTag(this.pageNo, this.pageSize, this.timeStamp, this.tag).then((res)=>{
               this.pageNo++;
