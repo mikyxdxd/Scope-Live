@@ -1,12 +1,7 @@
 <template>
-  <div class="modal-mask" v-show="show" transition="modal">
+  <div class="modal-mask" v-show="show" transition="modal" @click="show = false" v-on:click='determineImageHeight(image)'>
       <div class="modal-container">
-
-        <div class="container-left">
-          <div id="close_button" @click="show = false">
-            <i class="fa fa-times" aria-hidden="true"></i>
-          </div>
-
+        <article>
           <div id="user_info">
             <div id="user_avatar">
               <img :src='image.sourceOwner.profile_picture'>
@@ -17,16 +12,16 @@
               </div>
 
               <div class="time_location" v-if="image.location">
-                <div class="location ng-binding"><i class="icon tiny marker"></i>Brooklyn Bridge</div>
-                <div class="image_time ng-binding" style="margin-left: 0.35em;"><i class=""></i>8 hours ago</div>
+                <div class="location" v-if="image.location"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right:0.5em"></i>{{image.location.address}}</div>
+                <div class="image_time"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:0.2em"></i>{{getShotTime(image.shotTime)}}</div>
               </div>
 
             </div>
           </div>
 
-          <div class="ui divider"></div>
 
-          <div id="image_info">
+
+          <div id="image_info_left">
             <div id="image_description">
               {{image.description}}
             </div>
@@ -37,13 +32,36 @@
             </div>
           </div>
 
-        </div>
-
-        <div class="container-right">
-          <div class="image">
-            <img :src="image.retina.url">
+          <div>
+            <div id="rtn-image" v-bind:style="{ paddingBottom: determineImageHeight(image) }">
+              <img :src="image.retina.url">
+            </div>
+            <div id="temp"></div>
           </div>
-        </div>
+
+        </article>
+
+
+
+          <!--<div class="container-left">-->
+            <!--<div id="close_button" @click="show = false">-->
+              <!--<i class="fa fa-times" aria-hidden="true"></i>-->
+            <!--</div>-->
+
+
+
+            <!--<div class="ui divider"></div>-->
+
+
+
+          <!--</div>-->
+
+          <!--<div class="container-right">-->
+            <!--<div class="image">-->
+              <!--<img :src="image.retina.url">-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</article>-->
   </div>
 </template>
 
@@ -69,7 +87,14 @@
         },
 
         methods:{
-
+          determineImageHeight(image){
+            let height = image.retina.height;
+            let width = image.retina.width;
+            let perc = 600*height / width / 600 * 100;
+            perc = perc.toString() + "%";
+            console.log(perc);
+            return perc;
+          },
           determineOriginal: function (image) {
 
             if (image && image.sourceOwner) {
@@ -98,8 +123,25 @@
                   break;
               }
             }
-          }
+          },
 
+          getShotTime: function (shotTime) {
+            var second = (Date.now() - shotTime) * 0.001;
+            var minutes = second / 60;
+            var hour = minutes / 60;
+            if (hour < 1) {
+              return Math.floor(minutes) + ' mins ago';
+            }
+            var day = hour / 24;
+            if (day < 1) {
+              return Math.floor(hour) + ' hours ago';
+            }
+            var week = day / 7;
+            if (week < 1) {
+              return Math.floor(day) + ' days ago';
+            }
+            return Math.floor(week) + ' weeks ago';
+          }
         }
     }
 </script>
