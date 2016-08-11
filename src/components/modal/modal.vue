@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-mask" v-show="show" transition="modal" @click="show = false" v-on:click='determineImageHeight(image)'>
+  <div class="modal-mask" v-show="show" transition="modal" @click="show = false">
       <div class="modal-container">
         <article>
           <div id="user_info">
@@ -33,7 +33,7 @@
           </div>
 
           <div>
-            <div id="rtn-image" v-bind:style="{ paddingBottom: determineImageHeight(image) }">
+            <div id="rtn-image" v-bind:style="{paddingBottom: heightPerc}">
               <img :src="image.retina.url">
             </div>
             <div id="temp"></div>
@@ -76,27 +76,37 @@
         },
         image:{
           type: Object
+        },
+        width:{
+          required: true
+        },
+        height:{
+          required: true
         }
+      },
+
+      ready(){
+
+//        $('html').css('overflow-y','hidden');
       },
         data(){
             return{
-
+              heightPerc: 0
             }
         },
         components:{
         },
 
-        methods:{
-          determineImageHeight(image){
-            var img = new Image();
-            img.src = image.retina.url;
-            let height = img.retina.height;
-            let width = img.retina.width;
-            let perc = 600*height / width / 600 * 100;
+        watch: {
+          'width': function(val, oldVal){
+            let width = val;
+            let height = this.height;
+            let perc = 600* this.height / this.width / 600 * 100;
             perc = perc.toString() + "%";
-            console.log(perc);
-            return perc;
+            this.heightPerc = perc;
           },
+        },
+        methods:{
           determineOriginal: function (image) {
 
             if (image && image.sourceOwner) {
