@@ -1,9 +1,11 @@
 <template>
     <div id="searchpage">
     <searchheader></searchheader>
+
     <list :datalist.sync="dataList"></list>
-    <div id="loadMore" v-show="dataList.length>0 && hasMore"><button class="waves-effect waves-light btn" v-on:click="appendDataList()">Load More</button></div>
+    <div id="loadMore" v-show="dataList.length>0 && hasMore && !showLoading"><button class="waves-effect waves-light btn" v-on:click="appendDataList()" @click="showLoading = true">Load More</button></div>
       </div>
+  <loading :show.sync="showLoading"><loading>
 </template>
 
 <script>
@@ -14,6 +16,7 @@
           this.timeStamp = Date.now();
           this.tag = this.$route.params.tag;
           dataService.getImageViaTag(this.pageNo, this.pageSize, this.timeStamp, this.tag).then((res)=>{
+            this.showLoading = false;
             this.pageNo++;
             this.updateDataList(res.data.data);
           });
@@ -24,14 +27,16 @@
               dataList: [],
               pageSize: 20,
               pageNo: 0,
-              hasMore:true
+              hasMore:true,
+              showLoading: true
 
             }
         },
         params:['tag','dataList'],
         components:{
             'list': require('./photoList/list'),
-            'searchheader':require('./searchheader/searchheader.vue')
+            'searchheader':require('./searchheader/searchheader.vue'),
+            'loading': require('../loading/loading.vue')
 
         },
 
@@ -46,6 +51,7 @@
           },
           appendDataList: function(){
             dataService.getImageViaTag(this.pageNo, this.pageSize, this.timeStamp, this.tag).then((res)=>{
+              this.showLoading = false;
               this.pageNo++;
               this.updateDataList(res.data.data);
             });

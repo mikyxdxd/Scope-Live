@@ -87,7 +87,7 @@
 
       ready(){
 
-//        $('html').css('overflow-y','hidden');
+//
       },
         data(){
             return{
@@ -105,6 +105,13 @@
             perc = perc.toString() + "%";
             this.heightPerc = perc;
           },
+          'show':function(val, oldVal){
+            if (val){
+              $('html').css('overflow-y','hidden');
+            }else{
+              $('html').css('overflow-y','auto');
+            }
+          }
         },
         methods:{
           determineOriginal: function (image) {

@@ -23,7 +23,7 @@
         components:{
           scopeheader:require('./scopeheader/scopeheader.vue'),
           featurepage:require('./featurepage/featurepage.vue'),
-          latestpage:require('./latestpage/latestpage.vue')
+          latestpage:require('./latestpage/latestpage.vue'),
         }
     }
 </script>
