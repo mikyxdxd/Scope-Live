@@ -1,8 +1,8 @@
 <template>
     <div class="card one_image new">
       <div class="imgCtr" v-if="showdelete || showadd">
-        <div class="trash ctr" v-if="showdelete && !image.deleting" @click="deleteImage(image)"><i class="fa fa-trash" aria-hidden="true"></i></div>
-        <div class="delete ctr" v-if="showdelete && image.deleting"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i></div>
+        <div class="trash ctr" v-if="showdelete && !image.$$deleting" @click="deleteImage(image)"><i class="fa fa-trash" aria-hidden="true"></i></div>
+        <div class="delete ctr" v-if="showdelete && image.$$deleting"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i></div>
         <div class="add ctr" v-if="showadd && !image.$$rescoping" @click="addToScope(image)"><i class="fa fa-check" aria-hidden="true"></i></div>
         <div class="rescope ctr" v-if="image.$$rescoping && !image.$$rescoped"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i></div>
         <div class="rescoped ctr" v-if="image.$$rescoped"><i class="fa fa-check" aria-hidden="true"></i></div>
@@ -76,8 +76,10 @@
 
 
           deleteImage:function(image){
-
-
+            this.image = Object.assign({}, this.image, {$$deleting:true});
+            dataService.deleteImage(image.id).then((res)=>{
+              console.log(res);
+            })
           },
 
           determineOriginalText: function (image) {
