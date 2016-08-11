@@ -14,10 +14,8 @@
   border-radius: 0px;
 
   .imgCtr{
-
     background: #fafafa;
     text-align: center;
-
     .ctr{
       display: inline-block;
       width: auto;
@@ -29,6 +27,12 @@
       &:hover{
         background: #fa5757;
         cursor: pointer;
+      }
+    }
+    .rescope,.rescoped{
+      background: green;
+      &:hover{
+        background: green;
       }
     }
 
