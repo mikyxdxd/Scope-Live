@@ -37,7 +37,8 @@
           );
         },
         components:{
-          login:require('../login/login.vue')
+          login:require('../login/login.vue'),
+          addscope: require('../addScope/addScope.vue')
         }
     }
 </script>

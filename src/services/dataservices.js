@@ -102,6 +102,26 @@ class DataService {
     return axios.get(this.httpServerUrl + '/search/images?&size=' + pageSize + '&tag=' + encodeURI(encodeURI(imageTag)) + '&timestamp=' + timeStamp + '&page=' + pageNo);
   }
 
+  createScope(hashtag, caption, description) {
+    console.log(this.userToken);
+    return axios({
+      method: 'POST', url: this.httpServerUrl + '/scope',
+      headers: {
+        'Authorization': this.userToken
+      },
+      data:{
+          'caption': caption,
+          'tag': hashtag,
+          'description': description,
+          'location': null,
+          "shareType":"PUBLIC",
+          "sourceType":"ALL",
+          "showType": "NORMAL",
+          "scopeRole":"OWN",
+        }
+    })
+  }
+
   reScope(scopeId, mediaId) {
 
     return axios({
