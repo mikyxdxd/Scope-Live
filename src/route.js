@@ -38,6 +38,7 @@ export default(App)=>{
       component: require('./components/searchPage/search.vue')
     },
     '/s/:scopeId/setting':{
+      name: 'scopeSetting',
       component:require('./components/user/scopesetting/scopesetting.vue')
     },
     '/s/:scopeId':{

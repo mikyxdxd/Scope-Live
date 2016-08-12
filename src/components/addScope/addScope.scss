@@ -11,7 +11,7 @@
 
 #addScope-container{
   width: 60vw;
-  height: 40vh;
+  height: 50vh;
   margin: 10vh auto;
   display: block;
   position: relative;
@@ -59,6 +59,10 @@
           -moz-box-sizing: border-box; /* Firefox, other Gecko */
           box-sizing: border-box; /* Opera/IE 8+ */
           height: auto;
+        }
+
+        textarea{
+          resize: none;
         }
       }
 

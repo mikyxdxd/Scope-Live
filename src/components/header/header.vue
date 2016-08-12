@@ -5,6 +5,7 @@
         data(){
             return{
               showlogin:false,
+              showAddScope: false,
               user:{}
             }
         },

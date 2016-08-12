@@ -103,7 +103,6 @@ class DataService {
   }
 
   createScope(hashtag, caption, description) {
-    console.log(this.userToken);
     return axios({
       method: 'POST', url: this.httpServerUrl + '/scope',
       headers: {
@@ -121,6 +120,19 @@ class DataService {
         }
     })
   }
+
+  updateScope(scopeId, newScope){
+    return axios({
+      method: 'PUT', url: this.httpServerUrl + `/scope/${scopeId}`,
+      headers:{
+        'Authorization': this.userToken
+      },
+      data: newScope
+
+    })
+  }
+
+
 
   reScope(scopeId, mediaId) {
 
@@ -144,6 +156,16 @@ class DataService {
       },
       url: this.httpServerUrl + `/image/${mediaId}`
     });
+  }
+
+  deleteScope(scopeId){
+    return axios({
+      method: 'DELETE',
+      headers: {
+        'Authorization': this.userToken
+      },
+      url: this.httpServerUrl + `/scope/${scopeId}`
+    })
   }
 
   getImageViaScope(pageNo, pageSize, timeStamp, scopeId) {
