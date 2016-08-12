@@ -1,5 +1,26 @@
 #scopepage{
 
+  #scope_ctr{
+    text-align: right;
+    margin-bottom: 15px;
+    padding: 0.5em;
+    .tab{
+      display: inline-block;
+      color: white;
+      background: #d35d68;
+      border-radius: 5px;
+      font-weight: 300;
+      margin-left: 10px;
+      font-size: 1.2em;
+      padding: 0.3em 0.8em;
+      line-height: 1.2em;
+      i{
+
+        margin-right: 0.5em;
+      }
+    }
+  }
+
   #scope_tab{
 
     width: 100%;

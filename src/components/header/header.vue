@@ -13,14 +13,14 @@
         watch:{
 
             '$route.path':{
-
                  handler: (val, oldVal)=>{
-
                    if(val != '/'){
 
-      $('#header').removeClass('home')
-                    }
+                        $('#header').removeClass('home')
+                    }else{
 
+      $('#header').addClass('home')
+    }
                  },
                  deep: true
             }
@@ -35,6 +35,8 @@
           $('.dropdown-button').dropdown({
               inDuration: 300}
           );
+          if(this.$route.path != '/') $('#header').removeClass('home')
+
         },
         components:{
           login:require('../login/login.vue')

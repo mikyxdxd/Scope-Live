@@ -8,6 +8,14 @@
       this.setCheckingInterval();
 
     },
+    beforeDestroy:()=>{
+
+      if(this.checkingInterval){
+
+        clearInterval(this.checkingInterval);
+      }
+
+    },
     methods: {
 
       setCheckingInterval:function(){
