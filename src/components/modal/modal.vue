@@ -1,6 +1,7 @@
 <template>
   <div class="modal-mask" v-show="show" transition="modal" @click="show = false">
-      <div class="modal-container">
+
+      <div class="modal-container" @click="preventClick($event)">
         <article>
 
           <!--<div class="user_info_ctn">-->
@@ -142,6 +143,9 @@
           }
         },
         methods:{
+          preventClick: function(e){
+            e.stopPropagation();
+          },
           determineOriginal: function (image) {
 
             if (image && image.sourceOwner) {

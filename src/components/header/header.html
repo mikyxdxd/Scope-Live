@@ -27,10 +27,12 @@
 
         <div id="nav-scope" v-if="user.email">
             <button class="btn btn-tgb-primary" data-toggle="dropdown"><i class="icon icon-grid6"></i> <span>My Scopes</span></button>
-            <button style="margin-left:-2px" class="btn"><span class="material-icons">add</span></button>
+            <button style="margin-left:-2px" class="btn" @click="showAddScope = true"><span class="material-icons">add</span></button>
         </div>
         <login :showlogin.sync="showlogin" :user.sync="user"></login>
+
         <!--<div class="item">Sign In</div>-->
       </div>
     </div>
+    <addscope :show.sync="showAddScope"></addscope>
 </div>

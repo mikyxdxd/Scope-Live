@@ -102,6 +102,38 @@ class DataService {
     return axios.get(this.httpServerUrl + '/search/images?&size=' + pageSize + '&tag=' + encodeURI(encodeURI(imageTag)) + '&timestamp=' + timeStamp + '&page=' + pageNo);
   }
 
+  createScope(hashtag, caption, description) {
+    return axios({
+      method: 'POST', url: this.httpServerUrl + '/scope',
+      headers: {
+        'Authorization': this.userToken
+      },
+      data:{
+          'caption': caption,
+          'tag': hashtag,
+          'description': description,
+          'location': null,
+          "shareType":"PUBLIC",
+          "sourceType":"ALL",
+          "showType": "NORMAL",
+          "scopeRole":"OWN",
+        }
+    })
+  }
+
+  updateScope(scopeId, newScope){
+    return axios({
+      method: 'PUT', url: this.httpServerUrl + `/scope/${scopeId}`,
+      headers:{
+        'Authorization': this.userToken
+      },
+      data: newScope
+
+    })
+  }
+
+
+
   reScope(scopeId, mediaId) {
 
     return axios({
@@ -124,6 +156,16 @@ class DataService {
       },
       url: this.httpServerUrl + `/image/${mediaId}`
     });
+  }
+
+  deleteScope(scopeId){
+    return axios({
+      method: 'DELETE',
+      headers: {
+        'Authorization': this.userToken
+      },
+      url: this.httpServerUrl + `/scope/${scopeId}`
+    })
   }
 
   getImageViaScope(pageNo, pageSize, timeStamp, scopeId) {

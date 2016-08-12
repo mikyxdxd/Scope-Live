@@ -3,4 +3,35 @@
       <h5>General</h5>
     </div>
     <div class="sub_caption">Set general settings for your tagboard</div>
+    <div class="scopeSet_form">
+      <form v-on:submit.prevent="updateScope()">
+        <div class="scopeSet_name">
+          <label>Scope name</label>
+          <input type="text" :value="scope.caption" v-model="newCaption">
+        </div>
+
+        <div class="scopeSet_tag">
+          <label>Scope tag</label>
+          <input type="text" :value="scope.tag" v-model="newTag">
+        </div>
+
+        <div class="scopeSet_location">
+          <label>Scope location</label>
+          <input type="text" :value="scope.location.address" v-model="newAddress">
+        </div>
+
+        <div class="scopeSet_des">
+          <textarea  placeholder="Scope description" rows="3" cols="50"  v-model="newDesc"></textarea>
+        </div>
+
+        <div class="scopeSet_but">
+          <input type="submit" value="Submit" >
+        </div>
+      </form>
+
+      <div class="scopeSet_del">
+        <input type="button" value="Delete Scope" @click="deleteScope()">
+      </div>
+
+    </div>
 </div>

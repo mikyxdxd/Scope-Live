@@ -5,6 +5,7 @@
         data(){
             return{
               showlogin:false,
+              showAddScope: false,
               user:{}
             }
         },
@@ -39,7 +40,8 @@
 
         },
         components:{
-          login:require('../login/login.vue')
+          login:require('../login/login.vue'),
+          addscope: require('../addScope/addScope.vue')
         }
     }
 </script>
