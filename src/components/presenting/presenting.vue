@@ -11,10 +11,17 @@
       this.user= dataService.getUser();
 //      this.setUpdateInterval();
     },
+
+    beforeDestroy:function(){
+
+      if(this.updateInterval != null){
+        clearInterval(this.updateInterval);
+      }
+    },
     data(){
       return{
         imageList: [],
-        pageSize: 10,
+        pageSize: 50,
         pageNo: 0,
         scope:null,
         newImageList:[],
@@ -41,7 +48,6 @@
       setUpateInterval:function(){
         this.updateInterval = setInterval(()=>{
           dataService.getImageViaScope(0, 15, Date.now(), this.scopeId).then((res)=>{
-            console.log(res.data.data);
             for(let i in res.data.data){
               let push = true;
               for(let j in this.imageList){

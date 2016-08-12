@@ -21,12 +21,14 @@
         pageNo: 0,
         hasMore:true,
         user:{},
-        showadd:false
+        showadd:false,
+        showLoading:true
       }
     },
     props:['scope'],
     components:{
       'list': require('../../searchPage/photoList/list.vue'),
+      'loadinganimation':require('../../loading/loading.vue')
     },
     methods: {
       updateDataList: function(data){
@@ -38,7 +40,9 @@
         }
       },
       appendDataList: function(){
+        this.showLoading = true;
         dataService.getImageViaTag(this.pageNo++, this.pageSize, this.timeStamp, this.scope.tag).then((res)=>{
+          this.showLoading = false;
           this.updateDataList(res.data.data);
         });
       }

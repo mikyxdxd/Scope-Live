@@ -25,6 +25,27 @@
               </div>
           </div>
 
+
+          <div id="user_info" v-else>
+            <div id="wrapper">
+              <div id="user_avatar">
+                <img :src='image.owner.avatar'>
+              </div>
+              <div id="user_info_right">
+                <div id="user_name">
+                  <a :href="determineOriginal(image)" target="__blacnk">{{image.owner.name}}</a>
+                </div>
+                <div class="time_location">
+                  <div class="location" v-if="image.location"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right:0.5em"></i>{{image.location.address}}</div>
+                  <div class="image_time"><i class="fa fa-clock-o" aria-hidden="true" style="margin-right:0.2em"></i>{{getShotTime(image.shotTime)}}</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
             <!--</div>-->
 
 
