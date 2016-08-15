@@ -4,7 +4,6 @@
   export default{
     template:require('./compact.html'),
     beforeDestroy:function(){
-
       if(this.checkingInterval){
         console.log('compact clear')
         clearInterval(this.checkingInterval);
@@ -31,39 +30,12 @@
       },2000);
       this.setCheckingInterval();
     },
-    watch: {
-//      //once dataList updated, update the view
-//      'datalist': function(val, oldVal){
-//        var self = this;
-//        if(oldVal.length == 0){
-//
-//          setTimeout(function() {
-//            window._iso = self._iso = new Isotope('#photo-list', {
-//              layoutMode: 'masonry',
-//              itemSelector: '.card',
-//              transitionDuration: '0.5s'
-//            });
-//            imagesLoaded( $('#photo-list') ).on( 'progress', function(){
-//              // layout Isotope after each image loads
-//              $('.card').each((i,e)=>{
-//                setTimeout(()=>{
-//                $(e).addClass('loaded');
-//              },i*50)
-//            })
-//              $('.card').removeClass('new');
-//              self._iso.layout();
-//            });
-//
-//          });
-//        }
-//      }
-    },
     data(){
       return{
         checkingInterval:null
       }
     },
-    props:['datalist','newimagelist'],
+    props:['datalist','newimagelist','imagepresentinterval'],
     components:{
       card: require('../../../searchPage/card/card.vue')
     },
@@ -87,9 +59,21 @@
             window._iso.layout()
            });
 
-        },10000)
+        },this.imagepresentinterval * 1000)
 
         }
+    },
+    watch:{
+
+      'imagepresentinterval':function(val,oldVal){
+
+        if(this.checkingInterval){
+          clearInterval(this.checkingInterval);
+        }
+        this.setCheckingInterval();
+
+      }
+
     }
   }
 </script>

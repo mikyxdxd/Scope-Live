@@ -6,11 +6,13 @@
     ready: function(){
 
       this.setCheckingInterval();
+      this.currentImage = this.datalist[this.currentIndex++];
 
     },
     beforeDestroy:function(){
 
       if(this.checkingInterval){
+        console.log('single clear')
         clearInterval(this.checkingInterval);
       }
 
@@ -33,38 +35,23 @@
           })
           },1000)
 
-        },10000)
+        },this.imagepresentinterval * 1000)
       }
 
     },
-    watch: {
-      //once dataList updated, update the view
-      'datalist': function(val, oldVal){
 
-//          console.log(this.datalist[0])
-          this.currentImage = this.datalist[this.currentIndex++];
-//        let self = this;
-//        setTimeout(function() {
-//          window._iso = self._iso = new Isotope('#photo-list', {
-//            layoutMode: 'masonry',
-//            itemSelector: '.card',
-//            transitionDuration: '0.5s'
-//          });
-//          imagesLoaded( $('#photo-list') ).on( 'progress', function(){
-//            // layout Isotope after each image loads
-//            $('.card').each((i,e)=>{
-//              setTimeout(()=>{
-//              $(e).addClass('loaded');
-//            },i*50)
-//          })
-//            $('.card').removeClass('new');
-//            self._iso.layout();
-//          });
-//
-//        });
+    watch:{
 
+      'imagepresentinterval':function(val,oldVal){
+
+        if(this.checkingInterval){
+          clearInterval(this.checkingInterval);
+        }
+        this.setCheckingInterval();
       }
+
     },
+
     data(){
       return{
         checkingInterval:null,
@@ -72,7 +59,7 @@
         currentIndex:0
       }
     },
-    props:['datalist','newimagelist'],
+    props:['datalist','newimagelist','imagepresentinterval'],
     components:{
       card: require('../../../searchPage/card/card.vue')
     }

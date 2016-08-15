@@ -1,17 +1,20 @@
 <template>
     <div id="searchpage">
     <searchheader></searchheader>
-
-    <list :datalist.sync="dataList"></list>
+      <div id="search_ctr"><button>Create a #{{$route.params.tag}} Scope</button></div>
+      <list :datalist.sync="dataList"></list>
     <div id="loadMore" v-show="dataList.length>0 && hasMore && !showLoading"><button class="waves-effect waves-light btn" v-on:click="appendDataList()" @click="showLoading = true">Load More</button></div>
       </div>
   <loading :show.sync="showLoading"><loading>
 </template>
 
 <script>
-  import dataService from '../../services/dataservices'
+  import dataService from '../.l./services/dataservices'
   require('./search.scss')
     export default{
+
+        //TODO Create A Scope with current search tag
+
         ready: function(){
           this.timeStamp = Date.now();
           this.tag = this.$route.params.tag;

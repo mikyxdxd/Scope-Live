@@ -1,6 +1,9 @@
 <script>
     require('./header.scss')
     export default{
+
+        //TODO My Scopes Button Should display a dropdown of list of scope
+
         template:require('./header.html'),
         data(){
             return{
@@ -13,7 +16,6 @@
 
 
         watch:{
-
             '$route.path':{
                  handler: (val, oldVal)=>{
                    if(val != '/'){
@@ -31,9 +33,12 @@
         },
 
         methods:{
-          searchTag: function(tag){
-            console.log(tag);
-            this.$route.router.go({ name: 'search', params: { tag: tag}});
+
+
+          searchTag:function(tag){
+
+            this.$route.router.go({path: `/search/${tag}`});
+
           }
         },
         ready(){

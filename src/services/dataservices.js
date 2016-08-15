@@ -4,6 +4,7 @@ import axios from 'axios';
 class DataService {
 
   constructor() {
+    console.log('here')
 
     this.serverUrl = 'https://api.scopephotos.com/v1';
     this.httpServerUrl = 'https://api.scopephotos.com/v1';
@@ -29,8 +30,11 @@ class DataService {
       }
     }).then((res)=>{
       this.user = res.data;
-    this.userType = 'user';
-  })
+      this.userType = 'user';
+    }).catch((err)=>{
+
+      console.log('er')
+    })
   }
 
   getUser() {

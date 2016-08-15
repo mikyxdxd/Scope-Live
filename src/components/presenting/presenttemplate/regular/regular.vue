@@ -37,7 +37,6 @@
 
     },
     methods: {
-
       setCheckingInterval:function(){
         this.checkingInterval = setInterval(()=>{
 
@@ -57,12 +56,21 @@
 //          this._iso.layout()
 //        });
 
-      },10000)
+      },this.imagepresentinterval * 1000)
       }
 
     },
     watch: {
-      //once dataList updated, update the view
+
+      'imagepresentinterval':function(val,oldVal){
+
+        if(this.checkingInterval){
+          clearInterval(this.checkingInterval);
+        }
+        this.setCheckingInterval();
+
+      },
+
       'datalist': function(val, oldVal){
         let self = this;
         setTimeout(function() {
@@ -91,7 +99,7 @@
         checkingInterval:null
       }
     },
-    props:['datalist','newimagelist'],
+    props:['datalist','newimagelist','imagepresentinterval'],
     components:{
       card: require('../../../searchPage/card/card.vue')
     }

@@ -4,6 +4,6 @@
     template:require('./sidecontrol.html'),
     ready(){
     },
-    props:['layout','imagepresentinterval']
+    props:['layout','imagepresentinterval','showsetting']
   }
 </script>

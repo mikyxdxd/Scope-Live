@@ -13,11 +13,14 @@
     },
 
     beforeDestroy:function(){
-
+      console.log('before')
       if(this.updateInterval != null){
         clearInterval(this.updateInterval);
-        $('html').css('overflow-y','auto');
       }
+    },
+
+    destroyed:function(){
+      $('html').css('overflow-y','auto');
     },
 
     data(){
@@ -29,6 +32,7 @@
         newImageList:[],
         updateInterval:null,
         layout:'default',
+        showSetting:false,
         imagepresentinterval:10
       }
     },

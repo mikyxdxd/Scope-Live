@@ -32,10 +32,10 @@
     },
     methods: {
       updateDataList: function(data){
+        if(data.length < this.pageSize) this.hasMore = false
         if(this.imageList.length == 0){
           this.imageList = data;
         }else{
-          if(this.imageList.length < this.pageSize) this.hasMore = false
           this.imageList = this.imageList.concat(data);
         }
       },
