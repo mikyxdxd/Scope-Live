@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import dataService from '../.l./services/dataservices'
+  import dataService from '../../services/dataservices'
   require('./search.scss')
     export default{
 

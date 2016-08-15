@@ -7,6 +7,12 @@
           this.scopeId = this.$route.params.scopeId;
           this.scope = Object.assign({}, this.scope, {$$tagArr :this.scope.tag.split('#')});
           console.log(this.scope);
+          if(this.scope.sourceType == "ALL"){
+            $('#sourceTypeCheck').prop( "checked", true );
+          }else{
+            $('#sourceTypeCheck').prop( "checked", false );
+          }
+
         },
         methods:{
           addTag:function(){
@@ -26,10 +32,15 @@
           updateScope: function(){
             this.scope.description = this.newDesc;
             this.scope.tag =  '#' + this.scope.$$tagArr.join('#');
-            this.scope.sourceType = 'MEMBER';
             console.log(this.scope.tag)
+            if(this.newSourceType){
+              this.scope.sourceType = 'ALL';
+            }else{
+              this.scope.sourceType = 'MEMBER';
+            }
             this.scope.caption = this.newCaption;
             var self = this;
+
             if(this.newAddress != ""){
               let location = {
                 'address': this.newAddress,
@@ -55,9 +66,10 @@
               if(res.data.result == "OK"){
                 toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
                 toastr.success('Your scope has been deleted. ');
+                this.$route.router.go({path: `/user`});
               }else{
                 toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
-                toastr.success('Your deletion failed. Please try again!');
+                toastr.error('Your deletion failed. Please try again!');
               }
             });
           }
@@ -69,6 +81,7 @@
                 newAddress: this.scope.location ? this.scope.location.address : "",
                 newCaption: '',
                 newTag: '',
+                newSourceType: '',
                 newLat: this.scope.location ? this.scope.location.latitude : "",
                 newLng: this.scope.location ? this.scope.location.longitude : ""
             }
