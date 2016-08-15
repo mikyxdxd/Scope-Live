@@ -1,12 +1,11 @@
 <div id="header" class="home">
     <div class="caption"><a v-link="{path:'/'}">scope Live</a></div>
     <div class="main_con">
-      <form>
+      <div id="search">
         <div class="search-wrapper card">
-          <input id="search"><i class="material-icons">search</i>
-          <div class="search-results"></div>
+          <input @keydown.enter="searchTag(tag)" v-model="tag"><i class="material-icons">search</i>
         </div>
-      </form>
+      </div>
 
       <div id="header_lists">
         <div class="item">Products</div>

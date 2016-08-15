@@ -56,10 +56,20 @@
         transition:0.4s;
         margin-top: 7px;
         font-size: 1.1em;
+        font-weight: bold;
         &:hover{
           border-bottom: 3px solid #d75d66;
         }
       }
     }
+
+    #interval{
+
+      color: #259d92;
+      font-size: 1.1em;
+      text-align: right;
+      font-weight: bold;
+    }
+
   }
 }

@@ -12,11 +12,9 @@
 
 
         watch:{
-
             '$route.path':{
                  handler: (val, oldVal)=>{
                    if(val != '/'){
-
                         $('#header').removeClass('home')
                     }else{
 
@@ -31,6 +29,10 @@
 
         methods:{
 
+          searchTag:function(tag){
+
+            this.$route.router.go({path: `/search/${tag}`});
+          }
         },
         ready(){
           $('.dropdown-button').dropdown({

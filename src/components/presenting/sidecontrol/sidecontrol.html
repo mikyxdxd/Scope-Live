@@ -25,20 +25,21 @@
   <section id="general">
     <div class="sub_cap">General</div>
     <div id="src_type">
-    <div id="label">Retrive Image From Other Sources</div>
-    <div class="switch">
-      <label>
-        Off
-        <input type="checkbox">
-        <span class="lever"></span>
-        On
-      </label>
-    </div>
+    <!--<div id="label">Retrive Image From Other Sources</div>-->
+    <!--<div class="switch">-->
+      <!--<label>-->
+        <!--Off-->
+        <!--<input type="checkbox">-->
+        <!--<span class="lever"></span>-->
+        <!--On-->
+      <!--</label>-->
+    <!--</div>-->
 
       <div id="label">Update Interval</div>
       <form action="#">
+        <div id="interval">{{imagepresentinterval}}s</div>
         <p class="range-field">
-          <input type="range" :value="imagepresentinterval" v-model="imagepresentinterval" min="5" max="20" />
+          <input type="range" :value="imagepresentinterval" v-model="imagepresentinterval" min="10" max="60" />
         </p>
       </form>
 

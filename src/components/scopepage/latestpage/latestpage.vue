@@ -32,6 +32,7 @@
     },
     methods: {
       updateDataList: function(data){
+        if(data.length < this.pageSize) this.hasMore = false
         if(this.imageList.length == 0){
           this.imageList = data;
         }else{
@@ -42,7 +43,7 @@
       appendDataList: function(){
         this.showLoading = true;
         dataService.getImageViaTag(this.pageNo++, this.pageSize, this.timeStamp, this.scope.tag.replace(/#/g,' ')).then((res)=>{
-          this.showLoading = false;
+          if(res.data.data.length ==  this.pageSize ) this.showLoading = false;
           this.updateDataList(res.data.data);
         });
       }
