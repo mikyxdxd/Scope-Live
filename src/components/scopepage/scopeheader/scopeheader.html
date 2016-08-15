@@ -2,6 +2,7 @@
       <div id="header_content" v-if="scope">
       <div id="caption">{{scope.caption}}</div>
        <div id="tag_list"><div class="one_tag" v-for="tag in scope.$$tagArr">#{{tag}}</div></div>
+        <div id="location" v-if="scope.location"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right:0.5em"></i>{{scope.location.address}}</div>
       <div id="description">{{scope.description}}</div>
     </div>
 </header>
