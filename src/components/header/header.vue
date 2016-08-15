@@ -1,6 +1,9 @@
 <script>
     require('./header.scss')
     export default{
+
+        //TODO My Scopes Button Should display a dropdown of list of scope
+
         template:require('./header.html'),
         data(){
             return{
