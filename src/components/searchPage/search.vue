@@ -1,24 +1,25 @@
 <template>
     <div id="searchpage">
+      <addscope :show.sync="showAddScope"></addscope>
     <searchheader></searchheader>
-      <div id="search_ctr"><button>Create a #{{$route.params.tag}} Scope</button></div>
+      <div id="search_ctr"><button @click="showAddScope = true">Create a #{{$route.params.tag.split(' ').join('#')}} Scope</button></div>
       <list :datalist.sync="dataList"></list>
-    <div id="loadMore" v-show="dataList.length>0 && hasMore && !showLoading"><button class="waves-effect waves-light btn" v-on:click="appendDataList()" @click="showLoading = true">Load More</button></div>
-      </div>
-  <loading :show.sync="showLoading"><loading>
+    <div id="loadMore" v-show="dataList.length>0 && hasMore && !showLoading"><button class="waves-effect waves-light btn" @click="appendDataList()">Load More</button></div>
+      <loading :show.sync="showLoading"><loading>
+     </div>
 </template>
 
 <script>
-  import dataService from '../.l./services/dataservices'
+  import dataService from '../../services/dataservices'
   require('./search.scss')
     export default{
 
         //TODO Create A Scope with current search tag
 
         ready: function(){
+
           this.timeStamp = Date.now();
-          this.tag = this.$route.params.tag;
-          dataService.getImageViaTag(this.pageNo, this.pageSize, this.timeStamp, this.tag).then((res)=>{
+          dataService.getImageViaTag(this.pageNo, this.pageSize, this.timeStamp, this.$route.params.tag).then((res)=>{
             this.showLoading = false;
             this.pageNo++;
             this.updateDataList(res.data.data);
@@ -31,15 +32,17 @@
               pageSize: 30,
               pageNo: 0,
               hasMore:true,
-              showLoading: true
-
+              showLoading: true,
+              showAddScope:false,
+              defaultTag:this.$route.params.tag.split(' ')
             }
         },
         params:['tag','dataList'],
         components:{
             'list': require('./photoList/list'),
             'searchheader':require('./searchheader/searchheader.vue'),
-            'loading': require('../loading/loading.vue')
+            'loading': require('../loading/loading.vue'),
+            'addscope':require('../addScope/addScope.vue')
 
         },
 
@@ -53,6 +56,7 @@
             }
           },
           appendDataList: function(){
+            this.showLoading = true;
             dataService.getImageViaTag(this.pageNo, this.pageSize, this.timeStamp, this.tag).then((res)=>{
               this.showLoading = false;
               this.pageNo++;

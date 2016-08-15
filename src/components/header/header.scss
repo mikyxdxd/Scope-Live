@@ -15,6 +15,7 @@
   -moz-transition: all .15s ease-out;
   transition: all .15s ease-out;
 
+
   .dropdown{
 
     width: 200px !important;
@@ -154,7 +155,6 @@
       margin: 0;
       //border-bottom: 1px dashed gainsboro;
       border-radius: 0px;
-      padding: 0em 0.2em;
       box-shadow: none  ;
       //border: 1px solid gainsboro;
       input{
@@ -197,6 +197,11 @@
       a {
         color: white
       }
+    }
+
+    #search{
+
+      display: none;
     }
 
     #header_lists .item{

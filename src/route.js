@@ -19,7 +19,7 @@ export default(App)=>{
 
       }
     },200);
-    transition.next()
+    //transition.next()
 
   });
 
