@@ -9,7 +9,8 @@
             return{
               showlogin:false,
               showAddScope: false,
-              user:{}
+              user:{},
+              tag: this.$route.params.tag ? this.$route.params.tag : ""
             }
         },
 
@@ -20,21 +21,24 @@
                    if(val != '/'){
                         $('#header').removeClass('home')
                     }else{
-
-      $('#header').addClass('home')
-    }
+                      $('#header').addClass('home')
+                    }
                  },
                  deep: true
+            },
+
+            '$route.params.tag': function(newVal, oldVal){
+                  this.tag = newVal;
             }
-
-
         },
 
         methods:{
 
+
           searchTag:function(tag){
 
             this.$route.router.go({path: `/search/${tag}`});
+
           }
         },
         ready(){

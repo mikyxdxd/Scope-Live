@@ -59,6 +59,9 @@
               this.updateDataList(res.data.data);
             });
           }
+        },
+        route:{
+          canReuse: false
         }
     }
 </script>

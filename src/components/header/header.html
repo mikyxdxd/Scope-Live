@@ -1,6 +1,7 @@
 <div id="header" class="home">
     <div class="caption"><a v-link="{path:'/'}">scope Live</a></div>
     <div class="main_con">
+
       <div id="search">
         <div class="search-wrapper card">
           <input @keydown.enter="searchTag(tag)" v-model="tag"><i class="material-icons">search</i>
@@ -30,7 +31,7 @@
         </div>
         <login :showlogin.sync="showlogin" :user.sync="user"></login>
 
-        <!--<div class="item">Sign In</div>-->
+
       </div>
     </div>
     <addscope :show.sync="showAddScope"></addscope>

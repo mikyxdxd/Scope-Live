@@ -28,6 +28,15 @@
               <input type="text" v-model="captionname" required>
               </div>
 
+              <div class="switch">
+                <label>
+                  Off
+                  <input type="checkbox">
+                  <span class="lever"></span>
+                  On
+                </label>
+              </div>
+
               <div id="location">
                   <label for="textarea1">Scope Location</label>
                   <input type="text" v-model="address" required>
@@ -142,8 +151,7 @@
                 } else if (res.data.result == "SCOPE_NAME_DUPLICATE") {
                   toastr.error('Scope Name is Duplicated');
                 }
-              }
-            else
+              }else
               {
                 toastr.error('Unknwn Error,Please Try Later');
               }
