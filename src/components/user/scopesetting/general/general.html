@@ -23,25 +23,31 @@
             </div></div></div>
         </div>
 
-        <!--<div class="scopeSet_location">-->
-          <!--<label>Scope location</label>-->
-          <!--&lt;!&ndash;<input type="text" :value="scope.location.address" v-model="newAddress">&ndash;&gt;-->
-        <!--</div>-->
+
+        <div class="scopeSet_location">
+          <label>Scope location</label>
+          <div id="add_tag_btn">
+            <button type="button" @click="addLoc()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          </div>
+          <input type="text" :value="scope.location ? scope.location.address: null" v-model="newAddress">
+          <map :address.sync="newAddress" :lat.sync="newLat" :lng.sync="newLng"></map>
+        </div>
+
 
         <div class="scopeSet_des">
             <div class="input-field col s12">
               <textarea id="textarea1" class="materialize-textarea" length="120" v-model="newDesc"></textarea>
               <label for="textarea1">Scope Description</label>
             </div>
-          <!--<textarea  placeholder="Scope description" rows="3" cols="50"  v-model="newDesc"></textarea>-->
         </div>
+
         <div class="ctr">
-        <div class="scopeSet_but">
-          <button @click="updateScope()" class="waves-effect waves-light btn">Update</button>
-        </div>
-        <div class="scopeSet_del">
-          <button class="waves-effect waves-light btn" @click="deleteScope()">Delete</button>
-        </div>
+          <div class="scopeSet_but">
+            <button @click="updateScope()" class="waves-effect waves-light btn">Update</button>
+          </div>
+          <div class="scopeSet_del">
+            <button class="waves-effect waves-light btn" @click="deleteScope()">Delete</button>
+          </div>
         </div>
       </div>
 

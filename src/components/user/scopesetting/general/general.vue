@@ -6,6 +6,7 @@
         ready(){
           this.scopeId = this.$route.params.scopeId;
           this.scope = Object.assign({}, this.scope, {$$tagArr :this.scope.tag.split('#')});
+          console.log(this.scope);
         },
         methods:{
           addTag:function(){
@@ -13,6 +14,10 @@
             this.scope.$$tagArr.push(this.newTag);
             this.newTag  = '';
 
+          },
+
+          addLoc:function(e){
+            this.$broadcast('update-address', this.newAddress);
           },
           deleteTag:function(tag){
 
@@ -25,50 +30,34 @@
             console.log(this.scope.tag)
             this.scope.caption = this.newCaption;
             var self = this;
-
+            if(this.newAddress != ""){
+              let location = {
+                'address': this.newAddress,
+                'latitude': this.newLat,
+                'longitude': this.newLng
+              };
+              this.scope.location = location;
+            }
             dataService.updateScope(self.scopeId, self.scope).then((res)=>{
-              if(res.data.result == "OK"){
-                toastr.success('Your Scope has been updated');
-              }else{
-
-              }
-          });
-
-
-
-
-//            let geocoder = new google.maps.Geocoder();
-//            geocoder.geocode({'address': self.newAddress}, function(results, stats){
-//              if(stats == google.maps.GeocoderStatus.OK){
-//                let lat = results[0].geometry.location.lat();
-//                let long = results[0].geometry.location.lng();
-//                let location = {
-//                  'address': self.newAddress,
-//                  'latitude': lat,
-//                  'longitude': long
-//                };
-//                self.scope.location = location;
-//
-//                dataService.updateScope(self.scopeId, self.scope).then((res)=>{
-//                  if(res.data.result == "OK"){
-//
-//                  }else{
-//
-//                  }
-//                });
-//
-//              }else{
-//                console.log(results, stats);
-//              }
-//            });
-
+                    if(res.data.result == "OK"){
+                    console.log(res.data);
+                    toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                    toastr.success('Your Update Successfully');
+                  }else{
+                    toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                    toastr.success('Your Update Failed. Please try again!');
+                  }
+            });
           },
           deleteScope: function(){
             dataService.deleteScope(this.scopeId).then((res)=>{
-              if(res.result.data == "OK"){
-                console.log("DELETED");
+              console.log(res);
+              if(res.data.result == "OK"){
+                toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                toastr.success('Your scope has been deleted. ');
               }else{
-                console.log("not existed");
+                toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                toastr.success('Your deletion failed. Please try again!');
               }
             });
           }
@@ -77,13 +66,16 @@
             return{
                 scopeId: '',
                 newDesc:'',
-                newAddress: '',
+                newAddress: this.scope.location ? this.scope.location.address : "",
                 newCaption: '',
                 newTag: '',
+                newLat: this.scope.location ? this.scope.location.latitude : "",
+                newLng: this.scope.location ? this.scope.location.longitude : ""
             }
         },
         components:{
-          general:require('./general.vue')
+          general:require('./general.vue'),
+          map: require('../../../gMap/map.vue')
         },
       props:['scope']
     }

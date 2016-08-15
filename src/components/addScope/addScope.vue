@@ -22,13 +22,19 @@
                   </div></div></div>
 
               </div>
-              <!--<div id="caption">-->
-                <!--<input type="text" placeholder="Scope Name" v-model="captionname" required>-->
-              <!--</div>-->
 
               <div id="caption">
               <label>Scope Name</label>
               <input type="text" v-model="captionname" required>
+              </div>
+
+              <div id="location">
+                  <label for="textarea1">Scope Location</label>
+                  <input type="text" v-model="address" required>
+                  <div id="add_tag_btn">
+                    <button type="button" @click="addLoc()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                  </div>
+                  <map :address.sync="address" :lat.sync="lat" :lng.sync="lng"></map>
               </div>
 
               <div id="description">
@@ -43,24 +49,8 @@
                 <button class="waves-effect waves-light btn cancel" type="button" @click="show = false">Cancel</button><button class="waves-effect waves-light btn" @click="submitForm()">Create</button>
                 </div>
 
-              <!---->
-              <!--<div id="submit-but">-->
-                <!--<input type="submit" value="Submit"></input>-->
-              <!--</div>-->
-
             </div>
 
-            <!--<div id="addScope-suc" v-show="showSuc">-->
-              <!--You have Successfully Created a Scope. Redirect to Scope page in <span id="seconds">{{seconds}}</span> seconds-->
-            <!--</div>-->
-
-            <!--<div id="addScope-fail" v-show="showFail">-->
-              <!--Create Scope Failed. Please try again.-->
-            <!--</div>-->
-
-            <!--<div id="addScope-dup" v-show="showDup">-->
-              <!--Scope name is duplicated. Please try another name.-->
-            <!--</div>-->
 
           </div>
 
@@ -83,18 +73,20 @@
                 newTag:"",
                 tagList:[],
                 description: "",
+                address: "",
+                lat: "",
+                lng: "",
                 scopeId: "",
                 showSuc: false,
                 showFail: false,
                 showDup: false,
-                seconds: 5
             }
         },
         watch:{
           'show':function(ov,v){
             if(v == false){
               this.tagList = [];
-              this.captionname = this.hashtag = this.description = '';
+              this.captionname = this.hashtag = this.description = this.address = '';
             }
           }
         },
@@ -110,13 +102,27 @@
 
             }
           },
+
+          addLoc:function(e){
+            this.$broadcast('update-address', this.address);
+          },
           preventClick: function(e){
             e.stopPropagation();
           },
           submitForm: function() {
 
             console.log(this.captionname, this.description);
-
+            let location = null;
+            console.log(this.address, this.lat, this.lng);
+            if(this.address == ""){
+              location = null;
+            }else{
+              location = {
+                'address': this.address,
+                'latitude': this.lat,
+                'longitude': this.lng
+              }
+            }
             if (!this.captionname.trim().length || !this.tagList.length) {
 
               !this.captionname.trim().length && toastr.error('Scope Must Have A Valid Caption');
@@ -124,72 +130,30 @@
 
 
             } else {
-
-
               var self = this;
-              dataService.createScope('#' + this.tagList.join('#'), this.captionname, this.description).then((res)=>{
-                if(res.status == 201
-            )
+              dataService.createScope('#' + this.tagList.join('#'), this.captionname, this.description, location).then((res)=> {
+                if(res.status == 201)
               {
                 if (res.data.result == "OK") {
 
                   toastr.success('Your Scope Has Been Created');
                   self.$route.router.go({path: `/s/${res.data.id}`});
                   this.show = false;
-
-//                    self.scopeId = res.data.id;
-//                    self.showFail = false;
-//                    self.showDup = false;
-//                    self.showSuc = true
-//                    self.captionname = self.hashtag = self.description = '';
-//                    self.$route.router.go({ name: 'scopeSetting', params: { scopeId: self.scopeId}});
-//
-
-
                 } else if (res.data.result == "SCOPE_NAME_DUPLICATE") {
-
                   toastr.error('Scope Name is Duplicated');
-//                    self.showFail = false;
-//                    self.showDup = true;
-
-
                 }
               }
             else
               {
-
-//                self.showDup = false;
-//                self.showFail = true;
                 toastr.error('Unknwn Error,Please Try Later');
-
               }
-            })
-              ;
-
-
-            }
-
+            });
           }
-
-//          countDown(){
-//            var self = this;
-//            let foo = setInterval(function () {
-//              console.log(self.seconds);
-//              self.seconds--;
-//              if(self.seconds == 0){
-//                clearInterval(foo);
-//                self.$route.router.go({ name: 'scopeSetting', params: { scopeId: self.scopeId}});
-//                self.show = false;
-//                self.showSuc = false;
-//                self.seconds = 5;
-//              }
-//            }, 1000)
-//          }
-
+         }
         },
 
         components:{
-
+          map: require('../gMap/map.vue')
         },
         props: ['show']
     }

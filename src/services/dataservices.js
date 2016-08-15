@@ -102,7 +102,7 @@ class DataService {
     return axios.get(this.httpServerUrl + '/search/images?&size=' + pageSize + '&tag=' + encodeURI(encodeURI(imageTag)) + '&timestamp=' + timeStamp + '&page=' + pageNo);
   }
 
-  createScope(hashtag, caption, description) {
+  createScope(hashtag, caption, description, location) {
     return axios({
       method: 'POST', url: this.httpServerUrl + '/scope',
       headers: {
@@ -112,7 +112,7 @@ class DataService {
           'caption': caption,
           'tag': hashtag,
           'description': description,
-          'location': null,
+          'location': location,
           "shareType":"PUBLIC",
           "sourceType":"ALL",
           "showType": "NORMAL",

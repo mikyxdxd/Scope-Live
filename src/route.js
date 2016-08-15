@@ -42,6 +42,7 @@ export default(App)=>{
       component:require('./components/user/scopesetting/scopesetting.vue')
     },
     '/s/:scopeId':{
+      name: 'scope',
       component:require('./components/scopepage/scopepage.vue')
     },
     '/p/:scopeId':{
