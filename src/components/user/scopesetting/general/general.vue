@@ -15,38 +15,73 @@
             this.scope.caption = this.newCaption;
             var self = this;
             let geocoder = new google.maps.Geocoder();
-            geocoder.geocode({'address': self.newAddress}, function(results, stats){
-              if(stats == google.maps.GeocoderStatus.OK){
-                let lat = results[0].geometry.location.lat();
-                let long = results[0].geometry.location.lng();
-                let location = {
-                  'address': self.newAddress,
-                  'latitude': lat,
-                  'longitude': long
-                };
-                self.scope.location = location;
+            //if self.newAddress is not empty
 
-                dataService.updateScope(self.scopeId, self.scope).then((res)=>{
-                  if(res.data.result == "OK"){
+            if(self.newAddress != ""){
+              geocoder.geocode({'address': self.newAddress}, function(results, stats){
+                if(stats == google.maps.GeocoderStatus.OK){
+                  let lat = results[0].geometry.location.lat();
+                  let long = results[0].geometry.location.lng();
+                  let location = {
+                    'address': self.newAddress,
+                    'latitude': lat,
+                    'longitude': long
+                  };
+                  self.scope.location = location;
 
+                  dataService.updateScope(self.scopeId, self.scope).then((res)=>{
+                    if(res.data.result == "OK"){
+                    console.log(res.data);
+                    toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                    toastr.success('Your Update Successfully');
                   }else{
-
+                    toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                    toastr.success('Your Update Failed. Please try again!');
                   }
                 });
 
-              }else{
-                console.log(results, stats);
-              }
-            });
+                  //else the result is empty
+                }else{
+
+                  dataService.updateScope(self.scopeId, self.scope).then((res)=>{
+                    if(res.data.result == "OK"){
+                    console.log(res.data);
+                    toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                    toastr.success('Your Update Successfully');
+                  }else{
+                    toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                    toastr.success('Your Update Failed. Please try again!');
+                  }
+                  });
+                }
+              });
+              //if newAddress is empty, update the scope without address
+            }else{
+              dataService.updateScope(self.scopeId, self.scope).then((res)=> {
+                if(res.data.result == "OK"){
+                console.log(res.data);
+                toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                toastr.success('Your Update Successfully');
+                }
+                else
+                {
+                  toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                  toastr.success('Your Update Failed. Please try again!');
+                }
+              });
+            }
+
 
           },
           deleteScope: function(){
             dataService.deleteScope(this.scopeId).then((res)=>{
               console.log(res);
-              if(res.result.data == "OK"){
-                console.log("DELETED");
+              if(res.data.result == "OK"){
+                toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                toastr.success('Your scope has been deleted. ');
               }else{
-                console.log("not existed");
+                toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                toastr.success('Your deletion failed. Please try again!');
               }
             });
           }

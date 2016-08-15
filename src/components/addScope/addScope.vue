@@ -100,7 +100,7 @@
               self.seconds--;
               if(self.seconds == 0){
                 clearInterval(foo);
-                self.$route.router.go({ name: 'scopeSetting', params: { scopeId: self.scopeId}});
+                self.$route.router.go({ name: 'scope', params: { scopeId: self.scopeId}});
                 self.show = false;
                 self.showSuc = false;
                 self.seconds = 5;

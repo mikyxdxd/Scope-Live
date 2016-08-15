@@ -17,7 +17,7 @@
 
         <div class="scopeSet_location">
           <label>Scope location</label>
-          <input type="text" :value="scope.location.address" v-model="newAddress">
+          <input type="text" :value="scope.location ? scope.location.address: null" v-model="newAddress">
         </div>
 
         <div class="scopeSet_des">
