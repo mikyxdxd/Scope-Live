@@ -1,12 +1,9 @@
 <template>
     <div id="addScope-bg" v-if="show" @click="show = false">
       <div id="addScope-container"  @click="preventClick($event)">
-
         <div id="create-form">
           <div id="addScope-body">
-
             <div id="addScope-header">Create Scope</div>
-
             <div id="form-input">
 
               <div id="caption">
@@ -16,7 +13,6 @@
 
 
               <div id="hashtag">
-
                 <label>Scope Tag</label>
                 <div id="add_tag_btn">
                   <button type="button" @click="addTag()"><i class="fa fa-plus" aria-hidden="true"></i></button>
@@ -29,8 +25,6 @@
                   </div></div></div>
 
               </div>
-
-
 
               <div class="switch">
                 <label>Pull from public source</label><br>
@@ -62,15 +56,9 @@
               <div id="submit-but">
                 <button class="waves-effect waves-light btn cancel" type="button" @click="show = false">Cancel</button><button class="waves-effect waves-light btn" @click="submitForm()">Create</button>
                 </div>
-
             </div>
-
-
           </div>
-
         </div>
-
-
 
       </div>
     </div>
@@ -105,6 +93,7 @@
             }
           }
         },
+
         methods: {
 
           addTag:function(e){

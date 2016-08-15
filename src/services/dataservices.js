@@ -4,7 +4,6 @@ import axios from 'axios';
 class DataService {
 
   constructor() {
-    console.log('here')
 
     this.serverUrl = 'https://api.scopephotos.com/v1';
     this.httpServerUrl = 'https://api.scopephotos.com/v1';
