@@ -8,10 +8,9 @@
       this.setCheckingInterval();
 
     },
-    beforeDestroy:()=>{
+    beforeDestroy:function(){
 
       if(this.checkingInterval){
-
         clearInterval(this.checkingInterval);
       }
 
@@ -19,25 +18,37 @@
     methods: {
 
       setCheckingInterval:function(){
-        this.checkingInterval = setInterval(()=> {
-            console.log('regular',this.newimagelist);
-            if(this.newimagelist.length != 0){
-              this.datalist.unshift(this.newimagelist.pop());
-            }
+        this.checkingInterval = setInterval(()=>{
 
-        },5000)
+            if(this.newimagelist.length){
+
+          var img = this.newimagelist.pop();
+          img.retina?this.datalist.unshift(img):'';
+
+        }else{
+
+          var img = this.datalist.pop();
+          img.retina?this.datalist.unshift(img):'';
+
+        }
+
+        this.$nextTick(()=> {
+          this._iso.layout()
+      });
+
+      },5000)
       }
 
     },
     watch: {
       //once dataList updated, update the view
       'datalist': function(val, oldVal){
-
+        let self = this;
         setTimeout(function() {
           window._iso = self._iso = new Isotope('#photo-list', {
             layoutMode: 'masonry',
             itemSelector: '.card',
-            transitionDuration: 0
+            transitionDuration: '0.5s'
           });
           imagesLoaded( $('#photo-list') ).on( 'progress', function(){
             // layout Isotope after each image loads
@@ -52,44 +63,6 @@
 
         });
 
-
-//        var self = this;
-//        if(oldVal.length == 0){
-//          setTimeout(function() {
-//            window._iso = self._iso = new Isotope('#photo-list', {
-//              layoutMode: 'masonry',
-//              itemSelector: '.card',
-//              transitionDuration: 0
-//            });
-//            imagesLoaded( $('#photo-list') ).on( 'progress', function(){
-//              // layout Isotope after each image loads
-//              $('.card').each((i,e)=>{
-//                setTimeout(()=>{
-//                $(e).addClass('loaded');
-//              },i*50)
-//            })
-//              $('.card').removeClass('new');
-//              self._iso.layout();
-//            });
-//
-//          });
-//        }else{
-//          self.$nextTick(function() {
-//            setTimeout(function() {
-//              self._iso.appended($('.new'));
-//              imagesLoaded( $('#photo-list') ).on( 'progress', function(){
-//                // layout Isotope after each image loads
-//                $('.new').each((i,e)=>{
-//                  setTimeout(()=>{
-//                  $(e).addClass('loaded');
-//                },i*50)
-//              })
-//                $('.card').removeClass('new');
-//                self._iso.layout();
-//              });
-//            });
-//          });
-//        }
       }
     },
     data(){

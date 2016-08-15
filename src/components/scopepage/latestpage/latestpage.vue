@@ -41,7 +41,7 @@
       },
       appendDataList: function(){
         this.showLoading = true;
-        dataService.getImageViaTag(this.pageNo++, this.pageSize, this.timeStamp, this.scope.tag).then((res)=>{
+        dataService.getImageViaTag(this.pageNo++, this.pageSize, this.timeStamp, this.scope.tag.replace(/#/g,' ')).then((res)=>{
           this.showLoading = false;
           this.updateDataList(res.data.data);
         });

@@ -4,7 +4,7 @@
   export default{
     template:require('./presenting.html'),
     ready: function(){
-      $('html').css('overflow-y','hidden');
+//      $('html').css('overflow-y','hidden');
       this.timeStamp = Date.now();
       this.scopeId = this.$route.params.scopeId;
       this.appendDataList();
@@ -18,10 +18,11 @@
         clearInterval(this.updateInterval);
       }
     },
+
     data(){
       return{
         imageList: [],
-        pageSize: 50,
+        pageSize: 30,
         pageNo: 0,
         scope:null,
         newImageList:[],
