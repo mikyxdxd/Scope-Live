@@ -49,7 +49,8 @@
     props:['timeStamp'],
     data(){
       return{
-        pageSize: 30
+        pageSize: 30,
+        tag: ""
       }
     },
     ready(){

@@ -6,7 +6,8 @@
             return{
               showlogin:false,
               showAddScope: false,
-              user:{}
+              user:{},
+              tag: this.$route.params.tag ? this.$route.params.tag : ""
             }
         },
 
@@ -16,21 +17,24 @@
             '$route.path':{
                  handler: (val, oldVal)=>{
                    if(val != '/'){
-
                         $('#header').removeClass('home')
                     }else{
-
-      $('#header').addClass('home')
-    }
+                      $('#header').addClass('home')
+                    }
                  },
                  deep: true
+            },
+
+            '$route.params.tag': function(newVal, oldVal){
+                  this.tag = newVal;
             }
-
-
         },
 
         methods:{
-
+          searchTag: function(tag){
+            console.log(tag);
+            this.$route.router.go({ name: 'search', params: { tag: tag}});
+          }
         },
         ready(){
           $('.dropdown-button').dropdown({

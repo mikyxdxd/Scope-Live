@@ -15,7 +15,7 @@
             self.myCenter = new google.maps.LatLng(self.lat, self.lng);
             self.mapProp = {
               center: self.myCenter,
-              zoom: 5,
+              zoom: 13,
               mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             let map = new google.maps.Map(document.getElementById("googleMap"), self.mapProp);
@@ -51,7 +51,7 @@
                 self.myCenter = new google.maps.LatLng(self.lat, self.lng);
                 self.mapProp = {
                   center: self.myCenter,
-                  zoom: 5,
+                  zoom: 13,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
                 let map = new google.maps.Map(document.getElementById("googleMap"), self.mapProp);
@@ -61,8 +61,9 @@
                 marker.setMap(map);
                 self.show = true;
               }else{
-                console.log(results,stats);
-                console.log("NO RESULT");
+                //no results
+                toastr.options = {"timeOut": "3000", "positionClass": "toast-top-right", "preventDuplicates": true};
+                toastr.error('No location results. Please try again.');
               }
             });
           }

@@ -114,7 +114,7 @@ class DataService {
           'description': description,
           'location': location,
           "shareType":"PUBLIC",
-          "sourceType":"ALL",
+          "sourceType":"MEM",
           "showType": "NORMAL",
           "scopeRole":"OWN",
         }

@@ -41,10 +41,10 @@
             dataService.updateScope(self.scopeId, self.scope).then((res)=>{
                     if(res.data.result == "OK"){
                     console.log(res.data);
-                    toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                    toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
                     toastr.success('Your Update Successfully');
                   }else{
-                    toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                    toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
                     toastr.success('Your Update Failed. Please try again!');
                   }
             });
@@ -53,10 +53,10 @@
             dataService.deleteScope(this.scopeId).then((res)=>{
               console.log(res);
               if(res.data.result == "OK"){
-                toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
                 toastr.success('Your scope has been deleted. ');
               }else{
-                toastr.options = {"timeOut": "10000", "positionClass": "toast-top-center",};
+                toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
                 toastr.success('Your deletion failed. Please try again!');
               }
             });
