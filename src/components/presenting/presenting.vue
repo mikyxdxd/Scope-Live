@@ -4,7 +4,7 @@
   export default{
     template:require('./presenting.html'),
     ready: function(){
-//      $('html').css('overflow-y','hidden');
+      $('html').css('overflow-y','hidden');
       this.timeStamp = Date.now();
       this.scopeId = this.$route.params.scopeId;
       this.appendDataList();
@@ -16,6 +16,7 @@
 
       if(this.updateInterval != null){
         clearInterval(this.updateInterval);
+        $('html').css('overflow-y','auto');
       }
     },
 
@@ -26,7 +27,9 @@
         pageNo: 0,
         scope:null,
         newImageList:[],
-        updateInterval:null
+        updateInterval:null,
+        layout:'default',
+        imagepresentinterval:10
       }
     },
 
@@ -35,7 +38,8 @@
       presentheader :require('./presentheader/presentheader.vue'),
       sidecontrol:require('./sidecontrol/sidecontrol.vue'),
       compact:require('./presenttemplate/compact/compact.vue'),
-      regular:require('./presenttemplate/regular/regular.vue')
+      regular:require('./presenttemplate/regular/regular.vue'),
+      single:require('./presenttemplate/single/single.vue')
     },
     methods: {
       updateDataList: function(data){
@@ -65,7 +69,6 @@
                 this.newImageList.unshift(res.data.data[i]);
               }
             }
-            console.log(this.newImageList)
           });
         },5000)
 

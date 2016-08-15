@@ -1,9 +1,10 @@
 <div id="presenting">
-
   <presentheader :scope.sync="scope"></presentheader>
-  <sidecontrol></sidecontrol>
+  <sidecontrol :layout.sync="layout" :imagepresentinterval.sync="imagepresentinterval"></sidecontrol>
 
-  <!--<compact :datalist.sync="imageList" :newimagelist.sync="newImageList"></compact>-->
-  <regular :datalist.sync="imageList" :newimagelist.sync="newImageList"></regular>
-
+  <div id="display" v-if="imageList">
+  <compact :datalist.sync="imageList" :newimagelist.sync="newImageList" v-if="layout=='compact' && imageList"></compact>
+  <regular :datalist.sync="imageList" :newimagelist.sync="newImageList" v-if="layout=='default' && imageList"></regular>
+  <single :datalist.sync="imageList" :newimagelist.sync="newImageList" v-if="layout=='single'"></single>
+  </div>
 </div>
