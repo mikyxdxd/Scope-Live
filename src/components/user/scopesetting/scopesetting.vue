@@ -11,12 +11,8 @@
         },
         ready(){
             this.scopeId = this.$route.params.scopeId;
-            console.log(this.$route.params.scopeId);
             dataService.getScopeInfo(this.scopeId).then((res)=>{
               this.scope = res.data;
-              console.log('here',res,dataService.getUser())
-
-
               if(this.scope.owner.id != dataService.getUser().id ){
 
               }else{
