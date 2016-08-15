@@ -1,6 +1,6 @@
-<div id="sidecontrol">
+<div id="sidecontrol" :class="{'active':showsetting}">
+  <div id="close_btn"><i class="fa fa-times" aria-hidden="true" @click="showsetting=false"></i></div>
   <div id="caption">Present Setting</div>
-  {{imagepresentinterval}}
   <section id="layout">
     <div class="sub_cap">Layout</div>
     <div id="layout_type">

@@ -1,6 +1,6 @@
 <div id="presenting">
-  <presentheader :scope.sync="scope"></presentheader>
-  <sidecontrol :layout.sync="layout" :imagepresentinterval.sync="imagepresentinterval"></sidecontrol>
+  <presentheader :scope.sync="scope" :showsetting.sync="showSetting"></presentheader>
+  <sidecontrol :layout.sync="layout" :showsetting.sync="showSetting" :imagepresentinterval.sync="imagepresentinterval"></sidecontrol>
 
   <div id="display" v-if="imageList">
   <compact :datalist.sync="imageList" :newimagelist.sync="newImageList" v-if="layout=='compact' && imageList"></compact>

@@ -1,13 +1,29 @@
 #sidecontrol{
   position: fixed;
-  left: 0;
   top: 0;
-  background: white;
+  background: #ffffff;
   height: 100vh;
+  opacity: 0.95;
   width: 325px;
   z-index: 1000;
-  //display: none;
   padding: 1em;
+  box-shadow: 1px 1px 10px 1px #9c9c9c;
+  transition:0.5s;
+  left: -330px;
+
+  &.active{
+
+    left:0px !important;
+  }
+  #close_btn{
+
+    position: absolute;
+    right: 10px;
+    font-size: 1.5em;
+    top: 3px;
+    cursor: pointer;
+  }
+
   #caption{
 
     font-size: 1.5em;

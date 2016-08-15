@@ -29,6 +29,7 @@
         newImageList:[],
         updateInterval:null,
         layout:'default',
+        showSetting:true,
         imagepresentinterval:10
       }
     },
