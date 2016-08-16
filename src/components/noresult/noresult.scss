@@ -1,0 +1,25 @@
+#noresult{
+
+  padding: 1em;
+  text-align: center;
+  font-size: 5em;
+  font-weight: bold;
+  #warning{
+    background: #0affff;
+    line-height: 1.4;
+    display: inline-block;
+    color: #464646;
+    .span_1{
+      background: #3e4242;
+      line-height: 0.2;
+      display: inline-block;
+      color: beige;
+
+    }
+  }
+  i{
+    font-size: 2em;
+    color: pink;
+  }
+
+}

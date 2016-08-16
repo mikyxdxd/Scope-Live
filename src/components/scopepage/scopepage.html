@@ -4,7 +4,7 @@
     <div id="tabs">
       <div class="tab" @click="currentTab = 'latest'" :class="{ 'active': currentTab == 'latest' }">LASTEST</div>
       <div class="tab" @click="currentTab = 'feature'" :class="{'active': currentTab == 'feature' }" v-if="isOwner">FEATURE</div>
-      <div id="radio" v-show="currentTab == 'latest'">
+      <div id="src_crl" v-show="currentTab == 'latest'">
         <p>
           <input name="group1" type="radio" id="searchTag" value="tag" v-model="picked" checked/>
           <label for="searchTag">Search Tag</label>
