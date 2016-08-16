@@ -61,7 +61,6 @@
           },
           deleteScope: function(){
             dataService.deleteScope(this.scopeId).then((res)=>{
-              console.log(res);
               if(res.data.result == "OK"){
                 toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
                 toastr.success('Your scope has been deleted. ');

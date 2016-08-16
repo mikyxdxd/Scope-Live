@@ -1,21 +1,21 @@
 <template>
-    <div id="googleMap" style="width:100%; height: 200px;" v-show="show">
+    <div id="googleMap" v-show="show">
     </div>
 </template>
 <style>
 
 </style>
 <script>
+    require('./map.scss');
     export default{
         ready(){
           var self = this;
-          console.log(this.address);
           if(this.address != ""){
             this.show = true;
             self.myCenter = new google.maps.LatLng(self.lat, self.lng);
             self.mapProp = {
               center: self.myCenter,
-              zoom: 13,
+              zoom: 10,
               mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             let map = new google.maps.Map(document.getElementById("googleMap"), self.mapProp);

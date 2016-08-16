@@ -11,6 +11,9 @@
 
 #addScope-container{
   width: 600px;
+  max-height: 80vh;
+  padding: 1em 0em;
+  overflow: auto;
   margin: auto;
   display: block;
   position: relative;
@@ -39,7 +42,7 @@
 
         #hashtag{
           display:block;
-          width: 50%;
+          //width: 50%;
         }
 
         #hashtag{
@@ -56,6 +59,10 @@
             color: white;
             height: 25px;
             width: 25px;
+          }
+
+          .one_tag{
+            display: inline-block;
           }
         }
 
@@ -100,6 +107,18 @@
             border-bottom: 1px solid #dcdcdc;
           }
         }
+        #source{
+          margin-bottom: 20px;
+          label{
+            display: inline-block;
+            margin-bottom: 15px;
+          }
+          #lever_container{
+
+            //text-align: right;
+          }
+        }
+
 
         #submit-but{
 
