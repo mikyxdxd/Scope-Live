@@ -1,6 +1,6 @@
 <template>
     <div id="searchpage">
-      <addscope :show.sync="showAddScope"></addscope>
+      <addscope :show.sync="showAddScope" :dt="defaultTag"></addscope>
     <searchheader></searchheader>
       <div id="search_ctr"><button @click="showAddScope = true">Create a #{{$route.params.tag.split(' ').join('#')}} Scope</button></div>
       <list :datalist.sync="dataList"></list>

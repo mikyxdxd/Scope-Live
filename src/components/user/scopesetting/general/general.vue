@@ -12,7 +12,6 @@
           }else{
             $('#sourceTypeCheck').prop( "checked", false );
           }
-
         },
         methods:{
           addTag:function(){

@@ -68,6 +68,15 @@
     require('./addScope.scss')
     import dataService from '../../services/dataservices'
     export default{
+        created(){
+          console.log(this.dt);
+          if (typeof this.dt != 'undefined'){
+            var self = this;
+            $.each(this.dt, function(index,value){
+              self.tagList.push(value);
+            });
+          }
+        },
         data(){
             return{
                 captionname: "",
@@ -88,7 +97,9 @@
         watch:{
           'show':function(ov,v){
             if(v == false){
-              this.tagList = [];
+              if(typeof this.dt == 'undefined'){
+                this.tagList = [];
+              }
               this.captionname = this.hashtag = this.description = this.address = '';
             }
           }
@@ -162,6 +173,6 @@
         components:{
           map: require('../gMap/map.vue')
         },
-        props: ['show']
+        props: ['show', 'dt']
     }
 </script>
