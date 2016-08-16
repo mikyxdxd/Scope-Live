@@ -31,7 +31,7 @@
         scope:null,
         newImageList:[],
         updateInterval:null,
-        layout:'default',
+        layout:'float_3',
         showSetting:false,
         imagepresentinterval:10
       }
@@ -43,7 +43,8 @@
       sidecontrol:require('./sidecontrol/sidecontrol.vue'),
       compact:require('./presenttemplate/compact/compact.vue'),
       regular:require('./presenttemplate/regular/regular.vue'),
-      single:require('./presenttemplate/single/single.vue')
+      single:require('./presenttemplate/single/single.vue'),
+      float_3:require('./presenttemplate/float_3/float_3.vue')
     },
     methods: {
       updateDataList: function(data){

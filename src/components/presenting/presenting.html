@@ -3,7 +3,8 @@
   <sidecontrol :layout.sync="layout" :showsetting.sync="showSetting" :imagepresentinterval.sync="imagepresentinterval"></sidecontrol>
   <div id="display" v-if="imageList">
   <compact :datalist.sync="imageList" :newimagelist.sync="newImageList" :imagepresentinterval.sync="imagepresentinterval" v-if="layout=='compact' && imageList"></compact>
-  <regular :datalist.sync="imageList" :newimagelist.sync="newImageList" :imagepresentinterval.sync="imagepresentinterval" v-if="layout=='default' && imageList"></regular>
-  <single :datalist.sync="imageList" :newimagelist.sync="newImageList" :imagepresentinterval.sync="imagepresentinterval" v-if="layout=='single'"></single>
+  <!--<regular :datalist.sync="imageList" :newimagelist.sync="newImageList" :imagepresentinterval.sync="imagepresentinterval" v-if="layout=='default' && imageList"></regular>-->
+  <single :datalist.sync="imageList" :newimagelist.sync="newImageList" :imagepresentinterval.sync="imagepresentinterval" v-if="layout=='single' && imageList"></single>
+    <float_3 :datalist.sync="imageList" :newimagelist.sync="newImageList" :imagepresentinterval.sync="imagepresentinterval" v-if="layout=='float_3' && imageList"></float_3>
   </div>
 </div>
