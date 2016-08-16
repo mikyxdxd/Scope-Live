@@ -12,7 +12,6 @@
         ready(){
           var self = this;
           if(this.address != ""){
-            console.log("enter here");
             self.myCenter = new google.maps.LatLng(self.lat, self.lng);
             self.mapProp = {
               center: self.myCenter,

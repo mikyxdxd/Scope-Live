@@ -81,7 +81,7 @@
                 newTag: '',
                 newSourceType: '',
                 newLat: this.scope.location ? this.scope.location.latitude : "",
-                newLng: this.scope.location ? this.scope.location.longitude : ""
+                newLng: this.scope.location ? this.scope.location.longitude : "",
             }
         },
         components:{
