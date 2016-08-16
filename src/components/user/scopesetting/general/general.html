@@ -37,7 +37,7 @@
         <div class="scopeSet_location">
           <label>Scope location</label>
           <div id="add_tag_btn">
-            <button type="button" @click="addLoc()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            <button type="button" @click="addLoc()"><i class="fa fa-map-pin" aria-hidden="true"></i></button>
           </div>
           <input type="text" :value="scope.location ? scope.location.address: null" v-model="newAddress">
           <map :address.sync="newAddress" :lat.sync="newLat" :lng.sync="newLng"></map>
