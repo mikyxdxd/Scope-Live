@@ -32,6 +32,13 @@
       'list': require('../../searchPage/photoList/list.vue'),
       'loadinganimation':require('../../loading/loading.vue')
     },
+    watch:{
+      'picked': function(ov, v){
+        this.imageList = [];
+        $('#photo-list').height('0px');
+        this.appendDataList();
+      }
+    },
     methods: {
       updateDataList: function(data){
         if(data.length < this.pageSize) this.hasMore = false
@@ -50,7 +57,6 @@
           this.updateDataList(res.data.data);
         });
         }else{
-          console.log(this.picked);
           dataService.getImageViaLocation(this.pageNo++, this.pageSize, this.timeStamp, this.radius, this.scope.location.longitude, this.scope.location.latitude).then((res)=>{
             if(res.data.data.length == this.pageSize)
             this.showLoading = false;
