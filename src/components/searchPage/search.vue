@@ -1,11 +1,13 @@
 <template>
     <div id="searchpage">
       <addscope :show.sync="showAddScope" :dt="defaultTag"></addscope>
-    <searchheader></searchheader>
+      <searchheader></searchheader>
       <div id="search_ctr"><button @click="showAddScope = true">Create a #{{$route.params.tag.split(' ').join('#')}} Scope</button></div>
+      <noresult :shownoreuslt="!dataList.length && !showLoading"></noresult>
       <list :datalist.sync="dataList"></list>
-    <div id="loadMore" v-show="dataList.length>0 && hasMore && !showLoading"><button class="waves-effect waves-light btn" @click="appendDataList()">Load More</button></div>
+      <div id="loadMore" v-show="dataList.length>0 && hasMore && !showLoading"><button class="waves-effect waves-light btn" @click="appendDataList()">Load More</button></div>
       <loading :show.sync="showLoading"><loading>
+
      </div>
 </template>
 
@@ -43,7 +45,8 @@
             'list': require('./photoList/list'),
             'searchheader':require('./searchheader/searchheader.vue'),
             'loading': require('../loading/loading.vue'),
-            'addscope':require('../addScope/addScope.vue')
+            'addscope':require('../addScope/addScope.vue'),
+            'noresult':require('../noresult/noresult.vue')
 
         },
 
