@@ -127,6 +127,7 @@ class DataService {
           "sourceType": sourceType,
           "showType": "NORMAL",
           "scopeRole":"OWN",
+          "radius": 50
         }
     })
   }

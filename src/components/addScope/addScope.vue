@@ -1,5 +1,5 @@
 <template>
-    <div id="addScope-bg" v-if="show" @click="show = false">
+    <div id="addScope-bg" v-show="show" @click="show = false">
       <div id="addScope-container"  @click="preventClick($event)">
         <div id="create-form">
           <div id="addScope-body">
@@ -26,21 +26,11 @@
 
               </div>
 
-              <div class="switch">
-                <label>Pull from public source</label><br>
-                <label>
-                  No
-                  <input type="checkbox" v-model="sourceType" checked="checked">
-                  <span class="lever"></span>
-                  Yes
-                </label>
-              </div>
-
               <div id="location">
                   <label>Scope Locationa</label>
                   <input type="text" v-model="address" required>
                   <div id="add_tag_btn">
-                    <button type="button" @click="addLoc()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    <button type="button" @click="addLoc()"><i class="fa fa-map-pin" aria-hidden="true"></i></button>
                   </div>
                   <map :address.sync="address" :lat.sync="lat" :lng.sync="lng"></map>
               </div>
@@ -52,6 +42,19 @@
                 </div>
                 <!--<textarea  placeholder="Scope description" rows="3" cols="50"  v-model="description"></textarea>-->
               </div>
+
+              <div class="switch" id="source">
+                <label>Pull Images from Public Sources</label><br>
+                <div id="lever_container">
+                <label>
+                  No
+                  <input type="checkbox" v-model="sourceType" checked="checked">
+                  <span class="lever"></span>
+                  Yes
+                </label>
+                  </div>
+              </div>
+
 
               <div id="submit-but">
                 <button class="waves-effect waves-light btn cancel" type="button" @click="show = false">Cancel</button><button class="waves-effect waves-light btn" @click="submitForm()">Create</button>
@@ -88,15 +91,15 @@
                 address: "",
                 lat: "",
                 lng: "",
-                scopeId: "",
-                showSuc: false,
-                showFail: false,
-                showDup: false,
+                scopeId: ""
             }
         },
         watch:{
-          'show':function(ov,v){
+
+          'show':function(v,ov){
+            $('html').css('overflow-y','hidden');
             if(v == false){
+              $('html').css('overflow-y','auto');
               if(typeof this.dt == 'undefined'){
                 this.tagList = [];
               }
@@ -112,7 +115,7 @@
             if(this.tagList.indexOf((this.newTag)) < 0){
 
               this.tagList.push(this.newTag);
-              console.log( this.tagList)
+//              console.log( this.tagList)
               this.newTag = '';
 
             }
@@ -125,8 +128,6 @@
             e.stopPropagation();
           },
           submitForm: function() {
-
-            console.log(this.captionname, this.description, this.sourceType);
             let sourceType = "ALL"
             if(!this.sourceType) {
               sourceType = "MEMBER";
