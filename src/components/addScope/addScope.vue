@@ -72,7 +72,6 @@
     import dataService from '../../services/dataservices'
     export default{
         created(){
-          console.log(this.dt);
           if (typeof this.dt != 'undefined'){
             var self = this;
             $.each(this.dt, function(index,value){

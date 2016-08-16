@@ -56,7 +56,7 @@
 
 
       ready(){
-
+        
           let img = new Image();
           let self = this;
           img.onload = function(){
