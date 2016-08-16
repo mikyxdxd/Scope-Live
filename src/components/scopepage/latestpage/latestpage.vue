@@ -4,6 +4,7 @@
   export default{
     template:require('./latestpage.html'),
     ready: function(){
+      console.log("picked");
       this.timeStamp = Date.now();
       this.scopeId = this.$route.params.scopeId;
       this.appendDataList();
@@ -25,7 +26,7 @@
         showLoading:true
       }
     },
-    props:['scope'],
+    props:['scope', 'picked'],
     components:{
       'list': require('../../searchPage/photoList/list.vue'),
       'loadinganimation':require('../../loading/loading.vue')
@@ -42,10 +43,15 @@
       },
       appendDataList: function(){
         this.showLoading = true;
-        dataService.getImageViaTag(this.pageNo++, this.pageSize, this.timeStamp, this.scope.tag.replace(/#/g,' ')).then((res)=>{
-          if(res.data.data.length ==  this.pageSize ) this.showLoading = false;
+        if(this.picked == "tag"){
+          dataService.getImageViaTag(this.pageNo++, this.pageSize, this.timeStamp, this.scope.tag.replace(/#/g,' ')).then((res)=>{
+            if(res.data.data.length ==  this.pageSize ) this.showLoading = false;
           this.updateDataList(res.data.data);
         });
+        }else{
+          console.log(this.picked);
+        }
+
       }
     }
   }

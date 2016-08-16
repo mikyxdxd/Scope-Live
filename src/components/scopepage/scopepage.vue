@@ -17,7 +17,8 @@
             return{
                scope:null,
                currentTab:null,
-               isOwner:null
+               isOwner:null,
+               picked: ""
             }
         },
         components:{

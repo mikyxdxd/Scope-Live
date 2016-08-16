@@ -5,6 +5,13 @@
           <div id="addScope-body">
             <div id="addScope-header">Create Scope</div>
             <div id="form-input">
+
+              <div id="caption">
+                <label>Scope Name</label>
+                <input type="text" v-model="captionname" required>
+              </div>
+
+
               <div id="hashtag">
                 <label>Scope Tag</label>
                 <div id="add_tag_btn">
@@ -18,22 +25,19 @@
                   </div></div></div>
 
               </div>
-              <div id="caption">
-              <label>Scope Name</label>
-              <input type="text" v-model="captionname" required>
-              </div>
 
               <div class="switch">
+                <label>Pull from public source</label><br>
                 <label>
-                  Off
-                  <input type="checkbox">
+                  No
+                  <input type="checkbox" v-model="sourceType" checked="checked">
                   <span class="lever"></span>
-                  On
+                  Yes
                 </label>
               </div>
 
               <div id="location">
-                  <label for="textarea1">Scope Location</label>
+                  <label>Scope Locationa</label>
                   <input type="text" v-model="address" required>
                   <div id="add_tag_btn">
                     <button type="button" @click="addLoc()"><i class="fa fa-plus" aria-hidden="true"></i></button>
@@ -64,11 +68,21 @@
     require('./addScope.scss')
     import dataService from '../../services/dataservices'
     export default{
+        created(){
+          console.log(this.dt);
+          if (typeof this.dt != 'undefined'){
+            var self = this;
+            $.each(this.dt, function(index,value){
+              self.tagList.push(value);
+            });
+          }
+        },
         data(){
             return{
                 captionname: "",
                 hashtag: "",
                 newTag:"",
+                sourceType: "",
                 tagList:[],
                 description: "",
                 address: "",
@@ -83,7 +97,9 @@
         watch:{
           'show':function(ov,v){
             if(v == false){
-              this.tagList = [];
+              if(typeof this.dt == 'undefined'){
+                this.tagList = [];
+              }
               this.captionname = this.hashtag = this.description = this.address = '';
             }
           }
@@ -110,7 +126,11 @@
           },
           submitForm: function() {
 
-            console.log(this.captionname, this.description);
+            console.log(this.captionname, this.description, this.sourceType);
+            let sourceType = "ALL"
+            if(!this.sourceType) {
+              sourceType = "MEMBER";
+            }
             let location = null;
             console.log(this.address, this.lat, this.lng);
             if(this.address == ""){
@@ -130,7 +150,7 @@
 
             } else {
               var self = this;
-              dataService.createScope('#' + this.tagList.join('#'), this.captionname, this.description, location).then((res)=> {
+              dataService.createScope('#' + this.tagList.join('#'), this.captionname, this.description, location, sourceType).then((res)=> {
                 if(res.status == 201)
               {
                 if (res.data.result == "OK") {
@@ -153,6 +173,6 @@
         components:{
           map: require('../gMap/map.vue')
         },
-        props: ['show']
+        props: ['show', 'dt']
     }
 </script>
