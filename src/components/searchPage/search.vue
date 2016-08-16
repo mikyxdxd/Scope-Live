@@ -34,6 +34,7 @@
               hasMore:true,
               showLoading: true,
               showAddScope:false,
+              tag: this.$route.params.tag,
               defaultTag:this.$route.params.tag.split(' ')
             }
         },
