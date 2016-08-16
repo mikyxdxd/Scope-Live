@@ -1,8 +1,7 @@
 <script>
     require('./header.scss')
+    import dataService from '../../services/dataservices'
     export default{
-
-        //TODO My Scopes Button Should display a dropdown of list of scope
 
         template:require('./header.html'),
         data(){
@@ -10,6 +9,7 @@
               showlogin:false,
               showAddScope: false,
               user:{},
+              userScopes:[],
               tag: this.$route.params.tag ? this.$route.params.tag : ""
             }
         },
@@ -29,22 +29,44 @@
 
             '$route.params.tag': function(newVal, oldVal){
                   this.tag = newVal;
-            }
+            },
+
+    'user':function(oldV,newV){
+      if(oldV.email || newV.email){
+        if(!newV || newV.email != oldV.email){
+          dataService.getUserScopes(0,4).then((res)=>{
+            this.userScopes = res.data.data;
+        })
+        }
+        this.$nextTick(()=>{
+          $('.scope_dropdown_button').dropdown({
+          inDuration: 300}
+        );
+      })
+      }
+    }
         },
 
         methods:{
 
-
-          searchTag:function(tag){
+          searchTag(tag){
 
             this.$route.router.go({path: `/search/${tag}`});
 
+          },
+
+          signOut(){
+            delete localStorage._scopetoken;
+            window.location.href = window.location.origin;
+
           }
         },
+
         ready(){
           $('.dropdown-button').dropdown({
               inDuration: 300}
           );
+
           if(this.$route.path != '/') $('#header').removeClass('home')
 
         },

@@ -26,6 +26,7 @@
 
             dataService.getUserProfile().then((res)=>{
               this.user = res.data;
+              dataService.setUser(this.user);
               this.showlogin = false;
             }).catch((e)=>{
               delete this.userToken;
