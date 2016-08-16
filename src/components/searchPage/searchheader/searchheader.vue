@@ -6,7 +6,6 @@
     },
     data(){
       return{
-        msg:'hello vue'
       }
     }
   }

@@ -40,7 +40,7 @@
             <button type="button" @click="addLoc()"><i class="fa fa-map-pin" aria-hidden="true"></i></button>
           </div>
           <input type="text" :value="scope.location ? scope.location.address: null" v-model="newAddress">
-          <map :address.sync="newAddress" :lat.sync="newLat" :lng.sync="newLng"></map>
+          <map :address.sync="newAddress" :lat.sync="newLat" :lng.sync="newLng" :show="true"></map>
         </div>
 
 

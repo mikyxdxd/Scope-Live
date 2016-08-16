@@ -1,5 +1,6 @@
 <template>
     <div id="googleMap" v-show="show">
+      <div id="map_canvas" style="width: 100%; height: 100%;"></div>
     </div>
 </template>
 <style>
@@ -11,14 +12,13 @@
         ready(){
           var self = this;
           if(this.address != ""){
-            this.show = true;
             self.myCenter = new google.maps.LatLng(self.lat, self.lng);
             self.mapProp = {
               center: self.myCenter,
               zoom: 10,
               mapTypeId: google.maps.MapTypeId.ROADMAP
             };
-            let map = new google.maps.Map(document.getElementById("googleMap"), self.mapProp);
+            let map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
             let marker = new google.maps.Marker({
               position: self.myCenter
             });
@@ -29,7 +29,6 @@
             return{
               myCenter: null,
               mapProp: null,
-              show: false
             }
         },
         components:{
@@ -37,6 +36,16 @@
         },
         methods:{
 
+        },
+        watch:{
+          'show': function(v, ov){
+            if(v == false){
+              this.myCenter = null;
+              this.mapProp = null;
+              this.lat = '';
+              this.lng = '';
+            }
+          }
         },
         events:{
           'update-address':function(newValue){
@@ -54,9 +63,10 @@
                   zoom: 13,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
-                let map = new google.maps.Map(document.getElementById("googleMap"), self.mapProp);
+                console.log(self.lat, self.lng);
+                let map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
                 let marker = new google.maps.Marker({
-                  position: self.myCenter
+                  position: self.myCenter,
                 });
                 marker.setMap(map);
                 self.show = true;
@@ -68,7 +78,7 @@
             });
           }
         },
-        props: ['address', 'lat', 'lng']
+        props: ['address', 'lat', 'lng', 'show']
 
     }
 </script>

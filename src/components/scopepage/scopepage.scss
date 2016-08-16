@@ -54,6 +54,9 @@
         p{
           display: inline-block;
           margin: 8px 2px;
+          [type="radio"]:disabled+label{
+            color: rgba(0,0,0,0.26)
+          }
         }
         label{
           color:#ffffff;
