@@ -1,9 +1,9 @@
 'use strict'
 import axios from 'axios';
 
-class DataService{
+class DataService {
 
-  constructor(){
+  constructor() {
 
     this.serverUrl = 'https://api.scopephotos.com/v1';
     this.httpServerUrl = 'https://api.scopephotos.com/v1';
@@ -14,99 +14,195 @@ class DataService{
     // this._scopetoken = localStorage._scopetoken;
     this.userToken = localStorage._scopetoken;
     this.user = null;
-    if(this.userToken && this.userToken.length > 0){
+    this.userType = null;
+    if (this.userToken && this.userToken.length > 0) {
       this._getUserProfile();
+    } else {
+      this.userType = 'visitor';
     }
   }
 
-  _getUserProfile(){
-    axios({method:'GET',url:this.httpServerUrl + '/users/me', headers:{
-      'Authorization':this.userToken
-    }}).then((res)=>{
-       this.user = res.data;
+  _getUserProfile() {
+    axios({
+      method: 'GET', url: this.httpServerUrl + '/users/me', headers: {
+        'Authorization': this.userToken
+      }
+    }).then((res)=>{
+      this.user = res.data;
+    this.userType = 'user';
+    }).catch((err)=>{
+
+      console.log('er',err)
     })
   }
 
-  getUser(){
+  getUser() {
     return this.user;
   }
 
-  getScopeGeneral(scopeId, pageNo, pageSize, timeStamp, userType){
+  getUserType() {
 
-    return axios.get(this.httpServerUrl  + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);
+    return this.userType;
   }
 
-    logIn(username,password){
-      return axios({method:'POST',url:this.httpServerUrl + '/login',
-      headers:{
+  getScopeGeneral(scopeId, pageNo, pageSize, timeStamp, userType) {
 
-          'Content-Type':'application/x-www-form-urlencoded'
-       },
-       data:$.param(
-         {
+    return axios.get(this.httpServerUrl + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);
+  }
+
+
+  logIn(username, password) {
+    return axios({
+      method: 'POST', url: this.httpServerUrl + '/login',
+      headers: {
+
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: $.param(
+        {
           'grant_type': 'password',
           'username': username,
           'password': password
-         }
-       )
-      })
+        }
+      )
+    })
 
   }
 
-  setUserToken(token){
+  setUserToken(token) {
 
     this.userToken = token;
 
   }
 
-  getUserProfile(){
-
-    return axios({method:'GET',url:this.httpServerUrl + '/users/me', headers:{
-      'Authorization':this.userToken
-    }})
+  setUser(user){
+    if(this.userType == 'visitor') {
+      this.user = user;
+      this.userType = 'user';
+    }
   }
 
-  getUserScopes(pageNum,pageSize){
+  getUserProfile() {
 
-    return axios({method:'GET',url:this.httpServerUrl + `/scope?page=${pageNum}&size=${pageSize}`, headers:{
-      'Authorization':this.userToken
-    }})
+    return axios({
+      method: 'GET', url: this.httpServerUrl + '/users/me', headers: {
+        'Authorization': this.userToken
+      }
+    })
+  }
+
+  getUserScopes(pageNum, pageSize) {
+
+    return axios({
+      method: 'GET', url: this.httpServerUrl + `/scope?page=${pageNum}&size=${pageSize}`, headers: {
+        'Authorization': this.userToken
+      }
+    })
 
     return axios.get(this.httpServerUrl + `/scope?page=${pageNum}&size=${pageSize}`)
   }
 
-  getSingleImage(id){
+  getSingleImage(id) {
 
     return axios.get(this.httpServerUrl + `/search/images/${id}`)
   }
 
-  getImageViaTag(pageNo, pageSize, timeStamp, imageTag){
+  getImageViaTag(pageNo, pageSize, timeStamp, imageTag) {
 
     return axios.get(this.httpServerUrl + '/search/images?&size=' + pageSize + '&tag=' + encodeURI(encodeURI(imageTag)) + '&timestamp=' + timeStamp + '&page=' + pageNo);
   }
 
-  getImageViaScope(pageNo, pageSize, timeStamp, scopeId){
+  createScope(hashtag, caption, description, location, sourceType) {
+    return axios({
+      method: 'POST', url: this.httpServerUrl + '/scope',
+      headers: {
+        'Authorization': this.userToken
+      },
+      data:{
+          'caption': caption,
+          'tag': hashtag,
+          'description': description,
+          'location': location,
+          "shareType":"PUBLIC",
+          "sourceType": sourceType,
+          "showType": "NORMAL",
+          "scopeRole":"OWN",
+          "radius": 50
+        }
+    })
+  }
+
+  updateScope(scopeId, newScope){
+    return axios({
+      method: 'PUT', url: this.httpServerUrl + `/scope/${scopeId}`,
+      headers:{
+        'Authorization': this.userToken
+      },
+      data: newScope
+
+    })
+  }
+
+
+
+  reScope(scopeId, mediaId) {
+
+    return axios({
+      method: 'POST', url: this.httpServerUrl + `/scope/${scopeId}/images`,
+      headers: {
+
+        'Authorization': this.userToken
+      },
+      data: {
+        id: mediaId
+      }
+    })
+  }
+
+  deleteImage(mediaId) {
+    return axios({
+      method: 'DELETE',
+      headers: {
+        'Authorization': this.userToken
+      },
+      url: this.httpServerUrl + `/image/${mediaId}`
+    });
+  }
+
+  deleteScope(scopeId){
+    return axios({
+      method: 'DELETE',
+      headers: {
+        'Authorization': this.userToken
+      },
+      url: this.httpServerUrl + `/scope/${scopeId}`
+    })
+  }
+
+  getImageViaScope(pageNo, pageSize, timeStamp, scopeId) {
 
 
     return axios.get(this.httpServerUrl + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);
   }
 
-  getImageViaLocation(pageNo, pageSize, timeStamp, radius, longitude, latitude){
+  getImageViaLocation(pageNo, pageSize, timeStamp, radius, longitude, latitude) {
 
     return axios.get(this.httpServerUrl + '/search/images?&size=' + pageSize + '&loc_lat=' + latitude + '&loc_lon=' + longitude + '&radius=' + radius + '&timestamp=' + timeStamp + '&page=' + pageNo)
 
   }
 
-  getScopeVidTag(pageNo, pageSize, timeStamp, scopeTag){
+  getScopeVidTag(pageNo, pageSize, timeStamp, scopeTag) {
 
     return axios.get(this.httpServerUrl + '/search/scopes?&size=' + pageSize + '&name=' + encodeURI(encodeURI(scopeTag)) + '&timestamp=' + timeStamp + '&page=' + pageNo);
   }
 
-  getScopeInfo(scopeId){
+  getScopeInfo(scopeId) {
 
-    return axios({method:'GET',url:this.httpServerUrl + `/scope/${scopeId}`, headers:{
-      'Authorization':this.userToken
-    }})
+    return axios({
+      method: 'GET', url: this.httpServerUrl + `/scope/${scopeId}`, headers: {
+        'Authorization': this.userToken
+      }
+    })
 
   }
 

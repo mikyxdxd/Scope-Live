@@ -1,7 +1,6 @@
 <div id="login" v-if="showlogin">
   <div id="bg">
     <div id="login_sec">
-      {{showlogin}}
       <div id="close" v-on:click="showlogin=!showlogin">x</div>
       <div id="body"><span>SIGN IN</span>
       <form v-on:submit="userLogin($event)">
@@ -13,7 +12,7 @@
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix">vpn_key</i>
-            <input id="icon_telephone" type="tel" class="validate" v-model="password">
+            <input class="validate" v-model="password" type="password">
             <label for="icon_telephone">Password</label>
           </div>
         </div>

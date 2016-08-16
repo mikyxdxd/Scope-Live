@@ -1,6 +1,65 @@
-<div id="general">
+<div id="general" v-if="scope">
     <div class="caption">
       <h5>General</h5>
     </div>
     <div class="sub_caption">Set general settings for your tagboard</div>
+    <div class="scopeSet_form">
+      <div>
+        <div class="scopeSet_name">
+          <label>Scope Name</label>
+          <input type="text" :value="scope.caption" v-model="newCaption">
+        </div>
+
+        <div class="scopeSet_tag">
+          <label>Scope Tag</label>
+          <div id="add_tag_btn">
+            <button type="button" @click="addTag()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          </div>
+          <input type="text" v-model="newTag" placeholder="Insert A New Tag">
+          <div id="tag_list"><div class="one_tag" v-for="tag in scope.$$tagArr">
+              <div class="chip">
+              {{tag}}
+              <i class="close material-icons" @click="deleteTag(tag)">close</i>
+            </div></div></div>
+        </div>
+
+        <div class="switch">
+          <label>Pull from public source</label><br>
+          <label>
+            No
+            <input type="checkbox" v-model="newSourceType" id="sourceTypeCheck">
+            <span class="lever"></span>
+            Yes
+          </label>
+        </div>
+
+
+        <div class="scopeSet_location">
+          <label>Scope location</label>
+          <div id="add_tag_btn">
+            <button type="button" @click="addLoc()"><i class="fa fa-map-pin" aria-hidden="true"></i></button>
+          </div>
+          <input type="text" :value="scope.location ? scope.location.address: null" v-model="newAddress">
+          <map :address.sync="newAddress" :lat.sync="newLat" :lng.sync="newLng"></map>
+        </div>
+
+
+        <div class="scopeSet_des">
+            <div class="input-field col s12">
+              <textarea id="textarea1" class="materialize-textarea" length="120" v-model="newDesc"></textarea>
+              <label for="textarea1">Scope Description</label>
+            </div>
+        </div>
+
+        <div class="ctr">
+          <div class="scopeSet_but">
+            <button @click="updateScope()" class="waves-effect waves-light btn">Update</button>
+          </div>
+          <div class="scopeSet_del">
+            <button class="waves-effect waves-light btn" @click="deleteScope()">Delete</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
 </div>

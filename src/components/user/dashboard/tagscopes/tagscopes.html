@@ -9,17 +9,18 @@
     </div>
   </div>
   <div class="one_scope" v-for="scope in scopeList">
-    <div class="sp_header">{{'#' + scope.caption}}</div>
+    <div class="sp_header"><a v-link="{path:'/s/' + scope.id}">{{scope.caption}}</a></div>
     <div class="sp_cover" :style="{ 'background-image': 'url(' + scope.coverImage + ')' }">
       <div class="sp_des">
-          <a class="sp_ava" href="https://tagboard.com/beijing/309013"><img :src="/public/img/300x300-alt.png" alt="" class="img-responsive"></a>
-          <div class="sp_cap">#bei</div>
+        <a class="sp_ava" href="https://tagboard.com/beijing/309013"><img :src="/public/img/300x300-alt.png" alt="" class="img-responsive"></a>
+        <div class="sp_cap">#{{scope.tag}}</div>
       </div>
     </div>
     <div class="sp_meta">
       Created on August 8th, 2016<br>
       by SHI LIANG HONG @mikyxdxd
     </div>
-    <div class="sp_action"><div class="act"><i class="tiny material-icons">airplay</i></div><div class="act"><i class="tiny material-icons">settings</i></div><div class="act"><i class="tiny material-icons">delete</i></div></div>
+    <div class="sp_action"><a class="act" v-link="{path:`/p/${scope.id}`}"><i class="tiny material-icons">airplay</i></a><a class="act"  v-link="{path:`/s/${scope.id}/setting`}"><i class="tiny material-icons">settings</i></a><a class="act"><i class="tiny material-icons">delete</i></a></div>
   </div>
+  <div id="ldmore" v-show="scopeList.length>0 && hasMore"><button class="waves-effect waves-light btn" @click="loadMoreScope()">Load More</button></div>
 </div>

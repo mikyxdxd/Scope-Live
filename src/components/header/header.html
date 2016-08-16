@@ -1,35 +1,50 @@
-<div id="header">
-    <div class="caption">scope Live</div>
+<div id="header" class="home">
+    <div class="caption"><a v-link="{path:'/'}">scope Live</a></div>
     <div class="main_con">
-      <form>
+
+      <div id="search">
         <div class="search-wrapper card">
-          <input id="search"><i class="material-icons">search</i>
-          <div class="search-results"></div>
+          <input @keydown.enter="searchTag(tag)" v-model="tag"><i class="material-icons">search</i>
         </div>
-      </form>
+      </div>
 
       <div id="header_lists">
         <div class="item">Products</div>
         <div class="item">Solutions</div>
         <div class="item">Support</div>
-        <div class="item" v-if="!user"><div @click="showlogin = true">Sign In</div></div>
-        <div class="item user" id="user-info" v-if="user">
+        <div class="item" v-if="!user.email"><div @click="showlogin = true">Sign In</div></div>
+        <div class="item user" id="user-info" v-show="user">
           <div>
-            <span class="user-avatar" :style="{ 'background-image': 'url(' + user.avatar + ')' }"></span>
+            <span data-activates='dropdown1' class="user-avatar dropdown-button" :style="{ 'background-image': 'url(' + user.avatar + ')' }"></span>
           </div>
+          <ul id='dropdown1' class='dropdown-content dropdown'>
+            <li class="info"><div>Signed in as:</div><div class="username"><i class="tiny material-icons">perm_identity</i>{{user.name}}</div><div class="useremail"><i class="tiny material-icons">email</i>{{user.email}}</div></li>
+            <!--<li class="divider"></li>-->
+            <li><a v-link="{path:'/user'}">Account Dashboard</a></li>
+            <li><a @click="signOut()">Sign Out</a></li>
+          </ul>
         </div>
 
-        <!--<div id="nav-tagboard">-->
-          <!--<div class="btn-group">-->
-            <!--<a class="btn btn-tgb-primary" data-toggle="dropdown"><i class="icon icon-grid6"></i> <span>My tagboards</span></a>-->
-            <!--<a href="#new-tagboard" data-toggle="modal" class="btn btn-tgb-primary"><span class="icon icon-plus3"></span></a>-->
-          <!--</div>-->
-        <!--</div>-->
+        <div id="nav-scope" v-if="user.email">
+          <!--<button data-activates='dropdown2' class="user-avatar dropdown-button2" :style="{ 'background-image': 'url(' + user.avatar + ')' }">123</button>-->
+            <button class="btn btn-tgb-primary scope_dropdown_button" data-activates='scope_dropdown'><i class="icon icon-grid6"></i><span>My Scopes</span></button>
+            <ul id='scope_dropdown' class='dropdown-content'>
+              <a v-for="scope in userScopes" v-link="{path:`/s/${scope.id}`}" class="one_scope">
+                <img :src="scope.coverImage" class="cover_image">
+                <span class="scope_caption">#{{scope.caption}}</span><br/>
+                <span class="scope_description">{{scope.description}}</span>
+              </a>
+                <a class="one_scope view_all" v-link="{path:'/user'}">View All</a>
+            <!--<li class="info"><div>Signed in as:</div><div class="username"><i class="tiny material-icons">perm_identity</i>{{user.name}}</div><div class="useremail"><i class="tiny material-icons">email</i>{{user.email}}</div></li>-->
+            <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+            <!--<li><a v-link="{path:'/user'}">Account Dashboard</a></li>-->
+            <!--<li><a href="#!">Sign Out</a></li>-->
+            </ul>
 
-
+            <button style="margin-left:-2px" class="btn" @click="showAddScope = true"><span class="material-icons">add</span></button>
+        </div>
         <login :showlogin.sync="showlogin" :user.sync="user"></login>
-        <!--<div class="item">Sign In</div>-->
       </div>
     </div>
+    <addscope :show.sync="showAddScope"></addscope>
 </div>
-`

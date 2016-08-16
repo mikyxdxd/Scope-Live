@@ -1,0 +1,153 @@
+#addScope-bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.4);
+  z-index: 9999;
+  display: flex;
+}
+
+#addScope-container{
+  width: 600px;
+  max-height: 80vh;
+  padding: 1em 0em;
+  overflow: auto;
+  margin: auto;
+  display: block;
+  position: relative;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: 50px;
+  box-shadow: 0px 0px 10px 2px rgba(4, 4, 4, 0.7);
+
+  #create-form{
+    width: 100%;
+    height: 100%;
+
+    #addScope-body{
+      width: 100%;
+      height: 100%;
+      padding: 1em;
+
+      #addScope-header{
+        font-size: 3.5em;
+        color: #fa5757;
+        margin-bottom: 0.3em;
+        font-weight: 300;
+      }
+
+      #form-input{
+
+        #hashtag{
+          display:block;
+          //width: 50%;
+        }
+
+        #hashtag{
+
+          position: relative;
+          button{
+            position: absolute;
+            right: 10px;
+            top: 37px;
+            border-radius: 50%;
+            box-shadow: none;
+            border: none;
+            background: #fa5757;
+            color: white;
+            height: 25px;
+            width: 25px;
+          }
+
+          .one_tag{
+            display: inline-block;
+          }
+        }
+
+        #location{
+          display:block;
+          width: 100%;
+        }
+
+        .switch{
+          margin: 15px 0;
+          line-height: 30px;
+        }
+
+        #location{
+
+          position: relative;
+          button{
+            position: absolute;
+            right: 10px;
+            top: 37px;
+            border-radius: 50%;
+            box-shadow: none;
+            border: none;
+            background: #fa5757;
+            color: white;
+            height: 25px;
+            width: 25px;
+          }
+        }
+
+
+        #description{
+          width: 100%;
+          //height: 30%;
+          label{
+
+            left: 0;
+            font-size: 0.8rem;
+          }
+
+          textarea{
+            border-bottom: 1px solid #dcdcdc;
+          }
+        }
+        #source{
+          margin-bottom: 20px;
+          label{
+            display: inline-block;
+            margin-bottom: 15px;
+          }
+          #lever_container{
+
+            //text-align: right;
+          }
+        }
+
+
+        #submit-but{
+
+          text-align: right;
+          .btn{
+            display: inline-block;
+            margin-left: 5px;
+            //background: #de5c63;
+          }
+          .cancel{
+
+            background: #de5c63;
+          }
+
+        }
+
+
+        textarea:active,textarea:focus{
+
+          outline: 0px;
+        }
+
+        textarea{
+          resize: none;
+        }
+
+      }
+
+
+    }
+  }
+}

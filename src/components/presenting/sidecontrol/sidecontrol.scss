@@ -1,0 +1,75 @@
+#sidecontrol{
+  position: fixed;
+  top: 0;
+  background: #ffffff;
+  height: 100vh;
+  opacity: 0.95;
+  width: 325px;
+  z-index: 1000;
+  padding: 1em;
+  box-shadow: 1px 1px 10px 1px #9c9c9c;
+  transition:0.5s;
+  left: -330px;
+
+  &.active{
+
+    left:0px !important;
+  }
+  #close_btn{
+
+    position: absolute;
+    right: 10px;
+    font-size: 1.5em;
+    top: 3px;
+    cursor: pointer;
+  }
+
+  #caption{
+
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0.5em 0em;
+    border-bottom:1px solid #eaeaea;
+  }
+
+
+  section{
+
+    padding: 0.5em;
+    .sub_cap{
+      font-size: 1.2em;
+    }
+    #src_type{
+      padding: 1em;
+    }
+    #layout_type{
+      padding: 1em;
+      text-align: end;
+      .active{
+        border-bottom: 3px solid #d75d66;
+      }
+      button{
+
+        border: none;
+        background: transparent;
+        border-bottom: 3px solid transparent;
+        transition:0.4s;
+        margin-top: 7px;
+        font-size: 1.1em;
+        font-weight: bold;
+        &:hover{
+          border-bottom: 3px solid #d75d66;
+        }
+      }
+    }
+
+    #interval{
+
+      color: #259d92;
+      font-size: 1.1em;
+      text-align: right;
+      font-weight: bold;
+    }
+
+  }
+}

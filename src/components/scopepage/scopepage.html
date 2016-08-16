@@ -1,0 +1,27 @@
+<div id="scopepage">
+  <scopeheader :scope.sync="scope" v-if="scope"></scopeheader>
+  <div id="scope_tab" v-show="scope">
+    <div id="tabs">
+      <div class="tab" @click="currentTab = 'latest'" :class="{ 'active': currentTab == 'latest' }">LASTEST</div>
+      <div class="tab" @click="currentTab = 'feature'" :class="{'active': currentTab == 'feature' }" v-if="isOwner">FEATURE</div>
+      <div id="radio" v-show="currentTab == 'latest'">
+        <p>
+          <input name="group1" type="radio" id="searchTag" value="tag" v-model="picked" checked/>
+          <label for="searchTag">Search Tag</label>
+        </p>
+        <p>
+          <input name="group1" type="radio" id="searchLoc" value="location" v-model="picked"  :disabled="scope.location == null"/>
+          <label for="searchLoc">Search Location</label>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="scope_ctr" v-if="scope">
+    <a class="tab" v-if="isOwner" v-link="{path:`/s/${scope.id}/setting`}"><i class="tiny material-icons">settings</i>Setting</a><a class="tab" v-link="{path:`/p/${scope.id}`}"><i class="tiny material-icons">airplay</i>Present</a>
+  </div>
+  <featurepage  :scope.sync="scope" v-if="currentTab == 'feature'"></featurepage>
+  <latestpage  :picked="picked" :scope.sync = "scope" v-if="currentTab == 'latest'"></latestpage>
+</div>

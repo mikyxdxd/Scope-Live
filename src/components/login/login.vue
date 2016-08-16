@@ -4,7 +4,7 @@
     export default{
       template:require('./login.html'),
       ready(){
-        if(localStorage._scopetoken && localStorage._scopetoken.length > 0){
+        if(localStorage._scopetoken != null && localStorage._scopetoken.length > 0){
           dataService.setUserToken(localStorage._scopetoken);
           this.userToken = localStorage._scopetoken;
           this.retriveUserProfile();
@@ -14,7 +14,6 @@
           userLogin(e){
             e.preventDefault();
             dataService.logIn(this.username,this.password).then((res)=>{
-              console.log(res.data)
               if(res.data.access_token){
                 this.userToken = localStorage._scopetoken = res.data.token_type + ' ' + res.data.access_token;
                 dataService.setUserToken(res.data.token_type + ' ' + res.data.access_token);
@@ -27,9 +26,11 @@
 
             dataService.getUserProfile().then((res)=>{
               this.user = res.data;
+              dataService.setUser(this.user);
               this.showlogin = false;
             }).catch((e)=>{
-              this.userToken = localStorage._scopetoken = null;
+              delete this.userToken;
+              delete localStorage._scopetoken;
               dataService.setUserToken(null);
             })
           }
