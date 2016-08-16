@@ -22,6 +22,7 @@
           },
 
           addLoc:function(e){
+            this.showMap = true;
             this.$broadcast('update-address', this.newAddress);
           },
           deleteTag:function(tag){
@@ -82,6 +83,7 @@
                 newSourceType: '',
                 newLat: this.scope.location ? this.scope.location.latitude : "",
                 newLng: this.scope.location ? this.scope.location.longitude : "",
+                showMap: this.scope.location? true : false
             }
         },
         components:{
