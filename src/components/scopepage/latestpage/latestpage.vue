@@ -4,7 +4,6 @@
   export default{
     template:require('./latestpage.html'),
     ready: function(){
-      console.log("picked");
       this.timeStamp = Date.now();
       this.scopeId = this.$route.params.scopeId;
       this.appendDataList();

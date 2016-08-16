@@ -1,5 +1,5 @@
 <template>
-    <div id="addScope-bg" v-show="show" @click="show = false">
+    <div id="addScope-bg" v-if="show" @click="show = false">
       <div id="addScope-container"  @click="preventClick($event)">
         <div id="create-form">
           <div id="addScope-body">
@@ -32,7 +32,7 @@
                   <div id="add_tag_btn">
                     <button type="button" @click="addLoc()"><i class="fa fa-map-pin" aria-hidden="true"></i></button>
                   </div>
-                  <map :address.sync="address" :lat.sync="lat" :lng.sync="lng"></map>
+                  <map :address.sync="address" :lat.sync="lat" :lng.sync="lng" :show.sync="showMap"></map>
               </div>
 
               <div id="description">
@@ -91,19 +91,22 @@
                 address: "",
                 lat: "",
                 lng: "",
-                scopeId: ""
+                scopeId: "",
+                showMap: false
             }
         },
         watch:{
 
           'show':function(v,ov){
+            console.log(v, ov);
             $('html').css('overflow-y','hidden');
             if(v == false){
               $('html').css('overflow-y','auto');
               if(typeof this.dt == 'undefined'){
                 this.tagList = [];
               }
-              this.captionname = this.hashtag = this.description = this.address = '';
+              this.captionname = this.hashtag = this.description = this.address = this.lat = this.lng = this.newTag = '';
+              this.showMap = false;
             }
           }
         },
@@ -123,6 +126,7 @@
 
           addLoc:function(e){
             this.$broadcast('update-address', this.address);
+            this.showMap = true;
           },
           preventClick: function(e){
             e.stopPropagation();
