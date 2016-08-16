@@ -22,6 +22,7 @@
         pageNo: 0,
         hasMore:true,
         user:{},
+        radius: 20,
         showadd:false,
         showLoading:true
       }
@@ -50,8 +51,12 @@
         });
         }else{
           console.log(this.picked);
+          dataService.getImageViaLocation(this.pageNo++, this.pageSize, this.timeStamp, this.radius, this.scope.location.longitude, this.scope.location.latitude).then((res)=>{
+            if(res.data.data.length == this.pageSize)
+            this.showLoading = false;
+            this.updateDataList(res.data.data);
+          });
         }
-
       }
     }
   }
