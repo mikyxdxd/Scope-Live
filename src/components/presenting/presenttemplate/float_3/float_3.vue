@@ -44,8 +44,8 @@
       setCheckingInterval:function(){
         this.checkingInterval = setTimeout(()=>{
 
-          let img;
 
+          let img;
           if(this.newimagelist.length){
           img = this.newimagelist.pop();
           img.retina?this.datalist.unshift(img):'';
@@ -59,22 +59,24 @@
         }
 
 //        console.log(this.replacingIndex)
-        switch(this.replacingIndex){
-          case 0:
-            this.image_left = JSON.parse(JSON.stringify(img));
-            this.replacingIndex ++;
-            console.log('in 1')
-            break;
-          case 1:
-            this.image_center = JSON.parse(JSON.stringify(img));
-            this.replacingIndex ++;
-            console.log('in 2')
-            break;
-          case 2:
-            this.image_right = JSON.parse(JSON.stringify(img));
-            this.replacingIndex = 0;
-            break;
-        }
+//        switch(this.replacingIndex){
+//          case 0:
+//            self.image_left = JSON.parse(JSON.stringify(img));
+//            self.replacingIndex ++;
+//            console.log('in 1')
+//            break;
+//          case 1:
+//            self.image_center = JSON.parse(JSON.stringify(img));
+//            self.replacingIndex ++;
+//            console.log('in 2')
+//            break;
+//          case 2:
+//            self.image_right = JSON.parse(JSON.stringify(img));
+//            self.replacingIndex = 0;
+//            break;
+//        }
+
+        console.log()
 
 //        this.$nextTick(()=> {
 //          this._iso.layout()
@@ -103,6 +105,9 @@
           self.image_left =  JSON.parse(JSON.stringify( self.datalist[0]))
           self.image_center = JSON.parse(JSON.stringify( self.datalist[1]));
           self.image_right = JSON.parse(JSON.stringify( self.datalist[2]))
+
+//          self.datalist[1] = null;
+
 //          self.setCheckingInterval();
 
 
