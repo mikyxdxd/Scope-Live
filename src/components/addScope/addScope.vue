@@ -98,7 +98,6 @@
         watch:{
 
           'show':function(v,ov){
-            console.log(v, ov);
             $('html').css('overflow-y','hidden');
             if(v == false){
               $('html').css('overflow-y','auto');
