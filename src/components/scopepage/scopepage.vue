@@ -18,13 +18,27 @@
                scope:null,
                currentTab:null,
                isOwner:null,
-               picked: ""
+               picked: "",
+               showMap: false
             }
+        },
+        watch:{
+          'picked': function(v, ov){
+            console.log(v, ov);
+            if(v == 'location'){
+              this.showMap = true;
+              this.$broadcast('update-address', this.scope.location.address);
+            }
+            if(v == 'tag'){
+              this.showMap = false;
+            }
+          }
         },
         components:{
           scopeheader:require('./scopeheader/scopeheader.vue'),
           featurepage:require('./featurepage/featurepage.vue'),
           latestpage:require('./latestpage/latestpage.vue'),
+          map: require('../gMap/map.vue')
         }
     }
 </script>
