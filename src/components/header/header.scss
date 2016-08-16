@@ -16,6 +16,75 @@
   transition: all .15s ease-out;
 
 
+  #scope_dropdown{
+
+    width: 300px !important;
+    position: absolute;
+    top: 40px !important;
+    left: -200px !important;
+    opacity: 1;
+    padding: 0.5em 0em;
+
+    .one_scope{
+
+      display: inline-block;
+      width: 100%;
+      //padding: 0.5em;
+      //margin-bottom: 0.4em;
+
+      display: inline-block;
+      padding: 10px 15px;
+      line-height: 1;
+      border-bottom:1px solid #e4dede;
+
+      .scope_description{
+
+        font-size: 0.8em;
+        color: grey;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+      }
+
+      .cover_image{
+
+        display: block;
+        float: left;
+        height: 32px;
+        width: auto;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+      .scope_caption{
+        font-size: 0.9em;
+        display: inline-block;
+        vertical-align: bottom;
+        font-weight: bold;
+      }
+
+      &:hover{
+        background: #fa5757;
+        color: white !important;
+        cursor: pointer;
+
+        .scope_description{
+
+          color:white;
+        }
+      }
+
+    }
+
+    .view_all{
+
+      border-bottom: none;
+      font-size: 1em;
+      font-weight: bold;
+      text-align: center;
+    }
+
+  }
+
+
   .dropdown{
 
     width: 200px !important;
@@ -44,7 +113,7 @@
     .info{
       cursor: initial !important;
       font-size: 1.0em;
-      background: #eee;
+      background: #fbfbfb;
       color:grey;
       .username,.useremail{
         text-align: left;
@@ -127,6 +196,7 @@
     #nav-scope{
 
       display: inline-block;
+      position: relative;
       .btn{
         padding: 0px 8px;
         height: 35px;

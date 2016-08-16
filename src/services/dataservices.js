@@ -29,10 +29,10 @@ class DataService {
       }
     }).then((res)=>{
       this.user = res.data;
-      this.userType = 'user';
+    this.userType = 'user';
     }).catch((err)=>{
 
-      console.log('er')
+      console.log('er',err)
     })
   }
 
@@ -73,6 +73,13 @@ class DataService {
 
     this.userToken = token;
 
+  }
+
+  setUser(user){
+    if(this.userType == 'visitor') {
+      this.user = user;
+      this.userType = 'user';
+    }
   }
 
   getUserProfile() {

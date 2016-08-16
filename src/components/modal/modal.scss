@@ -10,7 +10,6 @@
   transition: opacity 0.5s ease;
 }
 
-
 .modal-container {
   -webkit-box-align:center;
   -webkit-align-items:center;
@@ -208,22 +207,6 @@
 
 }
 
-
-
-/*
- * the following styles are auto-applied to elements with
- * v-transition="modal" when their visiblity is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
-
 .modal-enter, .modal-leave {
   opacity: 0;
-}
-.modal-enter .modal-container,
-.modal-leave .modal-container {
-  //-webkit-transform: scale(1.1);
-  //transform: scale(1.1);
 }
