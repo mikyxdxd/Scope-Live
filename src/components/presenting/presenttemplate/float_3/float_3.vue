@@ -76,7 +76,7 @@
 //            break;
 //        }
 
-        console.log()
+        console.log('called')
 
 //        this.$nextTick(()=> {
 //          this._iso.layout()
@@ -105,6 +105,7 @@
           self.image_left =  JSON.parse(JSON.stringify( self.datalist[0]))
           self.image_center = JSON.parse(JSON.stringify( self.datalist[1]));
           self.image_right = JSON.parse(JSON.stringify( self.datalist[2]))
+
 
 //          self.datalist[1] = null;
 
