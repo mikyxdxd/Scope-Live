@@ -13,6 +13,9 @@
             }
           })
         },
+      route:{
+        canReuse:false
+      },
         data(){
             return{
                scope:null,

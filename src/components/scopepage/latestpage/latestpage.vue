@@ -29,7 +29,8 @@
     props:['scope', 'picked'],
     components:{
       'list': require('../../searchPage/photoList/list.vue'),
-      'loadinganimation':require('../../loading/loading.vue')
+      'loadinganimation':require('../../loading/loading.vue'),
+      'noresult':require('../../noresult/noresult.vue')
     },
     watch:{
       'picked': function(ov, v){

@@ -4,30 +4,15 @@
   export default{
     template:require('./float_3.html'),
     ready(){
+      let self = this;
+      setTimeout(function() {
+        if(!self.image_left && !self.image_center && !self.image_right){
+          self.image_left =  JSON.parse(JSON.stringify( self.datalist[0]))
+          self.image_center = JSON.parse(JSON.stringify( self.datalist[1]));
+          self.image_right = JSON.parse(JSON.stringify( self.datalist[2]))}
 
-//      console.log('here',this.datalist[0])
-//        this.image_left = this.datalist[0];
-//        this.image_center = this.datalist[1];
-//        this.image_right = this.datalist[2];
-//      let self = this;
-//      setTimeout(function() {
-//        window._iso = self._iso = new Isotope('#photo-list', {
-//          layoutMode: 'masonry',
-//          itemSelector: '.card',
-//          transitionDuration: '0.5s'
-//        });
-//        imagesLoaded( $('#photo-list') ).on( 'progress', function(){
-//          // layout Isotope after each image loads
-//          $('.card').each((i,e)=>{
-//            setTimeout(()=>{
-//            $(e).addClass('loaded');
-//          },i*50)
-//        })
-//          $('.card').removeClass('new');
-//          self._iso.layout();
-//        });
-//      },2000);
-      this.setCheckingInterval();
+        });
+        this.setCheckingInterval();
 
       },
 
@@ -42,8 +27,7 @@
     },
     methods: {
       setCheckingInterval:function(){
-        this.checkingInterval = setTimeout(()=>{
-
+        this.checkingInterval = setInterval(()=>{
 
           let img;
           if(this.newimagelist.length){
@@ -58,32 +42,45 @@
 
         }
 
-//        console.log(this.replacingIndex)
-//        switch(this.replacingIndex){
-//          case 0:
-//            self.image_left = JSON.parse(JSON.stringify(img));
-//            self.replacingIndex ++;
-//            console.log('in 1')
-//            break;
-//          case 1:
-//            self.image_center = JSON.parse(JSON.stringify(img));
-//            self.replacingIndex ++;
-//            console.log('in 2')
-//            break;
-//          case 2:
-//            self.image_right = JSON.parse(JSON.stringify(img));
-//            self.replacingIndex = 0;
-//            break;
-//        }
+        let self = this;
+        switch(this.replacingIndex++){
+          case 0:
+            $($( ".one_image" )[0]).fadeTo( "fast" , 0, function(){
 
-        console.log('called')
+            });
+            setTimeout(()=>{
+              self.image_left = JSON.parse(JSON.stringify(img));
+            },1000)
+            setTimeout(()=>{
+              $($( ".one_image" )[0]).fadeTo( "slow" , 1, function(){});
+            },2000)
+            break;
+        
+          case 1:
+        $($( ".one_image" )[1]).fadeTo( "fast" , 0, function(){
+        });
+        setTimeout(()=>{
+          self.image_center = JSON.parse(JSON.stringify(img));
+      },1000)
+        setTimeout(()=>{
+          $($( ".one_image" )[1]).fadeTo( "slow" , 1, function(){});
+      },2000)
+            break;
 
-//        this.$nextTick(()=> {
-//          this._iso.layout()
-//        });
+          case 2:
+        $($( ".one_image" )[2]).fadeTo( "fast" , 0, function(){
+        });
+        setTimeout(()=>{
+          self.image_right = JSON.parse(JSON.stringify(img));
+      },1000)
+        setTimeout(()=>{
+          $($( ".one_image" )[2]).fadeTo( "slow" , 1, function(){});
+      },2000)
+            this.replacingIndex = 0;
+            break;
+        }
 
-//      },this.imagepresentinterval * 1000)
-      },5000)
+      },10000)
       }
 
     },
@@ -99,36 +96,7 @@
       },
 
       'datalist': function(val, oldVal){
-        let self = this;
-        setTimeout(function() {
 
-          self.image_left =  JSON.parse(JSON.stringify( self.datalist[0]))
-          self.image_center = JSON.parse(JSON.stringify( self.datalist[1]));
-          self.image_right = JSON.parse(JSON.stringify( self.datalist[2]))
-
-
-//          self.datalist[1] = null;
-
-//          self.setCheckingInterval();
-
-
-//          window._iso = self._iso = new Isotope('#photo-list', {
-//            layoutMode: 'masonry',
-//            itemSelector: '.card',
-//            transitionDuration: '0.5s'
-//          });
-//          imagesLoaded( $('#photo-list') ).on( 'progress', function(){
-//            // layout Isotope after each image loads
-//            $('.card').each((i,e)=>{
-//              setTimeout(()=>{
-//              $(e).addClass('loaded');
-//            },i*50)
-//          })
-//            $('.card').removeClass('new');
-//            self._iso.layout();
-//          });
-
-        });
 
       }
     },

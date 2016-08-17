@@ -26,7 +26,7 @@
         </div>
       </div>
        <div class="pic" @click="showModal = true">
-          <img :src='image.thumbnail.url' {{ loadImage }} id="retina_img">
+          <img :src='image.retina.url' {{ loadImage }} id="retina_img">
         </div>
       <div class="image_info">
         <div class="caption">{{image.caption}}</div>
