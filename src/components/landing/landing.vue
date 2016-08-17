@@ -35,7 +35,7 @@
 
     methods: {
       searchTag: function(tag){
-        this.$route.router.go({ name: 'search', params: { tag: tag}});
+        this.$route.router.go({ name: 'search', params: { tag: tag.trim()}});
       },
       scrollChange(){
 

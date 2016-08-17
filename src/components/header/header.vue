@@ -33,7 +33,6 @@
 
     'user':function(oldV,newV){
       if(oldV.email || newV.email){
-
         if(!newV.email || newV.email != oldV.email){
           dataService.getUserScopes(0,4).then((res)=>{
             this.userScopes = res.data.data;
@@ -52,7 +51,7 @@
 
           searchTag(tag){
 
-            this.$route.router.go({path: `/search/${tag}`});
+            this.$route.router.go({path: `/search/${tag.trim()}`});
 
           },
 
