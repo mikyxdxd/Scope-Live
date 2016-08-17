@@ -24,10 +24,14 @@
         },
         watch:{
           'picked': function(v, ov){
-            console.log(v, ov);
             if(v == 'location'){
               this.showMap = true;
-              this.$broadcast('update-address', this.scope.location.address);
+              let opt = {
+                'scrollwheel': false,
+                'streetViewControl': false,
+                'disableDoubleClickZoom': true
+              }
+              this.$broadcast('update-address', this.scope.location.address, opt);
             }
             if(v == 'tag'){
               this.showMap = false;
