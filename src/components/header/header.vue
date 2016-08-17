@@ -51,7 +51,7 @@
 
           searchTag(tag){
 
-            this.$route.router.go({path: `/search/${tag}`});
+            this.$route.router.go({path: `/search/${tag.trim()}`});
 
           },
 

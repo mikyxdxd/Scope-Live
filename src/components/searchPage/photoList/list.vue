@@ -23,24 +23,27 @@
                     itemSelector: '.card',
                     transitionDuration: 0
                   });
-                  imagesLoaded( $('#photo-list') ).on( 'progress', function(){
-                    // layout Isotope after each image loads
-                    $('.card').each((i,e)=>{
-                      setTimeout(()=>{
-                        $(e).addClass('loaded');
-                      },i*50)
-                    })
-                    $('.card').removeClass('new');
-                    self._iso.layout();
-                  });
+                  imagesLoaded($('#photo-list'),()=>{
+
+                    $('.new').each((i,e)=>{
+                    setTimeout(()=>{
+                    $(e).addClass('loaded');
+                  },i*50)
+                })
+                  $('.card').removeClass('new');
+                  self._iso.layout();
+
+
+                  console.log('loaded')
+                })
 
                 });
               }else{
                 self.$nextTick(function() {
                   setTimeout(function() {
                     self._iso.appended($('.new'));
-                    imagesLoaded( $('#photo-list') ).on( 'progress', function(){
-                      // layout Isotope after each image loads
+                    imagesLoaded($('#photo-list'),()=>{
+
                       $('.new').each((i,e)=>{
                         setTimeout(()=>{
                         $(e).addClass('loaded');
@@ -48,7 +51,20 @@
                       })
                       $('.card').removeClass('new');
                       self._iso.layout();
-                    });
+
+
+                      console.log('loaded')
+                    })
+//                    imagesLoaded( $('.new') ).on( 'progress', function(){
+//                      // layout Isotope after each image loads
+//                      $('.new').each((i,e)=>{
+//                        setTimeout(()=>{
+//                        $(e).addClass('loaded');
+//                      },i*50)
+//                      })
+//                      $('.card').removeClass('new');
+//                      self._iso.layout();
+//                    });
                   });
                 });
               }

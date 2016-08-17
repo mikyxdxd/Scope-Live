@@ -16,8 +16,6 @@
   require('./search.scss')
     export default{
 
-        //TODO Create A Scope with current search tag
-
         ready: function(){
 
           this.timeStamp = Date.now();
