@@ -33,7 +33,8 @@
 
     'user':function(oldV,newV){
       if(oldV.email || newV.email){
-        if(!newV || newV.email != oldV.email){
+
+        if(!newV.email || newV.email != oldV.email){
           dataService.getUserScopes(0,4).then((res)=>{
             this.userScopes = res.data.data;
         })

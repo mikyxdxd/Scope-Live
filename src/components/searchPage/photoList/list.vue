@@ -39,7 +39,8 @@
                 self.$nextTick(function() {
                   setTimeout(function() {
                     self._iso.appended($('.new'));
-                    imagesLoaded( $('#photo-list') ).on( 'progress', function(){
+                    imagesLoaded( $('.new') ).on( 'progress', function(){
+                      console.log("aaaa");
                       // layout Isotope after each image loads
                       $('.new').each((i,e)=>{
                         setTimeout(()=>{
