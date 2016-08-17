@@ -15,8 +15,9 @@
             self.myCenter = new google.maps.LatLng(self.lat, self.lng);
             self.mapProp = {
               center: self.myCenter,
-              zoom: 10,
-              mapTypeId: google.maps.MapTypeId.ROADMAP
+              zoom: 13,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              scrollwheel: false
             };
             let map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
             let marker = new google.maps.Marker({
@@ -62,7 +63,8 @@
                 self.mapProp = {
                   center: self.myCenter,
                   zoom: 13,
-                  mapTypeId: google.maps.MapTypeId.ROADMAP
+                  mapTypeId: google.maps.MapTypeId.ROADMAP,
+                  scrollwheel: false
                 };
                 if(opt != null){
                   self.mapProp = Object.assign({}, self.mapProp, opt);

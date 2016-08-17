@@ -29,7 +29,7 @@
         data(){
             return{
               dataList: [],
-              pageSize: 20,
+              pageSize: 18,
               pageNo: 0,
               hasMore:true,
               showLoading: true,

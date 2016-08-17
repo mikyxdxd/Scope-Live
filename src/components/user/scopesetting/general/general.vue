@@ -21,9 +21,13 @@
 
           },
 
-          addLoc:function(e){
+          addLoc:function(){
             this.showMap = true;
             this.$broadcast('update-address', this.newAddress);
+          },
+          delLoc:function(){
+            this.scope.location = null;
+            this.showMap = false;
           },
           deleteTag:function(tag){
 

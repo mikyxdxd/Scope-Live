@@ -3,6 +3,9 @@
     import dataServices from '../../services/dataservices'
     export default{
         template:require('./scopepage.html'),
+        route:{
+          canReuse: false
+        },
         ready(){
           dataServices.getScopeInfo(this.$route.params.scopeId).then((res)=>{
 
@@ -27,13 +30,17 @@
             if(v == 'location'){
               this.showMap = true;
               let opt = {
-                'scrollwheel': false,
                 'streetViewControl': false,
                 'disableDoubleClickZoom': true
               }
               this.$broadcast('update-address', this.scope.location.address, opt);
             }
             if(v == 'tag'){
+              this.showMap = false;
+            }
+          },
+          'currentTab': function(v, ov){
+            if(v == 'feature'){
               this.showMap = false;
             }
           }

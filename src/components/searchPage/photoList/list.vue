@@ -46,8 +46,8 @@
               imagesLoaded($('#photo-list'),()=>{
 
                 $('.new').each((i,e)=>{
-                setTimeout(()=>{
-                $(e).addClass('loaded');
+                  setTimeout(()=>{
+                  $(e).addClass('loaded');
               },i*50)
             })
               $('.card').removeClass('new');
