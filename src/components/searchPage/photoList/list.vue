@@ -23,13 +23,14 @@
               itemSelector: '.card',
               transitionDuration: 0
             });
-            imagesLoaded($('#photo-list'),()=>{
 
+            imagesLoaded($('#photo-list'),()=>{
               $('.new').each((i,e)=>{
               setTimeout(()=>{
               $(e).addClass('loaded');
             },i*50)
           })
+
             $('.card').removeClass('new');
             self._iso.layout();
 
@@ -51,8 +52,6 @@
             })
               $('.card').removeClass('new');
               self._iso.layout();
-
-
               console.log('loaded')
             })
             });
