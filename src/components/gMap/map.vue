@@ -20,7 +20,8 @@
             };
             let map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
             let marker = new google.maps.Marker({
-              position: self.myCenter
+              position: self.myCenter,
+              icon: "https://instagramstatic-a.akamaihd.net/h1/bundles/cdbe8f1edb2309a77710a746c05e5a3c.png"
             });
             marker.setMap(map);
           }
@@ -48,7 +49,7 @@
           }
         },
         events:{
-          'update-address':function(newValue){
+          'update-address':function(newValue, opt=null){
             console.log(newValue);
             var self = this;
             let geocoder = new google.maps.Geocoder();
@@ -63,13 +64,16 @@
                   zoom: 13,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
-                console.log(self.lat, self.lng);
+                if(opt != null){
+                  self.mapProp = Object.assign({}, self.mapProp, opt);
+                }
+                console.log(self.mapProp);
                 let map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
                 let marker = new google.maps.Marker({
                   position: self.myCenter,
+                  icon: "https://instagramstatic-a.akamaihd.net/h1/bundles/cdbe8f1edb2309a77710a746c05e5a3c.png"
                 });
                 marker.setMap(map);
-                self.show = true;
               }else{
                 //no results
                 toastr.options = {"timeOut": "3000", "positionClass": "toast-top-right", "preventDuplicates": true};
