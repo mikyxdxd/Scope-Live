@@ -6,7 +6,6 @@
         ready(){
           this.scopeId = this.$route.params.scopeId;
           this.scope = Object.assign({}, this.scope, {$$tagArr :this.scope.tag.split('#')});
-          console.log(this.scope);
           if(this.scope.sourceType == "ALL"){
             $('#sourceTypeCheck').prop( "checked", true );
           }else{
@@ -36,7 +35,7 @@
           updateScope: function(){
             this.scope.description = this.newDesc;
             this.scope.tag =  '#' + this.scope.$$tagArr.join('#');
-            console.log(this.scope.tag)
+            console.log(this.scope  )
             if(this.newSourceType){
               this.scope.sourceType = 'ALL';
             }else{
@@ -45,14 +44,14 @@
             this.scope.caption = this.newCaption;
             var self = this;
 
-            if(this.newAddress != ""){
-              let location = {
-                'address': this.newAddress,
-                'latitude': this.newLat,
-                'longitude': this.newLng
-              };
-              this.scope.location = location;
-            }
+//            if(this.newAddress != ""){
+//              let location = {
+//                'address': this.newAddress,
+//                'latitude': this.newLat,
+//                'longitude': this.newLng
+//              };
+//              this.scope.location = location;
+//            }
             dataService.updateScope(self.scopeId, self.scope).then((res)=>{
                     if(res.data.result == "OK"){
                     console.log(res.data);
@@ -85,8 +84,8 @@
                 newCaption: '',
                 newTag: '',
                 newSourceType: '',
-                newLat: this.scope.location ? this.scope.location.latitude : "",
-                newLng: this.scope.location ? this.scope.location.longitude : "",
+//                newLat: this.scope.location ? this.scope.location.latitude : "",
+//                newLng: this.scope.location ? this.scope.location.longitude : "",
                 showMap: this.scope.location? true : false
             }
         },

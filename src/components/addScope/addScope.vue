@@ -5,7 +5,6 @@
           <div id="addScope-body">
             <div id="addScope-header">Create Scope</div>
             <div id="form-input">
-
               <div id="caption">
                 <label>Scope Name</label>
                 <input type="text" v-model="captionname" required>
@@ -29,17 +28,18 @@
               </div>
 
               <div id="location">
-                  <label>Scope Locationa</label>
-                  <input type="text" v-model="address" required>
+                  <label>Scope Location</label>
+                  <input type="text" v-model="address">
                   <div id="add_loc_btn">
                     <button type="button" @click="addLoc()"><i class="fa fa-map-pin" aria-hidden="true"></i></button>
                   </div>
 
-                  <div id="del_loc_btn" v-show="showMap">
+                  <div id="del_loc_btn" v-show='scope.location'>
                     <button type="button" @click="delLoc()"><i class="fa fa-trash" aria-hiden="true"></i></button>
                   </div>
-
-                  <map :address.sync="address" :lat.sync="lat" :lng.sync="lng" :show.sync="showMap"></map>
+                <div id="map">
+                  <map v-show="scope.location" :scope.sync="scope"></map>
+                </div>
               </div>
 
               <div id="description">
@@ -78,25 +78,27 @@
     require('./addScope.scss')
     import dataService from '../../services/dataservices'
     export default{
-        created(){
+        ready(){
           if (typeof this.dt != 'undefined'){
             var self = this;
             $.each(this.dt, function(index,value){
               self.tagList.push(value);
             });
           }
+
+          this.scope = Object.assign({}, this.scope, { location:null})
+
         },
         data(){
             return{
+                address:'',
                 captionname: "",
                 hashtag: "",
                 newTag:"",
+                scope:{},
                 sourceType: "",
                 tagList:[],
                 description: "",
-                address: "",
-                lat: "",
-                lng: "",
                 scopeId: "",
                 showMap: false
             }
@@ -110,7 +112,8 @@
               if(typeof this.dt == 'undefined'){
                 this.tagList = [];
               }
-              this.captionname = this.hashtag = this.description = this.address = this.lat = this.lng = this.newTag = '';
+              this.captionname = this.hashtag = this.description = '';
+              this.scope = {};
               this.showMap = false;
             }
           }
@@ -135,27 +138,16 @@
           },
           delLoc:function(){
             this.scope.location = null;
-            this.showMap = false;
             this.address = "";
           },
           preventClick: function(e){
             e.stopPropagation();
           },
           submitForm: function() {
+            //console.log(this.scope)
             let sourceType = "ALL"
             if(!this.sourceType) {
               sourceType = "MEMBER";
-            }
-            let location = null;
-            console.log(this.address, this.lat, this.lng);
-            if(this.address == ""){
-              location = null;
-            }else{
-              location = {
-                'address': this.address,
-                'latitude': this.lat,
-                'longitude': this.lng
-              }
             }
             if (!this.captionname.trim().length || !this.tagList.length) {
 
@@ -165,7 +157,7 @@
 
             } else {
               var self = this;
-              dataService.createScope('#' + this.tagList.join('#'), this.captionname, this.description, location, sourceType).then((res)=> {
+              dataService.createScope('#' + this.tagList.join('#'), this.captionname, this.description, this.scope.location, sourceType).then((res)=> {
                 if(res.status == 201)
               {
                 if (res.data.result == "OK") {

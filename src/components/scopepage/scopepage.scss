@@ -1,13 +1,5 @@
 #scopepage{
 
-  #scope-map{
-    #googleMap{
-      width: 100% !important;
-      height: 300px !important;
-      margin: 0 0 !important;
-    }
-  }
-
   #scope_ctr{
     text-align: right;
     margin-bottom: 15px;
@@ -57,23 +49,6 @@
       .tab.active{
 
         border-bottom: 3px solid #f9f9f9;
-      }
-      #src_crl{
-        padding: 1em;
-        padding-bottom: 0em;
-        background: #fafafa;
-        p{
-          display: inline-block;
-          margin: 8px 2px;
-          [type="radio"]:disabled+label{
-            color: rgba(0,0,0,0.26);
-            font-weight: bold;
-          }
-        }
-        label{
-          color: grey;
-          font-weight: bold;
-        }
       }
     }
   }

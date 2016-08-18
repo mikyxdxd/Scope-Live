@@ -7,5 +7,8 @@
 
          this.scope = Object.assign({}, this.scope, {$$tagArr :this.scope.tag.split('#')});
        },
+       components:{
+         map:require('../../gMap/map.vue')
+       }
     }
 </script>

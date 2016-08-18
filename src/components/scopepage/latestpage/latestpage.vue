@@ -6,7 +6,7 @@
     ready: function(){
       this.timeStamp = Date.now();
       this.scopeId = this.$route.params.scopeId;
-      this.appendDataList();
+      //this.appendDataList();
       this.user= dataService.getUser();
 
 //      dataService.getImageViaScope(this.pageNo++, this.pageSize, this.timeStamp, this.scopeId).then((res)=>{
@@ -21,12 +21,13 @@
         pageNo: 0,
         hasMore:true,
         user:{},
+        picked:null,
         radius: 20,
         showadd:false,
         showLoading:true
       }
     },
-    props:['scope', 'picked'],
+    props:['scope'],
     components:{
       'list': require('../../searchPage/photoList/list.vue'),
       'loadinganimation':require('../../loading/loading.vue'),
@@ -34,8 +35,11 @@
     },
     watch:{
       'picked': function(ov, v){
+
+        console.log(ov,v);
         this.imageList = [];
-        $('#photo-list').height('0px');
+        this.pageNo = 0;
+//        $('#photo-list').height('0px');
         this.appendDataList();
       }
     },
