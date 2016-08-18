@@ -7,9 +7,13 @@
 
             }
         },
+
+      ready(){
+        console.log(this.page)
+      },
         components:{
 
         },
-        props:['shownoreuslt']
+        props:['shownoreuslt','page']
     }
 </script>

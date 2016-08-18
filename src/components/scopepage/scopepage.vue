@@ -16,6 +16,9 @@
             }
           })
         },
+      route:{
+        canReuse:false
+      },
         data(){
             return{
                scope:null,
@@ -42,6 +45,9 @@
           'currentTab': function(v, ov){
             if(v == 'feature'){
               this.showMap = false;
+            }
+            if(v == 'latest' && this.picked=='location'){
+              this.showMap = true;
             }
           }
         },

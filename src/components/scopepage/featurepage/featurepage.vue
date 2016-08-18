@@ -28,7 +28,8 @@
     props:['scope'],
     components:{
       'list': require('../../searchPage/photoList/list.vue'),
-      'loadinganimation':require('../../loading/loading.vue')
+      'loadinganimation':require('../../loading/loading.vue'),
+      'noresult':require('../../noresult/noresult.vue')
     },
     methods: {
       updateDataList: function(data){

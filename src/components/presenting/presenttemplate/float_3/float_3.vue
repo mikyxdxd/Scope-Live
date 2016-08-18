@@ -4,10 +4,17 @@
   export default{
     template:require('./float_3.html'),
     ready(){
+      let self = this;
+      setTimeout(function() {
+        if(!self.image_left && !self.image_center && !self.image_right){
+          self.image_left =  JSON.parse(JSON.stringify( self.datalist[0]))
+          self.image_center = JSON.parse(JSON.stringify( self.datalist[1]));
+          self.image_right = JSON.parse(JSON.stringify( self.datalist[2]))}
 
+      });
       this.setCheckingInterval();
 
-      },
+    },
 
 
     beforeDestroy:function(){
@@ -20,11 +27,10 @@
     },
     methods: {
       setCheckingInterval:function(){
-        this.checkingInterval = setTimeout(()=>{
+        this.checkingInterval = setInterval(()=>{
 
-
-          let img;
-          if(this.newimagelist.length){
+            let img;
+        if(this.newimagelist.length){
           img = this.newimagelist.pop();
           img.retina?this.datalist.unshift(img):'';
           //currentReplacing = 0;
@@ -36,11 +42,45 @@
 
         }
 
+        let self = this;
+        switch(this.replacingIndex++){
+          case 0:
+            $($( ".one_image" )[0]).fadeTo( "fast" , 0, function(){
 
+            });
+            setTimeout(()=>{
+              self.image_left = JSON.parse(JSON.stringify(img));
+        },1000)
+        setTimeout(()=>{
+          $($( ".one_image" )[0]).fadeTo( "slow" , 1, function(){});
+      },2000)
+        break;
 
-        console.log('called')
+        case 1:
+        $($( ".one_image" )[1]).fadeTo( "fast" , 0, function(){
+        });
+        setTimeout(()=>{
+          self.image_center = JSON.parse(JSON.stringify(img));
+      },1000)
+        setTimeout(()=>{
+          $($( ".one_image" )[1]).fadeTo( "slow" , 1, function(){});
+      },2000)
+        break;
 
-      },5000)
+        case 2:
+        $($( ".one_image" )[2]).fadeTo( "fast" , 0, function(){
+        });
+        setTimeout(()=>{
+          self.image_right = JSON.parse(JSON.stringify(img));
+      },1000)
+        setTimeout(()=>{
+          $($( ".one_image" )[2]).fadeTo( "slow" , 1, function(){});
+      },2000)
+        this.replacingIndex = 0;
+        break;
+      }
+
+      },10000)
       }
 
     },
@@ -56,12 +96,7 @@
       },
 
       'datalist': function(val, oldVal){
-        let self = this;
-        setTimeout(function() {
-          self.image_left =  JSON.parse(JSON.stringify( self.datalist[0]))
-          self.image_center = JSON.parse(JSON.stringify( self.datalist[1]));
-          self.image_right = JSON.parse(JSON.stringify( self.datalist[2]))
-        });
+
 
       }
     },

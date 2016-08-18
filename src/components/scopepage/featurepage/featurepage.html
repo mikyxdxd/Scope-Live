@@ -1,4 +1,5 @@
 <div id="featurepage" v-if="scope">
+  <noresult :shownoreuslt="!imageList.length && !showLoading" page="feature"></noresult>
   <list :datalist.sync="imageList" :showdelete="scope.owner.id == user.id "></list>
   <div id="loadMore" v-show="imageList.length>0 && hasMore && !showLoading"><button class="waves-effect waves-light btn" v-on:click="appendDataList()">Load More</button></div>
   <loadinganimation :show.sync="showLoading"></loadinganimation>

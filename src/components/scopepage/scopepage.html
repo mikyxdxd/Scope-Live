@@ -7,17 +7,17 @@
       <div id="src_crl" v-show="currentTab == 'latest'">
         <p>
           <input name="group1" type="radio" id="searchTag" value="tag" v-model="picked" checked/>
-          <label for="searchTag">Search Tag</label>
+          <label for="searchTag">Search Via Tag</label>
         </p>
         <p>
           <input name="group1" type="radio" id="searchLoc" value="location" v-model="picked"  :disabled="scope.location == null" @click="showMap()"/>
-          <label for="searchLoc">Search Location</label>
+          <label for="searchLoc">Search Via Location</label>
         </p>
       </div>
     </div>
   </div>
 
-  <div id="scope-map" v-if="picked == 'location'">
+  <div id="scope-map" v-show="picked == 'location'">
     <map :show.sync="showMap" :address="scope.location.address"></map>
   </div>
 
