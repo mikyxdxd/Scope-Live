@@ -35,7 +35,7 @@
                     <button type="button" @click="addLoc()"><i class="fa fa-map-pin" aria-hidden="true"></i></button>
                   </div>
 
-                  <div id="del_loc_btn">
+                  <div id="del_loc_btn" v-show="showMap">
                     <button type="button" @click="delLoc()"><i class="fa fa-trash" aria-hiden="true"></i></button>
                   </div>
 
