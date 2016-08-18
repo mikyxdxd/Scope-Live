@@ -13,13 +13,13 @@
     },
 
     beforeDestroy:function(){
-      console.log('before')
       if(this.updateInterval != null){
         clearInterval(this.updateInterval);
       }
     },
 
     destroyed:function(){
+      console.log('called');
       $('html').css('overflow-y','auto');
     },
 
