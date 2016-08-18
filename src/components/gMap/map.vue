@@ -19,12 +19,12 @@
               mapTypeId: google.maps.MapTypeId.ROADMAP,
               scrollwheel: false
             };
-            this.map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
+            self.map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
             let marker = new google.maps.Marker({
               position: self.myCenter,
               icon: "https://instagramstatic-a.akamaihd.net/h1/bundles/cdbe8f1edb2309a77710a746c05e5a3c.png"
             });
-            marker.setMap(this.map);
+            marker.setMap(self.map);
             console.log("run map")
           }
         },
@@ -73,12 +73,12 @@
                     self.mapProp = Object.assign({}, self.mapProp, opt);
                   }
                   console.log(self.mapProp);
-                  this.map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
+                  self.map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
                   let marker = new google.maps.Marker({
                     position: self.myCenter,
                     icon: "https://instagramstatic-a.akamaihd.net/h1/bundles/cdbe8f1edb2309a77710a746c05e5a3c.png"
                   });
-                  marker.setMap(this.map);
+                  marker.setMap(self.map);
                   console.log("run map 2");
                 }else{
                   //no results
