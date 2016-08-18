@@ -50,13 +50,13 @@
             });
             setTimeout(()=>{
               self.image_left = JSON.parse(JSON.stringify(img));
-        },1000)
-        setTimeout(()=>{
-          $($( ".one_image" )[0]).fadeTo( "slow" , 1, function(){});
-      },2000)
-        break;
+            },1000)
+            setTimeout(()=>{
+              $($( ".one_image" )[0]).fadeTo( "slow" , 1, function(){});
+            },2000)
+            break;
 
-        case 1:
+          case 1:
         $($( ".one_image" )[1]).fadeTo( "fast" , 0, function(){
         });
         setTimeout(()=>{
