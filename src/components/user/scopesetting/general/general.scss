@@ -56,18 +56,35 @@
   .scopeSet_location{
 
     position: relative;
-    button{
-      position: absolute;
-      right: 10px;
-      top: 37px;
-      border-radius: 50%;
-      box-shadow: none;
-      border: none;
-      background: #fa5757;
-      color: white;
-      height: 25px;
-      width: 25px;
+    #add_loc_btn{
+      button{
+        position: absolute;
+        right: 50px;
+        top: 37px;
+        border-radius: 50%;
+        box-shadow: none;
+        border: none;
+        background: #fa5757;
+        color: white;
+        height: 25px;
+        width: 25px;
+      }
     }
+    #del_loc_btn{
+      button{
+        position: absolute;
+        right: 10px;
+        top: 37px;
+        border-radius: 50%;
+        box-shadow: none;
+        border: none;
+        background: #fa5757;
+        color: white;
+        height: 25px;
+        width: 25px;
+      }
+    }
+
   }
 
   .scopeSet_des{

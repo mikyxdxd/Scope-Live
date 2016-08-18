@@ -3,6 +3,9 @@
     import dataServices from '../../services/dataservices'
     export default{
         template:require('./scopepage.html'),
+        route:{
+          canReuse: false
+        },
         ready(){
           dataServices.getScopeInfo(this.$route.params.scopeId).then((res)=>{
 
@@ -30,7 +33,6 @@
             if(v == 'location'){
               this.showMap = true;
               let opt = {
-                'scrollwheel': false,
                 'streetViewControl': false,
                 'disableDoubleClickZoom': true
               }
@@ -38,6 +40,14 @@
             }
             if(v == 'tag'){
               this.showMap = false;
+            }
+          },
+          'currentTab': function(v, ov){
+            if(v == 'feature'){
+              this.showMap = false;
+            }
+            if(v == 'latest' && this.picked=='location'){
+              this.showMap = true;
             }
           }
         },
