@@ -12,7 +12,7 @@
           self.image_center = JSON.parse(JSON.stringify(self.datalist[1]));
           self.image_right = JSON.parse(JSON.stringify(self.datalist[2]))
         }
-      
+
         });
         this.setCheckingInterval();
 
