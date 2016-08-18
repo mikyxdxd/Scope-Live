@@ -6,13 +6,15 @@
     ready(){
       let self = this;
       setTimeout(function() {
-        if(!self.image_left && !self.image_center && !self.image_right){
-          self.image_left =  JSON.parse(JSON.stringify( self.datalist[0]))
-          self.image_center = JSON.parse(JSON.stringify( self.datalist[1]));
-          self.image_right = JSON.parse(JSON.stringify( self.datalist[2]))}
+        if (!self.image_left && !self.image_center && !self.image_right) {
 
-      });
-      this.setCheckingInterval();
+          self.image_left = JSON.parse(JSON.stringify(self.datalist[0]))
+          self.image_center = JSON.parse(JSON.stringify(self.datalist[1]));
+          self.image_right = JSON.parse(JSON.stringify(self.datalist[2]))
+        }
+
+        });
+        this.setCheckingInterval();
 
     },
 

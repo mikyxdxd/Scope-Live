@@ -25,7 +25,6 @@
               </div>
           </div>
 
-
           <div id="user_info" v-else>
             <div id="wrapper">
               <div id="user_avatar">
@@ -56,7 +55,7 @@
             </div>
             <div id="image_tags">
               <ul class="tag_list">
-                <li class="one_tag" v-for="tag in image.tags"><a>{{'#' + tag.text}}</a></li>
+                <li class="one_tag" v-for="tag in image.tags"><a v-link="{path:`/search/${tag.text}`}">{{'#' + tag.text}}</a></li>
               </ul>
             </div>
           </div>
