@@ -8,7 +8,8 @@
               pageNum:0,
               pageSize:11,
               scopeList:[],
-              hasMore:true
+              hasMore:true,
+              user:dataService.getUser()
             }
        },
        ready(){

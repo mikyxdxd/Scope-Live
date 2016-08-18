@@ -34,8 +34,6 @@
             $('.card').removeClass('new');
             self._iso.layout();
 
-
-            console.log('loaded')
           })
 
           });
