@@ -2,7 +2,7 @@
   <scopeheader :scope.sync="scope" v-if="scope"></scopeheader>
   <div id="scope_tab" v-show="scope">
     <div id="tabs">
-      <div class="tab" @click="currentTab = 'latest'" :class="{ 'active': currentTab == 'latest' }">LASTEST</div>
+      <div class="tab" @click="currentTab = 'latest'  " :class="{ 'active': currentTab == 'latest' }">LASTEST</div>
       <div class="tab" @click="currentTab = 'feature'" :class="{'active': currentTab == 'feature' }" v-if="isOwner">FEATURE</div>
       <div id="src_crl" v-show="currentTab == 'latest'">
         <p>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div id="scope-map" v-if="picked == 'location'">
+  <div id="scope-map" v-show="picked == 'location'">
     <map :show.sync="showMap" :address="scope.location.address"></map>
   </div>
 

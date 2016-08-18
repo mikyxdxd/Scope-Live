@@ -6,15 +6,17 @@
     ready(){
       let self = this;
       setTimeout(function() {
-        if(!self.image_left && !self.image_center && !self.image_right){
+        if (!self.image_left && !self.image_center && !self.image_right) {
 
-          self.image_left =  JSON.parse(JSON.stringify( self.datalist[0]))
-          self.image_center = JSON.parse(JSON.stringify( self.datalist[1]));
-          self.image_right = JSON.parse(JSON.stringify( self.datalist[2]))}
+          self.image_left = JSON.parse(JSON.stringify(self.datalist[0]))
+          self.image_center = JSON.parse(JSON.stringify(self.datalist[1]));
+          self.image_right = JSON.parse(JSON.stringify(self.datalist[2]))
+        }
+      
         });
         this.setCheckingInterval();
 
-      },
+    },
 
 
     beforeDestroy:function(){
@@ -29,8 +31,8 @@
       setCheckingInterval:function(){
         this.checkingInterval = setInterval(()=>{
 
-          let img;
-          if(this.newimagelist.length){
+            let img;
+        if(this.newimagelist.length){
           img = this.newimagelist.pop();
           img.retina?this.datalist.unshift(img):'';
           //currentReplacing = 0;
@@ -65,9 +67,9 @@
         setTimeout(()=>{
           $($( ".one_image" )[1]).fadeTo( "slow" , 1, function(){});
       },2000)
-            break;
+        break;
 
-          case 2:
+        case 2:
         $($( ".one_image" )[2]).fadeTo( "fast" , 0, function(){
         });
         setTimeout(()=>{
@@ -76,9 +78,9 @@
         setTimeout(()=>{
           $($( ".one_image" )[2]).fadeTo( "slow" , 1, function(){});
       },2000)
-            this.replacingIndex = 0;
-            break;
-        }
+        this.replacingIndex = 0;
+        break;
+      }
 
       },10000)
       }
