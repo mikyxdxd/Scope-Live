@@ -11,27 +11,27 @@
     export default{
         ready(){
           var self = this;
-          if(this.address != null &&this.lat != null && this.lng != null){
+          if(this.address  && this.lat && this.lng){
             self.myCenter = new google.maps.LatLng(self.lat, self.lng);
-            self.mapProp = {
-              center: self.myCenter,
-              zoom: 13,
-              mapTypeId: google.maps.MapTypeId.ROADMAP,
-              scrollwheel: false
-            };
-            this.map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
+            self.map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
+            self.map.setCenter(self.myCenter);
             let marker = new google.maps.Marker({
               position: self.myCenter,
               icon: "https://instagramstatic-a.akamaihd.net/h1/bundles/cdbe8f1edb2309a77710a746c05e5a3c.png"
             });
-            marker.setMap(this.map);
+            marker.setMap(self.map);
             console.log("run map")
           }
         },
         data(){
             return{
               myCenter: null,
-              mapProp: null,
+              mapProp: {
+                        zoom: 13,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        scrollwheel: false,
+                        clickableIcons: false
+                        },
               map: null
             }
         },
@@ -45,16 +45,15 @@
           'show': function(v, ov){
             if(v == false){
               this.myCenter = null;
-              this.mapProp = null;
               this.lat = '';
               this.lng = '';
             }
           }
         },
         events:{
-          'update-address':function(newValue, opt=null){
+          'update-address':function(newValue, opt=null, forceUpdate=true){
             console.log(newValue);
-            if(this.map == null){
+            if(this.map == null || forceUpdate){
               var self = this;
               let geocoder = new google.maps.Geocoder();
               geocoder.geocode({'address': newValue}, function(results, stats){
@@ -63,22 +62,17 @@
                   self.lat = results[0].geometry.location.lat();
                   self.lng = results[0].geometry.location.lng();
                   self.myCenter = new google.maps.LatLng(self.lat, self.lng);
-                  self.mapProp = {
-                    center: self.myCenter,
-                    zoom: 13,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    scrollwheel: false
-                  };
                   if(opt != null){
                     self.mapProp = Object.assign({}, self.mapProp, opt);
                   }
                   console.log(self.mapProp);
-                  this.map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
+                  self.map = new google.maps.Map(document.getElementById("map_canvas"), self.mapProp);
+                  self.map.setCenter(self.myCenter);
                   let marker = new google.maps.Marker({
                     position: self.myCenter,
                     icon: "https://instagramstatic-a.akamaihd.net/h1/bundles/cdbe8f1edb2309a77710a746c05e5a3c.png"
                   });
-                  marker.setMap(this.map);
+                  marker.setMap(self.map);
                   console.log("run map 2");
                 }else{
                   //no results
