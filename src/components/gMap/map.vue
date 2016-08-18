@@ -11,7 +11,7 @@
     export default{
         ready(){
           var self = this;
-          if(this.address != null &&this.lat != null && this.lng != null){
+          if(this.address  && this.lat && this.lng){
             self.myCenter = new google.maps.LatLng(self.lat, self.lng);
             self.mapProp = {
               center: self.myCenter,
@@ -52,9 +52,9 @@
           }
         },
         events:{
-          'update-address':function(newValue, opt=null){
+          'update-address':function(newValue, opt=null, forceUpdate=true){
             console.log(newValue);
-            if(this.map == null){
+            if(this.map == null || forceUpdate){
               var self = this;
               let geocoder = new google.maps.Geocoder();
               geocoder.geocode({'address': newValue}, function(results, stats){

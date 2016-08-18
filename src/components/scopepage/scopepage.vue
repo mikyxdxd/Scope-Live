@@ -36,7 +36,7 @@
                 'streetViewControl': false,
                 'disableDoubleClickZoom': true
               }
-              this.$broadcast('update-address', this.scope.location.address, opt);
+              this.$broadcast('update-address', this.scope.location.address, opt, false);
             }
             if(v == 'tag'){
               this.showMap = false;

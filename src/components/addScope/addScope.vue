@@ -17,6 +17,8 @@
                 <div id="add_tag_btn">
                   <button type="button" @click="addTag()"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
+
+
                 <input type="text" v-model="newTag" placeholder="Insert A New Tag">
                 <div id="tag_list"><div class="one_tag" v-for="tag in tagList">
                   <div class="chip">
@@ -29,9 +31,14 @@
               <div id="location">
                   <label>Scope Locationa</label>
                   <input type="text" v-model="address" required>
-                  <div id="add_tag_btn">
+                  <div id="add_loc_btn">
                     <button type="button" @click="addLoc()"><i class="fa fa-map-pin" aria-hidden="true"></i></button>
                   </div>
+
+                  <div id="del_loc_btn">
+                    <button type="button" @click="delLoc()"><i class="fa fa-trash" aria-hiden="true"></i></button>
+                  </div>
+
                   <map :address.sync="address" :lat.sync="lat" :lng.sync="lng" :show.sync="showMap"></map>
               </div>
 
@@ -125,6 +132,11 @@
           addLoc:function(e){
             this.$broadcast('update-address', this.address);
             this.showMap = true;
+          },
+          delLoc:function(){
+            this.scope.location = null;
+            this.showMap = false;
+            this.address = "";
           },
           preventClick: function(e){
             e.stopPropagation();
