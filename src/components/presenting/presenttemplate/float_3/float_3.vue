@@ -55,7 +55,7 @@
               $($( ".one_image" )[0]).fadeTo( "slow" , 1, function(){});
             },2000)
             break;
-        
+
           case 1:
         $($( ".one_image" )[1]).fadeTo( "fast" , 0, function(){
         });
