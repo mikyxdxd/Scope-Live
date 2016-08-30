@@ -1,0 +1,51 @@
+#termofservices{
+
+  width: 80%;
+  margin: auto;
+  display: block;
+
+  .content{
+
+    font-size: 0.9em;
+    margin: 1em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    color:grey;
+  }
+
+  .title{
+
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+    margin: 1em;
+
+    },
+  .sub_title{
+
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    color:#333;
+
+  },
+
+//  .content{
+//
+//  color: grey;
+//  font-size: 0.9em;
+//  margin: 1em;
+//  margin-top: 1.5em;
+//  margin-bottom: 1.5em;
+//}
+
+  li{
+    list-style: initial;
+    padding-bottom: 0.5em;
+
+  },
+  ul{
+
+    paddingLeft:1em;
+  }
+
+}
