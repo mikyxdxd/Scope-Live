@@ -9,7 +9,6 @@
         },
 
       ready(){
-        console.log(this.page)
       },
         components:{
 

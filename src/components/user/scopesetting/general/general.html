@@ -45,7 +45,9 @@
             <button type="button" @click="delLoc()"><i class="fa fa-trash" aria-hiden="true"></i></button>
           </div>
           <input type="text" :value="scope.location ? scope.location.address: null" v-model="newAddress">
-          <map :address.sync="newAddress" :lat.sync="newLat" :lng.sync="newLng" :show="showMap"></map>
+            <div id="map">
+              <map v-show="scope.location" :scope.sync="scope"></map>
+            </div>
         </div>
 
 

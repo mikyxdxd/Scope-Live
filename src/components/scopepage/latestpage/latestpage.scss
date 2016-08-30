@@ -16,4 +16,27 @@
       }
     }
   }
+
+  #src_crl{
+    padding-bottom: 0em;
+    padding: 1em;
+    background: #fafafa;
+    text-align: center;
+    border-bottom: 1px solid gainsboro;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+    p{
+      display: inline-block;
+      margin: 8px 2px;
+      [type="radio"]:disabled+label{
+        color: rgba(0,0,0,0.26);
+        font-weight: bold;
+      }
+    }
+    label{
+      color: grey;
+      font-weight: bold;
+    }
+  }
 }

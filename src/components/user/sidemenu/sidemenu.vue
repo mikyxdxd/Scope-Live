@@ -5,7 +5,6 @@
     template:require('./sidemenu.html'),
     ready(){
       this.user = dataSerivces.getUser();
-      console.log(this.user)
     },
     data:function(){
       return{
