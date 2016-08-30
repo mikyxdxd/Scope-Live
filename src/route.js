@@ -46,6 +46,12 @@ export default(App)=>{
     },
     '/p/:scopeId':{
       component:require('./components/presenting/presenting.vue')
+    },
+    '/tos':{
+      component:require('./components/footer/termofservices/termofservices.vue')
+    },
+    '/pp':{
+      component:require('./components/footer/privacypolicy/privacypolicy.vue')
     }
   })
 
