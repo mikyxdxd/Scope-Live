@@ -4,7 +4,29 @@
   export default{
     template:require('./presenting.html'),
     ready: function(){
-      $('html').css('overflow-y','hidden');
+
+      if(this.$route.path.indexOf('embed')>=0){
+
+          this.op = 'embed';
+            console.log(this.$route.query.layout)
+          switch(this.$route.query.layout){
+            case 'compact':
+              this.layout = 'compact'
+              break;
+            case 'float_3':
+              this.layout = 'float_3'
+              break;
+            case 'single':
+              this.layout = 'single'
+              break;
+            default:{
+              this.layout = 'default'
+            }
+          }
+
+      }
+      else{this.op='present'; $('html').css('overflow-y','hidden');}
+
       this.timeStamp = Date.now();
       this.scopeId = this.$route.params.scopeId;
       this.appendDataList();
@@ -19,7 +41,6 @@
     },
 
     destroyed:function(){
-      console.log('called');
       $('html').css('overflow-y','auto');
     },
 
@@ -31,9 +52,10 @@
         scope:null,
         newImageList:[],
         updateInterval:null,
-        layout:'default',
+        layout:'float_3',
         showSetting:false,
-        imagepresentinterval:10
+        imagepresentinterval:10,
+        op:null
       }
     },
 
@@ -79,9 +101,11 @@
 
       },
       appendDataList: function(){
+        var self = this;
         dataService.getImageViaScope(this.pageNo++, this.pageSize, Date.now(), this.scopeId).then((res)=>{
           if(res.data.scope && !this.scope) this.scope = res.data.scope
           this.updateDataList(res.data.data);
+          if(self.op == 'present')
           this.setUpateInterval();
         });
       }
