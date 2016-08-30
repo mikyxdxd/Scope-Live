@@ -11,7 +11,6 @@ export default(App)=>{
 
     let verifyUser = setInterval(()=>{
       if(dataService.getUserType() != null){
-        console.log(dataService.getUserType())
         clearInterval(verifyUser);
         transition.next();
         window.scrollTo(0,0);
