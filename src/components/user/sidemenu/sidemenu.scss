@@ -1,5 +1,5 @@
 #sidemenu{
-  width: 250px;
+  width: 220px;
   z-index: 999;
   position: fixed;
   overflow-x: hidden;
@@ -24,19 +24,10 @@
   }
   .user-avatar{
     margin: 1em 0;
-    height: 100px;
-    position:relative;
+    text-align: center;
     .tb-avatar {
-      border: 0;
-      box-shadow: 0 1px 0 rgba(0,0,0,.25);
-      height: 100px;
-      width: 100px;
-      margin: auto;
-      position: absolute;
-      left: 75px;
-      top: 0;
-      bottom: 0;
-      background-color: #fff;
+      height: 70px;
+      width: 70px;
       overflow: hidden;
       border-radius: 100%;
       display: inline-block;
@@ -44,28 +35,32 @@
   }
   .user-info {
     text-align: center;
-    font-weight: lighter;
-    padding: 20px 20px 20px 20px;
-    position: relative;
-    width: 100%;
     color: #fff;
-    display: inline-block;
-    box-sizing: border-box;
     h3 {
       margin: 0;
-      font-size: 20px;
+      font-size: 1em;
       display: inline-block;
+      letter-spacing: 0.05em;
     }
     small {
       color: rgba(254, 254, 254, 0.71);
-      padding-left: 1px;
-      font-size: 0.9em;
+      font-size: 0.8em;
+      font-weight: 100;
+      position: relative;
+      top:-5px;
     }
     #user-signOut{
       cursor: pointer;
-      margin: 1em 0;
+      margin: 1em;
       color: #ff9751;
-      font-weight: 500;
+      font-size: 0.9em;
+      font-weight: bold;
+      i{
+        margin-right: 2px;
+        font-size: 1.3em;
+        color: white
+      }
+
     }
   }
 
@@ -82,6 +77,8 @@
       padding: 0;
       margin-top: 0;
       border-radius: 0;
+      border-top: 1px solid #512791;
+      //border-bottom: 1px solid #512791;
       &:hover{
         background: #38126d;
         color: rgba(255, 255, 255, .7);
@@ -89,8 +86,6 @@
       }
       &.active{
         background: #38126d;
-        border-top: 1px solid #512791;
-        border-bottom: 1px solid #512791;
         box-shadow: inset 5px 0px 0 0 #ff9751;
         -webkit-box-shadow: inset 5px 0px 0 0 #ff9751;
         -moz-box-shadow: inset 5px 0px 0 0 #ff9751;;
@@ -102,8 +97,9 @@
       a {
         line-height: 2;
         color:white;
+        font-size: 0.9em;
         background-color: transparent;
-        padding: 10px 20px 10px 55px;
+        padding: 0.5em 1.5em;
         border-radius: 0;
         border: 0;
         overflow: hidden;
@@ -112,7 +108,11 @@
         position: relative;
         display: block;
         text-decoration: none;
+        font-weight: 100;
         outline: 0;
+        i{
+          width: 25px;
+        }
       }
 
 
