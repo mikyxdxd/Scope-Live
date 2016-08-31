@@ -22,6 +22,7 @@
           self._iso.layout();
         });
       },2000);
+      if(this.op == 'present')
       this.setCheckingInterval();
       },
 
@@ -99,7 +100,7 @@
         checkingInterval:null
       }
     },
-    props:['datalist','newimagelist','imagepresentinterval'],
+    props:['datalist','newimagelist','imagepresentinterval','op'],
     components:{
       card: require('../../../searchPage/card/card.vue')
     }

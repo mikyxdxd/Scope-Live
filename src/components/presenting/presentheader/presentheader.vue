@@ -2,7 +2,7 @@
   require('./presentheader.scss')
   export default{
     template:require('./presentheader.html'),
-    props:['scope','showsetting'],
+    props:['scope','showsetting','op'],
     ready(){
 //      setTimeout(()=> {
 //        console.log(this.scope)

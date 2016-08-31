@@ -5,8 +5,9 @@
     template:require('./single.html'),
     ready: function(){
 
-      this.setCheckingInterval();
       this.currentImage = this.datalist[this.currentIndex++];
+//        if(this.op == 'present')
+        this.setCheckingInterval();
 
     },
     beforeDestroy:function(){
@@ -59,7 +60,7 @@
         currentIndex:0
       }
     },
-    props:['datalist','newimagelist','imagepresentinterval'],
+    props:['datalist','newimagelist','imagepresentinterval','op'],
     components:{
       card: require('../../../searchPage/card/card.vue')
     }
