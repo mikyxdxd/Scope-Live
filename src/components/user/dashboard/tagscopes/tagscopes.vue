@@ -24,6 +24,7 @@
            dataService.getUserScopes(this.pageNum++,this.pageSize).then((res)=>{
 
              this.scopeList = res.data.data;
+              console.log(res.data.data);
              if( res.data.data.length < this.pageSize){
                this.hasMore = false
              }
@@ -31,6 +32,18 @@
 
            });
 
+         },
+
+         deleteScope(scope){
+             dataService.deleteScope(scope.id).then((res)=>{
+               if(res.data.result == "OK"){
+               toastr.success('Your scope has been deleted. ');
+               this.pageNum = 0;
+               this.getUserScopes();
+             }else{
+               toastr.error('Your deletion failed. Please try again!');
+             }
+           });
          },
 
          loadMoreScope(){

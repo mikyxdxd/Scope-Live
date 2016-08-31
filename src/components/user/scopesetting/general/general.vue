@@ -13,6 +13,9 @@
           }
         },
         methods:{
+          preventClick: function(e){
+            e.stopPropagation();
+          },
           addTag:function(){
 
             this.scope.$$tagArr.push(this.newTag);
@@ -86,7 +89,8 @@
                 newSourceType: '',
 //                newLat: this.scope.location ? this.scope.location.latitude : "",
 //                newLng: this.scope.location ? this.scope.location.longitude : "",
-                showMap: this.scope.location? true : false
+                showMap: this.scope.location? true : false,
+                showDeleteModal: false,
             }
         },
         components:{

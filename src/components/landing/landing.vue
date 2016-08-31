@@ -1,31 +1,31 @@
 <template>
   <div id="home">
-  <!--<div id="intro-container">-->
+    <!--<div id="intro-container">-->
 
-        <!--<div id="center">-->
-        <!--<div class="caption">The social search & display platform</div>-->
-        <!--<form v-on:submit.prevent="searchTag(tag)" >-->
-          <!--<div class="search-wrapper">-->
-          <!--<input type="search" placeholder="Start your search here" v-model="tag"><i class="material-icons">search</i>-->
-          <!--</div>-->
-        <!--</form>-->
-        <!--</div>-->
-  <!--</div>-->
-  <!--<div id="customer">-->
+    <!--<div id="center">-->
+    <!--<div class="caption">The social search & display platform</div>-->
+    <!--<form v-on:submit.prevent="searchTag(tag)" >-->
+    <!--<div class="search-wrapper">-->
+    <!--<input type="search" placeholder="Start your search here" v-model="tag"><i class="material-icons">search</i>-->
+    <!--</div>-->
+    <!--</form>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div id="customer">-->
     <!--Our customer-->
-  <!--</div>-->
+    <!--</div>-->
 
-  <section>
-    <intro></intro>
-  </section>
-  <section>
-    <whatisit></whatisit>
-  </section>
-  <section></section>
-  <section></section>
+    <section>
+      <intro></intro>
+    </section>
+    <section>
+      <whatisit></whatisit>
+    </section>
+    <section></section>
+    <section></section>
     <s_footer></s_footer>
 
-    </div>
+  </div>
 </template>
 <script>
   require('./landing.scss')
