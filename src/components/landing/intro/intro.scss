@@ -1,0 +1,35 @@
+#intro{
+
+  padding: 8em 2em;
+  text-align: center;
+  background: #e9e9e9;
+  border-bottom: 1px solid gainsboro;
+  #title{
+
+    font-size: 2.3em;
+  }
+  #sub_title{
+
+    font-size: 1.6em;
+    font-weight: normal;
+    color: grey;
+    width: 600px;
+    margin: auto;
+    margin-top: 0.5em;
+  }
+
+  #trail_b{
+
+    a{
+
+      background: #3f1680;
+      color: white;
+      font-size: 1.4em;
+      padding: 0.5em 2.5em;
+      display: inline-block;
+      margin-top: 1em;
+      border-radius: 10px;
+    }
+  }
+
+}

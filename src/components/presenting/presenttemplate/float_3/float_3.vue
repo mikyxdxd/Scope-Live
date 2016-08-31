@@ -14,7 +14,7 @@
         }
 
         });
-        if(this.op == 'present')
+//        if(this.op == 'present')
         this.setCheckingInterval();
 
     },

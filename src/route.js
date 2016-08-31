@@ -55,6 +55,9 @@ export default(App)=>{
     },
     '/pp':{
       component:require('./components/footer/privacypolicy/privacypolicy.vue')
+    },
+    '/pricing':{
+      component:require('./components/pricing/pricing.vue')
     }
   })
 

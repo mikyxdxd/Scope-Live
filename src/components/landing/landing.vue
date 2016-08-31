@@ -11,14 +11,16 @@
         </form>
         </div>
   </div>
-  <div id="customer">
-    Our customer
-  </div>
+  <!--<div id="customer">-->
+    <!--Our customer-->
+  <!--</div>-->
 
   <section>
-    <product></product>
+    <intro></intro>
   </section>
-  <section></section>
+  <section>
+    <whatisit></whatisit>
+  </section>
   <section></section>
   <section></section>
 
@@ -61,7 +63,8 @@
     },
     components:{
       navbar: require('../header/header.vue'),
-      product: require('./product/product.vue')
+      intro: require('./intro/intro.vue'),
+      whatisit:require('./whatisit/whatisit.vue')
     }
   }
 </script>

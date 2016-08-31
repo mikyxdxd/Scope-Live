@@ -1,7 +1,7 @@
 <script>
-  require('./product.scss')
+  require('./intro.scss')
   export default{
-    template:require('./product.html'),
+    template:require('./intro.html'),
     data(){
       return{
 
