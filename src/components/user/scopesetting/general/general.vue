@@ -79,6 +79,15 @@
             });
           }
         },
+        watch: {
+          'showDeleteModal':function(val, oldVal){
+            if (val){
+              $('html').css('overflow-y','hidden');
+            }else{
+              $('html').css('overflow-y','auto');
+            }
+          }
+        },
         data(){
             return{
                 scopeId: '',
