@@ -32,12 +32,17 @@
 
   #plans{
     margin-top:5em;
+    .center{
+      border-color: #e89f5e !important;
+    }
     .one_plan{
 
       display: inline-block;
       width: 30%;
+      margin-left: 1.5%;
+      vertical-align: top;
       min-height: 70vh;
-      border:1px solid #dad7d7;
+      border:2px solid #dad7d7;
       padding: 2%;
       .plan_title{
           //font-weight: bold;
@@ -48,6 +53,12 @@
         font-size: 1.1em;
         color: grey;
         margin-top: 1em;
+        height: 70px;
+        .content{
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
       .price{
 
@@ -79,17 +90,45 @@
           font-size: 1.7em;
           padding: 0.2em 1em;
           background: none;
-          border: 2px solid #3f1680;
+          border: 3px solid #3f1680;
           color: #3f1680;
           border-radius: 10px;
         }
       }
       .feature{
         margin-top: 20px;
-        .included{
+        .included,.not_included{
           width:80%;
           text-align: left;
           margin: auto;
+          margin-top: 15px;
+          .tick,.detail{
+            display: inline-block;
+            vertical-align: top;
+            line-height: 1.6em;
+          }
+          .tick{
+            display: inline-block;
+            width: 10%;
+            color: #e89f5e;
+            font-size: 1.3em;
+          }
+          .detail{
+            width: 80%;
+            margin-left: 5%;
+            font-weight: 100;
+          }
+        }
+        .not_included{
+
+          .tick{
+            //visibility: hidden;
+            color: gainsboro;
+          }
+          .detail{
+            //text-decoration: line-through;
+            color: gainsboro;
+          }
         }
         .detail{
           font-size: 1.1em;

@@ -8,6 +8,35 @@
 
     font-size: 2.3em;
   }
+  form {
+    width: 40%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    //background-color: white;
+    color: black;
+    .search-wrapper {
+
+      width: 100%;
+      margin: auto;
+      position: relative;
+      input {
+        display: inline-block;
+        margin: 0;
+        padding: 5px;
+        background: white;
+        border-radius: 5px;
+        border: 1px solid #ccc6c6;
+      }
+
+      .material-icons {
+        display: inline-block;
+        position: absolute;
+        top: 17px;
+        right: 0px;
+      }
+    }
+  }
   #sub_title{
 
     font-size: 1.6em;
