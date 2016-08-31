@@ -10,7 +10,7 @@
 
       <div id="header_lists">
         <a class="item" v-link="{path:'/pricing'}">Pricing</a>
-        <a class="item">Privacy Policy</a>
+        <a class="item" v-link="{path:'/pp'}">Privacy Policy</a>
         <div class="item">Support</div>
         <div class="item" v-if="!user.email"><div @click="showlogin = true">Sign In</div></div>
         <div class="item user" id="user-info" v-show="user">
