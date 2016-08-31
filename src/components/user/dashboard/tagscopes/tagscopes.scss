@@ -20,7 +20,7 @@
     border: 0;
     padding: 0;
     width: 23%;
-    height: 320px;
+    height: 330px;
     background: white;
     margin: 0 1% 1.5%;
     display: inline-block;
@@ -86,7 +86,7 @@
 
     .sp_action{
       text-align: center;
-      height: 43px;
+      height: 53px;
       bottom: 0;
       display: flex;
       background-color: #F7F7F7;
@@ -95,11 +95,16 @@
       .act{
         display: inline-block;
         width: 33%;
-        padding-top: 15px;
+        padding-top: 10px;
         color: #448d9e;
         outline: 0;
         flex-grow: 1;
         border-left: 1px solid #DFEAEF;
+        div{
+          font-size: 0.8em;
+          position: relative;
+          top:-5px;
+        }
       }
       .act:hover{
         background: #eae7e7;

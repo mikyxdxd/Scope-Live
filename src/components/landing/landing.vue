@@ -23,6 +23,7 @@
   </section>
   <section></section>
   <section></section>
+    <s_footer></s_footer>
 
     </div>
 </template>
@@ -64,7 +65,8 @@
     components:{
       navbar: require('../header/header.vue'),
       intro: require('./intro/intro.vue'),
-      whatisit:require('./whatisit/whatisit.vue')
+      whatisit:require('./whatisit/whatisit.vue'),
+      s_footer:require('../footer/footer.vue')
     }
   }
 </script>

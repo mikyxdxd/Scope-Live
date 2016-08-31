@@ -20,7 +20,7 @@
       Created <br/>
       by {{user.name}} {{user.email}}
     </div>
-    <div class="sp_action"><a class="act" v-link="{path:`/p/${scope.id}`}"><i class="tiny material-icons">airplay</i></a><a class="act"  v-link="{path:`/s/${scope.id}/setting`}"><i class="tiny material-icons">settings</i></a><a class="act"><i class="tiny material-icons">delete</i></a></div>
+    <div class="sp_action"><a class="act" v-link="{path:`/p/${scope.id}`}"><i class="tiny material-icons">airplay</i><div>Presentation</div></a><a class="act"  v-link="{path:`/s/${scope.id}/setting`}"><i class="tiny material-icons">settings</i><div>Setting</div></a><a class="act"><i class="tiny material-icons">delete</i><div>Embeding</div></a></div>
   </div>
   <div id="ldmore" v-show="scopeList.length>0 && hasMore"><button class="waves-effect waves-light btn" @click="loadMoreScope()">Load More</button></div>
 </div>
