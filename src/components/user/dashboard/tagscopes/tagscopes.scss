@@ -20,7 +20,7 @@
     border: 0;
     padding: 0;
     width: 23%;
-    height: 330px;
+    height: 280px;
     background: white;
     margin: 0 1% 1.5%;
     display: inline-block;
@@ -28,7 +28,7 @@
     position: relative;
     .sp_header{
       padding: 10px 15px;
-      height: 42px;
+      height: 60px;
       font-weight: bolder;
       font-size: 14px;
       line-height: 24px;
@@ -36,13 +36,36 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      color: #fa5757;
-      a{
-        color: #fa5757;
+      text-overflow: ellipsis;
+      width: 160px;
+      display: inline-block;
+      overflow: auto;
+      span{
+        color:grey;
       }
-      a:hover{
-        color:#d44848;
-        cursor: pointer;
+      a{
+        color: #3e2079;
+      }
+      //a:hover{
+      //  color:#d44848;
+      //  cursor: pointer;
+      //}
+
+      .present{
+
+        position: absolute;
+        top: 15px;
+        right: 5px;
+        padding: 0.1em 1.5em;
+        font-size: 0.8em;
+        border-radius: 5px;
+        color:white;
+        font-weight: normal;
+        background: #ffa15a;
+        i{
+          margin-right: 2px;
+          font-size: 1.2em;
+        }
       }
     }
     .sp_cover{
@@ -75,31 +98,34 @@
     }
 
     .sp_meta{
-      text-align: center;
+      text-align: left;
       line-height: 1.35;
-      padding: 10px 15px;
-      bottom: 43px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      color: black;
+      font-size: 0.8em;
+      font-weight: normal;
     }
 
     .sp_action{
       text-align: center;
       height: 53px;
       bottom: 0;
-      display: flex;
-      background-color: #F7F7F7;
-      border-top: 1px solid #DFEAEF;
-      border-bottom: 1px solid #DFEAEF;
+      text-align: right;
+      //display: flex;
+      //background-color: #F7F7F7;
+      //border-top: 1px solid #DFEAEF;
+      //border-bottom: 1px solid #DFEAEF;
       .act{
         display: inline-block;
-        width: 33%;
+        //width: 33%;
         padding-top: 10px;
         color: #448d9e;
         outline: 0;
         flex-grow: 1;
-        border-left: 1px solid #DFEAEF;
+        padding: 1em;
+        //border-left: 1px solid #DFEAEF;
         .link{
           font-size: 0.8em;
           position: relative;
@@ -156,7 +182,7 @@
         }
       }
       .act:hover{
-        background: #eae7e7;
+        //background: #eae7e7;
         color: #2695af;
         cursor: pointer;
       }
