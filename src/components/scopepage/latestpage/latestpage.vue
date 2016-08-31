@@ -36,7 +36,6 @@
     watch:{
       'picked': function(ov, v){
 
-        console.log(ov,v);
         this.imageList = [];
         this.pageNo = 0;
 //        $('#photo-list').height('0px');

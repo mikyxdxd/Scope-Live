@@ -19,10 +19,20 @@
 
        methods:{
 
+         setFormat(scope,format){
+
+           scope.$$layout = format
+         },
+
          getUserScopes(){
 
            dataService.getUserScopes(this.pageNum++,this.pageSize).then((res)=>{
 
+             for(let i in res.data.data){
+
+               res.data.data[i].$$embedLink = window.location.origin + '/embed/';
+               res.data.data[i].$$layout = 'default';
+             }
              this.scopeList = res.data.data;
               console.log(res.data.data);
              if( res.data.data.length < this.pageSize){
@@ -49,6 +59,12 @@
          loadMoreScope(){
 
            dataService.getUserScopes(this.pageNum++,this.pageSize).then((res)=>{
+             for(let i in res.data.data){
+
+               res.data.data[i].$$embedLink = window.location.origin + '/embed/';
+               res.data.data[i].$$layout = 'default';
+
+             }
              if( res.data.data.length < this.pageSize){
                 this.hasMore = false
              }
