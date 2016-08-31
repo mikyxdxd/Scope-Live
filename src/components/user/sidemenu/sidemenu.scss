@@ -10,7 +10,7 @@
   padding: 0 0 55px;
   height: 100vh;
   color: #fff;
-  background-color: #fa5757;
+  background-color: #3f1179;
   .nav-page-title {
     background: #fa5757;
     text-align: center;
@@ -22,24 +22,18 @@
       letter-spacing: .05em;
     }
   }
-  .user-info {
-    text-align: left;
-    font-weight: lighter;
-    padding: 20px 20px 20px 70px;
-    position: relative;
-    width: 100%;
-    background: #794343;
-    color: #fff;
-    display: inline-block;
-    box-sizing: border-box;
+  .user-avatar{
+    margin: 1em 0;
+    height: 100px;
+    position:relative;
     .tb-avatar {
       border: 0;
       box-shadow: 0 1px 0 rgba(0,0,0,.25);
-      height: 40px;
-      width: 40px;
+      height: 100px;
+      width: 100px;
       margin: auto;
       position: absolute;
-      left: 20px;
+      left: 75px;
       top: 0;
       bottom: 0;
       background-color: #fff;
@@ -47,17 +41,31 @@
       border-radius: 100%;
       display: inline-block;
     }
+  }
+  .user-info {
+    text-align: center;
+    font-weight: lighter;
+    padding: 20px 20px 20px 20px;
+    position: relative;
+    width: 100%;
+    color: #fff;
+    display: inline-block;
+    box-sizing: border-box;
     h3 {
       margin: 0;
-      font-size: 15px;
+      font-size: 20px;
       display: inline-block;
     }
     small {
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: 0 50%;
+      color: rgba(254, 254, 254, 0.71);
       padding-left: 1px;
       font-size: 0.9em;
+    }
+    #user-signOut{
+      cursor: pointer;
+      margin: 1em 0;
+      color: #ff9751;
+      font-weight: 500;
     }
   }
 
@@ -75,12 +83,17 @@
       margin-top: 0;
       border-radius: 0;
       &:hover{
-        background: #da5555;
+        background: #38126d;
         color: rgba(255, 255, 255, .7);
         cursor: pointer;
       }
       &.active{
-        background: #da5555;
+        background: #38126d;
+        border-top: 1px solid #512791;
+        border-bottom: 1px solid #512791;
+        box-shadow: inset 5px 0px 0 0 #ff9751;
+        -webkit-box-shadow: inset 5px 0px 0 0 #ff9751;
+        -moz-box-shadow: inset 5px 0px 0 0 #ff9751;;
         color: rgba(255, 255, 255, .7);
       }
       //border-bottom: 1px solid #794343;
