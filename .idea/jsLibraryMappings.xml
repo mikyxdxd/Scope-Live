@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-<<<<<<< HEAD
-    <file url="file://$PROJECT_DIR$" libraries="{Scope-Live/node_modules}" />
-=======
-    <file url="file://$PROJECT_DIR$" libraries="{Scope-Live node_modules}" />
     <includedPredefinedLibrary name="ECMAScript 6" />
->>>>>>> f96cedba8882c16122b6f38091c4ddb42611896e
   </component>
 </project>

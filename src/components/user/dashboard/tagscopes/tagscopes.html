@@ -20,9 +20,9 @@
       Created <br/>
       by {{user.name}} {{user.email}}
     </div>
-    <div class="sp_action"><a class="act" v-link="{path:`/p/${scope.id}`}"><i class="tiny material-icons">airplay</i><div class="link">Presentation</div></a><a class="act"  v-link="{path:`/s/${scope.id}/setting`}"><i class="tiny material-icons">settings</i><div class="link">Setting</div></a><a class="act"><i class="fa fa-link" aria-hidden="true" style="position: relative;top: -1px"></i><div class="link">Embed</div>
-
+    <div class="sp_action"><a class="act" v-link="{path:`/p/${scope.id}`}"><i class="tiny material-icons">airplay</i><div class="link">Presentation</div></a><a class="act"  v-link="{path:`/s/${scope.id}/setting`}"><i class="tiny material-icons">settings</i><div class="link">Setting</div></a><a class="act" @click="showEmbedingContent($event)"><i class="fa fa-link" aria-hidden="true" style="position: relative;top: -1px"></i><div class="link">Embed</div>
       <ul id='embed-dropdown' class='embeding-content dropdown-content'>
+        <div class="close" @click.stop="hideEmbedingContent($event)"><i class="fa fa-times" aria-hidden="true"></i></div>
         <div class="formats">
           <div class="format" :class="{'selected':scope.$$layout == 'default'}" @click="scope.$$layout = 'default'">Default</div>
           <div class="format" :class="{'selected':scope.$$layout == 'compact'}" @click="scope.$$layout = 'compact'">Compact</div>
@@ -30,7 +30,7 @@
           <div class="format" :class="{'selected':scope.$$layout == 'single'}" @click="scope.$$layout = 'single'">Single</div>
         </div>
         <div>
-          <input :value=" '<iframe src=' + scope.$$embedLink + scope.id + '?layout=' + scope.$$layout + '></iframe>' "/>
+          <input :value="'<iframe width=900 frameborder=0 height=1000 src=' + scope.$$embedLink + scope.id + '?layout=' + scope.$$layout + '></iframe>'"/>
         </div>
         <!--<li><a href="#!">one</a></li>-->
         <!--<li><a href="#!">two</a></li>-->

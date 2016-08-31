@@ -24,6 +24,14 @@
            scope.$$layout = format
          },
 
+         showEmbedingContent(e){
+
+           $(e.currentTarget).find('.embeding-content').fadeIn();
+         },
+         hideEmbedingContent(e){
+
+           $(e.currentTarget).parent().fadeOut(()=>{});
+         },
          getUserScopes(){
 
            dataService.getUserScopes(this.pageNum++,this.pageSize).then((res)=>{
@@ -34,7 +42,6 @@
                res.data.data[i].$$layout = 'default';
              }
              this.scopeList = res.data.data;
-              console.log(res.data.data);
              if( res.data.data.length < this.pageSize){
                this.hasMore = false
              }

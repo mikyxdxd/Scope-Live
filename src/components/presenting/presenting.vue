@@ -4,9 +4,8 @@
   export default{
     template:require('./presenting.html'),
     ready: function(){
-
+      $('#header').hide();
       if(this.$route.path.indexOf('embed')>=0){
-
           this.op = 'embed';
             console.log(this.$route.query.layout)
           switch(this.$route.query.layout){
@@ -42,6 +41,7 @@
 
     destroyed:function(){
       $('html').css('overflow-y','auto');
+      $('#header').show();
     },
 
     data(){
