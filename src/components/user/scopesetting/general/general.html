@@ -62,10 +62,24 @@
           <div class="scopeSet_but">
             <button @click="updateScope()" class="waves-effect waves-light btn">Update</button>
           </div>
-          <div class="scopeSet_del">
-            <button class="waves-effect waves-light btn" @click="deleteScope()">Delete</button>
+          <div class="scopeSet_del" >
+            <button class="waves-effect waves-light btn" @click="showDeleteModal = true">Delete</button>
           </div>
         </div>
+
+        <div id="delete-modal" v-show="showDeleteModal">
+          <div id="modal-bg" @click="showDeleteModal = false">
+            <div id="modal-container" @click="preventClick($event)">
+              <div id="modal-title">Delete scope?</div>
+              <div id="modal-msg">This cannot be undone.</div>
+              <div id="modal-footer">
+                <button class="delete-cancel waves-effect waves-light btn" @click="showDeleteModal = false">Cancel</button>
+                <button class="delete-confirm waves-effect waves-light btn" @click="deleteScope()">Yes, I'm sure</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>

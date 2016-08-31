@@ -11,16 +11,10 @@
     export default{
         ready(){
               if(this.scope.location && this.scope.location.latitude && this.scope.location.longitude){
-                console.log(this.scope.location.latitude,this.scope.location.longitude)
+                //console.log(this.scope.location.latitude,this.scope.location.longitude)
                 //new google.maps.LatLng(this.scope.location.latitude, this.scope.location.longitude)
-                this.map = new google.maps.Map(document.getElementById('map_canvas'), {
-                  center: {lat: this.scope.location.latitude, lng: this.scope.location.longitude},
-                  zoom: 14,
-                  mapTypeId: google.maps.MapTypeId.TERRAIN,
-                  scrollwheel: false,
-                  draggable:false,
-                  clickableIcons: false
-                });
+                this.map = new google.maps.Map(document.getElementById('map_canvas'), this.mapProp);
+                this.map.setCenter({lat: this.scope.location.latitude, lng: this.scope.location.longitude});
                 this.setMarker(this.scope.location.latitude,this.scope.location.longitude);
               }
         },
@@ -31,7 +25,9 @@
                         zoom: 13,
                         mapTypeId: google.maps.MapTypeId.ROADMAP,
                         scrollwheel: false,
-                        clickableIcons: false
+                        draggable:false,
+                        clickableIcons: false,
+                        zoomControl: true
                         },
               map: null,
               geocoder:new google.maps.Geocoder()
@@ -68,30 +64,13 @@
                   self.scope.location.longitude = results[0].geometry.location.lng();
                   self.scope.location.address = newAddress;
 
-                  let center = new google.maps.LatLng(lat, lng);
-                  let marker = new google.maps.Marker({
-                    position: center,
-                    icon: "https://instagramstatic-a.akamaihd.net/h1/bundles/cdbe8f1edb2309a77710a746c05e5a3c.png"
-                  });
-
                   if(self.map == null) {
-
-                    self.map = new google.maps.Map(document.getElementById('map_canvas'), {
-                      center: {lat: lat, lng: lng},
-                      zoom: 14,
-                      mapTypeId: google.maps.MapTypeId.TERRAIN,
-                      scrollwheel: false,
-                      draggable:false,
-                      clickableIcons: false
-                    });
-                    marker.setMap(self.map);
-
-
+                    self.map = new google.maps.Map(document.getElementById('map_canvas'), self.mapProp);
+                    self.map.setCenter({lat: lat, lng: lng});
+                    self.setMarker(lat, lng);
                   } else {
-
                     self.map.setCenter({lat:lat,lng:lng});
-                    marker.setMap(self.map);
-
+                    self.setMarker(lat, lng);
                   }
 
                 }

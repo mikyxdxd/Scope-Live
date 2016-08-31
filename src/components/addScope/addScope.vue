@@ -38,7 +38,7 @@
                     <button type="button" @click="delLoc()"><i class="fa fa-trash" aria-hiden="true"></i></button>
                   </div>
                 <div id="map">
-                  <map v-show="scope.location" :scope.sync="scope"></map>
+                  <map v-show="showMap" :scope.sync="scope"></map>
                 </div>
               </div>
 
@@ -51,7 +51,7 @@
               </div>
 
               <div class="switch" id="source">
-                <label>Pull Images from Public Sources</label><br>
+                <label>Pull Images from Social Media Platforms</label><br>
                 <div id="lever_container">
                 <label>
                   No
@@ -112,7 +112,7 @@
               if(typeof this.dt == 'undefined'){
                 this.tagList = [];
               }
-              this.captionname = this.hashtag = this.description = '';
+              this.captionname = this.hashtag = this.description = this.address = '';
               this.scope = {};
               this.showMap = false;
             }
@@ -133,10 +133,11 @@
           },
 
           addLoc:function(e){
-            this.$broadcast('update-address', this.address);
             this.showMap = true;
+            this.$broadcast('update-address', this.address);
           },
           delLoc:function(){
+            this.showMap = false;
             this.scope.location = null;
             this.address = "";
           },

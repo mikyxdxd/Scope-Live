@@ -10,6 +10,13 @@
       return{
         user: null
       }
+    },
+
+    methods: {
+      signOut: function(){
+          delete localStorage._scopetoken;
+          window.location.href = window.location.origin;
+      },
     }
   }
 
