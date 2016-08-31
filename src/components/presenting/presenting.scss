@@ -4,4 +4,13 @@
   //overflow: hidden;
   width:100vw;
   margin-top: -55px;
+  .modal-mask{
+
+    display: none !important;
+
+  }
+  .card.one_image .pic img{
+
+    cursor: initial !important;
+  }
 }
