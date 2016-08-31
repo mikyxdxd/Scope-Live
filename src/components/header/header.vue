@@ -20,8 +20,14 @@
                  handler: (val, oldVal)=>{
                    if(val != '/'){
                         $('#header').removeClass('home')
-                    }else{
-                      $('#header').addClass('home')
+
+                   }else if(val.indexOf('embed') > 0) {
+
+                        $('#header').hide()
+
+                   }else{
+
+                        $('#header').addClass('home')
                     }
                  },
                  deep: true
