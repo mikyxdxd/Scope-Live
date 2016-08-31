@@ -20,7 +20,25 @@
       Created <br/>
       by {{user.name}} {{user.email}}
     </div>
-    <div class="sp_action"><a class="act" v-link="{path:`/p/${scope.id}`}"><i class="tiny material-icons">airplay</i><div>Presentation</div></a><a class="act"  v-link="{path:`/s/${scope.id}/setting`}"><i class="tiny material-icons">settings</i><div>Setting</div></a><a class="act"><i class="tiny material-icons">delete</i><div>Embeding</div></a></div>
+    <div class="sp_action"><a class="act" v-link="{path:`/p/${scope.id}`}"><i class="tiny material-icons">airplay</i><div class="link">Presentation</div></a><a class="act"  v-link="{path:`/s/${scope.id}/setting`}"><i class="tiny material-icons">settings</i><div class="link">Setting</div></a><a class="act"><i class="fa fa-link" aria-hidden="true" style="position: relative;top: -1px"></i><div class="link">Embed</div>
+
+      <ul id='embed-dropdown' class='embeding-content dropdown-content'>
+        <div class="formats">
+          <div class="format" :class="{'selected':scope.$$layout == 'default'}" @click="scope.$$layout = 'default'">Default</div>
+          <div class="format" :class="{'selected':scope.$$layout == 'compact'}" @click="scope.$$layout = 'compact'">Compact</div>
+          <div class="format" :class="{'selected':scope.$$layout == 'float_3'}"  @click="scope.$$layout = 'float_3'">Float 3</div>
+          <div class="format" :class="{'selected':scope.$$layout == 'single'}" @click="scope.$$layout = 'single'">Single</div>
+        </div>
+        <div>
+          <input :value=" '<iframe src=' + scope.$$embedLink + scope.id + '?layout=' + scope.$$layout + '></iframe>' "/>
+        </div>
+        <!--<li><a href="#!">one</a></li>-->
+        <!--<li><a href="#!">two</a></li>-->
+        <!--<li class="divider"></li>-->
+        <!--<li><a href="#!">three</a></li>-->
+      </ul>
+
+    </a></div>
   </div>
   <div id="ldmore" v-show="scopeList.length>0 && hasMore"><button class="waves-effect waves-light btn" @click="loadMoreScope()">Load More</button></div>
 </div>
