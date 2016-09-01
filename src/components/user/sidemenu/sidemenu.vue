@@ -40,6 +40,11 @@
           delete localStorage._scopetoken;
           window.location.href = window.location.origin;
       },
+      hideMenu:function(){
+
+        this.slideout.toggle();
+
+      },
       getUserScope:function(){
 
           dataSerivces.getUserScopes(0,50).then((res)=>{
@@ -50,7 +55,7 @@
 
     watch:{
 
-      '$route.path': {
+      '$route': {
         handler: function (val, oldVal) {
 
         },
