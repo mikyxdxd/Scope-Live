@@ -1,19 +1,6 @@
 <template>
   <div id="home">
-    <!--<div id="intro-container">-->
-
-    <!--<div id="center">-->
-    <!--<div class="caption">The social search & display platform</div>-->
-    <!--<form v-on:submit.prevent="searchTag(tag)" >-->
-    <!--<div class="search-wrapper">-->
-    <!--<input type="search" placeholder="Start your search here" v-model="tag"><i class="material-icons">search</i>-->
-    <!--</div>-->
-    <!--</form>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<div id="customer">-->
-    <!--Our customer-->
-    <!--</div>-->
+    <navbar></navbar>
 
     <section>
       <intro></intro>
@@ -21,8 +8,6 @@
     <section>
       <whatisit></whatisit>
     </section>
-    <section></section>
-    <section></section>
     <s_footer></s_footer>
 
   </div>
@@ -63,7 +48,7 @@
       };
     },
     components:{
-      navbar: require('../header/header.vue'),
+      navbar: require('./header/header.vue'),
       intro: require('./intro/intro.vue'),
       whatisit:require('./whatisit/whatisit.vue'),
       s_footer:require('../footer/footer.vue')

@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 /* eslint-disable no-new */
 let app = Vue.extend({
   components:{
-    s_header:require('./components/header/header.vue')
+    // s_header:require('./components/landing/header/header.vue')
   }
 })
 

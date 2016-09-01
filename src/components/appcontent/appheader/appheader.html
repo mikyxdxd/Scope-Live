@@ -16,10 +16,12 @@
       <input type="text" placeholder="Start search here">
     </div>
 
-    <div id="create-sp">
+    <div id="create-sp" @click="showAddScope = true">
       <i class="fa fa-plus-circle" aria-hidden="true"></i>
       <input type="button" value="Create Scope">
     </div>
+
+    <addscope :show.sync="showAddScope"></addscope>
   </div>
 
 
