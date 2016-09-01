@@ -8,10 +8,11 @@
         },
         ready(){
           dataServices.getScopeInfo(this.$route.params.scopeId).then((res)=>{
-
             this.scope = res.data;
             if(this.scope.owner.id == dataServices.getUser().id){
               this.isOwner = true;
+              this.currentTab = 'feature'
+            }else{
               this.currentTab = 'feature'
             }
           })
