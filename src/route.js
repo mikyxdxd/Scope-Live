@@ -36,10 +36,6 @@ export default(App)=>{
       name: 'search',
       component: require('./components/searchPage/search.vue')
     },
-    '/s/:scopeId/setting':{
-      name: 'scopeSetting',
-      component:require('./components/user/scopesetting/scopesetting.vue')
-    },
     '/s/:scopeId':{
       name: 'scope',
       component:require('./components/scopepage/scopepage.vue')
@@ -68,7 +64,11 @@ export default(App)=>{
         '/s/:scopeId':{
           name: 'scope',
           component:require('./components/scopepage/scopepage.vue')
-        }
+        },
+        '/s/:scopeId/setting':{
+          name: 'scopeSetting',
+          component:require('./components/user/scopesetting/scopesetting.vue')
+        },
       }
     }
   })
