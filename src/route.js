@@ -58,6 +58,18 @@ export default(App)=>{
     },
     '/pricing':{
       component:require('./components/pricing/pricing.vue')
+    },
+    '/appcontent':{
+      component:require('./components/appcontent/appcontent.vue'),
+      subRoutes:{
+        '/dashboard':{
+          component:require('./components/user/dashboard/dashboard.vue')
+        },
+        '/s/:scopeId':{
+          name: 'scope',
+          component:require('./components/scopepage/scopepage.vue')
+        }
+      }
     }
   })
 

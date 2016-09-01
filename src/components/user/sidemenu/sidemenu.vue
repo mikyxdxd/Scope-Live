@@ -5,10 +5,25 @@
     template:require('./sidemenu.html'),
     ready(){
       this.user = dataSerivces.getUser();
+
+      setTimeout(()=> {
+        this.slideout = new Slideout({
+        'panel': document.getElementById('appcontent_view'),
+        'menu': document.getElementById('sidemenu'),
+        'padding': 230,
+        'duration':500,
+        'tolerance': 10
+      });
+      var self = this;
+      document.querySelector('#toggle-button').addEventListener('click', function() {
+        self.slideout.toggle();
+      });
+      },1000)
     },
     data:function(){
       return{
-        user: null
+        user: null,
+        slideout:null
       }
     },
 
