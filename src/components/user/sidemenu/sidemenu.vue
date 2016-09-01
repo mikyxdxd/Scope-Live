@@ -5,6 +5,12 @@
     template:require('./sidemenu.html'),
     ready(){
       this.user = dataSerivces.getUser();
+      this.getUserScope();
+
+
+      if(this.$route.path.indexOf('/s/') >= 0) this.currentScopeId = this.$route.params.scopeId;
+
+
 
       setTimeout(()=> {
         this.slideout = new Slideout({
@@ -23,7 +29,9 @@
     data:function(){
       return{
         user: null,
-        slideout:null
+        slideout:null,
+        userScopes:null,
+        currentScopeId:null
       }
     },
 
@@ -32,6 +40,28 @@
           delete localStorage._scopetoken;
           window.location.href = window.location.origin;
       },
+      hideMenu:function(){
+
+        this.slideout.toggle();
+
+      },
+      getUserScope:function(){
+
+          dataSerivces.getUserScopes(0,50).then((res)=>{
+            this.userScopes = res.data.data;
+          })
+      }
+    },
+
+    watch:{
+
+      '$route': {
+        handler: function (val, oldVal) {
+
+        },
+        deep: true
+      }
+
     }
   }
 
