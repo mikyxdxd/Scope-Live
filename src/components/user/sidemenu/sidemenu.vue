@@ -16,7 +16,7 @@
         this.slideout = new Slideout({
         'panel': document.getElementById('appcontent_view'),
         'menu': document.getElementById('sidemenu'),
-        'padding': 230,
+        'padding': 220,
         'duration':500,
         'tolerance': 10
       });

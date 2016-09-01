@@ -1,5 +1,24 @@
 <div id="appheader">
 
-  <button id="toggle-button">menu</button>
+  <div class="header-container">
+    <div id="tog-but">
+      <button id="toggle-button">☰</button>
+    </div>
+
+    <div id="logo">
+      <img :src="logo">
+    </div>
+
+    <div id="search-bar">
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <input type="text" placeholder="Start search here">
+    </div>
+
+    <div id="create-sp">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      <input type="button" value="Create Scope">
+    </div>
+  </div>
+
 
 </div>
