@@ -12,8 +12,14 @@ export default(App)=>{
     let verifyUser = setInterval(()=>{
       if(dataService.getUserType() != null){
         clearInterval(verifyUser);
-        transition.next();
-        window.scrollTo(0,0);
+        if(dataService.getUserType() == 'user' && transition.to.path.indexOf('/appcontent') < 0 ){
+
+          transition.redirect('/appcontent/dashboard');
+
+        }else{
+          transition.next();
+          window.scrollTo(0,0);
+        }
       }else{
 
       }
@@ -78,6 +84,10 @@ export default(App)=>{
           name: 'scopeSetting',
           component:require('./components/user/scopesetting/scopesetting.vue')
         },
+        '/search/:tag': {
+          name: 'search',
+          component: require('./components/searchPage/search.vue')
+        }
       }
     }
   })

@@ -1,4 +1,4 @@
-<script>
+  <script>
     require('./scopesetting.scss')
     import dataService from '../../../services/dataservices'
     export default{
