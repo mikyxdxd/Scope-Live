@@ -1,7 +1,86 @@
 #appheader{
 
   width: 100%;
-  height:60px;
-  background: red;
+  height:90px;
+  padding: 15px;
+
+  .header-container{
+    width: 100%;
+    height: 100%;
+
+    #tog-but{
+      display: inline-block;
+      vertical-align: top;
+      button{
+        height: 36px;
+        background: none;
+        border: none;
+        color: #66087c;
+      }
+    }
+    #logo{
+      display: inline-block;
+      width:150px;
+      img{
+        width: 100%;
+      }
+    }
+
+    #search-bar{
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      padding-left: 5em;
+      width: 55%;
+      height: 100%;
+
+      i{
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        left: 6em;
+        color: #ff9751;
+      }
+      input{
+
+        height: 36px;
+        width: 100%;
+        border: 1px solid #ff9751;
+        padding: 1px 3em;
+        border-radius: 30px;
+        box-sizing: border-box;
+      }
+      input:focus{
+        box-shadow: none !important;
+      }
+    }
+
+    #create-sp{
+      position: relative;
+      height: 100%;
+      display: inline-block;
+      float:right;
+      margin-right: 2em;
+      i{
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #ffffff;
+      }
+      input{
+        width: 150px;
+        height: 36px;
+        background: #66087c;
+        color: #ffffff;
+        padding-left: 35px;
+        border: none;
+        box-sizing: border-box;
+        border-radius: 20px;
+      }
+
+    }
+  }
+
 
 }

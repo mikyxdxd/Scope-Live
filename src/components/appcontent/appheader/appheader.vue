@@ -4,6 +4,7 @@
         template:require('./appheader.html'),
         data(){
             return{
+              logo: require('../../../assets/scope_live_logo.png'),
             }
         },
 
@@ -12,6 +13,7 @@
 
       },
       components:{
+
       },
       methods:{
 
