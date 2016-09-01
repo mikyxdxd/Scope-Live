@@ -168,15 +168,15 @@
 .slideout-panel {
   position:relative;
   z-index: 999;
-  will-change: transform;
+  //will-change: transform;
   background: #fafafa;
   min-height: 100vh;
 }
 
 .slideout-open,
-.slideout-open body,
+.slideout-open html,
 .slideout-open .slideout-panel {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .slideout-open .slideout-menu {
