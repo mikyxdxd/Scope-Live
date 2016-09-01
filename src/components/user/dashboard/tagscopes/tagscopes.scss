@@ -20,7 +20,7 @@
     border: 0;
     padding: 0;
     width: 23%;
-    height: 280px;
+    height: 267px;
     background: white;
     margin: 0 1% 1.5%;
     display: inline-block;
@@ -110,7 +110,7 @@
 
     .sp_action{
       text-align: center;
-      height: 53px;
+      height: 35px;
       bottom: 0;
       text-align: right;
       //display: flex;
@@ -119,17 +119,31 @@
       //border-bottom: 1px solid #DFEAEF;
       .act{
         display: inline-block;
-        //width: 33%;
-        padding-top: 10px;
-        color: #448d9e;
+        vertical-align:top;
+        color: #66087c;
         outline: 0;
         flex-grow: 1;
-        padding: 1em;
+        padding: 0.5em 2em;
+        font-size: 0.9em;
+        height: 100%;
+
+
+
+        i{
+
+          margin-right: 5px;
+          position: relative;
+          top:2px;
+        }
         //border-left: 1px solid #DFEAEF;
         .link{
-          font-size: 0.8em;
+          font-size: 1em;
           position: relative;
-          top:-5px;
+          top: 0px;
+          padding-top: 2px;
+          padding-top: 10x;
+          //color: #66087c;
+          font-weight: bold;
         }
 
       }
@@ -179,12 +193,14 @@
           font-size: 0.8em;
           height: 2rem;
           margin-top: 10px;
+          color:#448da4 !important;
         }
       }
       .act:hover{
         //background: #eae7e7;
-        color: #2695af;
+        color: white !important;
         cursor: pointer;
+        background: #660888;
       }
     }
 

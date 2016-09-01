@@ -182,7 +182,7 @@ class DataService {
   getImageViaScope(pageNo, pageSize, timeStamp, scopeId) {
 
 
-    return axios.get(this.httpServerUrl + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);
+    return axios(this.httpServerUrl + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);
   }
 
   getImageViaLocation(pageNo, pageSize, timeStamp, radius, longitude, latitude) {
