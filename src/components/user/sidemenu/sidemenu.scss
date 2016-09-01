@@ -33,6 +33,36 @@
       display: inline-block;
     }
   }
+
+
+  #scope_list{
+
+    padding-left: 2.5em;
+    padding-right: 1em;
+    font-size: 0.8em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    cursor: initial;
+    .one_scope{
+      margin-top: 3px;
+      word-wrap: break-word;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      &:hover{
+        color:white;
+        cursor: pointer;
+      }
+    }
+    .selected{
+
+      color:white;
+      cursor: initial !important;
+      font-size: 1.3em;
+
+    }
+  }
+
   .user-info {
     text-align: center;
     color: #fff;
@@ -137,6 +167,7 @@
   z-index: 999;
   will-change: transform;
   background: #fafafa;
+  min-height: 100vh;
 }
 
 .slideout-open,

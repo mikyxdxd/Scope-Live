@@ -12,7 +12,11 @@
 
   <div class="account-nav">
     <ul class="nav nav-pills nav-stacked">
-      <li class="my-tagboards-link active"><a><i class="fa fa-picture-o" aria-hidden="true"></i> <span>My Scopes</span></a></li>
+      <li class="my-tagboards-link active"><a><i class="fa fa-picture-o" aria-hidden="true"></i> <span>My Scopes</span></a>
+        <div id="scope_list">
+          <div class="one_scope" v-for="scope in userScopes" :class="{'selected':scope.id == currentScopeId}">{{scope.caption}}</div>
+        </div>
+      </li>
       <li class=""><a><i class="fa fa-arrow-up" aria-hidden="true"></i> <span>Upgrade account</span></a></li>
       <li class=""><a><i class="fa fa-cog fw" aria-hidden="true"></i><span style="margin-left: 3px">Settings</span></a></li>
       <!--<li class="upgrade-account"><a><i class="icon icon-power2"></i> <span>Upgrade your account</span></a></li>-->
