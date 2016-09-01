@@ -19,6 +19,7 @@
       position: absolute;
       top:10px;
       right:10px;
+      z-index:2;
 
       .ctr {
         display: inline-block;
@@ -30,19 +31,27 @@
         border: 2px solid;
         border-radius: 5px;
         &:hover {
-          background: #fa5757;
+          background: #3f1179;
+          color: white;
+          border-color: #3f1179;
           cursor: pointer;
         }
       }
       .rescope, .rescoped, .delete {
-        background: green;
+        background: #3f1179;
+        color: white;
+        border-color: #3f1179;
         &:hover {
-          background: green;
+          background: #3f1179;
+          color: white;
+          border-color: #3f1179;
         }
       }
 
       .deleted {
-        background: #fa5757;
+        background: #3f1179;
+        color: white;
+        border-color: #3f1179;
       }
 
     }
