@@ -46,7 +46,7 @@
           </div>
           <input type="text" :value="scope.location ? scope.location.address: null" v-model="newAddress">
             <div id="map">
-              <map v-show="scope.location" :scope.sync="scope"></map>
+              <map v-show="showMap" :scope.sync="scope"></map>
             </div>
         </div>
 
