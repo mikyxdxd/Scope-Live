@@ -52,7 +52,7 @@
         scope:null,
         newImageList:[],
         updateInterval:null,
-        layout:'float_3',
+        layout:'default',
         showSetting:false,
         imagepresentinterval:10,
         op:null

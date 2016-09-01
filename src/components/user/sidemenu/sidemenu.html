@@ -12,7 +12,7 @@
 
   <div class="account-nav">
     <ul class="nav nav-pills nav-stacked">
-      <li class="my-tagboards-link active"><a class="item" v-link="{path:'/appcontent/dashboard'}"><i class="fa fa-picture-o" aria-hidden="true"></i>My Scopes</a>
+      <li class="my-tagboards-link active"><a class="item" v-link="{path:'/appcontent/dashboard'}" @click="hideMenu()"><i class="fa fa-picture-o" aria-hidden="true"></i>My Scopes</a>
         <div id="scope_list">
           <a class="one_scope" v-for="scope in userScopes" :class="{'selected':scope.id == $route.params.scopeId}" v-link="{path:`/appcontent/s/${scope.id}`}" @click="hideMenu()">{{scope.caption}}</a>
         </div>

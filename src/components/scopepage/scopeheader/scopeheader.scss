@@ -4,21 +4,22 @@
   text-align: center;
   height: 290px;
   width: 100%;
-  background-image: linear-gradient(-45deg, #fa5757 0, #63719a 100%);
-  background-repeat: no-repeat, no-repeat;
+  //background-image: linear-gradient(-45deg, #fa5757 0, #63719a 100%);
+  //background-repeat: no-repeat, no-repeat;
+  background: white;
   #header_content{
-    padding: 1.5em;
+    padding: 1.5em 0em;
     position: relative;
     top:50%;
     transform: translateY(-50%);
     #caption{
-      font-size: 2em;
-      color:white;
-      font-weight: bold;
+      font-size: 2.5em;
+      color: black;
+      //text-shadow: 1px 1px 1px #504e50;
     }
 
       #googleMap{
-        width: 50% !important;
+        width: 70% !important;
         height: 150px !important;
         margin: auto;
       }
@@ -26,19 +27,20 @@
     #description{
 
       font-size: 1.4em;
-      color: white;
+      color: #b1adad;
     }
 
     #location{
 
         color: #8fc0ec;
-      text-transform: capitalize;
+        text-transform: capitalize;
+        font-size: 1.2em;
 
     }
   }
   .one_tag{
     display: inline-block;
-    color: white;
+    color: grey;
     margin-left: 5px;
     font-size: 1.2em;
   }

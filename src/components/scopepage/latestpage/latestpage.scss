@@ -1,5 +1,6 @@
 #latestpage{
   padding-bottom: 20px;
+  position: relative;
   #loadMore {
     text-align: center;
     button {
@@ -20,12 +21,14 @@
   #src_crl{
     padding-bottom: 0em;
     padding: 1em;
+    top:-72px;
+    display: inline-block;
+    left: 0;
+    position: absolute;
     background: #fafafa;
     text-align: left;
     //border-bottom: 1px solid gainsboro;
-    width: 100%;
     margin: auto;
-    margin-bottom: 20px;
 
     #caption{
 
