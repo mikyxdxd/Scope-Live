@@ -11,6 +11,7 @@
     padding-left: 0;
     #logo {
       display: inline-block;
+      cursor: pointer;
       height: 100%;
       padding-top: 2px;
       margin-left: 10px;
@@ -22,12 +23,33 @@
   }
 
   #header_lists{
+    padding-right: 3em;
     height: 100%;
     float: right;
     display: inline-block;
+    vertical-align: baseline;
     .header-item{
       display: inline-block;
-      margin-right: 20px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 1.5em;
+      margin-top: 15px;
+      color: #3D3D3D;
+      margin-left: 3vw;
+    }
+    .login{
+      color: #3f1179;
+    }
+
+    #started{
+      font-size: 1em;
+      width: 150px;
+      box-sizing: border-box;
+      padding: 5px;
+      background: #3f1179;
+      color: white;
+      border: none;
+      border-radius: 10px;
     }
   }
 }
