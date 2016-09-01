@@ -1,0 +1,31 @@
+<div id="header" class="home">
+  <div class="header_left">
+    <div id="logo">
+      <img :src="logo" v-link="{path: '/landing'}">
+    </div>
+  </div>
+
+
+  <div id="header_lists">
+    <div class="header-item">
+      Features
+    </div>
+
+    <div class="header-item" v-link="{path:'/pricing'}">
+      Pricing
+    </div>
+
+    <div class="header-item">
+      Contact
+    </div>
+
+    <div class="header-item login">
+      Login
+    </div>
+
+    <div class="header-item">
+      <input type="button" value="Get Started" id="started">
+    </div>
+  </div>
+
+</div>

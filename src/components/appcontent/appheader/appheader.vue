@@ -5,6 +5,7 @@
         data(){
             return{
               logo: require('../../../assets/scope_live_logo.png'),
+              showAddScope:false,
             }
         },
 
@@ -13,7 +14,7 @@
 
       },
       components:{
-
+        addscope: require("../../addScope/addScope.vue")
       },
       methods:{
 

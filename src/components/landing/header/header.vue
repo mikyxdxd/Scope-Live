@@ -1,6 +1,6 @@
 <script>
     require('./header.scss')
-    import dataService from '../../services/dataservices'
+    import dataService from '../../../services/dataservices'
     export default{
 
         template:require('./header.html'),
@@ -10,7 +10,8 @@
               showAddScope: false,
               user:{},
               userScopes:[],
-              tag: this.$route.params.tag ? this.$route.params.tag : ""
+              tag: this.$route.params.tag ? this.$route.params.tag : "",
+              logo: require('../../../assets/scope_live_logo.png')
             }
         },
 
@@ -77,8 +78,7 @@
 
         },
         components:{
-          login:require('../login/login.vue'),
-          addscope: require('../addScope/addScope.vue')
+          login:require('../../login/login.vue'),
         }
     }
 </script>

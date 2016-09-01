@@ -22,12 +22,28 @@ export default(App)=>{
 
   });
 
-
+  router.redirect({
+    '/': '/landing',
+  });
 
 
   router.map({
     '/':{
-      component: require('./components/landing/landing.vue')
+      component: require('./components/landing/landing.vue'),
+      subRoutes:{
+        'landing': {
+          component: require('./components/landing/landingpage/landingpage.vue')
+        },
+        'pricing':{
+          component: require('./components/pricing/pricing.vue')
+        },
+        '/pp':{
+          component:require('./components/footer/privacypolicy/privacypolicy.vue')
+        },
+        '/tos':{
+          component:require('./components/footer/termofservices/termofservices.vue')
+        },
+      }
     },
     '/user':{
       component:require('./components/user/user.vue')
@@ -46,15 +62,8 @@ export default(App)=>{
     '/embed/:scopeId':{
       component:require('./components/presenting/presenting.vue')
     },
-    '/tos':{
-      component:require('./components/footer/termofservices/termofservices.vue')
-    },
-    '/pp':{
-      component:require('./components/footer/privacypolicy/privacypolicy.vue')
-    },
-    '/pricing':{
-      component:require('./components/pricing/pricing.vue')
-    },
+
+
     '/appcontent':{
       component:require('./components/appcontent/appcontent.vue'),
       subRoutes:{
