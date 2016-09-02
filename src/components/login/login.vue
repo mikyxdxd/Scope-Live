@@ -61,7 +61,7 @@
                   this.retriveUserProfile(()=>{
                     toastr.success("Register successfully");
                     if(!this.$route.query.cont){
-                      self.$route.router.go({path: '/appcontent/dashboard'});
+                      this.$route.router.go({path: '/appcontent/dashboard'});
                     }else{
                       this.$route.router.go({path: this.$route.query.cont});
                     }

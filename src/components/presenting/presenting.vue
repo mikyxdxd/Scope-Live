@@ -7,7 +7,6 @@
       $('#header').hide();
       if(this.$route.path.indexOf('embed')>=0){
           this.op = 'embed';
-            console.log(this.$route.query.layout)
           switch(this.$route.query.layout){
             case 'compact':
               this.layout = 'compact'
