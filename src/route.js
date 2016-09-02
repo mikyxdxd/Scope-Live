@@ -9,13 +9,20 @@ export default(App)=>{
 
   router.beforeEach((transition)=>{
 
-    let verifyUser = setInterval(()=>{
+
+    var verifyUser = setInterval(()=>{
       if(dataService.getUserType() != null){
         clearInterval(verifyUser);
+
+
         if(dataService.getUserType() == 'user' && transition.to.path.indexOf('/appcontent') < 0
            && transition.to.path.indexOf('/embed/') < 0 && transition.to.path.indexOf('/p/') < 0
            ){
           transition.redirect('/appcontent/dashboard');
+        }else if(dataService.getUserType() != 'user' && transition.to.path.indexOf('/appcontent') >= 0 && transition.to.path.indexOf('?cont=') < 0){
+
+            transition.redirect('/login?cont=' + window.location.pathname.replace('/appconet', ''));
+
         }else{
           transition.next();
           window.scrollTo(0,0);
@@ -24,7 +31,6 @@ export default(App)=>{
 
       }
     },200);
-    //transition.next()
 
   });
 
