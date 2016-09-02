@@ -3,7 +3,9 @@
 
     <div id="landingcontent_view">
       <navbar></navbar>
-      <router-view id="routerview"></router-view>
+      <div id="routerview">
+      <router-view></router-view>
+      </div>
       <s_footer></s_footer>
     </div>
   </div>

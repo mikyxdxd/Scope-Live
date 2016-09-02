@@ -12,10 +12,10 @@ export default(App)=>{
     let verifyUser = setInterval(()=>{
       if(dataService.getUserType() != null){
         clearInterval(verifyUser);
-        if(dataService.getUserType() == 'user' && transition.to.path.indexOf('/appcontent') < 0 ){
-
+        if(dataService.getUserType() == 'user' && transition.to.path.indexOf('/appcontent') < 0
+           && transition.to.path.indexOf('/embed/') < 0 && transition.to.path.indexOf('/p/') < 0
+           ){
           transition.redirect('/appcontent/dashboard');
-
         }else{
           transition.next();
           window.scrollTo(0,0);
@@ -49,6 +49,9 @@ export default(App)=>{
         '/tos':{
           component:require('./components/footer/termofservices/termofservices.vue')
         },
+        '/login':{
+          component:require('./components/login/login.vue')
+        }
       }
     },
     '/user':{

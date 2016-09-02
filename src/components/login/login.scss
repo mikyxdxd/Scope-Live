@@ -2,22 +2,50 @@
 
   #bg{
 
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.3);
-    width:100vw;
-    height: 100vh;
+    .btn{
+      background-color: #c49af9;
+    }
+    //
+    //position: fixed;
+    //left: 0;
+    //top: 0;
+    //z-index: 1;
+    //background: rgba(0, 0, 0, 0.3);
+    //width:100vw;
+    //height: 100vh;
+
+    #top_tab{
+      .tab{
+        display: inline-block;
+        padding: 1em;
+        font-size: 1.3em;
+        margin-left: -3px;
+        color: grey;
+        font-weight: 100;
+        background: #fafafa;
+        &:hover{
+          border-bottom: 3px solid #c49af9;
+          cursor: pointer;
+        }
+        //text-transform: uppercase;
+      }
+      .active{
+
+        border-bottom: 3px solid #c49af9;
+      }
+    }
+
+
     #login_sec{
-      width: 363px;
-      height: 400px;
+      //width: 363px;
+      //height: 400px;
+      padding: 5em;
       background: white;
       margin: auto;
       margin-top: 5vh;
       position: relative;
       border-radius: 5px;
-      box-shadow: 0px 0px 8px 2px #656565;
+      //box-shadow: 0px 0px 8px 2px #656565;
 
       .ctr{
 
@@ -34,11 +62,12 @@
         cursor: pointer;
       }
         form{
-        height: 100%;
-        width: 100%;
-        display: inline-block;
-        vertical-align: top;
-          padding: 1.5em;
+          display: block;
+          vertical-align: top;
+          padding: 2em 1.5em;
+          max-width: 500px;
+          margin: auto;
+
 
           .col.s12{
 
@@ -53,9 +82,9 @@
         display: block;
         text-align: center;
         padding: 0.5em;
-        position: absolute;
-        top:50%;
-        transform: translateY(-50%);
+        //position: absolute;
+        //top:50%;
+        //transform: translateY(-50%);
       }
       span{
         font-size: 3em;

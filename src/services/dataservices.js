@@ -29,10 +29,12 @@ class DataService {
       }
     }).then((res)=>{
       this.user = res.data;
-    this.userType = 'user';
+      this.userType = 'user';
     }).catch((err)=>{
 
-      console.log('er',err)
+      delete localStorage._scopetoken;
+      this.userToken = null;
+      this.userType = 'visitor';
     })
   }
 
@@ -69,9 +71,24 @@ class DataService {
 
   }
 
+
+  register(name, email, password) {
+  return axios({
+    method: 'POST',
+    url: this.httpServerUrl + '/signuplogin2',
+    data: {
+      'name': name,
+      'email': email,
+      'password': password
+    }
+  })
+
+  }
+
   setUserToken(token) {
 
     this.userToken = token;
+    this._getUserProfile();
 
   }
 
