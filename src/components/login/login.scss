@@ -3,7 +3,7 @@
   #bg{
 
     .btn{
-      background-color: #c49af9;
+      background-color: #3f1179;
     }
     //
     //position: fixed;
@@ -17,26 +17,28 @@
     #top_tab{
       width:100%;
       text-align: center;
-      background: #fafafa;
+      //background: #fafafa;
+      border-bottom: 2px solid #fafafa;
       .tab{
         display: inline-block;
         padding: 1em;
         font-size: 1.3em;
         margin-left: 5px;
         color: grey;
+        padding-bottom: 0.5em;
         font-weight: 100;
-        background: #fafafa;
+        //background: #fafafa;
         &:hover{
-          border-bottom: 5px solid #3f1179;
+          border-bottom: 2px solid #3f1179;
           color: #3f1179;
           cursor: pointer;
         }
         //text-transform: uppercase;
       }
       .active{
-
-        border-bottom: 5px solid #3f1179;
+        border-bottom: 2px solid #3f1179;
         color: #3f1179;
+        font-weight: bold;
       }
     }
 
