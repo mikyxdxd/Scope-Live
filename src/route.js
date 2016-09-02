@@ -30,8 +30,8 @@ export default(App)=>{
 
   router.redirect({
     '/': '/landing',
+    '/appcontent': '/appcontent/dashboard',
   });
-
 
   router.map({
     '/':{
@@ -49,6 +49,10 @@ export default(App)=>{
         '/tos':{
           component:require('./components/footer/termofservices/termofservices.vue')
         },
+        '/search/:tag': {
+          name: 'landSearch',
+          component: require('./components/searchPage/search.vue')
+        },
         '/login':{
           component:require('./components/login/login.vue')
         }
@@ -57,10 +61,7 @@ export default(App)=>{
     '/user':{
       component:require('./components/user/user.vue')
     },
-    '/search/:tag': {
-      name: 'search',
-      component: require('./components/searchPage/search.vue')
-    },
+
     '/s/:scopeId':{
       name: 'scope',
       component:require('./components/scopepage/scopepage.vue')

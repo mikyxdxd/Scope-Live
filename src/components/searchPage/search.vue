@@ -2,7 +2,7 @@
     <div id="searchpage">
       <addscope :show.sync="showAddScope" :dt="defaultTag"></addscope>
       <searchheader></searchheader>
-      <div id="search_ctr"><button @click="showAddScope = true">Create a #{{$route.params.tag.split(' ').join('#')}} Scope</button></div>
+      <!--<div id="search_ctr" v-if="userType != 'visitor'"><button @click="showAddScope = true">Create a #{{$route.params.tag.split(' ').join('#')}} Scope</button></div>-->
       <noresult :shownoreuslt="!dataList.length && !showLoading"></noresult>
       <list :datalist.sync="dataList"></list>
       <div id="loadMore" v-show="dataList.length>0 && hasMore && !showLoading"><button class="waves-effect waves-light btn" @click="appendDataList()">Load More</button></div>
@@ -17,13 +17,14 @@
     export default{
 
         ready: function(){
-
+          this.userType = dataService.getUserType();
           this.timeStamp = Date.now();
           dataService.getImageViaTag(this.pageNo, this.pageSize, this.timeStamp, this.$route.params.tag).then((res)=>{
             this.showLoading = false;
             this.pageNo++;
             this.updateDataList(res.data.data);
           });
+
 
         },
         data(){
@@ -35,7 +36,8 @@
               showLoading: true,
               showAddScope:false,
               tag: this.$route.params.tag,
-              defaultTag:this.$route.params.tag.split(' ')
+              defaultTag:this.$route.params.tag.split(' '),
+              userType: ''
             }
         },
         params:['tag','dataList'],

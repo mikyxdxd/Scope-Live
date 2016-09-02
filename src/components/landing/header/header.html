@@ -19,7 +19,7 @@
       Contact
     </div>
 
-    <div class="header-item login">
+    <div class="header-item login" @click="showlogin = true">
       Login
     </div>
 
@@ -27,5 +27,7 @@
       <input type="button" value="Get Started" id="started">
     </div>
   </div>
+
+  <login :showlogin.sync = "showlogin" :user.sync="user"></login>
 
 </div>

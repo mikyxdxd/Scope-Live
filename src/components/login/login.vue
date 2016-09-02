@@ -15,12 +15,15 @@
       },
       methods:{
           userLogin(e){
+            var self = this;
             e.preventDefault();
             dataService.logIn(this.username,this.password).then((res)=>{
               if(res.data.access_token){
                 this.userToken = localStorage._scopetoken = res.data.token_type + ' ' + res.data.access_token;
                 dataService.setUserToken(res.data.token_type + ' ' + res.data.access_token);
                 this.retriveUserProfile();
+                toastr.success("Login successfully");
+                self.$route.router.go({path: '/appcontent/dashboard'});
               }
             })
           },
@@ -46,7 +49,7 @@
                   this.userToken = localStorage._scopetoken = res.data.token.token_type + ' ' + res.data.token.access_token;
                   dataService.setUserToken(res.data.token.token_type + ' ' + res.data.token.access_token);
                   this.retriveUserProfile();
-
+                  self.$route.router.go({path: '/appcontent/dashboard'});
                 }
               })
             }
