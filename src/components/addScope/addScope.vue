@@ -2,17 +2,16 @@
     <div id="addScope-bg" v-if="show" @click="show = false">
       <div id="addScope-container"  @click="preventClick($event)">
         <div id="create-form">
-          <div id="addScope-body">
-            <div id="addScope-header">Create Scope</div>
+            <div id="addScope-header">Create a Scope</div>
             <div id="form-input">
               <div id="caption">
                 <label>Scope Name</label>
-                <input type="text" v-model="captionname" required>
+                <input type="text" v-model="captionname" placeholder="Add the name for your Scope" required>
               </div>
 
 
               <div id="hashtag">
-                <label>Scope Tag</label>
+                <label>Add Tag</label>
                 <div id="add_tag_btn">
                   <button type="button" @click="addTag()"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
@@ -29,7 +28,7 @@
 
               <div id="location">
                   <label>Scope Location</label>
-                  <input type="text" v-model="address">
+                  <input type="text" v-model="address" placeholder="Add the city, street etc.">
                   <div id="add_loc_btn">
                     <button type="button" @click="addLoc()"><i class="fa fa-map-pin" aria-hidden="true"></i></button>
                   </div>
@@ -43,11 +42,8 @@
               </div>
 
               <div id="description">
-                <div class="input-field col s12">
-                  <textarea id="textarea1" class="materialize-textarea" length="120" v-model="description"></textarea>
                   <label for="textarea1">Scope Description</label>
-                </div>
-                <!--<textarea  placeholder="Scope description" rows="3" cols="50"  v-model="description"></textarea>-->
+                  <input id="textarea1"  v-model="description" placeholder="What's your Scope about?">
               </div>
 
               <div class="switch" id="source">
@@ -64,10 +60,9 @@
 
 
               <div id="submit-but">
-                <button class="waves-effect waves-light btn cancel" type="button" @click="show = false">Cancel</button><button class="waves-effect waves-light btn" @click="submitForm()">Create</button>
+                <button class="waves-effect waves-light btn cancel" type="button" @click="show = false">Cancel</button><i class="fa fa-plus-circle" aria-hidden="true"></i><button class="waves-effect waves-light btn create" @click="submitForm()">Create Scope</button>
                 </div>
             </div>
-          </div>
         </div>
 
       </div>
