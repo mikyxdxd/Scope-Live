@@ -4,7 +4,7 @@
     template:require('./intro.html'),
     data(){
       return{
-
+        tag: ''
       }
     },
     components:{
@@ -12,7 +12,9 @@
     },
     methods: {
       searchTag: function (tag) {
-        this.$route.router.go({name: 'search', params: {tag: tag.trim()}});
+        console.log("ladnSearch");
+        this.$route.router.go({name: 'landSearch', params: {tag: tag.trim()}});
+        tag = '';
       }
     }
   }

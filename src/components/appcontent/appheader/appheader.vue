@@ -6,6 +6,8 @@
             return{
               logo: require('../../../assets/scope_live_logo.png'),
               showAddScope:false,
+              tag: '',
+              defaultTag:this.$route.params.tag ? this.$route.params.tag.split(' ') : null
             }
         },
 
@@ -16,8 +18,11 @@
       components:{
         addscope: require("../../addScope/addScope.vue")
       },
-      methods:{
-
+      methods: {
+        searchTag: function (tag) {
+          console.log("Search");
+          this.$route.router.go({name: 'search', params: {tag: tag.trim()}});
+        }
       }
     }
 </script>

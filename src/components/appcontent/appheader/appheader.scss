@@ -18,6 +18,7 @@
       height: 100%;
       padding-top: 2px;
       margin-left: 10px;
+      cursor: pointer;
       img{
         height: 40px;
         width:auto;
@@ -61,6 +62,9 @@
     padding-left: 300px;
 
     #search-bar{
+      form{
+        height: 100%;
+      }
       position: relative;
       display: inline-block;
       vertical-align: top;

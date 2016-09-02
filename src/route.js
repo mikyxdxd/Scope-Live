@@ -13,9 +13,7 @@ export default(App)=>{
       if(dataService.getUserType() != null){
         clearInterval(verifyUser);
         if(dataService.getUserType() == 'user' && transition.to.path.indexOf('/appcontent') < 0 ){
-
           transition.redirect('/appcontent/dashboard');
-
         }else{
           transition.next();
           window.scrollTo(0,0);
@@ -30,8 +28,8 @@ export default(App)=>{
 
   router.redirect({
     '/': '/landing',
+    '/appcontent': '/appcontent/dashboard',
   });
-
 
   router.map({
     '/':{
@@ -49,15 +47,16 @@ export default(App)=>{
         '/tos':{
           component:require('./components/footer/termofservices/termofservices.vue')
         },
+        '/search/:tag': {
+          name: 'landSearch',
+          component: require('./components/searchPage/search.vue')
+        },
       }
     },
     '/user':{
       component:require('./components/user/user.vue')
     },
-    '/search/:tag': {
-      name: 'search',
-      component: require('./components/searchPage/search.vue')
-    },
+
     '/s/:scopeId':{
       name: 'scope',
       component:require('./components/scopepage/scopepage.vue')
