@@ -1,6 +1,5 @@
 <template>
     <div id="searchpage">
-      <addscope :show.sync="showAddScope" :dt="defaultTag"></addscope>
       <searchheader></searchheader>
       <!--<div id="search_ctr" v-if="userType != 'visitor'"><button @click="showAddScope = true">Create a #{{$route.params.tag.split(' ').join('#')}} Scope</button></div>-->
       <noresult :shownoreuslt="!dataList.length && !showLoading"></noresult>
