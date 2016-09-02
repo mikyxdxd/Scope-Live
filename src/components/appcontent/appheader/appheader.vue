@@ -12,8 +12,15 @@
         },
 
       ready(){
-
-
+      },
+      watch:{
+        '$route.params.tag':function(nv, ov){
+          console.log(nv);
+          if(nv != ''){
+            console.log(nv);
+            this.defaultTag = this.$route.params.tag.split(' ');
+          }
+        }
       },
       components:{
         addscope: require("../../addScope/addScope.vue")
