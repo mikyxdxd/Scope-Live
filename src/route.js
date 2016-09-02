@@ -10,27 +10,72 @@ export default(App)=>{
   router.beforeEach((transition)=>{
 
 
-    var verifyUser = setInterval(()=>{
+    var verifyTransition = setInterval(()=>{
+
       if(dataService.getUserType() != null){
-        clearInterval(verifyUser);
 
+        if( transition.to.path.indexOf('/embed/') >= 0 || transition.to.path.indexOf('/p/') >= 0){
 
-        if(dataService.getUserType() == 'user' && transition.to.path.indexOf('/appcontent') < 0
-           && transition.to.path.indexOf('/embed/') < 0 && transition.to.path.indexOf('/p/') < 0
-           ){
-          transition.redirect('/appcontent/dashboard');
-        }else if(dataService.getUserType() != 'user' && transition.to.path.indexOf('/appcontent') >= 0 && transition.to.path.indexOf('?cont=') < 0){
+          clearInterval(verifyTransition);
+          transition.next();
+          window.scrollTo(0,0);
+
+        }
+        else if(dataService.getUserType() == 'user' && dataService.getUser() != null){
+
+          clearInterval(verifyTransition);
+
+          if(transition.to.path.indexOf('/appcontent') < 0 || transition.to.path.indexOf('login') > 0 ){
+
+            transition.redirect('/appcontent/dashboard');
+
+          }else{
+
+            transition.next();
+            window.scrollTo(0,0);
+          }
+
+        }else if(dataService.getUserType() == 'visitor'){
+
+          clearInterval(verifyTransition);
+
+          if(transition.to.path.indexOf('/appcontent') >= 0 && transition.to.path.indexOf('?cont=') < 0 ){
 
             transition.redirect('/login?cont=' + window.location.pathname.replace('/appconet', ''));
 
-        }else{
-          transition.next();
-          window.scrollTo(0,0);
-        }
-      }else{
+          }else{
 
+            transition.next();
+            window.scrollTo(0,0);
+
+          }
+
+        }
       }
-    },200);
+    })
+
+    //
+    // var verifyUser = setInterval(()=>{
+    //   if(dataService.getUserType() != null){
+    //     clearInterval(verifyUser);
+    //
+    //
+    //     if(dataService.getUserType() == 'user' && transition.to.path.indexOf('/appcontent') < 0
+    //        && transition.to.path.indexOf('/embed/') < 0 && transition.to.path.indexOf('/p/') < 0
+    //        ){
+    //       transition.redirect('/appcontent/dashboard');
+    //     }else if(dataService.getUserType() != 'user' && transition.to.path.indexOf('/appcontent') >= 0 && transition.to.path.indexOf('?cont=') < 0){
+    //
+    //         transition.redirect('/login?cont=' + window.location.pathname.replace('/appconet', ''));
+    //
+    //     }else{
+    //       transition.next();
+    //       window.scrollTo(0,0);
+    //     }
+    //   }else{
+    //
+    //   }
+    // },200);
 
   });
 

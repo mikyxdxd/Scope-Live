@@ -28,7 +28,6 @@ class DataService {
         'Authorization': this.userToken
       }
     }).then((res)=>{
-      console.log('got user')
       this.user = res.data;
       this.userType = 'user';
     }).catch((err)=>{
