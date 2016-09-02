@@ -12,7 +12,13 @@ export default(App)=>{
     let verifyUser = setInterval(()=>{
       if(dataService.getUserType() != null){
         clearInterval(verifyUser);
+<<<<<<< HEAD
         if(dataService.getUserType() == 'user' && transition.to.path.indexOf('/appcontent') < 0 ){
+=======
+        if(dataService.getUserType() == 'user' && transition.to.path.indexOf('/appcontent') < 0
+           && transition.to.path.indexOf('/embed/') < 0 && transition.to.path.indexOf('/p/') < 0
+           ){
+>>>>>>> 9e9ad8856efade95ab6ae89ff870267e18a8d0a5
           transition.redirect('/appcontent/dashboard');
         }else{
           transition.next();
@@ -51,6 +57,9 @@ export default(App)=>{
           name: 'landSearch',
           component: require('./components/searchPage/search.vue')
         },
+        '/login':{
+          component:require('./components/login/login.vue')
+        }
       }
     },
     '/user':{

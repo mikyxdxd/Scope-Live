@@ -56,13 +56,14 @@
         this.showLoading = true;
         if(this.picked == "tag"){
           dataService.getImageViaTag(this.pageNo++, this.pageSize, this.timeStamp, this.scope.tag.replace(/#/g,' ')).then((res)=>{
-            if(res.data.data.length ==  this.pageSize ) this.showLoading = false;
-          this.updateDataList(res.data.data);
+            this.showLoading = false;
+            if(res.data.data.length <  this.pageSize ) this.hasMore = false;
+            this.updateDataList(res.data.data);
         });
         }else{
           dataService.getImageViaLocation(this.pageNo++, this.pageSize, this.timeStamp, this.radius, this.scope.location.longitude, this.scope.location.latitude).then((res)=>{
-            if(res.data.data.length == this.pageSize)
             this.showLoading = false;
+            if(res.data.data.length < this.pageSize) this.hasMore = false;
             this.updateDataList(res.data.data);
           });
         }
