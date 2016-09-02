@@ -49,7 +49,7 @@
                   this.userToken = localStorage._scopetoken = res.data.token.token_type + ' ' + res.data.token.access_token;
                   dataService.setUserToken(res.data.token.token_type + ' ' + res.data.token.access_token);
                   this.retriveUserProfile();
-
+                  self.$route.router.go({path: '/appcontent/dashboard'});
                 }
               })
             }
