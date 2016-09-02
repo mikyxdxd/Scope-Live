@@ -19,15 +19,15 @@
       Contact
     </div>
 
-    <div class="header-item login" @click="showlogin = true">
+    <a class="header-item login" v-link="{path:'/login?op=log'}">
       Login
-    </div>
+    </a>
 
-    <div class="header-item">
-      <input type="button" value="Get Started" id="started">
-    </div>
+    <a class="header-item" id="started"  v-link="{path:'/login?op=sign'}">
+      <!--<input type="button" value="Get Started" id="started">-->Get Started
+    </a>
   </div>
 
-  <login :showlogin.sync = "showlogin" :user.sync="user"></login>
+  <!--<login :showlogin.sync = "showlogin" :user.sync="user"></login>-->
 
 </div>

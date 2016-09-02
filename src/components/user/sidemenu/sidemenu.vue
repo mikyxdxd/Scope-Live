@@ -6,13 +6,13 @@
     ready(){
       this.user = dataSerivces.getUser();
       this.getUserScope();
-
-
       if(this.$route.path.indexOf('/s/') >= 0) this.currentScopeId = this.$route.params.scopeId;
 
 
 
+
       setTimeout(()=> {
+        console.log('here',$('#appcontent_view'),$('#sidemenu'),$('#toggle-button'))
         this.slideout = new Slideout({
         'panel': document.getElementById('appcontent_view'),
         'menu': document.getElementById('sidemenu'),

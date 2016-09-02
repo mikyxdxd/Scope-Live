@@ -28,10 +28,10 @@ class DataService {
         'Authorization': this.userToken
       }
     }).then((res)=>{
+      console.log('got user')
       this.user = res.data;
       this.userType = 'user';
     }).catch((err)=>{
-
       delete localStorage._scopetoken;
       this.userToken = null;
       this.userType = 'visitor';
@@ -88,7 +88,8 @@ class DataService {
   setUserToken(token) {
 
     this.userToken = token;
-    this._getUserProfile();
+    // this.userType = 'user';
+    // this._getUserProfile();
 
   }
 
