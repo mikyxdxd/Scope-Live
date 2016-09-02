@@ -198,8 +198,24 @@ class DataService {
 
   getImageViaScope(pageNo, pageSize, timeStamp, scopeId) {
 
+    if(this.userType == 'user'){
+      return axios({
+        method: 'GET', url:this.httpServerUrl + '/scope/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp, headers: {
+          'Authorization': this.userToken
+        }
+      })
+    }else{
+      return axios({
+        method: 'GET', url:this.httpServerUrl + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp, headers: {
+          'Authorization': this._authorizationToken
+        }
+      })
 
-    return axios(this.httpServerUrl + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);
+    }
+
+
+
+    // return axios(this.httpServerUrl + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);
   }
 
   getImageViaLocation(pageNo, pageSize, timeStamp, radius, longitude, latitude) {
