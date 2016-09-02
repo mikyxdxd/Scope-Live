@@ -71,7 +71,8 @@
               if(res.data.result == "OK"){
                 //toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
                 toastr.success('Your scope has been deleted. ');
-                this.$route.router.go({path: `/user`});
+              $('html').css('overflow-y','auto');
+                this.$route.router.go({path: `/appcontent/dashboard`});
               }else{
                // toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
                 toastr.error('Your deletion failed. Please try again!');

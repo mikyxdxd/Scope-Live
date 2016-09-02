@@ -43,11 +43,11 @@
 
               <div id="description">
                   <label for="textarea1">Scope Description</label>
-                  <input id="textarea1"  v-model="description" placeholder="What's your Scope about?">
+                  <input type="text" id="textarea1"  v-model="description" placeholder="What's your Scope about?">
               </div>
 
               <div class="switch" id="source">
-                <label>Pull Images from Social Media Platforms</label><br>
+                <label>Make a Secret Scope</label><br>
                 <div id="lever_container">
                 <label>
                   No
@@ -168,7 +168,8 @@
                 if (res.data.result == "OK") {
 
                   toastr.success('Your Scope Has Been Created');
-                  self.$route.router.go({path: `/s/${res.data.id}`});
+                  self.tagList = [];
+                  self.$route.router.go({path: `/appcontent/s/${res.data.id}`});
                   this.show = false;
                 } else if (res.data.result == "SCOPE_NAME_DUPLICATE") {
                   toastr.error('Scope Name is Duplicated');

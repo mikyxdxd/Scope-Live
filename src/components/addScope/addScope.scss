@@ -55,6 +55,10 @@
           font-size: 1em;
           font-weight: 600;
         }
+        input[type="text"]:focus{
+          border-bottom: 1px solid #ff9751;
+          box-shadow: 0 1px 0 0 #ff9751;
+        }
 
         #hashtag{
 
