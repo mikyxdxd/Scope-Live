@@ -111,6 +111,15 @@
               this.scope = {};
               this.showMap = false;
             }
+          },
+          'dt': function(v,ov){
+            if(this.dt){
+              this.tagList = [];
+              var self = this;
+              $.each(this.dt, function(index,value){
+                self.tagList.push(value);
+              });
+            }
           }
         },
 
