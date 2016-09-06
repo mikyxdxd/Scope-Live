@@ -9,7 +9,9 @@
               pageSize:11,
               scopeList:[],
               hasMore:true,
-              user:dataService.getUser()
+              user:dataService.getUser(),
+              presentIcon: require('../../../../assets/present_orange.png'),
+              upgrade: require('../../../../assets/upgrade.png')
             }
        },
        ready(){

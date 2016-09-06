@@ -16,7 +16,7 @@
 
     #modal-container{
       width: 600px;
-      max-height: 25vh;
+      max-height: 230px;
       margin: 30px auto;
       padding: 15px;
       background: #F3F6F7;
@@ -66,6 +66,17 @@
         border-bottom: 1px solid #dcdcdc;
     }
 
+    input[type="text"]:focus{
+      border-bottom: 1px solid #ff9751;
+      box-shadow: 0 1px 0 0 #ff9751;
+    }
+
+    label{
+      color: #000000;
+      font-size: 1em;
+      font-weight: 600;
+    }
+
     .one_tag{
 
       display: inline-block;
@@ -83,7 +94,7 @@
       border-radius: 50%;
       box-shadow: none;
       border: none;
-      background: #fa5757;
+      background: #470e7d;
       color: white;
       height: 25px;
       width: 25px;
@@ -93,11 +104,22 @@
   .switch{
     margin: 15px 0;
     line-height: 30px;
+    input[type=checkbox]:checked+.lever{
+      background-color: #470e7d;
+    }
+    input[type=checkbox]:checked+.lever:after{
+      background-color: #470e7d;
+    }
   }
 
   .scopeSet_location{
 
     position: relative;
+
+    #map{
+      margin-bottom: 20px;
+    }
+
     #add_loc_btn{
       button{
         position: absolute;
@@ -106,7 +128,7 @@
         border-radius: 50%;
         box-shadow: none;
         border: none;
-        background: #fa5757;
+        background: #470e7d;
         color: white;
         height: 25px;
         width: 25px;
@@ -120,7 +142,7 @@
         border-radius: 50%;
         box-shadow: none;
         border: none;
-        background: #fa5757;
+        background: #470e7d;
         color: white;
         height: 25px;
         width: 25px;
@@ -134,7 +156,8 @@
     label{
 
       left: 0;
-      font-size: 0.8rem;
+      font-size: 1em;
+      font-weight: 600;
     }
 
     textarea{

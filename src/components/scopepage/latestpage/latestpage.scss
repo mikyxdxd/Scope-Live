@@ -46,8 +46,13 @@
       }
     }
     label{
-      color: grey;
-      font-weight: bold;
+      padding-left: 25px;
+      color: #534F4E;
+
+    }
+    label:after{
+      background-color: #ffac6d;
+      border: 2px solid #ffac6d;
     }
   }
 }

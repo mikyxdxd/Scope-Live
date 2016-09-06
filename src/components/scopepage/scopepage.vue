@@ -26,7 +26,9 @@
                currentTab:null,
                isOwner:null,
                picked: "",
-               showMap: false
+               showMap: false,
+               editIcon: require('../../assets/edit.png'),
+               presentIcon: require('../../assets/present_orange.png')
             }
         },
         watch:{

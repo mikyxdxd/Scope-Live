@@ -5,19 +5,34 @@
     margin-bottom: 15px;
     padding: 0.5em;
     .tab{
+      position: relative;
       display: inline-block;
-      color: white;
-      background: #ffac6d;
-      border-radius: 5px;
-      font-weight: 300;
-      margin-left: 10px;
-      font-size: 1.2em;
-      padding: 0.3em 0.8em;
-      line-height: 1.2em;
-      i{
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      width: 100px;
+      height: 35px;
+      color: #ffac6d;
+      background: transparent;
 
-        margin-right: 0.5em;
+      font-weight: 400;
+      font-size: 1em;
+      margin-right: 15px;
+      padding: 6px 0px 1px 35px;
+
+      border: 2px solid #ffac6d;
+      border-radius: 15px;
+      text-align: left;
+      img{
+        position:absolute;
+        left: 10px;
+        height: 55%;
+        top: 9px;
       }
+    }
+    .edit{
+      width: 80px;
+      padding-left: 35px;
     }
   }
 

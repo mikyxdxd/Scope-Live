@@ -89,6 +89,12 @@
         .switch{
           margin: 15px 0;
           line-height: 30px;
+          input[type=checkbox]:checked+.lever{
+            background-color: #470e7d;
+          }
+          input[type=checkbox]:checked+.lever:after{
+            background-color: #470e7d;
+          }
         }
 
         #location{
