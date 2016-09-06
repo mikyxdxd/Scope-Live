@@ -23,16 +23,6 @@
             </div></div></div>
         </div>
 
-        <div class="switch">
-          <label>Pull from public source</label><br>
-          <label>
-            No
-            <input type="checkbox" v-model="newSourceType" id="sourceTypeCheck">
-            <span class="lever"></span>
-            Yes
-          </label>
-        </div>
-
 
         <div class="scopeSet_location">
           <label>Scope location</label>
@@ -52,10 +42,20 @@
 
 
         <div class="scopeSet_des">
-            <div class="input-field col s12">
-              <textarea id="textarea1" class="materialize-textarea" length="120" v-model="newDesc"></textarea>
+            <div class="col s12">
               <label for="textarea1">Scope Description</label>
+              <input type="text" id="textarea1"  v-model="newDesc">
             </div>
+        </div>
+
+        <div class="switch">
+          <label>Make a Secret Scope</label><br>
+          <label>
+            No
+            <input type="checkbox" v-model="newSourceType" id="sourceTypeCheck">
+            <span class="lever"></span>
+            Yes
+          </label>
         </div>
 
         <div class="ctr">
