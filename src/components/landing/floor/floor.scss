@@ -1,0 +1,30 @@
+#floor{
+  padding: 3em 0em;
+  background: white;
+  .one_floor{
+    
+    .floor_left,.floor_right{
+
+      display: inline-block;
+      width:50%;
+      height: 330px;
+      vertical-align: top;
+      background-size: cover !important;
+      .fl_content{
+        white-space: normal;
+        padding: 3em;
+        .f_caption{
+          font-size: 2.0em;
+          font-weight: bold;
+          margin-bottom: 0.5em;
+        }
+        .f_content{
+          font-size: 1.2em;
+        }
+      }
+    }
+
+  }
+
+
+}

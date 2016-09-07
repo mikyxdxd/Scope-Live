@@ -5,6 +5,9 @@
   <section>
     <whatisit></whatisit>
   </section>
+  <section>
+    <floor></floor>
+  </section>
   <section style="background: white">
     <contact></contact>
   </section>
@@ -47,7 +50,8 @@
         components:{
           intro: require('../intro/intro.vue'),
           whatisit:require('../whatisit/whatisit.vue'),
-          contact: require('../contact/contact.vue')
+          contact: require('../contact/contact.vue'),
+          floor:require('../floor/floor.vue')
         }
     }
 </script>
