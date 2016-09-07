@@ -5,7 +5,8 @@
     margin-left: .8%;
     margin-top: 5px;
     margin-bottom: 0;
-    display: inline-block;
+    //display: none;
+    //display: inline-block;
     opacity: 0;
     transition: opacity 1s;
     position: relative;
@@ -188,6 +189,7 @@
   }
   .card.loaded {
     opacity: 1;
+    //display: inherit;
   }
 
 }

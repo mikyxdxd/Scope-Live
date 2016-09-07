@@ -24,7 +24,7 @@
               transitionDuration: 0
             });
 
-            imagesLoaded($('#photo-list'),()=>{
+            imagesLoaded($('.new'),()=>{
               $('.new').each((i,e)=>{
               setTimeout(()=>{
               $(e).addClass('loaded');
@@ -41,7 +41,9 @@
           self.$nextTick(function() {
             setTimeout(function() {
               self._iso.appended($('.new'));
-              imagesLoaded($('#photo-list'),()=>{
+              imagesLoaded($('.new'),()=>{
+
+                console.log('loaded')
 
                 $('.new').each((i,e)=>{
                   setTimeout(()=>{
@@ -50,7 +52,6 @@
             })
               $('.card').removeClass('new');
               self._iso.layout();
-              console.log('loaded')
             })
             });
           });
