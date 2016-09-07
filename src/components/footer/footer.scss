@@ -1,14 +1,55 @@
 #footer{
-
+  height: 120px;
 
 
   .page-footer{
+    height:100%;
     padding-top: 0px;
-    background-image: linear-gradient(-45deg, #fa5757 0, #63719a 100%);
-    background-repeat: no-repeat, no-repeat;
+    background-color: white;
+
+    .footer-container{
+      padding: 10px 20px;
+      height: 100%;
+      div{
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .footer-left{
+        width: 30%;
+        height: 100%;
+        #footer-logo{
+          display: block;
+          height:30%;
+          margin-bottom: 20px;
+          img{
+            height: 100%;
+          }
+        }
+
+        #footer-copyright{
+          display: block;
+          color: #efefef;
+          font-size: 1.2em;
+        }
+      }
+
+      .footer-mid{
+        width: 30%;
+        height: 100%;
+        top: 20%;
+        position: relative;
+      }
+
+      .footer-right{
+        width: 38%;
+        height: 100%;
+      }
+    }
   }
 
   a{
     margin-left: 2em;
+    color: #000000;
   }
 }

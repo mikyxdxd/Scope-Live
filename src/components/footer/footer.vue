@@ -4,7 +4,7 @@
         template:require('./footer.html'),
         data(){
             return{
-
+              logo: require('../../assets/scope_live_logo.png'),
             }
         },
 

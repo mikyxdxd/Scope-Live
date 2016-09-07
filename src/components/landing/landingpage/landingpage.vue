@@ -1,9 +1,12 @@
 <template>
   <section>
-  <intro></intro>
+    <intro></intro>
   </section>
   <section>
-  <whatisit></whatisit>
+    <whatisit></whatisit>
+  </section>
+  <section style="background: white">
+    <contact></contact>
   </section>
 </template>
 <style>
@@ -44,6 +47,7 @@
         components:{
           intro: require('../intro/intro.vue'),
           whatisit:require('../whatisit/whatisit.vue'),
+          contact: require('../contact/contact.vue')
         }
     }
 </script>
