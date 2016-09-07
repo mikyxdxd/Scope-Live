@@ -4,9 +4,6 @@
     template:require('./floor.html'),
     ready(){
     },
-    data(){
-
-    },
     components:{
 
     }

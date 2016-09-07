@@ -1,14 +1,16 @@
 #footer{
-  height: 120px;
+  margin-top: -20px;
+  height: 100%;
 
 
   .page-footer{
     height:100%;
-    padding-top: 0px;
+    padding: 1.5em;
     background-color: white;
+    border-top: 1px solid gainsboro;
+
 
     .footer-container{
-      padding: 10px 20px;
       height: 100%;
       div{
         display: inline-block;
@@ -21,7 +23,7 @@
         #footer-logo{
           display: block;
           height:30%;
-          margin-bottom: 20px;
+          //margin-bottom: 20px;
           img{
             height: 100%;
           }
@@ -29,38 +31,44 @@
 
         #footer-copyright{
           display: block;
-          color: #efefef;
-          font-size: 1.2em;
+          color: #ddd3cc;
+          font-size: 1em;
         }
       }
 
       .footer-mid{
         width: 30%;
-        height: 100%;
-        top: 20%;
         position: relative;
+        a{
+          color: #000000;
+          display: inline-block;
+          //width: 25%;
+          margin-left: 2em;
+          font-size: 1.1em;
+          text-align: center;
+        }
       }
 
       .footer-right{
-        width: 38%;
+        width: 40%;
         height: 100%;
         margin-top: 10px;
         text-align: right;
         #footer-email{
           display: block;
          a {
-           color: #512791 !important;
-           font-size: 1.1em;
+           color: #512791;
+           font-size: 1.2em;
          }
         }
         #footer-social{
           display: block;
           height:30px;
-          margin-top: 20px;
+          margin-top: 5px;
           #followus{
             display: inline-block;
             vertical-align: top;
-            font-size: 1.2em;
+            font-size: 1.4em;
             color: #bcb595;
 
           }

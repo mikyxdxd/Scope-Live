@@ -6,7 +6,7 @@
       <div id="routerview">
       <router-view></router-view>
       </div>
-      <!--<s_footer></s_footer>-->
+        <s_footer></s_footer>
     </div>
   </div>
 </template>
