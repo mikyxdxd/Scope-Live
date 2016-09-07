@@ -1,10 +1,22 @@
 <div id="intro">
+  <div id="intro_left">
   <div id="title">Use <b>Scope Live</b> to help grow your business!</div>
   <div id="sub_title">Understand and connect with your ever-growing audience's activities across major social media platfoms.</div>
-  <form v-on:submit.prevent="searchTag(tag)" >
-  <div class="search-wrapper">
-  <input type="search" placeholder="Start your search here" v-model="tag"><i class="material-icons">search</i>
+  <div id="but_con"> <button id="get_start">Get Started</button> </div>
+  </div><!--
+
+  --><div id="intro_right">
+
   </div>
-  </form>
-  <!--<div id="trail_b"><a>Start your free trail</a></div>-->
+
+
+  <div id="intro_bot">
+    <form v-on:submit.prevent="searchTag(tag)" >
+    <div class="search-wrapper">
+    <input type="search" placeholder="Start search by #hashtags" v-model="tag"><i class="material-icons">search</i>
+    </div>
+    </form>
+    <!--<div id="trail_b"><a>Start your free trail</a></div>-->
+
+  </div>
 </div>
