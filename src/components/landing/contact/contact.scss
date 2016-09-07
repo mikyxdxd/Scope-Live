@@ -20,4 +20,16 @@
     border-bottom: 1px solid #ff9751 !important;
     box-shadow: 0 1px 0 0 #ff9751 !important;
   }
+
+  input[type="submit"]{
+    display: block;
+    width: 100px;
+    margin:auto;
+    background: #470e7d;
+    color: white;
+    border-bottom:none !important;
+    box-shadow: none !important;
+    border: 1px solid #470e7d;
+    border-radius: 10px;
+  }
 }
