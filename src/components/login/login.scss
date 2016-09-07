@@ -1,9 +1,12 @@
 #login{
 
   #bg{
-
+    input[type="text"]:focus,input[type="password"]:focus,input[type="email"]:focus{
+      border-bottom: 1px solid #ff9751;
+      box-shadow: 0 1px 0 0 #ff9751;
+    }
     .btn{
-      background-color: #c49af9;
+      background-color: #470e7d;
     }
     //
     //position: fixed;
@@ -17,7 +20,7 @@
     #top_tab{
       width:100%;
       text-align: center;
-      background: #fafafa;
+      background: #ffffff;
       .tab{
         display: inline-block;
         padding: 1em;
@@ -25,16 +28,17 @@
         margin-left: 5px;
         color: grey;
         font-weight: 100;
-        background: #fafafa;
+        background: transparent;
         &:hover{
           border-bottom: 5px solid #3f1179;
+          font-weight: 400;
           color: #3f1179;
           cursor: pointer;
         }
         //text-transform: uppercase;
       }
       .active{
-
+        font-weight: 400;
         border-bottom: 5px solid #3f1179;
         color: #3f1179;
       }
@@ -50,7 +54,7 @@
       }
       //width: 363px;
       //height: 400px;
-      padding: 5em;
+      padding: 2em;
       background: white;
       margin: auto;
       margin-top: 5vh;

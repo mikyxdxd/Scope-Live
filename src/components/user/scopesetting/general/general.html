@@ -44,7 +44,7 @@
         <div class="scopeSet_des">
             <div class="col s12">
               <label for="textarea1">Scope Description</label>
-              <input type="text" id="textarea1"  v-model="newDesc">
+              <input type="text" id="textarea1"  v-model="newDesc" :value="scope.description">
             </div>
         </div>
 
@@ -52,7 +52,7 @@
           <label>Make a Secret Scope</label><br>
           <label>
             No
-            <input type="checkbox" v-model="newSourceType" id="sourceTypeCheck">
+            <input type="checkbox" v-model="newSourceType" id="sourceTypeCheck" :checked="scope.sourceType == 'ALL'">
             <span class="lever"></span>
             Yes
           </label>
