@@ -28,7 +28,7 @@
     },
     components:{
       navbar: require('./header/header.vue'),
-      s_footer:require('../footer/footer.vue')
+      s_footer:require('../footer/footer.vue'),
     }
   }
 </script>

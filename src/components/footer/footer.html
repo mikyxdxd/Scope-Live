@@ -1,27 +1,34 @@
 <div id="footer">
   <footer class="page-footer">
-    <!--<div class="container">-->
-      <!--<div class="row">-->
-        <!--<div class="col l6 s12">-->
-          <!--<h5 class="white-text">Footer Content</h5>-->
-          <!--<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>-->
-        <!--</div>-->
-        <!--<div class="col l4 offset-l2 s12">-->
-          <!--<ul>-->
-            <!--<li><a class="grey-text text-lighten-3" href="#!">Term of Service</a></li>-->
-            <!--<li><a class="grey-text text-lighten-3" href="#!">Privacy Policy</a></li>-->
-            <!--&lt;!&ndash;<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>&ndash;&gt;-->
-            <!--&lt;!&ndash;<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>&ndash;&gt;-->
-          <!--</ul>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-    <div class="footer-copyright">
-      <div class="container">
-        Copyright © 2016 ScopeLive. All rights reserved.
-        <a class="grey-text text-lighten-4 right" href="#!" v-link="{path: '/tos'}">Term of Service</a>
-        <a class="grey-text text-lighten-4 right" href="#!" v-link="{path: '/pp'}">Privacy Policy</a>
+      <div class="footer-container">
+        <div class="footer-left">
+          <div id="footer-logo">
+            <img :src="logo">
+          </div>
+          <div id="footer-copyright">
+            © 2016 Pantoscope Media Inc
+          </div>
+
+        </div>
+
+        <div class="footer-mid">
+          <a class="right" href="#!" v-link=>FAQ</a>
+          <a class="right" href="#!" v-link=>Press</a>
+          <a class="right" href="#!" v-link="{path: '/tos'}">Term of Service</a>
+          <a class="right" href="#!" v-link=>About us</a>
+        </div>
+
+        <div class="footer-right">
+          <div id="footer-email" class="right">
+            <a href="mailto:contact@scopelive.com" target="_top">contact@scopelive.com</a>
+          </div>
+
+          <div id="footer-social">
+
+          </div>
+        </div>
+
+
       </div>
-    </div>
   </footer>
 </div>
