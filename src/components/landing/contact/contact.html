@@ -3,20 +3,25 @@
     Contact
   </div>
   <div class="contact-body">
-    <div>
-      <label>Name</label>
-      <input type="text" placeholder="What's your name?">
-    </div>
+    <form>
+      <div>
+        <label>Name</label>
+        <input type="text" placeholder="What's your name?" v-model="name">
+      </div>
 
-    <div>
-      <label>Email</label>
-      <input type="email" placeholder="What's your email address">
-    </div>
+      <div>
+        <label>Email</label>
+        <input type="email" placeholder="What's your email address" v-model="email">
+      </div>
 
-    <div>
-      <label>Message</label>
-      <input type="text" placeholder="Tell us about your project">
-    </div>
+      <div>
+        <label>Message</label>
+        <input type="text" placeholder="Tell us about your project" v-model="message">
+      </div>
+      <div>
+        <input type="submit" value="submit">
+      </div>
+    </form>
 
-  </div>
+  </form>
 </div>

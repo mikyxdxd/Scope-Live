@@ -4,6 +4,9 @@
       template:require('./contact.html'),
         data(){
             return{
+              name: '',
+              email: '',
+              message: ''
             }
         },
         components:{
