@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="background: #f8f3f2;">
     <intro></intro>
   </section>
   <section>

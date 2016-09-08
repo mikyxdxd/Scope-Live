@@ -56,15 +56,18 @@
         position: absolute;
         top: 15px;
         right: 5px;
-        padding: 0.1em 1.5em;
+        padding: 0.1em 1em 0.1em 3.5em;
         font-size: 0.8em;
         border-radius: 5px;
         color:white;
         font-weight: normal;
         background: #ffa15a;
-        i{
-          margin-right: 2px;
-          font-size: 1.2em;
+        img{
+          position: absolute;
+          top: 4px;
+          left: 5px;
+          max-height: 30px;
+          max-width: 25px;
         }
       }
     }
