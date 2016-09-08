@@ -19,10 +19,11 @@
   require('./landingpage.scss')
 
     export default{
-      ready: function(){
-        this.timeStamp = Date.now();
-      },
 
+      ready(){
+
+
+      },
       methods: {
         searchTag: function(tag){
           this.$route.router.go({ name: 'search', params: { tag: tag.trim()}});
@@ -40,12 +41,6 @@
       data(){
         return{
         }
-      },
-      ready(){
-        if(this.$route.path == '/'){
-          $('#header').addClass('home')
-          window.addEventListener("scroll", this.scrollChange);
-        };
       },
         components:{
           intro: require('../intro/intro.vue'),

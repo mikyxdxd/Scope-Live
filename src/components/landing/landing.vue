@@ -15,9 +15,6 @@
 
 
   export default{
-    ready: function(){
-    },
-
     methods: {
     },
     data(){
@@ -25,6 +22,7 @@
       }
     },
     ready(){
+
     },
     components:{
       navbar: require('./header/header.vue'),
