@@ -213,6 +213,7 @@
       background-position: 0;
       border-radius: 0;
       background-size: cover;
+      background-position-y: 25%;
 
       div{
         width: auto;
@@ -220,7 +221,7 @@
         position: relative;
         color: white;
         font-size: 1.4em;
-        top: 65%;
+        top: 78%;
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
