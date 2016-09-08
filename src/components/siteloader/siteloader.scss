@@ -1,0 +1,18 @@
+#siteloader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fafafa;
+  z-index:999;
+  display: flex;
+  #acon {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin: auto;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+}
