@@ -23,13 +23,11 @@
 
   input[type="submit"]{
     display: block;
-    width: 100px;
+    width: 120px;
     margin:auto;
-    background: #470e7d;
-    color: white;
-    border-bottom:none !important;
-    box-shadow: none !important;
-    border: 1px solid #470e7d;
+    background: white;
+    color: #ff9751;
+    border: 2px solid #ff9751;
     border-radius: 10px;
   }
 }
