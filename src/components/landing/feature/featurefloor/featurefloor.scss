@@ -1,0 +1,21 @@
+#featurefloor{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  .floor_left,.floor_right{
+    padding: 3em;
+    height: 300px;
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    .caption{
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+    .content{
+
+      width:400px;
+      font-weight: 100;
+    }
+  }
+}

@@ -106,6 +106,9 @@ export default(App)=>{
         },
         '/login':{
           component:require('./components/login/login.vue')
+        },
+        '/feature':{
+          component:require('./components/landing/feature/feature.vue')
         }
       }
     },
