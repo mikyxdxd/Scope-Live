@@ -11,7 +11,10 @@
       return{
         brands:require('./resources/brand.jpg'),
         events:require('./resources/event.jpg'),
-        presentations:require('./resources/presentation.jpg')
+        presentations:require('./resources/presentation.jpg'),
+        iconb: require("../../../assets/for_brand.png"),
+        icone: require("../../../assets/For_events.png"),
+        iconp: require("../../../assets/For_presentations.png")
       }
     }
   }

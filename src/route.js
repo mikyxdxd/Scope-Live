@@ -79,7 +79,7 @@ export default(App)=>{
   });
 
   router.redirect({
-    '/': '/landing',
+    // '/': '/landing',
     '/appcontent': '/appcontent/dashboard',
   });
 
@@ -87,7 +87,7 @@ export default(App)=>{
     '/':{
       component: require('./components/landing/landing.vue'),
       subRoutes:{
-        'landing': {
+        '/': {
           component: require('./components/landing/landingpage/landingpage.vue')
         },
         'contact':{

@@ -1,8 +1,13 @@
 <div id="floor">
   <div class="one_floor">
-    <div class="floor_left" :style="{ backgroundImage: 'url(' + brands + ')' }"></div><!--
+    <div class="floor_left">
+      <img :src="brands">
+    </div><!--
     --><div class="floor_right" style="background: #e89f5e">
       <div class="fl_content" style="color:white">
+        <div class="f_icon">
+          <img :src="iconb">
+        </div>
         <div class="f_caption">For Brands</div>
         <div class="f_content">Connect with and understand your ever changing audience. Engage with fans through social media or in person.</div>
       </div>
@@ -11,16 +16,26 @@
   <div class="one_floor">
     <div class="floor_left" style="background: #fafafa">
       <div class="fl_content">
+        <div class="f_icon">
+          <img :src="icone">
+        </div>
         <div class="f_caption">For Events</div>
         <div class="f_content">Create an exciting interactive experience for any event. Feature only the best social media content on the big screen.</div>
       </div>
     </div><!--
-    --><div class="floor_right" :style="{ backgroundImage: 'url(' + events + ')' }"></div>
+    --><div class="floor_right">
+        <img :src="events">
+      </div>
   </div>
   <div class="one_floor">
-    <div class="floor_left" :style="{ backgroundImage: 'url(' + presentations + ')' }"></div><!--
+    <div class="floor_left">
+      <img :src="presentations">
+    </div><!--
     --><div class="floor_right" style="background: #480e86">
       <div class="fl_content" style="color:white">
+        <div class="f_icon">
+          <img :src="iconp">
+        </div>
         <div class="f_caption">For Presentations</div>
         <div class="f_content">Support your next presentation with customized social media content in an organized an engaged manner.</div>
       </div>

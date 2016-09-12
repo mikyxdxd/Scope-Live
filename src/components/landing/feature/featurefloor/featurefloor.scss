@@ -1,6 +1,9 @@
 #featurefloor{
   margin-top: 50px;
   margin-bottom: 50px;
+  .floor{
+    margin: 10em 0;
+  }
   .floor_left,.floor_right{
     padding: 3em;
     height: 430px;
@@ -20,5 +23,17 @@
       font-weight: 100;
       font-size: 1.3em;
     }
+
+    .floor-img{
+      width: 100%;
+    }
+
+    .floor-text{
+      position: relative;
+      top: 30%;
+      transform: translateY(50%);
+    }
+
+
   }
 }
