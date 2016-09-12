@@ -36,13 +36,11 @@
 
     display: inline-block;
     width: 50%;
-    background: url('../resources/app_mock_up.png');
-    height: 550px;
-    background-size: 120%;
+    background: url(/static/img/app_mock_up.d4c8425.png);
+    background-repeat: no-repeat;
+    height: 35vw;
+    background-size: 63vw;
     background-position-x: -55px;
-    -webkit-box-shadow: 0px 10px 15px 0px rgba(143,143,143,0.7);
-    -moz-box-shadow: 0px 10px 15px 0px rgba(143,143,143,0.7);
-    box-shadow: 0px 10px 15px 0px rgba(143,143,143,0.7);
   }
 
   #title{
@@ -73,15 +71,18 @@
   #trail_b{
 
     a{
-
       background: #3f1680;
       color: white;
       font-size: 1.4em;
       padding: 0.5em 2.5em;
       display: inline-block;
-      margin-top: 1em;
       border-radius: 10px;
+      margin-top: 1em;
+
     }
+  }
+  #search_con{
+    margin-top: 4em;
   }
 
 }
