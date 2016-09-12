@@ -11,7 +11,7 @@
       ready(){
       },
         components:{
-
+          search:require('../landing/search/search.vue')
         },
     }
 </script>

@@ -1,17 +1,12 @@
 <div id="pricing">
+
   <div id="free_trail">
     <div id="title">Pick your plan</div>
     <div id ="sub_title">Not Sure what's right for you? No problem! Try out our free 30 day plan now.</div>
     <a id="trail">Start your free version</a>
   </div>
-  <div id="intro_bot">
-    <form v-on:submit.prevent="searchTag(tag)" >
-      <div class="search-wrapper">
-        <input type="search" placeholder="Start search by #hashtags" v-model="tag"><i class="material-icons">search</i>
-      </div>
-    </form>
-  </div>
-  <div id="plans">
+  <search></search>
+  <div id="plans" class="container">
     <div class="one_plan">
 
       <div class="plan_title">Basic</div>

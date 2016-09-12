@@ -18,14 +18,10 @@
       }
     },
     components:{
-      siteloader:require('../../siteloader/siteloader.vue')
+      siteloader:require('../../siteloader/siteloader.vue'),
+      search:require('../search/search.vue')
     },
     methods: {
-      searchTag: function (tag) {
-        console.log("ladnSearch");
-        this.$route.router.go({name: 'landSearch', params: {tag: tag.trim()}});
-        tag = '';
-      }
     }
   }
 </script>

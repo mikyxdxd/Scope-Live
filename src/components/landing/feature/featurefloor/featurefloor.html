@@ -1,9 +1,7 @@
 <div id="featurefloor" class="container">
 
   <div class="floor">
-    <div class="floor_left">
-      <img :src="pScope" class="floor-img">
-    </div><!--
+    <div class="floor_left" :style="{ backgroundImage: 'url(' + Create_Scopes + ')' }"></div><!--
     --><div class="floor_right">
         <div class="floor-text">
           <div class="caption">Create Album</div>
@@ -19,15 +17,11 @@
         <div class="content">Find all photos posted across social media taken from the location of your choosing.</div>
       </div>
     </div><!--
-    --><div class="floor_right">
-        <img :src="pLocation" class="floor-img">
-      </div>
+    --><div class="floor_right" :style="{ backgroundImage: 'url(' + Location_Search + ')' }"></div>
   </div>
 
   <div class="floor">
-    <div class="floor_left">
-      <img :src="pAlbum" class="floor-img">
-    </div><!--
+    <div class="floor_left" :style="{ backgroundImage: 'url(' + Album_Customization + ')' }"></div><!--
     --><div class="floor_right">
     <div class="floor-text">
       <div class="caption">Album Customization</div>
@@ -43,15 +37,12 @@
         <div class="content">Select only the images you want to appear in your album</div>
       </div>
     </div><!--
-    --><div class="floor_right">
-          <img :src="pContent" class="floor-img">
-       </div>
+    --><div class="floor_right" :style="{ backgroundImage: 'url(' + Prescreened_Content + ')' }">
+  </div>
   </div>
 
   <div class="floor">
-    <div class="floor_left">
-      <img :src="pOptions" class="floor-img">
-    </div><!--
+    <div class="floor_left" :style="{ backgroundImage: 'url(' + Presentation_Options + ')' }"></div><!--
     --><div class="floor_right">
     <div class="floor-text">
       <div class="caption">Presentation Options</div>

@@ -10,13 +10,8 @@
     <button id="btn">Get Started</button>
 
   </div>
-  <div id="feature_search">
-    <form v-on:submit.prevent="searchTag(tag)" >
-      <div class="search-wrapper">
-        <input type="search" placeholder="Start search by #hashtags" v-model="tag"><i class="material-icons">search</i>
-      </div>
-    </form>
-  </div>
+  <search></search>
+
 
   <featurefloor></featurefloor>
 

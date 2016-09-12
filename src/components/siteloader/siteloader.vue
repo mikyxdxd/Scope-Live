@@ -44,9 +44,7 @@
       watch:{
         'finished': {
           handler: function (finished, oldVal) { if(finished){
-
-            console.log(finished, oldVal)
-
+            
             this.bar.animate(1,()=>{
 
               $('#siteloader').fadeOut();

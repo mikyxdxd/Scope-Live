@@ -5,20 +5,23 @@
     margin: 10em 0;
   }
   .floor_left,.floor_right{
-    padding: 2em;
-    height: 500px;
+    padding: 3em;
+    height: 430px;
+    margin-top: 30px;
     display: inline-block;
     width: 50%;
     vertical-align: top;
+    background-size: cover;
     .caption{
       font-weight: bold;
       margin-bottom: 10px;
-      font-size: 1.5em;
+      font-size: 2.0em;
     }
     .content{
 
       width:400px;
       font-weight: 100;
+      font-size: 1.3em;
     }
 
     .floor-img{
