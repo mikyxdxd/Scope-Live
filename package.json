@@ -17,7 +17,9 @@
     "consolidate": "^0.14.1",
     "isotope-layout": "^3.0.1",
     "masonry": "0.0.2",
+    "nodemailer": "^2.6.0",
     "vue": "^1.0.21",
+    "vue-resource": "^1.0.1",
     "vue-router": "^0.7.13",
     "vue-router-transition": "^1.0.9"
   },
