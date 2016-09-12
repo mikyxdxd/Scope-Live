@@ -10,7 +10,7 @@
               scopeList:[],
               hasMore:true,
               user:dataService.getUser(),
-              presentIcon: require('../../../../assets/present_orange.png'),
+              presentIcon: require('../../../../assets/present_icon.png'),
               upgrade: require('../../../../assets/upgrade.png')
             }
        },

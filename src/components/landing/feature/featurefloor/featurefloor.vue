@@ -11,11 +11,10 @@
         'Location_Search':require('./resources/Location-Search.png'),
         'Prescreened_Content':require('./resources/Prescreened-Content.png'),
         'Presentation_Options':require('./resources/Presentation-Options.png'),
-
       }
     },
     components:{
 
-    }
+    },
   }
 </script>
