@@ -22,7 +22,6 @@
 
       ready(){
 
-
       },
       methods: {
         searchTag: function(tag){

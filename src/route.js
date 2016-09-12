@@ -1,6 +1,7 @@
 export default(App)=>{
   let VueRouter = require('vue-router');
   let dataService = require('./services/dataservices');
+  let Vue = require('Vue');
   let router = new VueRouter({
     hashbang: false,
     history: true,
@@ -52,30 +53,6 @@ export default(App)=>{
         }
       }
     })
-
-    //
-    // var verifyUser = setInterval(()=>{
-    //   if(dataService.getUserType() != null){
-    //     clearInterval(verifyUser);
-    //
-    //
-    //     if(dataService.getUserType() == 'user' && transition.to.path.indexOf('/appcontent') < 0
-    //        && transition.to.path.indexOf('/embed/') < 0 && transition.to.path.indexOf('/p/') < 0
-    //        ){
-    //       transition.redirect('/appcontent/dashboard');
-    //     }else if(dataService.getUserType() != 'user' && transition.to.path.indexOf('/appcontent') >= 0 && transition.to.path.indexOf('?cont=') < 0){
-    //
-    //         transition.redirect('/login?cont=' + window.location.pathname.replace('/appconet', ''));
-    //
-    //     }else{
-    //       transition.next();
-    //       window.scrollTo(0,0);
-    //     }
-    //   }else{
-    //
-    //   }
-    // },200);
-
   });
 
   router.redirect({
@@ -84,6 +61,11 @@ export default(App)=>{
   });
 
   router.map({
+
+    '*':{
+      component: Vue.extend({ready(){window.location.href = '/'}})
+    },
+
     '/':{
       component: require('./components/landing/landing.vue'),
       subRoutes:{
