@@ -4,7 +4,7 @@
       template:require('./contact.html'),
         data(){
             return{
-              name: '',
+              userName: '',
               email: '',
               message: ''
             }
