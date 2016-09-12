@@ -1,0 +1,90 @@
+#footer{
+  margin-top: -20px;
+  height: 100%;
+
+
+  .page-footer{
+    height:100%;
+    padding: 1.5em;
+    background-color: white;
+    border-top: 1px solid gainsboro;
+
+
+    .footer-container{
+      height: 100%;
+      div{
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .footer-left{
+        width: 30%;
+        height: 100%;
+        #footer-logo{
+          display: block;
+          height:30%;
+          //margin-bottom: 20px;
+          img{
+            height: 100%;
+          }
+        }
+
+        #footer-copyright{
+          display: block;
+          color: #ddd3cc;
+          font-size: 1em;
+        }
+      }
+
+      .footer-mid{
+        width: 37%;
+        position: relative;
+        margin-top: 15px;
+        text-align: center;
+        a{
+          color: #000000;
+          display: inline-block;
+          //width: 25%;
+          margin-left: 2em;
+          font-size: 1.1em;
+        }
+      }
+
+      .footer-right{
+        width: 32%;
+        height: 100%;
+        //margin-top: 10px;
+        text-align: right;
+        #footer-email{
+          display: block;
+         a {
+           color: #512791;
+           font-size: 1.2em;
+         }
+        }
+        #footer-social{
+          display: block;
+          height:30px;
+          margin-top: 5px;
+          #followus{
+            display: inline-block;
+            vertical-align: top;
+            font-size: 1.4em;
+            color: #bcb595;
+
+          }
+          img{
+            margin-left: 25px;
+            height:100%;
+          }
+
+        }
+      }
+    }
+  }
+
+  a{
+    margin-left: 2em;
+    color: #000000;
+  }
+}

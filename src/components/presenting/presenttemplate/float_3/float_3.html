@@ -1,0 +1,15 @@
+<div id="float_3" v-if="image_left">
+  <div>
+    <card :image.sync="image_left" class="floating"></card>
+    <card :image.sync="image_center" class="floating"></card>
+    <card :image.sync="image_right" class="floating"></card>
+  </div>
+  <!--<card :image="image_left" ng-if="image_left"></card>-->
+  <!--<card :image="image_center" ng-if="image_center"></card>-->
+  <!--<card :image="image_right" ng-if="image_right"></card>-->
+  <!--<div id="photo-list">-->
+    <!--<div v-for="image in datalist" class='singleItem'>-->
+      <!--<card :image="image"  :showdelete.sync="showdelete" :showadd.sync="showadd" ></card>-->
+    <!--</div>-->
+  <!--</div>-->
+</div>

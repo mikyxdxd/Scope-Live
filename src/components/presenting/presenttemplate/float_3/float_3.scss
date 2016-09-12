@@ -1,0 +1,94 @@
+#float_3{
+  text-align: center;
+  max-width: 80vw;
+  margin: auto;
+  #imagecard{
+
+    display: inline-block;
+    width:30%;
+    margin-left: 3%;
+    vertical-align: top;
+  }
+
+  .card.one_image .pic{
+
+    height: 60vh;
+  }
+  .card.one_image .pic img{
+
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    width: inherit;
+    position: relative;
+    display: block;
+    top: 50%;
+    transform:translateY(-50%);
+
+  }
+
+  .card.one_image{
+    opacity: 1;
+    width:100%;
+  }
+
+
+  .floating{
+    float: left;
+    -webkit-animation-name: Floatingx;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -moz-animation-name: Floating;
+    -moz-animation-duration: 3s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 2px;
+
+  }
+
+  @-webkit-keyframes Floatingx{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 5px);}
+    to {-webkit-transform: translate(0, -0px);}
+  }
+
+  @-moz-keyframes Floating{
+    from {-moz-transform:translate(0, 0px);}
+    65% {-moz-transform:translate(0, 5px);}
+    to {-moz-transform: translate(0, -0px);}
+  }
+
+  @media screen and (max-width: 1300px) {
+
+
+    //#float_3{
+
+      max-width: 100vw;
+    //}
+
+    .card.one_image .pic{
+
+      height: 40vh;
+
+    }
+
+  }
+
+  @media screen and (max-width: 700px) {
+
+    #imagecard{
+
+      width:49%;
+      margin-left: 0.5%;
+
+    }
+
+
+
+  }
+
+
+
+}

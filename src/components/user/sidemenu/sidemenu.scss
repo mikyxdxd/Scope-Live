@@ -1,16 +1,16 @@
 #sidemenu{
-  width: 250px;
+  width: 220px;
   z-index: 999;
   position: fixed;
   overflow-x: hidden;
   overflow-y: auto;
-  margin-top: 55px;
+  //margin-top: 55px;
   top: 0;
   left: 0;
   padding: 0 0 55px;
   height: 100vh;
   color: #fff;
-  background-color: #fa5757;
+  background-color: #3f1179;
   .nav-page-title {
     background: #fa5757;
     text-align: center;
@@ -22,42 +22,78 @@
       letter-spacing: .05em;
     }
   }
-  .user-info {
-    text-align: left;
-    font-weight: lighter;
-    padding: 20px 20px 20px 70px;
-    position: relative;
-    width: 100%;
-    background: #794343;
-    color: #fff;
-    display: inline-block;
-    box-sizing: border-box;
+  .user-avatar{
+    margin: 1em 0;
+    text-align: center;
     .tb-avatar {
-      border: 0;
-      box-shadow: 0 1px 0 rgba(0,0,0,.25);
-      height: 40px;
-      width: 40px;
-      margin: auto;
-      position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      background-color: #fff;
+      height: 70px;
+      width: 70px;
       overflow: hidden;
       border-radius: 100%;
       display: inline-block;
     }
+  }
+
+
+  #scope_list{
+
+    padding-left: 2.5em;
+    padding-right: 1em;
+    font-size: 0.8em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    cursor: initial;
+    .one_scope{
+      margin-top: 3px;
+      word-wrap: break-word;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0;
+      display: block;
+      color: #adaaaa;
+      &:hover{
+        color:white;
+        cursor: pointer;
+      }
+    }
+    .selected{
+
+      color:white;
+      cursor: initial !important;
+      //font-size: 1.3em;
+
+    }
+  }
+
+  .user-info {
+    text-align: center;
+    color: #fff;
     h3 {
       margin: 0;
-      font-size: 15px;
+      font-size: 1em;
       display: inline-block;
+      letter-spacing: 0.05em;
     }
     small {
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: 0 50%;
-      padding-left: 22px;
+      color: rgba(254, 254, 254, 0.71);
+      font-size: 0.8em;
+      font-weight: 100;
+      position: relative;
+      top:-5px;
+    }
+    #user-signOut{
+      cursor: pointer;
+      margin: 1em;
+      color: #ff9751;
       font-size: 0.9em;
+      font-weight: bold;
+      i{
+        margin-right: 2px;
+        font-size: 1.3em;
+        color: white
+      }
+
     }
   }
 
@@ -74,23 +110,29 @@
       padding: 0;
       margin-top: 0;
       border-radius: 0;
+      border-top: 1px solid #512791;
+      //border-bottom: 1px solid #512791;
       &:hover{
-        background: #da5555;
+        background: #38126d;
         color: rgba(255, 255, 255, .7);
         cursor: pointer;
       }
       &.active{
-        background: #da5555;
+        background: #38126d;
+        box-shadow: inset 5px 0px 0 0 #ff9751;
+        -webkit-box-shadow: inset 5px 0px 0 0 #ff9751;
+        -moz-box-shadow: inset 5px 0px 0 0 #ff9751;;
         color: rgba(255, 255, 255, .7);
       }
       //border-bottom: 1px solid #794343;
 
 
-      a {
+      .item {
         line-height: 2;
         color:white;
+        font-size: 0.9em;
         background-color: transparent;
-        padding: 10px 20px 10px 55px;
+        padding: 0.5em 1.5em;
         border-radius: 0;
         border: 0;
         overflow: hidden;
@@ -99,10 +141,44 @@
         position: relative;
         display: block;
         text-decoration: none;
+        font-weight: 100;
         outline: 0;
+        i{
+          width: 25px;
+        }
       }
 
 
     }
   }
+}
+.slideout-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  width: 256px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: none;
+}
+
+.slideout-panel {
+  position:relative;
+  z-index: 999;
+  //will-change: transform;
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+.slideout-open,
+.slideout-open html,
+.slideout-open .slideout-panel {
+  overflow: hidden !important;
+}
+
+.slideout-open .slideout-menu {
+  display: block;
 }

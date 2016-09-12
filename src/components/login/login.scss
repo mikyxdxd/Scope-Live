@@ -1,28 +1,72 @@
 #login{
 
   #bg{
+    input[type="text"]:focus,input[type="password"]:focus,input[type="email"]:focus{
+      border-bottom: 1px solid #ff9751;
+      box-shadow: 0 1px 0 0 #ff9751;
+    }
+    .btn{
+      background-color: #470e7d;
+    }
+    //
+    //position: fixed;
+    //left: 0;
+    //top: 0;
+    //z-index: 1;
+    //background: rgba(0, 0, 0, 0.3);
+    //width:100vw;
+    //height: 100vh;
 
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.3);
-    width:100vw;
-    height: 100vh;
+    #top_tab{
+      width:100%;
+      text-align: center;
+      background: #ffffff;
+      .tab{
+        display: inline-block;
+        padding: 1em;
+        font-size: 1.3em;
+        margin-left: 5px;
+        color: grey;
+        padding-bottom: 0.5em;
+        font-weight: 100;
+        background: transparent;
+        &:hover{
+          border-bottom: 5px solid #3f1179;
+          font-weight: 400;
+          color: #3f1179;
+          cursor: pointer;
+        }
+        //text-transform: uppercase;
+      }
+      .active{
+        font-weight: 400;
+        border-bottom: 5px solid #3f1179;
+        color: #3f1179;
+        font-weight: bold;
+      }
+    }
+
+
     #login_sec{
-      width: 363px;
-      height: 400px;
+      .label{
+
+        font-size: 1em;
+        font-weight: bold;
+
+      }
+      //width: 363px;
+      //height: 400px;
+      padding: 2em;
       background: white;
-      display: block;
       margin: auto;
       margin-top: 5vh;
       position: relative;
       border-radius: 5px;
-      box-shadow: 0px 0px 8px 2px #656565;
+      //box-shadow: 0px 0px 8px 2px #656565;
 
       .ctr{
 
-        text-align: center;
+        text-align: right;
       }
 
       #close{
@@ -35,11 +79,12 @@
         cursor: pointer;
       }
         form{
-        height: 100%;
-        width: 100%;
-        display: inline-block;
-        vertical-align: top;
-          padding: 1.5em;
+          display: block;
+          vertical-align: top;
+          padding: 2em 1.5em;
+          max-width: 500px;
+          margin: auto;
+
 
           .col.s12{
 
@@ -54,9 +99,9 @@
         display: block;
         text-align: center;
         padding: 0.5em;
-        position: absolute;
-        top:50%;
-        transform: translateY(-50%);
+        //position: absolute;
+        //top:50%;
+        //transform: translateY(-50%);
       }
       span{
         font-size: 3em;

@@ -1,0 +1,43 @@
+#searchpage {
+  padding-bottom: 25px;
+
+
+  #search_ctr{
+
+    text-align: right;
+    margin: 10px;
+
+    button{
+      display: inline-block;
+      color: white;
+      background: #3f1179;
+      border-radius: 5px;
+      font-weight: 300;
+      margin-left: 10px;
+      font-size: 1em;
+      padding: 0.5em 0.8em;
+      line-height: 1.2em;
+      border: none;
+      &:hover{
+        background: #2e0c58;
+      }
+    }
+  }
+  #loadMore {
+    text-align: center;
+    height: 40px;
+    button {
+      width: 100%;
+      margin-top: 1em;
+      background: transparent;
+      box-shadow: none;
+      color: grey;
+      font-weight: bold;
+      &:hover {
+        background: rgba(177, 173, 173, 0.5);
+        color: white;
+        border-radius: 0px;
+      }
+    }
+  }
+}

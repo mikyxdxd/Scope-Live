@@ -1,0 +1,33 @@
+<div id="header" class="home">
+  <div class="header_left">
+    <div id="logo">
+      <img :src="logo" v-link="{path: '/'}">
+    </div>
+  </div>
+
+
+  <div id="header_lists">
+    <a class="header-item" v-link="{path:'/feature'}">
+      Features
+    </a>
+
+    <a class="header-item" v-link="{path:'/pricing'}">
+      Pricing
+    </a>
+
+    <a class="header-item" v-link="{path:'/contact'}">
+      Contact
+    </a>
+
+    <a class="header-item login" v-link="{path:'/login?op=log'}">
+      Login
+    </a>
+
+    <a class="header-item" id="started"  v-link="{path:'/login?op=sign'}">
+      <!--<input type="button" value="Get Started" id="started">-->Get Started
+    </a>
+  </div>
+
+  <!--<login :showlogin.sync = "showlogin" :user.sync="user"></login>-->
+
+</div>

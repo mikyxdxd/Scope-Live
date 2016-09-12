@@ -1,21 +1,26 @@
-<div id="sidemenu">
+<div id="sidemenu" class="slideout-menu" v-if="user">
 
-  <div class="nav-page-title">
-    <h2>Account Dashboard</h2>
+  <div class="user-avatar">
+    <img :src="user.avatar" alt="" class="tb-avatar">
   </div>
 
   <div class="user-info clearfix">
-    <img src="https://scontent.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg" alt="" class="tb-avatar">
-    <h3>SHI LIANG HONG</h3>
-    <small style="background-image: url(https://static.tagboard.com/public/img/logo-instagram-inverted.svg)">@mikyxdxd</small>
+    <h3>{{user.name}}</h3><br/>
+    <small>{{user.email}}</small>
+    <div id="user-signOut" @click="signOut()"><i class="fa fa-sign-out" aria-hidden="true"></i>SIGN OUT</div>
   </div>
 
   <div class="account-nav">
     <ul class="nav nav-pills nav-stacked">
-      <li class="my-tagboards-link active"><a><i class="icon icon-grid6"></i> <span>My tagboards</span></a></li>
-      <li class=""><a><i class="icon icon-profile"></i> <span>Profile</span></a></li>
-      <li class="upgrade-account"><a><i class="icon icon-power2"></i> <span>Upgrade your account</span></a></li>
-      <li class=""><a><i class="icon icon-link2"></i> <span>Developer Tools</span></a></li>
+      <li class="my-tagboards-link active"><a class="item" v-link="{path:'/appcontent/dashboard'}" @click="hideMenu()"><i class="fa fa-picture-o" aria-hidden="true"></i>My Scopes</a>
+        <div id="scope_list">
+          <a class="one_scope" v-for="scope in userScopes" :class="{'selected':scope.id == $route.params.scopeId}" v-link="{path:`/appcontent/s/${scope.id}`}" @click="hideMenu()">{{scope.caption}}</a>
+        </div>
+      </li>
+      <li class=""><a class="item"><i class="fa fa-arrow-up" aria-hidden="true"></i> <span>Upgrade account</span></a></li>
+      <li class=""><a class="item"><i class="fa fa-cog fw" aria-hidden="true"></i><span style="margin-left: 3px">Settings</span></a></li>
+      <!--<li class="upgrade-account"><a><i class="icon icon-power2"></i> <span>Upgrade your account</span></a></li>-->
+      <!--<li class=""><a><i class="icon icon-link2"></i> <span>Developer Tools</span></a></li>-->
     </ul>
   </div>
 

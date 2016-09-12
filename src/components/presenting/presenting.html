@@ -1,0 +1,10 @@
+<div id="presenting">
+  <presentheader :op.sync="op" :scope.sync="scope" :showsetting.sync="showSetting"></presentheader>
+  <sidecontrol  :layout.sync="layout" :showsetting.sync="showSetting" :imagepresentinterval.sync="imagepresentinterval"></sidecontrol>
+  <div id="display" v-if="op">
+  <compact :op.sync="op" :datalist.sync="imageList" :newimagelist.sync="newImageList" :imagepresentinterval.sync="imagepresentinterval" v-if="layout=='compact' &&  imageList.length > 0"></compact>
+  <regular :op.sync="op" :datalist.sync="imageList" :newimagelist.sync="newImageList" :imagepresentinterval.sync="imagepresentinterval" v-if="layout=='default' &&  imageList.length > 0"></regular>
+  <single :op.sync="op" :datalist.sync="imageList" :newimagelist.sync="newImageList" :imagepresentinterval.sync="imagepresentinterval" v-if="layout=='single' && imageList.length > 0"></single>
+    <float_3 :op.sync="op" :datalist.sync="imageList" :newimagelist.sync="newImageList" :imagepresentinterval.sync="imagepresentinterval" v-if="layout=='float_3' && imageList.length > 0"></float_3>
+  </div>
+</div>

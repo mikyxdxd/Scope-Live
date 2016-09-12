@@ -1,0 +1,134 @@
+#appheader{
+
+  width: 100%;
+  height: 65px;
+  //padding: 5px;
+  //padding-bottom: 0;
+  position: relative;
+  background: white;
+
+  .header_left{
+    position: absolute;
+    width: 350px;
+    height: 100%;
+    padding: 5px;
+    padding-left: 0;
+    #logo{
+      display: inline-block;
+      height: 100%;
+      padding-top: 2px;
+      margin-left: 10px;
+      cursor: pointer;
+      img{
+        height: 40px;
+        width:auto;
+      }
+    }
+    #tog-but{
+      width: 40px;
+      text-align: center;
+      height: 40px;
+      margin-top: 5px;
+      padding-left: 2px;
+      padding-top: 3px;
+      margin-left: 20px;
+      font-size: 1.3em;
+      background: #66087c;
+      border-radius: 50%;
+      padding-top: 5px;
+      display: inline-block;
+      vertical-align: top;
+
+      margin-left: 0;
+      border-radius: 0px 5px 5px 0px;
+      width: 100px;
+      background: #3f1179;
+
+      button{
+        background: none;
+        border: none;
+        color: white;
+        font-size: 0.8em;
+      }
+    }
+
+
+  }
+
+  .header-container{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    padding-left: 300px;
+
+    #search-bar{
+      form{
+        height: 100%;
+      }
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      padding-left: 5em;
+      width: 55%;
+      height: 100%;
+
+      i{
+        display: inline-block;
+        position: absolute;
+        top: 8px;
+        left: 4em;
+        color: #ff9751;
+        font-size: 1.5em;
+      }
+      input{
+
+        height: 85%;
+        width: 100%;
+        border: 1px solid #d2d2d2;
+        padding: 1px 3em;
+        border-radius: 10px;
+        box-sizing: border-box;
+        margin: 0;
+
+      }
+      input:focus{
+        box-shadow: none !important;
+      }
+    }
+
+    #create-sp{
+      height: 85%;
+      background: #3f1179;
+      border-radius: 20px;
+      display: inline-block;
+      margin-right: 5px;
+      padding: 0.5em;
+      padding-top: 0.60em;
+      padding-left: 1em;
+      padding-right: 1em;
+      overflow: hidden;
+      float: right;
+      position: relative;
+      top: 1px;
+      i{
+        display: inline-block;
+        //position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #ffffff;
+        font-size: 1.2em;
+      }
+      input{
+        background: transparent;
+        border: none;
+        color: white;
+        position: relative;
+        top: -2px;
+        font-size: 1em;
+      }
+
+    }
+  }
+
+
+}

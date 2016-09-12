@@ -2,9 +2,177 @@
   .caption{
 
   }
+  #delete-modal{
+    #modal-bg{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.4);
+      z-index: 9999;
+      display: flex;
+    }
+
+    #modal-container{
+      width: 600px;
+      max-height: 230px;
+      margin: 30px auto;
+      padding: 15px;
+      background: #F3F6F7;
+    }
+
+    #modal-title{
+      margin: 10px 0 30px;
+      font-size: 48px;
+      font-weight: 200;
+      color: #2bacca;
+      text-align: left;
+    }
+
+    #modal-footer{
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #e5e5e5;
+
+
+
+      .delete-confirm{
+        float: right;
+        background-color: #fa5757;
+      }
+    }
+
+  }
+  .ctr{
+
+    text-align: right;
+    .scopeSet_but,.scopeSet_del{
+
+      display: inline-block;
+    }
+    .scopeSet_del{
+      button{
+        background:#fa5757;
+      }
+    }
+  }
+
+  .scopeSet_form{
+    margin-top: 20px;
+    padding: 0em 0.5em;
+    input {
+
+        border-bottom: 1px solid #dcdcdc;
+    }
+
+    input[type="text"]:focus{
+      border-bottom: 1px solid #ff9751;
+      box-shadow: 0 1px 0 0 #ff9751;
+    }
+
+    label{
+      color: #000000;
+      font-size: 1em;
+      font-weight: 600;
+    }
+
+    .one_tag{
+
+      display: inline-block;
+    }
+
+  }
+
+  .scopeSet_tag{
+
+    position: relative;
+    button{
+      position: absolute;
+      right: 10px;
+      top: 37px;
+      border-radius: 50%;
+      box-shadow: none;
+      border: none;
+      background: #470e7d;
+      color: white;
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  .switch{
+    margin: 15px 0;
+    line-height: 30px;
+    input[type=checkbox]:checked+.lever{
+      background-color: #470e7d;
+    }
+    input[type=checkbox]:checked+.lever:after{
+      background-color: #470e7d;
+    }
+  }
+
+  .scopeSet_location{
+
+    position: relative;
+
+    #map{
+      margin-bottom: 20px;
+    }
+
+    #add_loc_btn{
+      button{
+        position: absolute;
+        right: 10px;
+        top: 37px;
+        border-radius: 50%;
+        box-shadow: none;
+        border: none;
+        background: #470e7d;
+        color: white;
+        height: 25px;
+        width: 25px;
+      }
+    }
+    #del_loc_btn{
+      button{
+        position: absolute;
+        right: 50px;
+        top: 37px;
+        border-radius: 50%;
+        box-shadow: none;
+        border: none;
+        background: #470e7d;
+        color: white;
+        height: 25px;
+        width: 25px;
+      }
+    }
+
+  }
+
+  .scopeSet_des{
+
+    label{
+
+      left: 0;
+      font-size: 1em;
+      font-weight: 600;
+    }
+
+    textarea{
+      border-bottom: 1px solid #dcdcdc;
+    }
+
+  }
   .sub_caption{
     padding-bottom: 1.8em;
     border-bottom: 1px solid gainsboro;
     color: grey;
+  }
+
+  #googleMap{
+
+    height: 150px;
   }
 }

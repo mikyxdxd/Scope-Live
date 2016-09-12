@@ -1,0 +1,59 @@
+#latestpage{
+  padding-bottom: 20px;
+  position: relative;
+  #loadMore {
+    text-align: center;
+    height: 40px;
+    button {
+      width: 100%;
+      margin-top: 1em;
+      background: transparent;
+      box-shadow: none;
+      color: grey;
+      font-weight: bold;
+      &:hover {
+        background: rgba(177, 173, 173, 0.5);
+        color: white;
+        border-radius: 0px;
+      }
+    }
+  }
+
+  #src_crl{
+    padding-bottom: 0em;
+    padding: 1em;
+    top:-72px;
+    display: inline-block;
+    left: 0;
+    position: absolute;
+    background: transparent;
+    text-align: left;
+    //border-bottom: 1px solid gainsboro;
+    margin: auto;
+
+    #caption{
+
+      font-weight: bold;
+      color: grey;
+      font-size: 1.5em;
+      margin-right: 5px;
+    }
+    p{
+      display: inline-block;
+      margin: 8px 2px;
+      [type="radio"]:disabled+label{
+        color: rgba(0,0,0,0.26);
+        font-weight: bold;
+      }
+    }
+    label{
+      padding-left: 25px;
+      color: #534F4E;
+
+    }
+    label:after{
+      background-color: #ffac6d;
+      border: 2px solid #ffac6d;
+    }
+  }
+}

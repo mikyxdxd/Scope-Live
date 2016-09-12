@@ -1,6 +1,86 @@
-<div id="general">
+<div id="general" v-if="scope">
     <div class="caption">
       <h5>General</h5>
     </div>
     <div class="sub_caption">Set general settings for your tagboard</div>
+    <div class="scopeSet_form">
+      <div>
+        <div class="scopeSet_name">
+          <label>Scope Name</label>
+          <input type="text" :value="scope.caption" v-model="newCaption">
+        </div>
+
+        <div class="scopeSet_tag">
+          <label>Scope Tag</label>
+          <div id="add_tag_btn">
+            <button type="button" @click="addTag()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          </div>
+          <input type="text" v-model="newTag" placeholder="Insert A New Tag">
+          <div id="tag_list"><div class="one_tag" v-for="tag in scope.$$tagArr">
+              <div class="chip">
+              {{tag}}
+              <i class="close material-icons" @click="deleteTag(tag)">close</i>
+            </div></div></div>
+        </div>
+
+
+        <div class="scopeSet_location">
+          <label>Scope location</label>
+          <div id="add_loc_btn">
+            <button type="button" @click="addLoc()"><i class="fa fa-map-pin" aria-hidden="true"></i></button>
+          </div>
+
+          <div id="del_loc_btn" v-show="showMap">
+
+            <button type="button" @click="delLoc()"><i class="fa fa-trash" aria-hiden="true"></i></button>
+          </div>
+          <input type="text" :value="scope.location ? scope.location.address: null" v-model="newAddress">
+            <div id="map">
+              <map v-show="showMap" :scope.sync="scope"></map>
+            </div>
+        </div>
+
+
+        <div class="scopeSet_des">
+            <div class="col s12">
+              <label for="textarea1">Scope Description</label>
+              <input type="text" id="textarea1"  v-model="newDesc" :value="scope.description">
+            </div>
+        </div>
+
+        <div class="switch">
+          <label>Make a Secret Scope</label><br>
+          <label>
+            No
+            <input type="checkbox" v-model="newSourceType" id="sourceTypeCheck" :checked="scope.sourceType == 'ALL'">
+            <span class="lever"></span>
+            Yes
+          </label>
+        </div>
+
+        <div class="ctr">
+          <div class="scopeSet_but">
+            <button @click="updateScope()" class="waves-effect waves-light btn">Update</button>
+          </div>
+          <div class="scopeSet_del" >
+            <button class="waves-effect waves-light btn" @click="showDeleteModal = true">Delete</button>
+          </div>
+        </div>
+
+        <div id="delete-modal" v-show="showDeleteModal">
+          <div id="modal-bg" @click="showDeleteModal = false">
+            <div id="modal-container" @click="preventClick($event)">
+              <div id="modal-title">Delete scope?</div>
+              <div id="modal-msg">This cannot be undone.</div>
+              <div id="modal-footer">
+                <button class="delete-cancel waves-effect waves-light btn" @click="showDeleteModal = false">Cancel</button>
+                <button class="delete-confirm waves-effect waves-light btn" @click="deleteScope()">Yes, I'm sure</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
 </div>

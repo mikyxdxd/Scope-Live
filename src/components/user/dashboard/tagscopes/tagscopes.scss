@@ -1,5 +1,7 @@
 #tagscopes{
 
+  padding-bottom: 20px;
+
   .caption{
     padding: 15px;
     margin: 0;
@@ -13,28 +15,61 @@
 
   .one_scope{
 
-    background-color: transparent;
     border-radius: 3px;
     border: 0;
     padding: 0;
-    width: 23%;
-    height: 320px;
+    width: 24%;
+    margin-left: 0.8%;
+    height: 267px;
+    margin-top: 0.8%;
     background: white;
-    margin: 0 1% 1.5%;
     display: inline-block;
-    float: left;
     position: relative;
+    vertical-align: top;
     .sp_header{
-      padding: 10px 15px;
-      height: 42px;
+      padding: 5px 15px;
+      height: 50px;
       font-weight: bolder;
-      font-size: 17px;
+      font-size: 14px;
       line-height: 24px;
       max-width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      color: #fa5757;
+      text-overflow: ellipsis;
+      width: 160px;
+      display: inline-block;
+      overflow: auto;
+      span{
+        color:grey;
+      }
+      a{
+        color: #3e2079;
+      }
+      //a:hover{
+      //  color:#d44848;
+      //  cursor: pointer;
+      //}
+
+      .present{
+
+        position: absolute;
+        top: 15px;
+        right: 5px;
+        padding: 0.1em 1em 0.1em 3.5em;
+        font-size: 0.8em;
+        border-radius: 5px;
+        color:white;
+        font-weight: normal;
+        background: #ffa15a;
+        img{
+          position: absolute;
+          top: 4px;
+          left: 5px;
+          max-height: 30px;
+          max-width: 25px;
+        }
+      }
     }
     .sp_cover{
       background-color: #6EA0B8;
@@ -58,53 +93,135 @@
         -ms-transform: translateY(-50%);
         -o-transition: translateY(-50%);
         transform: translateY(-50%);
-          .sp_cap{
-            font-weight: 600;
-            font-size: 1.2em;
-          }
+        .sp_cap{
+          font-weight: 600;
+          font-size: 1.2em;
+        }
       }
     }
 
     .sp_meta{
-      text-align: center;
+      text-align: left;
       line-height: 1.35;
-      padding: 10px 15px;
-      bottom: 43px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      color: black;
+      font-size: 0.8em;
+      font-weight: normal;
     }
 
     .sp_action{
       text-align: center;
-      height: 43px;
+      height: 35px;
       bottom: 0;
-      display: flex;
-      background-color: #F7F7F7;
-      border-top: 1px solid #DFEAEF;
-      border-bottom: 1px solid #DFEAEF;
+      text-align: right;
+      //display: flex;
+      //background-color: #F7F7F7;
+      //border-top: 1px solid #DFEAEF;
+      //border-bottom: 1px solid #DFEAEF;
       .act{
         display: inline-block;
-        width: 33%;
-        padding-top: 15px;
-        color: #2bacca;
+        vertical-align:top;
+        color: #66087c;
         outline: 0;
         flex-grow: 1;
-        border-left: 1px solid #DFEAEF;
+        padding: 0.5em 1.5em;
+        font-size: 0.9em;
+        height: 100%;
+
+
+
+        i{
+
+          margin-right: 5px;
+          position: relative;
+          top:2px;
+        }
+        //border-left: 1px solid #DFEAEF;
+        .link{
+          font-size: 1em;
+          position: relative;
+          top: 0px;
+          padding-top: 2px;
+          padding-top: 10x;
+          //color: #66087c;
+          font-weight: bold;
+        }
+
+      }
+      .embeding-content{
+
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        opacity: 1;
+        background: white;
+        display: none;
+        transform: translateY(100%);
+        bottom: 0;
+        left: 0;
+        padding: 1em;
+        padding-top: 2em;
+        padding-bottom: 1.5em;
+        cursor: initial;
+        .close{
+          position: absolute;
+          right: 10px;
+          top: 5px;
+          color: black;
+          cursor:pointer;
+        }
+        .format{
+          display: inline-block;
+          width:23%;
+          text-align: center;
+          margin-left: 1%;
+          font-size: 0.85em;
+          color:grey;
+          cursor: pointer;
+          &:hover{
+            color: #448da4;
+            font-weight: bold;
+          }
+        }
+        .selected{
+
+          color: #448da4;
+          font-weight: bold;
+
+        }
+        input{
+          margin-bottom: 5px;
+          font-size: 0.8em;
+          height: 2rem;
+          margin-top: 10px;
+          color:#448da4 !important;
+        }
       }
       .act:hover{
-        background: #eae7e7;
-        color: #2695af;
+        //background: #eae7e7;
+        color: white !important;
         cursor: pointer;
+        background: #660888;
       }
     }
 
     &#new_tagscope{
+      background-image: url(../../../../assets/upgrade.png);
+      background-repeat: no-repeat;
+      background-position: 0;
+      border-radius: 0;
+      background-size: cover;
+      background-position-y: 25%;
+
       div{
         width: auto;
         height: auto;
         position: relative;
-        top: 50%;
+        color: white;
+        font-size: 1.4em;
+        top: 78%;
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
@@ -115,6 +232,22 @@
 
     }
 
+  }
+  #ldmore{
+    text-align: center;
+    button{
+      width: 100%;
+      margin-top: 1em;
+      background: transparent;
+      box-shadow: none;
+      color: grey;
+      font-weight: bold;
+      &:hover{
+        background: rgba(177, 173, 173, 0.5);
+        color: white;
+        border-radius: 0px;
+      }
+    }
   }
 
 

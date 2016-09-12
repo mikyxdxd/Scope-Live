@@ -1,0 +1,7 @@
+<div id="compact">
+  <div id="photo-list">
+    <div v-for="image in datalist" track-by="$index" class='singleItem'>
+      <card :image="image"  :showdelete.sync="showdelete" :showadd.sync="showadd" ></card>
+    </div>
+  </div>
+</div>

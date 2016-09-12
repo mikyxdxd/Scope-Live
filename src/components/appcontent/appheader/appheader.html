@@ -1,0 +1,32 @@
+<div id="appheader">
+
+
+  <div class="header_left">
+    <div id="tog-but">
+      <button id="toggle-button">☰ Menu</button>
+    </div>
+    <div id="logo">
+      <img :src="logo" v-link="{path: '/appcontent/dashboard'}">
+    </div>
+  </div>
+
+  <div class="header-container">
+    <div id="search-bar">
+      <form v-on:submit.prevent="searchTag(tag)" >
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <input type="text" placeholder="Start search here" v-model="tag" :value="this.$route.params.tag ? this.$route.params.tag : ''">
+      </form>
+    </div>
+    <div v-if="!$route.params.tag" id="create-sp" @click="showAddScope = true">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        <input type="button" value="Create Scope">
+    </div>
+    <div v-else id="create-sp" @click="showAddScope = true">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      <input type="button" :value="'Create a #'+ $route.params.tag.split(' ').join('#')  + ' Scope'" >
+    </div>
+
+    <addscope :show.sync="showAddScope" :dt.sync="defaultTag"></addscope>
+  </div>
+
+</div>

@@ -1,0 +1,16 @@
+<div id="scopepage" v-if="scope">
+  <scopeheader :scope.sync="scope" v-if="scope"></scopeheader>
+  <div id="scope_tab" v-show="scope">
+    <div id="tabs">
+      <div class="tab" @click="currentTab = 'latest'  " :class="{ 'active': currentTab == 'latest' }">LATEST</div>
+      <div class="tab" @click="currentTab = 'feature'" :class="{'active': currentTab == 'feature' }" >FEATURE</div>
+    </div>
+  </div>
+  <div id="scopebody">
+    <div id="scope_ctr" v-if="scope">
+      <a class="tab" v-link="{path:`/p/${scope.id}`}"><img :src="presentIcon">Present</a><a class="tab edit" v-if="isOwner" v-link="{path:`/appcontent/s/${scope.id}/setting`}"><img :src="editIcon">Edit</a>
+    </div>
+    <featurepage  :scope.sync="scope" v-if="currentTab == 'feature'"></featurepage>
+    <latestpage  :scope.sync="scope" v-if="currentTab == 'latest'"></latestpage>
+  </div>
+</div>
