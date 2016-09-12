@@ -5,7 +5,8 @@
     ready(){
     },
     components:{
-      featurefloor:require('./featurefloor/featurefloor.vue')
+      featurefloor:require('./featurefloor/featurefloor.vue'),
+      search:require('../search/search.vue')
     }
   }
 </script>

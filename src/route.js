@@ -9,7 +9,6 @@ export default(App)=>{
 
   router.beforeEach((transition)=>{
 
-
     var verifyTransition = setInterval(()=>{
 
       if(dataService.getUserType() != null){
@@ -90,6 +89,9 @@ export default(App)=>{
       subRoutes:{
         'landing': {
           component: require('./components/landing/landingpage/landingpage.vue')
+        },
+        'contact':{
+          component:require('./components/landing/contactpage/contactpage.vue')
         },
         'pricing':{
           component: require('./components/pricing/pricing.vue')
