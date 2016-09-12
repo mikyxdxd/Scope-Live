@@ -38,15 +38,12 @@
         }
       },
       props:['timeStamp'],
-      data(){
-        return{
-        }
-      },
+
         components:{
           intro: require('../intro/intro.vue'),
           whatisit:require('../whatisit/whatisit.vue'),
           contact: require('../contact/contact.vue'),
-          floor:require('../floor/floor.vue')
+          floor:require('../floor/floor.vue'),
         }
     }
 </script>

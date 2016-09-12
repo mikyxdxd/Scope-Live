@@ -1,8 +1,13 @@
 <div id="floor">
   <div class="one_floor">
-    <div class="floor_left" style="background: url('https://images.unsplash.com/photo-1473244228373-94e7e7fd250f?dpr=1&auto=compress,format&crop=entropy&fit=crop&w=1199&h=799&q=80&cs=tinysrgb')"></div><!--
+    <div class="floor_left">
+      <img :src="brand">
+    </div><!--
     --><div class="floor_right" style="background: #e89f5e">
       <div class="fl_content">
+        <div class="f_icon">
+          <img :src="iconb">
+        </div>
         <div class="f_caption">For Brands</div>
         <div class="f_content">Connect with and understand your ever changing audience. Engage with fans through social media or in person.</div>
       </div>
@@ -11,18 +16,28 @@
   <div class="one_floor">
     <div class="floor_left" style="background: #fafafa">
       <div class="fl_content">
-        <div class="f_caption">For Event</div>
-        <div class="f_content">Connect with and understand your ever changing audience. Engage with fans through social media or in person.</div>
+        <div class="f_icon">
+          <img :src="icone">
+        </div>
+        <div class="f_caption">For Events</div>
+        <div class="f_content">Create an exciting interactive experience for any event. Feature only the best social media content on the big screen.</div>
       </div>
     </div><!--
-    --><div class="floor_right" style="background-image:url('https://images.unsplash.com/photo-1473271008451-b0fcb08b728d?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb')"></div>
+    --><div class="floor_right">
+          <img :src="event">
+       </div>
   </div>
   <div class="one_floor">
-    <div class="floor_left" style="background: url('https://images.unsplash.com/photo-1473269712320-f24ce5aa6e5d?dpr=1&auto=compress,format&crop=entropy&fit=crop&w=1199&h=799&q=80&cs=tinysrgb')"></div><!--
+    <div class="floor_left">
+      <img :src="present">
+    </div><!--
     --><div class="floor_right" style="background: #480e86">
       <div class="fl_content" style="color:white">
-        <div class="f_caption">For Brands</div>
-        <div class="f_content">Connect with and understand your ever changing audience. Engage with fans through social media or in person.</div>
+        <div class="f_icon">
+          <img :src="iconp">
+        </div>
+        <div class="f_caption">For Presentations</div>
+        <div class="f_content">Support your next presentation with customized social media content in an organized and engaged manner.</div>
       </div>
     </div>
   </div>
