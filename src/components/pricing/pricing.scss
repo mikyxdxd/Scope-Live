@@ -46,7 +46,7 @@
     margin-top:5em;
     padding: 5em;
     .center{
-      border-color: #e89f5e !important;
+      border-color: #FFA15A !important;
     }
     .one_plan{
 
@@ -77,8 +77,9 @@
 
         font-size: 6em;
         font-weight: bold;
-        color: #e89f5e;
+        color: #FFA15A;
         position: relative;
+        right: 20px;
 
         span{
 
@@ -96,6 +97,18 @@
           color: grey;
         }
       }
+      .price_call{
+        font-size: 6em;
+        font-weight: bold;
+        color: #FFA15A;
+        position: relative;
+
+        #phone_icon{
+          max-height: 100px;
+          margin: 10px 0;
+        }
+      }
+
 
 
       .start{
@@ -105,7 +118,7 @@
           background: none;
           border: 3px solid #3f1680;
           color: #3f1680;
-          border-radius: 10px;
+          border-radius: 15px;
         }
       }
       .feature{
@@ -123,7 +136,7 @@
           .tick{
             display: inline-block;
             width: 10%;
-            color: #e89f5e;
+            color: #FFA15A;
             font-size: 1.3em;
           }
           .detail{
@@ -188,7 +201,7 @@
           top: 10px;
           left: 190px;
           font-size: 3.5em;
-          color: #ecb17c;
+          color: #FFA15A;
         }
       }
     }

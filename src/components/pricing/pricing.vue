@@ -4,7 +4,7 @@
         template:require('./pricing.html'),
         data(){
             return{
-
+              phone: require('../../assets/phone_icon.png')
             }
         },
 
