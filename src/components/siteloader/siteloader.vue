@@ -10,7 +10,7 @@
 
           $('html').css('overflow-y','hidden');
           this.bar = new ProgressBar.Circle(acon, {
-            color: '#ecb17c',
+            color: '#FFA15A',
             // This has to be the same size as the maximum width to
             // prevent clipping
             strokeWidth: 2,
@@ -44,7 +44,7 @@
       watch:{
         'finished': {
           handler: function (finished, oldVal) { if(finished){
-            
+
             this.bar.animate(1,()=>{
 
               $('#siteloader').fadeOut();

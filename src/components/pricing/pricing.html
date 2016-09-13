@@ -3,7 +3,7 @@
   <div id="free_trail">
     <div id="title">Pick your plan</div>
     <div id ="sub_title">Not Sure what's right for you? No problem! Try out our free 30 day plan now.</div>
-    <a id="trail">Start your free version</a>
+    <a id="trail">Start your free trial</a>
   </div>
   <search></search>
   <div id="plans" class="container">
@@ -14,17 +14,17 @@
         <div class="content">Our basic plan includes all the essential Scope Live tools that your small business needs!</div>
       </div>
       <div class="price">
-        12<span>CA$</span>
+        14<span>.95CA$</span>
         <div class="mon">per month</div>
       </div>
       <div class="start">
-        <button>Get Started</button>
+        <button v-link="{path:'/login?op=sign'}">Get Started</button>
       </div>
 
       <div class="feature">
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
-          <div class="detail">Aggregate photos by hashtag, location, and or time</div>
+          <div class="detail">Aggregate photos by hashtag, location, and/or time</div>
         </div>
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
@@ -52,11 +52,11 @@
         </div>
         <div class="not_included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
-          <div class="detail">Customization logo option</div>
+          <div class="detail">Customized logo option</div>
         </div>
         <div class="not_included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
-          <div class="detail">Website Support from Scope Live Team</div>
+          <div class="detail">Website support from the Scope Live Team</div>
         </div>
 
       </div>
@@ -68,17 +68,17 @@
         <div class="content">With our all-inclusive Advanced Plan, you can now seamlessly incorporate your social media activities and fans within your website.</div>
       </div>
       <div class="price">
-        17<span>CA$</span>
+        19<span>.95CA$</span>
         <div class="mon">per month</div>
       </div>
       <div class="start">
-        <button>Get Started</button>
+        <button v-link="{path:'/login?op=sign'}">Get Started</button>
       </div>
 
       <div class="feature">
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
-          <div class="detail">Aggregate photos by hashtag, location, and or time</div>
+          <div class="detail">Aggregate photos by hashtag, location, and/or time</div>
         </div>
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
@@ -106,11 +106,11 @@
         </div>
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
-          <div class="detail">Customization logo option</div>
+          <div class="detail">Customized logo option</div>
         </div>
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
-          <div class="detail">Website Support from Scope Live Team</div>
+          <div class="detail">Website support from the Scope Live Team</div>
         </div>
 
       </div>
@@ -121,18 +121,19 @@
       <div class="plan_content">
        <div class="content">Need a larger plan? Send an email or give us a call!</div>
       </div>
-      <div class="price">
-        12<span>CA$</span>
-        <div class="mon">per month</div>
+      <div class="price_call">
+        <img :src="phone" id="phone_icon">
+        <!--12<span>CA$</span>-->
+        <!--<div class="mon">per month</div>-->
       </div>
       <div class="start">
-        <button>Contact with us</button>
+        <button v-link="{path: '/contact'}">Contact Us</button>
       </div>
 
       <div class="feature">
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
-          <div class="detail">Aggregate photos by hashtag, location, and or time</div>
+          <div class="detail">Aggregate photos by hashtag, location, and/or time</div>
         </div>
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
@@ -160,11 +161,11 @@
         </div>
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
-          <div class="detail">Customization logo option</div>
+          <div class="detail">Customized logo option</div>
         </div>
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
-          <div class="detail">Website Support from Scope Live Team</div>
+          <div class="detail">Website support from the Scope Live Team</div>
         </div>
         <div class="included">
           <div class="tick "style="font-size: 1.5em"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
