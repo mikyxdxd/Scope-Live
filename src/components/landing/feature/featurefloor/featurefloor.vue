@@ -11,6 +11,7 @@
         'Location_Search':require('./resources/Location-Search.png'),
         'Prescreened_Content':require('./resources/Prescreened-Content.png'),
         'Presentation_Options':require('./resources/Presentation-Options.png'),
+        'Embed_Services': require('./resources/Embed-Services-.png')
       }
     },
     components:{
