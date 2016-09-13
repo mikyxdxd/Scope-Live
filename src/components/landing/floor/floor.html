@@ -1,8 +1,6 @@
 <div id="floor">
   <div class="one_floor">
-    <div class="floor_left">
-      <img :src="brands">
-    </div><!--
+    <div class="floor_left" :style="{ backgroundImage: 'url(' + brands + ')' }"></div><!--
     --><div class="floor_right" style="background: #e89f5e">
       <div class="fl_content" style="color:white">
         <div class="f_icon">
@@ -23,13 +21,11 @@
         <div class="f_content">Create an exciting interactive experience for any event. Feature only the best social media content on the big screen.</div>
       </div>
     </div><!--
-    --><div class="floor_right">
-        <img :src="events">
+    --><div class="floor_right" :style="{ backgroundImage: 'url(' + events + ')' }">
       </div>
   </div>
   <div class="one_floor">
-    <div class="floor_left">
-      <img :src="presentations">
+    <div class="floor_left" :style="{ backgroundImage: 'url(' + presentations + ')' }">
     </div><!--
     --><div class="floor_right" style="background: #480e86">
       <div class="fl_content" style="color:white">
