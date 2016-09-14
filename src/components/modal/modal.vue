@@ -55,7 +55,7 @@
             </div>
             <div id="image_tags">
               <ul class="tag_list">
-                <li class="one_tag" v-for="tag in image.tags"><a v-link="{path:`/search/${tag.text}`}">{{'#' + tag.text}}</a></li>
+                <li class="one_tag" v-for="tag in image.tags"><a v-link="{path: userType=='user' ? `/appcontent/search/${tag.text}`:`/search/${tag.text}`}">{{'#' + tag.text}}</a></li>
               </ul>
             </div>
           </div>
@@ -95,6 +95,8 @@
 
 <script>
   require('./modal.scss')
+
+    import dataService from '../../services/dataservices'
     export default{
       props: {
         show: {
@@ -131,7 +133,8 @@
               },
               imgStyle:{
                 width: '600px'
-              }
+              },
+              userType:dataService.getUserType()
             }
         },
         components:{

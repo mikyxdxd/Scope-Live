@@ -98,33 +98,29 @@
 
     #create-sp{
       height: 85%;
-      background: #3f1179;
-      border-radius: 20px;
       display: inline-block;
       margin-right: 5px;
-      padding: 0.5em;
-      padding-top: 0.60em;
-      padding-left: 1em;
-      padding-right: 1em;
-      overflow: hidden;
       float: right;
       position: relative;
       top: 1px;
+      background: rgb(63, 17, 121);
+      border-radius: 20px;
+      padding: 0.6em 1em 0.5em;
+      overflow: hidden;
       i{
         display: inline-block;
         //position: absolute;
         top: 10px;
         left: 10px;
         color: #ffffff;
-        font-size: 1.2em;
+        font-size: 1.1em;
       }
       input{
         background: transparent;
         border: none;
         color: white;
         position: relative;
-        top: -2px;
-        font-size: 1em;
+        top: -1px;
       }
 
     }
