@@ -1,12 +1,12 @@
 <template>
   <div class="modal-mask" v-show="show" transition="modal" @click="show = false">
 
-      <div class="modal-container" @click="preventClick($event)">
-        <article>
+      <div class="modal-container" @click="preventClick($event)" :style="containerStyle">
+        <article :style="articleStyle">
 
           <!--<div class="user_info_ctn">-->
 
-          <div id="user_info" v-if="image.sourceOwner">
+          <div id="user_info" v-if="image.sourceOwner" :style="leftStyle">
             <div id="wrapper">
             <div id="user_avatar">
               <img :src='image.sourceOwner.profile_picture'>
@@ -25,7 +25,7 @@
               </div>
           </div>
 
-          <div id="user_info" v-else>
+          <div id="user_info" v-else :style="leftStyle">
             <div id="wrapper">
               <div id="user_avatar">
                 <img :src='image.owner.avatar'>
@@ -49,7 +49,7 @@
 
 
 
-          <div id="image_info_left">
+          <div id="image_info_left" :style="leftStyle">
             <div id="image_description">
               {{image.description}}
             </div>
@@ -62,7 +62,7 @@
 
           <div>
             <div id="rtn-image" v-bind:style="{paddingBottom: heightPerc}">
-              <img :src="image.retina.url">
+              <img :src="image.retina.url" :style="imgStyle">
             </div>
             <div id="temp"></div>
           </div>
@@ -122,6 +122,18 @@
         data(){
             return{
               heightPerc: 0,
+              containerStyle:{
+                maxWidth: '935px'
+              },
+              articleStyle:{
+                paddingLeft: '335px'
+              },
+              leftStyle:{
+                width: '335px'
+              },
+              imgStyle:{
+                width: '600px'
+              },
               userType:dataService.getUserType()
             }
         },
@@ -133,8 +145,20 @@
             let width = val;
             let height = this.height;
             let perc = 600* this.height / this.width / 600 * 100;
-            perc = perc.toString() + "%";
-            this.heightPerc = perc;
+            if(perc <= 105){
+              perc = perc.toString() + "%";
+              this.heightPerc = perc;
+            }
+            else{
+              this.containerStyle.maxWidth = '635px';
+              this.articleStyle.paddingLeft = '235px';
+              this.leftStyle.width = '235px';
+              this.imgStyle.width = '400px';
+              perc = 400 * this.height / this.width / 400 * 100
+              perc = perc.toString() + "%";
+              this.heightPerc = perc;
+            }
+
           },
           'show':function(val, oldVal){
             if (val){
