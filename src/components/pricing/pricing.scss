@@ -8,7 +8,7 @@
     background: #f8f3f2;
     padding: 5em;
     width: 100%;
-    padding: 7em;
+    //padding: 7em;
     text-align: center;
     text-transform: capitalize;
 
@@ -43,8 +43,10 @@
   }
 
   #plans{
-    margin-top:5em;
-    padding: 5em;
+    //margin:5em 0em;
+    padding: 5em 0em;
+    width: 90vw;
+    margin: auto;
     .center{
       border-color: #FFA15A !important;
     }
@@ -79,7 +81,8 @@
         font-weight: bold;
         color: #FFA15A;
         position: relative;
-        right: 20px;
+        height: 150px;
+        //right: 20px;
 
         span{
 
@@ -93,7 +96,7 @@
         .mon{
           font-size: 0.15em;
           position: relative;
-          top: -30px;
+          top: -20px;
           color: grey;
         }
       }
@@ -101,11 +104,12 @@
         font-size: 6em;
         font-weight: bold;
         color: #FFA15A;
+        height: 150px;
         position: relative;
 
         #phone_icon{
-          max-height: 100px;
-          margin: 10px 0;
+          margin-top: 30px;
+          height: 70%;
         }
       }
 
@@ -118,7 +122,7 @@
           background: none;
           border: 3px solid #3f1680;
           color: #3f1680;
-          border-radius: 15px;
+          border-radius: 30px;
         }
       }
       .feature{

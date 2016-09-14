@@ -8,7 +8,7 @@
       this.getUserScope();
       if(this.$route.path.indexOf('/s/') >= 0) this.currentScopeId = this.$route.params.scopeId;
 
-      setTimeout(()=> {
+      setTimeout(()=>{
         this.slideout = new Slideout({
         'panel': document.getElementById('appcontent_view'),
         'menu': document.getElementById('sidemenu'),
@@ -20,7 +20,14 @@
       document.querySelector('#toggle-button').addEventListener('click', function() {
         self.slideout.toggle();
       });
+      $('#sidemenu').on('::ScopeAdd', (e,s)=>{
+
+          this.userScopes.unshift(s);
+      });
       },1000)
+    },
+    events:{
+      'AddScope':function(){console.log('get')}
     },
     data:function(){
       return{

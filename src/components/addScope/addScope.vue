@@ -16,7 +16,6 @@
                   <button type="button" @click="addTag()"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
 
-
                 <input type="text" v-model="newTag" placeholder="Insert A New Tag">
                 <div id="tag_list"><div class="one_tag" v-for="tag in tagList">
                   <div class="chip">
@@ -132,7 +131,6 @@
               this.tagList.push(this.newTag);
 //              console.log( this.tagList)
               this.newTag = '';
-
             }
           },
 
@@ -171,6 +169,9 @@
                   self.tagList = [];
                   self.$route.router.go({path: `/appcontent/s/${res.data.id}`});
                   this.show = false;
+
+                  $('#sidemenu').trigger('::ScopeAdd',res.data.scope);
+
                 } else if (res.data.result == "SCOPE_NAME_DUPLICATE") {
                   toastr.error('Scope Name is Duplicated');
                 }

@@ -42,9 +42,6 @@
             setTimeout(function() {
               self._iso.appended($('.new'));
               imagesLoaded($('.new'),()=>{
-
-                console.log('loaded')
-
                 $('.new').each((i,e)=>{
                   setTimeout(()=>{
                   $(e).addClass('loaded');
