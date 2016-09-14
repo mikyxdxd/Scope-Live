@@ -139,9 +139,9 @@
             let perc = 600* this.height / this.width / 600 * 100;
             var defaultImgWidth = 600;
             var defaultContWidth = 935;
-            while(defaultImgWidth * perc / 100 > 700){
-              defaultImgWidth = defaultImgWidth - 100;
-              defaultContWidth = defaultContWidth - 100;
+            while(defaultImgWidth * perc / 100 > window.innerHeight){
+              defaultImgWidth = defaultImgWidth - 40;
+              defaultContWidth = defaultContWidth - 40;
               perc = defaultImgWidth * this.height / this.width / defaultImgWidth * 100;
             }
             this.containerStyle.maxWidth = defaultContWidth.toString() + 'px';
