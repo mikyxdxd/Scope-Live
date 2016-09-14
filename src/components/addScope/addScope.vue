@@ -6,18 +6,18 @@
             <div id="form-input">
               <div id="caption">
                 <label>Scope Name</label>
-                <input type="text" v-model="captionname" placeholder="Add the name for your Scope" required>
+                <input type="text" v-model="captionname" placeholder="Name your Scope" required>
               </div>
 
 
               <div id="hashtag">
-                <label>Add Tag</label>
+                <label>Add Hashtags</label>
                 <div id="add_tag_btn">
                   <button type="button" @click="addTag()"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
 
 
-                <input type="text" v-model="newTag" placeholder="Insert A New Tag">
+                <input type="text" v-model="newTag" placeholder="Insert A New Hashtag">
                 <div id="tag_list"><div class="one_tag" v-for="tag in tagList">
                   <div class="chip">
                     {{tag}}
@@ -28,7 +28,7 @@
 
               <div id="location">
                   <label>Scope Location</label>
-                  <input type="text" v-model="address" placeholder="Add the city, street etc.">
+                  <input type="text" v-model="address" placeholder="Add by city, street, etc.">
                   <div id="add_loc_btn">
                     <button type="button" @click="addLoc()"><i class="fa fa-map-pin" aria-hidden="true"></i></button>
                   </div>
@@ -47,13 +47,13 @@
               </div>
 
               <div class="switch" id="source">
-                <label>Make a Secret Scope</label><br>
+                <label>Make a Private Scope</label><br>
                 <div id="lever_container">
                 <label>
-                  No
+                  Yes
                   <input type="checkbox" v-model="sourceType" checked="checked">
                   <span class="lever"></span>
-                  Yes
+                  No
                 </label>
                   </div>
               </div>
