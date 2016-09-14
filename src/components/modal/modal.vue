@@ -2,11 +2,11 @@
   <div class="modal-mask" v-show="show" transition="modal" @click="show = false">
 
       <div class="modal-container" @click="preventClick($event)" :style="containerStyle">
-        <article :style="articleStyle">
+        <article>
 
           <!--<div class="user_info_ctn">-->
 
-          <div id="user_info" v-if="image.sourceOwner" :style="leftStyle">
+          <div id="user_info" v-if="image.sourceOwner">
             <div id="wrapper">
             <div id="user_avatar">
               <img :src='image.sourceOwner.profile_picture'>
@@ -25,7 +25,7 @@
               </div>
           </div>
 
-          <div id="user_info" v-else :style="leftStyle">
+          <div id="user_info" v-else>
             <div id="wrapper">
               <div id="user_avatar">
                 <img :src='image.owner.avatar'>
@@ -49,7 +49,7 @@
 
 
 
-          <div id="image_info_left" :style="leftStyle">
+          <div id="image_info_left">
             <div id="image_description">
               {{image.description}}
             </div>
@@ -116,20 +116,12 @@
       },
 
       ready(){
-
-//
       },
         data(){
             return{
               heightPerc: 0,
               containerStyle:{
                 maxWidth: '935px'
-              },
-              articleStyle:{
-                paddingLeft: '335px'
-              },
-              leftStyle:{
-                width: '335px'
               },
               imgStyle:{
                 width: '600px'
@@ -145,20 +137,17 @@
             let width = val;
             let height = this.height;
             let perc = 600* this.height / this.width / 600 * 100;
-            if(perc <= 105){
-              perc = perc.toString() + "%";
-              this.heightPerc = perc;
+            var defaultImgWidth = 600;
+            var defaultContWidth = 935;
+            while(defaultImgWidth * perc / 100 > 700){
+              defaultImgWidth = defaultImgWidth - 100;
+              defaultContWidth = defaultContWidth - 100;
+              perc = defaultImgWidth * this.height / this.width / defaultImgWidth * 100;
             }
-            else{
-              this.containerStyle.maxWidth = '635px';
-              this.articleStyle.paddingLeft = '235px';
-              this.leftStyle.width = '235px';
-              this.imgStyle.width = '400px';
-              perc = 400 * this.height / this.width / 400 * 100
-              perc = perc.toString() + "%";
-              this.heightPerc = perc;
-            }
-
+            this.containerStyle.maxWidth = defaultContWidth.toString() + 'px';
+            this.imgStyle.width = defaultImgWidth.toString() + 'px';
+            perc = perc.toString() + "%";
+            this.heightPerc = perc;
           },
           'show':function(val, oldVal){
             if (val){
