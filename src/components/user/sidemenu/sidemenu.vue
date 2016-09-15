@@ -20,9 +20,18 @@
       document.querySelector('#toggle-button').addEventListener('click', function() {
         self.slideout.toggle();
       });
+      document.querySelector('#routerview').addEventListener('click', function() {
+        if (self.slideout.isOpen()){
+          self.slideout.close();
+        }
+      });
       $('#sidemenu').on('::ScopeAdd', (e,s)=>{
-
           this.userScopes.unshift(s);
+      });
+      $('#sidemenu').on('::ScopeDel',(e,s)=>{
+          this.userScopes = $.grep(this.userScopes,function(ele){
+              return ele.id != s;
+        });
       });
       },1000)
     },
