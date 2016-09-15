@@ -36,10 +36,9 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      text-overflow: ellipsis;
       width: 160px;
       display: inline-block;
-      overflow: auto;
+      overflow: hidden;
       span{
         color:grey;
       }
