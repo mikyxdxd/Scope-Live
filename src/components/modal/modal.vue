@@ -68,28 +68,6 @@
           </div>
 
         </article>
-
-
-
-          <!--<div class="container-left">-->
-            <!--<div id="close_button" @click="show = false">-->
-              <!--<i class="fa fa-times" aria-hidden="true"></i>-->
-            <!--</div>-->
-
-
-
-            <!--<div class="ui divider"></div>-->
-
-
-
-          <!--</div>-->
-
-          <!--<div class="container-right">-->
-            <!--<div class="image">-->
-              <!--<img :src="image.retina.url">-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</article>-->
   </div>
 </template>
 
