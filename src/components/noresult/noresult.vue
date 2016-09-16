@@ -4,6 +4,7 @@
         template:require('./noresult.html'),
         data(){
             return{
+              nopic:require('../../assets/no_results.png')
 
             }
         },

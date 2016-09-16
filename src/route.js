@@ -22,7 +22,6 @@ export default(App)=>{
 
         }
         else if(dataService.getUserType() == 'user' && dataService.getUser() != null){
-
           clearInterval(verifyTransition);
 
           if(transition.to.path.indexOf('/appcontent') < 0 || transition.to.path.indexOf('login') > 0 ){
@@ -30,18 +29,51 @@ export default(App)=>{
             transition.redirect('/appcontent/dashboard');
 
           }else{
-
             transition.next();
             window.scrollTo(0,0);
           }
 
         }else if(dataService.getUserType() == 'visitor'){
-
           clearInterval(verifyTransition);
 
           if(transition.to.path.indexOf('/appcontent') >= 0 && transition.to.path.indexOf('?cont=') < 0 ){
 
-            transition.redirect('/login?cont=' + window.location.pathname.replace('/appconet', ''));
+            if(window.location.hash){
+              let hashValue = window.location.hash;
+              hashValue = hashValue.replace(/^#access_token=/, '');
+              localStorage._insToken = hashValue;
+              console.log(localStorage._insToken);
+              dataService.getInstagramUserInfo(localStorage._insToken, (res)=>{
+                if(res.meta.code != 400){
+                  console.log(res.data);
+                  let userName = res.data.username;
+                  let email = userName + '@scopealive.com';
+                  let password = '12345678';
+                  dataService.register(userName,email,password).then((res)=>{
+                    console.log(res);
+                    if(res.data.result == "EMAIL_USED"){
+                      dataService.logIn(email,password).then((res)=>{
+                        console.log(res);
+                        if(res.data.access_token){
+                          localStorage._scopetoken = res.data.token_type + ' ' + res.data.access_token;
+                          dataService.setUserToken(res.data.token_type + ' ' + res.data.access_token);
+                          toastr.success('Signed in via Instagram Successfully');
+                          setTimeout(()=>{
+                            window.location.href='/appcontent/dashboard';
+                          }, 3000);
+
+                        }
+                      });
+                    }else if(res.data.result == "OK"){
+                      localStorage._scopetoken = res.data.token.token_type + ' ' + res.data.token.access_token;
+                      dataService.setUserToken(res.data.token.token_type + ' ' + res.data.token.access_token);
+                      window.location.href='/appcontent/dashboard';
+                    }
+                  })
+                }
+              });
+            }
+            else{transition.redirect('/login?cont=' + window.location.pathname.replace('/appconet', ''));}
 
           }else{
 

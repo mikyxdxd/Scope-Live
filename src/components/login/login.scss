@@ -7,6 +7,11 @@
     }
     .btn{
       background-color: #470e7d;
+      i{
+        position: relative;
+        right: 15px;
+        top: 1px;
+      }
     }
     //
     //position: fixed;
@@ -66,7 +71,7 @@
 
       .ctr{
 
-        text-align: right;
+        text-align: center;
       }
 
       #close{

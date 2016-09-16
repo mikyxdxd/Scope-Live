@@ -1,5 +1,7 @@
 <div id="noresult" v-if="shownoreuslt">
-  <i class="fa fa-child" aria-hidden="true"></i><br/>
-  <div id="warning" v-if="page == 'feature'">Sorry, there is no  <span class="span_1">images</span> in this Scope.<br/> Add images to the scope from <a>latest <i class="fa fa-arrow-up" aria-hidden="true"></i></a></div>
-  <div id="warning" v-else>Sorry, we <span class="span_1">couldn’t</span> find any posts with hashtag #{{$route.params.tag}}</div>
+  <div id="no-img">
+    <img :src="nopic">
+  </div>
+  <div id="warning" v-if="page == 'feature'">Sorry, there is no images in this Scope. Add images to this Scope from Latest page.</div>
+  <div id="warning" v-else>Oops, there doesn't seem to be any images related to your search yet!</div>
 </div>
