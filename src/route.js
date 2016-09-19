@@ -60,7 +60,7 @@ export default(App)=>{
                           toastr.success('Signed in via Instagram Successfully');
                           setTimeout(()=>{
                             window.location.href='/appcontent/dashboard';
-                          }, 3000);
+                          }, 2000);
 
                         }
                       });
