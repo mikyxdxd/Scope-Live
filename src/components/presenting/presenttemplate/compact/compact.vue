@@ -27,7 +27,7 @@
           $('.card').removeClass('new');
           self._iso.layout();
         });
-      },2000);
+      });
       if(this.op == 'present')
       this.setCheckingInterval();
     },

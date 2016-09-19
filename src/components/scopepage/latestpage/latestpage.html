@@ -3,11 +3,11 @@
   <div id="src_crl">
   <span id="caption">Sort By</span>
     <p>
-  <input name="group1" type="radio" id="searchTag" value="tag" v-model="picked" checked/>
+  <input name="group1" type="radio" id="searchTag" value="tag" v-model="picked"  :disabled="showLoading" checked/>
   <label for="searchTag">Tag</label>
   </p>
   <p>
-  <input name="group1" type="radio" id="searchLoc" value="location" v-model="picked"  :disabled="scope.location == null"/>
+  <input name="group1" type="radio" id="searchLoc" value="location" v-model="picked"  :disabled="showLoading||scope.location == null"/>
   <label for="searchLoc">Location</label>
   </p>
   </div>

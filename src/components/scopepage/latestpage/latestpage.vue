@@ -56,15 +56,19 @@
         this.showLoading = true;
         if(this.picked == "tag"){
           dataService.getImageViaTag(this.pageNo++, this.pageSize, this.timeStamp, this.scope.tag.replace(/#/g,' ')).then((res)=>{
-            this.showLoading = false;
-            if(res.data.data.length <  this.pageSize ) this.hasMore = false;
-            this.updateDataList(res.data.data);
+            if(this.picked == "tag") {
+              this.showLoading = false;
+              if (res.data.data.length < this.pageSize) this.hasMore = false;
+              this.updateDataList(res.data.data);
+            }
         });
         }else{
           dataService.getImageViaLocation(this.pageNo++, this.pageSize, this.timeStamp, this.radius, this.scope.location.longitude, this.scope.location.latitude).then((res)=>{
-            this.showLoading = false;
-            if(res.data.data.length < this.pageSize) this.hasMore = false;
-            this.updateDataList(res.data.data);
+            if(this.picked = 'location') {
+              this.showLoading = false;
+              if (res.data.data.length < this.pageSize) this.hasMore = false;
+              this.updateDataList(res.data.data);
+            }
           });
         }
       }

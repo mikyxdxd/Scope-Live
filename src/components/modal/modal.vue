@@ -114,10 +114,10 @@
           'width': function(val, oldVal){
             let width = val;
             let height = this.height;
-            let perc = 600* this.height / this.width / 600 * 100;
+            let perc = 600 * this.height / this.width / 600 * 100;
             var defaultImgWidth = 600;
             var defaultContWidth = 935;
-            while(defaultImgWidth * perc / 100 > window.innerHeight-50){
+            while(defaultImgWidth * perc / 100 > window.innerHeight - 50){
               defaultImgWidth = defaultImgWidth - 40;
               defaultContWidth = defaultContWidth - 40;
               perc = defaultImgWidth * this.height / this.width / defaultImgWidth * 100;

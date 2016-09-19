@@ -12,16 +12,16 @@
           transitionDuration: '0.5s'
         });
         imagesLoaded( $('#photo-list') ).on( 'progress', function(){
+          self._iso.layout();
           // layout Isotope after each image loads
+          $('.card').removeClass('new');
           $('.card').each((i,e)=>{
             setTimeout(()=>{
             $(e).addClass('loaded');
           },i*50)
-        })
-          $('.card').removeClass('new');
-          self._iso.layout();
+          })
         });
-      },2000);
+      });
       if(this.op == 'present')
       this.setCheckingInterval();
       },

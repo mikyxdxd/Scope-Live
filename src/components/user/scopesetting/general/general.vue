@@ -36,35 +36,60 @@
             this.scope.$$tagArr.splice(this.scope.$$tagArr.indexOf(tag),1);
           },
           updateScope: function(){
-            this.scope.description = this.newDesc;
-            this.scope.tag =  '#' + this.scope.$$tagArr.join('#');
-            console.log(this.scope  )
-            if(this.newSourceType){
-              this.scope.sourceType = 'ALL';
-            }else{
-              this.scope.sourceType = 'MEMBER';
-            }
-            this.scope.caption = this.newCaption;
-            var self = this;
 
-//            if(this.newAddress != ""){
-//              let location = {
-//                'address': this.newAddress,
-//                'latitude': this.newLat,
-//                'longitude': this.newLng
-//              };
-//              this.scope.location = location;
-//            }
-            dataService.updateScope(self.scopeId, self.scope).then((res)=>{
+            if(!this.scope.$$tagArr.length){
+
+              toastr.error('Scope must has at least on tag')
+
+            }else{
+
+              this.scope.tag =  '#' + this.scope.$$tagArr.join('#');
+              this.scope.description = this.newDesc;
+              this.scope.tag =  '#' + this.scope.$$tagArr.join('#');
+              if(this.newSourceType){
+                this.scope.sourceType = 'ALL';
+              }else{
+                this.scope.sourceType = 'MEMBER';
+              }
+              this.scope.caption = this.newCaption;
+              if(this.scope.location){
+                this.scope.radius = 200;
+              }
+
+               dataService.updateScope(this.scopeId, this.scope).then((res)=>{
                     if(res.data.result == "OK"){
-                    console.log(res.data);
-                  //  toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
-                    toastr.success('Your Update Successfully');
+
+                      toastr.success('Your Update Successfully');
+                      this.$route.router.go({path: `/appcontent/s/${this.scopeId}`});
                   }else{
-                   // toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
                     toastr.success('Your Update Failed. Please try again!');
                   }
-            });
+              });
+
+
+            }
+
+//            this.scope.description = this.newDesc;
+//            this.scope.tag =  '#' + this.scope.$$tagArr.join('#');
+//            console.log(this.scope  )
+//            if(this.newSourceType){
+//              this.scope.sourceType = 'ALL';
+//            }else{
+//              this.scope.sourceType = 'MEMBER';
+//            }
+//            this.scope.caption = this.newCaption;
+//            var self = this;
+//
+//            dataService.updateScope(self.scopeId, self.scope).then((res)=>{
+//                    if(res.data.result == "OK"){
+//                    console.log(res.data);
+//                  //  toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
+//                    toastr.success('Your Update Successfully');
+//                  }else{
+//                   // toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
+//                    toastr.success('Your Update Failed. Please try again!');
+//                  }
+//            });
           },
           deleteScope: function(){
             dataService.deleteScope(this.scopeId).then((res)=>{
@@ -98,8 +123,6 @@
                 newCaption: '',
                 newTag: '',
                 newSourceType: '',
-//                newLat: this.scope.location ? this.scope.location.latitude : "",
-//                newLng: this.scope.location ? this.scope.location.longitude : "",
                 showMap: this.scope.location? true : false,
                 showDeleteModal: false,
             }
