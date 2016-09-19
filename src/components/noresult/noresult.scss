@@ -1,30 +1,19 @@
 #noresult{
 
-  padding: 1em;
+  padding: 3em;
   text-align: center;
-  font-size: 5em;
-  font-weight: bold;
+  #no-img{
+    margin: 2em 0;
+    height: 120px;
+    img{
+      height: 100%;
+    }
+  }
+}
   #warning{
-    background: #0affff;
-    line-height: 1.4;
     display: inline-block;
-    color: #464646;
-    .span_1{
-      background: #3e4242;
-      line-height: 0.2;
-      display: inline-block;
-      color: beige;
-    }
+    color: #e2d9d2;
+    font-size: 1em;
 
-    i{
-
-      font-size: inherit;
-      color: inherit;
-    }
-  }
-  i{
-    font-size: 2em;
-    color: pink;
-  }
 
 }

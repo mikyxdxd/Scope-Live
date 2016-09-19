@@ -46,6 +46,10 @@ class DataService {
     return this.userType;
   }
 
+  getInstagramUserInfo(access_token, cb){
+    $.getJSON( `https://api.instagram.com/v1/users/self/?access_token=${access_token}&callback=?`, cb);
+  }
+
   getScopeGeneral(scopeId, pageNo, pageSize, timeStamp, userType) {
 
     return axios.get(this.httpServerUrl + '/search/scopes/' + scopeId + '/images?page=' + pageNo + '&size=' + pageSize + '&timestamp=' + timeStamp);

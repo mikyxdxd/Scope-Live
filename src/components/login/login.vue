@@ -39,7 +39,10 @@
               }
             })
           },
-
+          signInIns(){
+            console.log('sign in');
+            window.location.href = 'https://api.instagram.com/oauth/authorize/?client_id=' + this.insId + '&scope=public_content&redirect_uri=' + this.redirect_uri + '&response_type=token';
+          },
           registerUser(e){
             e.preventDefault();
             if(this.reg_password.length < 6){
@@ -89,7 +92,6 @@
       data:function(){
 
         return{
-
           username:null,
           password:null,
           userToken:null,
@@ -97,8 +99,9 @@
           reg_name:null,
           reg_username:null,
           reg_password:null,
-          reg_compassword:null
-
+          reg_compassword:null,
+          insId: 'a8adcc4107ac4391b618de4e493e6c79',
+          redirect_uri: location.protocol + "//" + location.host + '/appcontent/dashboard'
         }
 
       },

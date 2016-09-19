@@ -71,6 +71,7 @@
               if(res.data.result == "OK"){
                 //toastr.options = {"timeOut": "10000", "positionClass": "toast-top-full-width",};
                 toastr.success('Your scope has been deleted. ');
+                $('#sidemenu').trigger('::ScopeDel',this.scopeId);
               $('html').css('overflow-y','auto');
                 this.$route.router.go({path: `/appcontent/dashboard`});
               }else{
