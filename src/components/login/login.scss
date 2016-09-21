@@ -36,7 +36,7 @@
         font-weight: 100;
         background: transparent;
         &:hover{
-          border-bottom: 5px solid #3f1179;
+          border-bottom: 3px solid #3f1179;
           font-weight: 400;
           color: #3f1179;
           cursor: pointer;
@@ -45,7 +45,7 @@
       }
       .active{
         font-weight: 400;
-        border-bottom: 5px solid #3f1179;
+        border-bottom: 3px solid #3f1179;
         color: #3f1179;
         font-weight: bold;
       }

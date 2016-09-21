@@ -2,7 +2,7 @@
   <div id="close_btn"><i class="fa fa-times" aria-hidden="true" @click="showsetting=false"></i></div>
   <div id="caption">Presentation Settings</div>
   <section id="layout">
-    <div class="sub_cap">Layout</div>
+    <div class="sub_cap"><img :src="lay">Layout</div>
     <div id="layout_type">
         <div class="layout">
             <button :class="{'active':layout == 'default'}"  @click="layout='default'">Default</button>
@@ -28,19 +28,9 @@
   </section>
 
   <section id="general">
-    <div class="sub_cap">General</div>
+    <div class="sub_cap"><img :src="int">Interval</div>
     <div id="src_type">
-    <!--<div id="label">Retrive Image From Other Sources</div>-->
-    <!--<div class="switch">-->
-      <!--<label>-->
-        <!--Off-->
-        <!--<input type="checkbox">-->
-        <!--<span class="lever"></span>-->
-        <!--On-->
-      <!--</label>-->
-    <!--</div>-->
-
-      <div id="label">Update Interval</div>
+      <!--<div id="label">Update Interval</div>-->
       <form action="#">
         <div id="interval">{{imagepresentinterval}}s</div>
         <p class="range-field">
@@ -51,9 +41,12 @@
 
 
     </div>
-    <a v-link="{path: '/appcontent/dashboard'}" id="godash">Go Dashboard</a>
+
   </section>
 
+  <section id="boback">
+    <a v-link="{path: '/appcontent/dashboard'}" id="godash">Go Dashboard</a>
+  </section>
 
 
 

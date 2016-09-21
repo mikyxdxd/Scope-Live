@@ -1,14 +1,16 @@
 <div id="presentheader">
     <div id="wrapper" v-if="scope">
-    <div id="presenting_ctl" v-if="op == 'present'" @click="showsetting=true"><i class="fa fa-cog" aria-hidden="true"></i></div>
-    <div id="pwby"># Powered By ScopeLive</div>
+    <div id="presenting_ctl" v-if="op == 'present'" @click="showsetting=true"><i class="fa fa-cog" aria-hidden="true"></i>Display Options</div>
+    <div id="pwby">Powered by
+      <img :src="plogo">
+    </div>
     <div id="scopeInfo">
       <div id="caption">{{scope.caption}}</div>
       <div id="hash">#{{scope.tag}}</div>
       <!--<div id="location"></div>-->
       <!--<div id="date"></div>-->
-      <div id="description">{{scope.description}}</div>
       <div id="location" v-if="scope.location"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right:0.5em"></i>{{scope.location.address}}</div>
+      <div id="description">{{scope.description}}</div>
     </div>
   </div>
 </div>
