@@ -7,6 +7,11 @@
 //      setTimeout(()=> {
 //        console.log(this.scope)
 //      )},2000)
+    },
+    data(){
+      return {
+        plogo: require('../../../assets/Scope_live_footer.png'),
+      }
     }
   }
 </script>
