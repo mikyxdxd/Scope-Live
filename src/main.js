@@ -5,4 +5,4 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 let app = Vue.extend({})
 import route from './route'
-route(app);
+route(app,Vue);

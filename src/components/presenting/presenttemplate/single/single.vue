@@ -13,7 +13,6 @@
     beforeDestroy:function(){
 
       if(this.checkingInterval){
-        console.log('single clear')
         clearInterval(this.checkingInterval);
       }
 

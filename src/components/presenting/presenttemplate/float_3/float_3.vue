@@ -23,7 +23,6 @@
     beforeDestroy:function(){
 
       if(this.checkingInterval){
-        console.log('regular clear')
         clearInterval(this.checkingInterval);
       }
 

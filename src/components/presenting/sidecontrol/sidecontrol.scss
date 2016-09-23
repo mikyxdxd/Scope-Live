@@ -11,6 +11,60 @@
   transition:0.5s;
   left: -330px;
 
+  input[type=range]+.thumb{
+
+    background-color: #7533bb;
+  }
+  input[type=range]{
+    border:none;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    background: #a275d2;
+  }
+
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+    background: #a275d2;
+  }
+
+  /* All the same stuff for IE */
+  input[type=range]::-ms-thumb {
+    background: #a275d2;
+  }
+
+
+
+
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    cursor: pointer;
+    box-shadow: none;
+    background: white;
+    border: transparent;
+  }
+
+
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    cursor: pointer;
+    box-shadow: none;
+    background: white;
+    border: transparent;
+  }
+
+  input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    box-shadow: none;
+    background: white;
+    border: transparent;
+  }
+
+
+
+
+
   &.active{
 
     left:0px !important;
