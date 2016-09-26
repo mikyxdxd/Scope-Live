@@ -126,7 +126,7 @@
             }
             var week = day / 7;
             if (week < 1) {
-              return Math.floor(day) + ' days ago';
+              return Math.floor(day) > 1 ? Math.floor(day) + ' days ago' : Math.floor(day) + ' day ago';
             }
             return Math.floor(week) + ' weeks ago';
           },
