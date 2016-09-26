@@ -5,7 +5,6 @@
     template:require('./compact.html'),
     beforeDestroy:function(){
       if(this.checkingInterval){
-        console.log('compact clear')
         clearInterval(this.checkingInterval);
       }
     },
@@ -42,6 +41,8 @@
     },
     methods:{
         setCheckingInterval:function(){
+
+
           this.checkingInterval = setInterval(()=>{
 
             if(this.newimagelist.length){
@@ -49,7 +50,7 @@
             var img = this.newimagelist.pop();
             img.retina?this.datalist.unshift(img):'';
 
-            }else{
+            }else if(this.datalist.length > 15){
 
             var img = this.datalist.pop();
             img.retina?this.datalist.unshift(img):'';
@@ -74,6 +75,10 @@
         this.setCheckingInterval();
 
       }
+
+//      'datalist':function(){
+//
+//      }
 
     }
   }

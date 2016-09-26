@@ -1,7 +1,6 @@
-export default(App)=>{
+export default(App,Vue)=>{
   let VueRouter = require('vue-router');
   let dataService = require('./services/dataservices');
-  let Vue = require('Vue');
   let router = new VueRouter({
     hashbang: false,
     history: true,
