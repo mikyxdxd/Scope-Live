@@ -26,7 +26,7 @@
         </div>
       </div>
        <div class="pic" @click="showModal = true">
-          <img :src='image.retina.url' {{ loadImage }} id="retina_img">
+          <img :src='image.retina.url' id="retina_img">
         </div>
       <div class="image_info">
         <div class="caption">{{image.caption}}</div>
@@ -118,17 +118,17 @@
             var minutes = second / 60;
             var hour = minutes / 60;
             if (hour < 1) {
-              return Math.floor(minutes) + ' mins ago';
+              return Math.floor(minutes) > 1 ? Math.floor(minutes) + ' mins ago' : Math.floor(minutes) + ' minute ago';
             }
             var day = hour / 24;
             if (day < 1) {
-              return Math.floor(hour) + ' hours ago';
+              return Math.floor(hour) > 1 ? Math.floor(hour) + ' hours ago' : Math.floor(hour) + ' hour ago';
             }
             var week = day / 7;
             if (week < 1) {
               return Math.floor(day) > 1 ? Math.floor(day) + ' days ago' : Math.floor(day) + ' day ago';
             }
-            return Math.floor(week) + ' weeks ago';
+            return Math.floor(week) > 1 ? Math.floor(week) + ' weeks ago' : Math.floor(week) + ' week ago';
           },
 
           determineOriginal: function (image) {

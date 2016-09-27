@@ -21,32 +21,33 @@
             window._iso = self._iso = new Isotope('#photo-list', {
               layoutMode: 'masonry',
               itemSelector: '.card',
-              transitionDuration: 0
+              transitionDuration: '0.5s',
             });
 
-            imagesLoaded($('.new'),()=>{
-              $('.new').each((i,e)=>{
-              setTimeout(()=>{
-              $(e).addClass('loaded');
-            },i*50)
-          })
+              imagesLoaded($('.new'), 'always', ()=>{
+                $('.new').each((i,e)=>{
+                  setTimeout(()=>{
+                    $(e).addClass('loaded');
+                  }, i*50)
+                });
 
-            $('.card').removeClass('new');
-            self._iso.layout();
-
-          })
+                $('.card').removeClass('new');
+                self._iso.layout();
+              });
 
           });
         }else{
           self.$nextTick(function() {
             setTimeout(function() {
-              self._iso.appended($('.new'));
+//              self._iso.appended($('.new'));
               imagesLoaded($('.new'),()=>{
                 $('.new').each((i,e)=>{
                   setTimeout(()=>{
                   $(e).addClass('loaded');
+
               },i*50)
             })
+                self._iso.appended($('.new'));
               $('.card').removeClass('new');
               self._iso.layout();
             })
