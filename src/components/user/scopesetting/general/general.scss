@@ -17,7 +17,7 @@
     #modal-container{
       width: 600px;
       max-height: 230px;
-      margin: 30px auto;
+      margin: 20vh auto;
       padding: 15px;
       background: #F3F6F7;
     }
@@ -26,7 +26,7 @@
       margin: 10px 0 30px;
       font-size: 48px;
       font-weight: 200;
-      color: #2bacca;
+      color: #480F84;
       text-align: left;
     }
 
@@ -39,7 +39,17 @@
 
       .delete-confirm{
         float: right;
-        background-color: #fa5757;
+        background:#480F84;
+        border-radius: 15px;
+        line-height: 20px;
+      }
+
+      .delete-cancel{
+        background: white;
+        color: #480F84;
+        border: 2px solid #480F84;
+        border-radius: 15px;
+        line-height: 20px;
       }
     }
 
@@ -48,12 +58,26 @@
 
     text-align: right;
     .scopeSet_but,.scopeSet_del{
-
       display: inline-block;
+      button{
+        box-shadow: none;
+        border-radius: 15px;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 20px;
+      }
     }
     .scopeSet_del{
       button{
-        background:#fa5757;
+        background:#480F84;
+      }
+    }
+
+    .scopeSet_but{
+      button{
+        background: white;
+        color: #480F84;
+        border: 2px solid #480F84;
       }
     }
   }
