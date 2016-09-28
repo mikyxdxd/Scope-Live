@@ -1,6 +1,6 @@
 #general{
   .caption{
-
+    margin-left: 0.5em;
   }
   #delete-modal{
     #modal-bg{
@@ -42,6 +42,7 @@
         background:#480F84;
         border-radius: 15px;
         line-height: 20px;
+        box-shadow: none;
       }
 
       .delete-cancel{
@@ -50,6 +51,7 @@
         border: 2px solid #480F84;
         border-radius: 15px;
         line-height: 20px;
+        box-shadow: none;
       }
     }
 
@@ -102,9 +104,11 @@
     }
 
     .one_tag{
-
       display: inline-block;
       vertical-align: top;
+      .chip{
+        background-color: #dcd3ce;
+      }
     }
 
   }
