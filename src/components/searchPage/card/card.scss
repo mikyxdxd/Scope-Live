@@ -7,7 +7,7 @@
     margin-bottom: 0;
     //display: none;
     //display: inline-block;
-    //opacity: 0;
+    opacity: 0;
     transition: opacity 1s;
     position: relative;
     background: #fff;
@@ -140,7 +140,9 @@
     }
 
     .pic {
+
       img {
+        background: gray;
         cursor: pointer;
         width: 100%;
         height: auto;
@@ -187,9 +189,15 @@
     }
 
   }
-  .card.loaded {
+  .card.loaded{
     opacity: 1;
+    transition: opacity 0.5s;
     //display: inherit;
+  }
+
+  .card.new img{
+    opacity: 0;
+    transition: opacity 0.5s;
   }
 
 }

@@ -4,7 +4,6 @@
   export default{
     template:require('./single.html'),
     ready: function(){
-
       this.currentImage = this.datalist[this.currentIndex++];
 //        if(this.op == 'present')
         this.setCheckingInterval();

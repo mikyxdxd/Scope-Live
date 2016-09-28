@@ -6,6 +6,7 @@
       box-shadow: 0 1px 0 0 #ff9751;
     }
     .btn{
+      border-radius: 15px;
       background-color: #470e7d;
       i{
         position: relative;
@@ -13,14 +14,6 @@
         top: 1px;
       }
     }
-    //
-    //position: fixed;
-    //left: 0;
-    //top: 0;
-    //z-index: 1;
-    //background: rgba(0, 0, 0, 0.3);
-    //width:100vw;
-    //height: 100vh;
 
     #top_tab{
       width:100%;
@@ -72,6 +65,9 @@
       .ctr{
 
         text-align: center;
+      }
+      .ctr.or{
+        margin: 10px 0;
       }
 
       #close{
