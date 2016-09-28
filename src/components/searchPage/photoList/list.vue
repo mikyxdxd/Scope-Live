@@ -49,6 +49,7 @@
             })
                 self._iso.appended($('.new'));
               $('.card').removeClass('new');
+              self.$dispatch('no-showLoading');
               self._iso.layout();
             })
             });

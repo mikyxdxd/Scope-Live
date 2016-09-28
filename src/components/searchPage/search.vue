@@ -61,10 +61,15 @@
           appendDataList: function(){
             this.showLoading = true;
             dataService.getImageViaTag(this.pageNo, this.pageSize, this.timeStamp, this.tag).then((res)=>{
-              this.showLoading = false;
+              //this.showLoading = false;
               this.pageNo++;
               this.updateDataList(res.data.data);
             });
+          }
+        },
+        events: {
+          'no-showLoading': function(){
+            this.showLoading = false;
           }
         },
         route:{
