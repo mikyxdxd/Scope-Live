@@ -38,6 +38,9 @@
 
               }
             })
+          .catch((error)=>{
+              toastr.error('Sorry, your password was incorrect. Please double-check your password.');
+            });
           },
           signInIns(){
             console.log('sign in');
