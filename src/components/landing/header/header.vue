@@ -9,6 +9,7 @@
               showlogin:false,
               //showAddScope: false,
               user:{},
+              userType: dataService.getUserType(),
               //userScopes:[],
               //tag: this.$route.params.tag ? this.$route.params.tag : "",
               logo: require('../../../assets/scope_live_logo.png')

@@ -1,0 +1,101 @@
+#aboutus{
+  padding: 3em 14em 6em 14em;
+  background: #f8f3f2;
+  text-align: center;
+  border-bottom: 1px solid #d8ccc5;
+  #about-caption{
+    font-size: 1.8em;
+    font-weight: 300;
+  }
+  #about-content{
+    width: 85%;
+    margin: auto;
+    color: #a09e9b;
+    font-size: 1.2em;
+    line-height: 2em;
+  }
+}
+
+#workus{
+  padding: 3em 15em 2em 15em;
+  text-align: center;
+  #work-caption{
+    font-size: 1.8em;
+    font-weight: 300;
+  }
+  #work-content{
+    width: 70%;
+    margin: auto;
+    color: #a09e9b;
+    font-size: 1.2em;
+    line-height: 2em;
+  }
+}
+
+.job{
+  width: 65%;
+  margin: auto;
+  padding: 1em 0;
+  border-top: 1px solid #d8ccc5;
+  .job-left{
+    display: inline-block;
+    .job_title{
+      font-size: 1.3em;
+      font-weight: 500;
+    }
+    .job_loc{
+      padding: 0.5em 0;
+      color: #a09e9b;
+      i{
+        color: #FFA15A;
+        margin-right: 5px;
+      }
+    }
+  }
+  .right{
+    button{
+      padding: 5px 25px;
+      color: white;
+      background-color: #480F84;
+      border:none;
+      border-radius: 50px;
+    }
+  }
+  .bottom_drop{
+    height: auto;
+    display: none;
+    margin-top: 1em;
+    h5{
+      color: #a09e9b;
+      font-size: 1.3em;
+      font-weight: 300;
+      margin: 0.4rem 0 0 0;
+    }
+    p{
+      margin: 0.4rem 0 1rem 0;
+    }
+  }
+}
+
+#more{
+  width: 65%;
+  margin: auto;
+  padding: 3em 15em;
+  border-top: 1px solid #d8ccc5;
+  text-align: center;
+
+  #more-intro{
+    color: #a09e9b;
+    margin: 1em 0;
+  }
+
+  #more-contact{
+    a{
+      cursor: pointer;
+      color: #ff9751;
+      font-size: 1.4em;
+      font-weight: 500;
+    }
+
+  }
+}

@@ -13,7 +13,7 @@
             </div>
             <div id="user_info_right">
               <div id="user_name">
-                <a :href="determineOriginal(image)" target="__blacnk">{{image.sourceOwner.username}}</a>
+                <a :href="determineOriginal(image)" target="_blank">{{image.sourceOwner.username}}</a>
               </div>
 
               <div class="time_location">
@@ -32,7 +32,7 @@
               </div>
               <div id="user_info_right">
                 <div id="user_name">
-                  <a :href="determineOriginal(image)" target="__blacnk">{{image.owner.name}}</a>
+                  <a :href="determineOriginal(image)" target="_blank">{{image.owner.name}}</a>
                 </div>
                 <div class="time_location">
                   <div class="location" v-if="image.location"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right:0.5em"></i>{{image.location.address}}</div>
@@ -55,7 +55,7 @@
             </div>
             <div id="image_tags">
               <ul class="tag_list">
-                <li class="one_tag" v-for="tag in image.tags"><a v-link="{path: userType=='user' ? `/appcontent/search/${tag.text}`:`/search/${tag.text}`}">{{'#' + tag.text}}</a></li>
+                <li class="one_tag" v-for="tag in image.tags"><a v-link="{path: userType=='user' ? `/appcontent/search/${tag.text}`:`/search/${tag.text}`}" target="_blank">{{'#' + tag.text}}</a></li>
               </ul>
             </div>
           </div>

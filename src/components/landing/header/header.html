@@ -19,11 +19,15 @@
       Contact
     </a>
 
-    <a class="header-item login" v-link="{path:'/login?op=log'}">
+    <a v-if="userType=='visitor'" class="header-item login" v-link="{path:'/login?op=log'}">
       Login
     </a>
 
-    <a class="header-item" id="started"  v-link="{path:'/login?op=sign'}">
+    <a v-if="userType=='user'" class="header-item" id="started" @click="signOut()">
+      Sign Out
+    </a>
+
+    <a v-if="userType=='visitor'" class="header-item" id="started"  v-link="{path:'/login?op=sign'}">
       <!--<input type="button" value="Get Started" id="started">-->Get Started
     </a>
   </div>
