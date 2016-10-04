@@ -20,6 +20,13 @@ export default(App,Vue)=>{
           window.scrollTo(0,0);
 
         }
+        else if(transition.to.path.indexOf('/about') >= 0
+                || transition.to.path.indexOf('/tos') >= 0
+                || transition.to.path.indexOf('/contact') >= 0){
+          clearInterval(verifyTransition);
+          transition.next();
+          window.scrollTo(0,0);
+        }
         else if(dataService.getUserType() == 'user' && dataService.getUser() != null){
           clearInterval(verifyTransition);
 
@@ -105,6 +112,9 @@ export default(App,Vue)=>{
         },
         'contact':{
           component:require('./components/landing/contactpage/contactpage.vue')
+        },
+        'about':{
+          component: require('./components/landing/about/about.vue')
         },
         'pricing':{
           component: require('./components/pricing/pricing.vue')
