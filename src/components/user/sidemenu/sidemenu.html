@@ -6,6 +6,11 @@
 
   <div class="user-info clearfix">
     <h3>{{user.name}}</h3><br/>
+    <div id="payLvl">
+      <div id="pay_fre" v-if="user.payLevel == 'FRE'">Free Trail</div>
+      <div id="pay_bsc" v-if="user.payLevel == 'BSC'">Basic</div>
+      <div id="pay_adv" v-if="user.payLevel == 'ADV'">Advance</div>
+    </div>
     <small>{{user.email}}</small>
     <div id="user-signOut" @click="signOut()"><i class="fa fa-sign-out" aria-hidden="true"></i>SIGN OUT</div>
   </div>

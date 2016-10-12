@@ -94,6 +94,8 @@
         .sp_cap{
           font-weight: 600;
           font-size: 1.2em;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
     }
@@ -114,10 +116,6 @@
       height: 35px;
       bottom: 0;
       text-align: right;
-      //display: flex;
-      //background-color: #F7F7F7;
-      //border-top: 1px solid #DFEAEF;
-      //border-bottom: 1px solid #DFEAEF;
       .act{
         display: inline-block;
         vertical-align:top;

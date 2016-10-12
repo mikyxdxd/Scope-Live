@@ -27,7 +27,6 @@
                 this.userToken = localStorage._scopetoken = res.data.token_type + ' ' + res.data.access_token;
                 dataService.setUserToken(res.data.token_type + ' ' + res.data.access_token);
                 this.retriveUserProfile(()=>{
-
                   toastr.success("Login successfully");
                   if(!this.$route.query.cont){
                     self.$route.router.go({path: '/appcontent/dashboard'});
@@ -67,7 +66,7 @@
                   this.retriveUserProfile(()=>{
                     toastr.success("Register successfully");
                     if(!this.$route.query.cont){
-                      this.$route.router.go({path: '/appcontent/dashboard'});
+                      this.$route.router.go({path: '/appcontent/dashboard?p_rlt=ft'});
                     }else{
                       this.$route.router.go({path: this.$route.query.cont});
                     }
@@ -78,16 +77,18 @@
           },
           retriveUserProfile(cb){
 
-            dataService.getUserProfile().then((res)=>{
-              this.user = res.data;
-              dataService.setUser(this.user);
-              this.showlogin = false;
-              cb();
-            }).catch((e)=>{
-              delete this.userToken;
-              delete localStorage._scopetoken;
-              dataService.setUserToken(null);
-            })
+            dataService.getUserProfile(cb);
+
+//            dataService.getUserProfile().then((res)=>{
+//              this.user = res.data;
+//              dataService.setUser(this.user);
+//              this.showlogin = false;
+//              cb();
+//            }).catch((e)=>{
+//              delete this.userToken;
+//              delete localStorage._scopetoken;
+//              dataService.setUserToken(null);
+//            })
           }
 
       },

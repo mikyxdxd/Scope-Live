@@ -1,5 +1,10 @@
 'use strict'
 import axios from 'axios';
+const PAY_LEVEL = {
+  0:'FRE',
+  1:'BSC',
+  2:'ADV'
+}
 
 class DataService {
 
@@ -16,20 +21,59 @@ class DataService {
     this.user = null;
     this.userType = null;
     if (this.userToken && this.userToken.length > 0) {
-      this._getUserProfile();
+      this.getUserProfile();
     } else {
       this.userType = 'visitor';
     }
   }
 
-  _getUserProfile() {
+  getUserProfile(cb) {
     axios({
       method: 'GET', url: this.httpServerUrl + '/users/me', headers: {
         'Authorization': this.userToken
       }
     }).then((res)=>{
-      this.user = res.data;
-      this.userType = 'user';
+      this.fetchUserOrder().then((payment_res)=>{
+        if(payment_res.data.data.length != null ){
+          if(!payment_res.data.data[0]){
+            this.placeOrder({
+              total: 0,
+              orderItems: [{
+                productId: 24,
+                quantity: 1,
+                amount: 0,
+                total: 0
+              }]
+            }).then((payRes)=>{
+              if(payRes.data.status == 'CREATED'){
+                this.user = res.data;
+                this.userType = 'user';
+                this.user.payLevel = PAY_LEVEL[0];
+                if(cb) cb();
+              }
+            })
+
+          }else {
+            this.user = res.data;
+            this.userType = 'user';
+            switch (payment_res.data.data[0].orderItems[0].productId) {
+              case 26:
+                this.user.payLevel = PAY_LEVEL[2];
+                break;
+              case 25:
+                this.user.payLevel = PAY_LEVEL[1];
+                break;
+              case 24:
+                this.user.payLevel = PAY_LEVEL[0];
+                break;
+            }
+
+            if(cb) cb();
+          }
+
+        }
+
+      })
     }).catch((err)=>{
       delete localStorage._scopetoken;
       this.userToken = null;
@@ -96,21 +140,21 @@ class DataService {
 
   }
 
-  setUser(user){
-    if(this.userType == 'visitor') {
-      this.user = user;
-      this.userType = 'user';
-    }
-  }
+  // setUser(user){
+  //   if(this.userType == 'visitor') {
+  //     this.user = user;
+  //     this.userType = 'user';
+  //     this._getUserProfile();
+  //   }
+  // }
 
-  getUserProfile() {
-
-    return axios({
-      method: 'GET', url: this.httpServerUrl + '/users/me', headers: {
-        'Authorization': this.userToken
-      }
-    })
-  }
+  // getUserProfile() {
+  //   return axios({
+  //     method: 'GET', url: this.httpServerUrl + '/users/me', headers: {
+  //       'Authorization': this.userToken
+  //     }
+  //   })
+  // }
 
   getUserScopes(pageNum, pageSize) {
 
@@ -243,6 +287,31 @@ class DataService {
 
   }
 
+  retriveSkuProduct(sku) {
+
+    return axios({
+      method: 'GET', url: this.httpServerUrl + `/products/sku`, headers: {
+        'Authorization': this.userToken
+      }
+    })
+  }
+
+  placeOrder(order) {
+    return axios({
+      method: 'POST', url: this.httpServerUrl + '/orders',
+      headers: {
+        'Authorization': this.userToken
+      },
+      data:order
+    })
+  }
+  fetchUserOrder(){
+    return axios({
+      method: 'GET', url: this.httpServerUrl + `/orders?page=0&size=100&skus=100,101,102`, headers: {
+        'Authorization': this.userToken
+      }
+    })
+  }
 }
 
 let dataService = new DataService();

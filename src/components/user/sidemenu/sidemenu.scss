@@ -69,6 +69,33 @@
   .user-info {
     text-align: center;
     color: #fff;
+  #pay_fre{
+    display: inline-block;
+    padding: 0.2em 1em;
+    background: #139213;
+    color: white;
+    font-size: 0.85em;
+    border-radius: 5px;
+    margin: 0.2em;
+  }
+    #pay_fre,#pay_bsc,#pay_adv{
+      display: inline-block;
+      padding: 0.2em 1em;
+      background: #139213;
+      color: white;
+      font-size: 0.85em;
+      border-radius: 5px;
+      margin: 0.2em;
+      letter-spacing: 0.03em;
+    }
+
+    #pay_adv{
+      background: #e85252;
+    }
+    #pay_bsc{
+      background: rgb(113, 158, 245);
+    }
+
     h3 {
       margin: 0;
       font-size: 1em;
@@ -169,7 +196,7 @@
   position:relative;
   z-index: 999;
   //will-change: transform;
-  background: #f8f3f2;
+  //background: #f8f3f2;
   min-height: 100vh;
 }
 

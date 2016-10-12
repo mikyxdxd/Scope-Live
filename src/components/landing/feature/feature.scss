@@ -10,11 +10,17 @@
       font-size: 3em;
       font-weight: 100;
     }
-    #sub_title{
+    #sub_title,#btm_txt{
       font-size: 1.7em;
       padding: 0.5em;
       color: grey;
       font-weight: 100;
+    }
+    #btm_txt{
+      a{
+        font-weight: bold;
+        color: #480e86;
+      }
     }
     #btn{
       background: #480e86;
@@ -24,6 +30,7 @@
       font-size: 1.5em;
       border-radius: 30px;
       margin-top: 20px;
+      display: inline-block;
     }
   }
 

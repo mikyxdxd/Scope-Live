@@ -170,6 +170,10 @@ export default(App,Vue)=>{
         '/search/:tag': {
           name: 'search',
           component: require('./components/searchPage/search.vue')
+        },
+        'payment':{
+          name:'payment',
+          component:require('./components/user/payment/payment.vue')
         }
       }
     }

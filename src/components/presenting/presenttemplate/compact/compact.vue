@@ -42,26 +42,52 @@
     methods:{
         setCheckingInterval:function(){
 
-
           this.checkingInterval = setInterval(()=>{
 
             if(this.newimagelist.length){
 
-            var img = this.newimagelist.pop();
-            img.retina?this.datalist.unshift(img):'';
+              let img = this.newimagelist.pop();
+              if(img.retina){
+                this.datalist.pop();
+                this.datalist.unshift(img)
+              }
 
-            }else if(this.datalist.length > 15){
+            }else{
 
-            var img = this.datalist.pop();
-            img.retina?this.datalist.unshift(img):'';
-
+              let img = this.datalist.pop();
+              if(img.retina){
+                this.datalist.unshift(img)
+              }
             }
 
-          this.$nextTick(()=> {
-            window._iso.layout()
-           });
+            this.$nextTick(()=> {
+              window._iso.layout()
+            });
 
-        },this.imagepresentinterval * 1000)
+          },this.imagepresentinterval * 1000)
+
+
+
+
+//          this.checkingInterval = setInterval(()=>{
+//
+//            if(this.newimagelist.length){
+//
+//            var img = this.newimagelist.pop();
+//            img.retina?this.datalist.unshift(img):'';
+//
+//            }else if(this.datalist.length > 15){
+//
+//            var img = this.datalist.pop();
+//            img.retina?this.datalist.unshift(img):'';
+//
+//            }
+//
+//          this.$nextTick(()=> {
+//            window._iso.layout()
+//           });
+//
+//        },this.imagepresentinterval * 1000)
 
         }
     },

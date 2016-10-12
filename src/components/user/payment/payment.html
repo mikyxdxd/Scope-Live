@@ -1,12 +1,31 @@
-<div id="pricing">
+<div id="payment">
+  <div id="til">Upgrade your account</div>
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"
+        name="paypal-form" id="paypal_form" ng-show="false" v-if="currentPlan && order">
+    <input type="hidden" name="cmd" value="_cart">
+    <input type="hidden" name="upload" value="1">
+    <input type="hidden" name="business" :value="payPalSettings.paypal.business">
+    <input type="hidden" name="currency_code" :value="payPalSettings.paypal.currency_code" />
+    <!--<div ng-repeat="item in proCtr.order.orderItems track by $index">-->
+      <input type="hidden" name="item_name_1" :value="currentPlan.name">
+      <input type="hidden" name="item_number_1" value="1">
+      <input type="hidden" name="quantity_1" value="1">
+      <input type="hidden" name="amount_1" :value="currentPlan.price">
+    <!--</div>-->
+    <input type="hidden" name="invoice" id="paypal-invoice" :value="order.orderNumber + '-' + order.id">
+    <input type="hidden" name="return" :value="returnUrl">
+    <input type="hidden" name="cancel_return" :value="cancelReturnUrl">
+    <input type="hidden" name="notify_url" :value="notifyUrl">
+  </form>
 
-  <div id="free_trail">
-    <div id="title">Pick your plan</div>
-    <div id ="sub_title">Not Sure what's right for you? No problem!</div>
-    <span id="trail">or <a v-link="{path:'login'}">try free for 30 days</a></span>
+  <div id="sub" v-if="user.payLevel != 'ADV'">
+    <button type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" @click="generatePayment()" type="button" alt="Make payments with PayPal - it's fast, free and secure!">
+      <span>Pay with</span><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/PayPal_2014_logo.svg/2000px-PayPal_2014_logo.svg.png">
+    </button>
   </div>
-  <div id="plans" class="">
-    <div class="one_plan">
+
+  <div id="plans" v-if="currentPlan">
+    <div class="one_plan" :class="{'active':currentPlan.name == 'Basic Plan'}" @click="switchPlan('basic')" v-if="user.payLevel != 'ADV'">
 
       <div class="plan_title">Basic</div>
       <div class="plan_content">
@@ -16,10 +35,6 @@
         14<span>.95CA$</span>
         <div class="mon">per month</div>
       </div>
-      <div class="start">
-        <button v-link="{path:'/login?cont=/appcontent/payment'}">Get Started</button>
-      </div>
-
       <div class="feature">
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
@@ -60,7 +75,7 @@
 
       </div>
     </div>
-    <div class="one_plan center">
+    <div class="one_plan center" :class="{'active':currentPlan.name  == 'Advanced Plan'}" @click="switchPlan('advanced')" v-if="user.payLevel != 'ADV'">
 
       <div class="plan_title">Advanced</div>
       <div class="plan_content">
@@ -70,10 +85,6 @@
         19<span>.95CA$</span>
         <div class="mon">per month</div>
       </div>
-      <div class="start">
-        <button v-link="{path:'/login?cont=/appcontent/payment'}">Get Started</button>
-      </div>
-
       <div class="feature">
         <div class="included">
           <div class="tick"><i class="fa fa-check" aria-hidden="true"></i></div>
@@ -114,19 +125,16 @@
 
       </div>
     </div>
-    <div class="one_plan">
+    <div class="one_plan" id="professional">
 
       <div class="plan_title">Professional</div>
       <div class="plan_content">
-       <div class="content">Need a larger plan? Send an email or give us a call!</div>
+        <div class="content">Need a larger plan? Send an email or give us a call!</div>
       </div>
       <div class="price_call">
         <img :src="phone" id="phone_icon">
         <!--12<span>CA$</span>-->
         <!--<div class="mon">per month</div>-->
-      </div>
-      <div class="start">
-        <button v-link="{path:'/login?cont=/appcontent/payment'}">Contact Us</button>
       </div>
 
       <div class="feature">
@@ -173,4 +181,5 @@
       </div>
     </div>
   </div>
+
 </div>

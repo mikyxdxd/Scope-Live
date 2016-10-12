@@ -1,13 +1,13 @@
 <div id="tagscopes">
   <div class="caption">My Scope</div>
-  <div class="one_scope" id="new_tagscope">
+  <a class="one_scope" v-link="{path:'/appcontent/payment'}" id="new_tagscope" v-if="user.payLevel != 'ADV'">
     <div class="clearfix">
       <span class="icon icon-power2"></span>
       <span>Upgrade your account</span>
       <br>
       <small>to get more features</small>
     </div>
-  </div>
+  </a>
   <div class="one_scope" v-for="scope in scopeList">
     <div class="sp_header"><a v-link="{path:'/appcontent/s/' + scope.id}">{{scope.caption}}</a>
       <div class="sp_meta">
