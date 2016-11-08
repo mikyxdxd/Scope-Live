@@ -200,4 +200,10 @@
     transition: opacity 0.5s;
   }
 
+  @media (min-width: 1800px) {
+    .card.one_image {
+      width: 15.7%;
+    }
+  }
+
 }
